@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Spring Tutorial
+title: Spring Framework Tutorial
 permalink: /spring-tutorial/
 ---
 
@@ -9,8 +9,8 @@ permalink: /spring-tutorial/
   - [Basic funtionality](#basic-funtionality)
   - [Advantages of Spring Framework](#advantages-of-spring-framework)
   - [Spring Core Container Module](#spring-core-container-module)
-    - [Bean’s lifecycle in BeanFactory](#Bean’s-lifecycle-in-BeanFactory)
-    - [Bean’s lifecycle in ApplicationContext](#Bean’s-lifecycle-in-ApplicationContext)
+    - [Bean’s lifecycle in BeanFactory](#bean’s-lifecycle-in-beanFactory)
+    - [Bean’s lifecycle in ApplicationContext](#bean’s-lifecycle-in-applicationContext)
     - [Singleton Vs Prototype Vs Request Vs Session](#Singleton-Vs-Prototype-Vs-Request-Vs-Session)
 
 <a name='python'></a>
