@@ -125,3 +125,35 @@ public class GreetingsController {
 - Prototype instances are not created at the time of container startup because we want to call getBean() method to get the bean instance, they are created on-demand.
 - Request scope bean instance must be used in when using Spring web application framework. Their scope is the same bean instance is returned throughout the conversation.
 - Session scope instances are per session scope. Whether you request single call HTML call or multiple calls on web application if you request from the same browser their instances are same.
+
+
+### Initialization and Destruction
+- When beans are instantiated and injections takes place it is necessary to call init() method to further initialize some more variables such as if we obtain DataSource it is necessary to call getConnection () method to get Connection object.
+- Such initializations takes place in init() method.
+- destroy() methods are called during container shutdown.
+    - In this method we will close all DB objects.
+
+### Constructor and Setter Injection
+- Favor on Constructor Injection
+- When dependent objects are mandatory then constructor injection is suitable.
+- When dependent objects are optional then setter injection is suitable.
+- If dependent objects are passed through constructor less amount of code consumes
+- If dependent objects are passed through setter injection more amount of code occupies in both bean and spring config file.
+-If any dependent objects are passed through constructor injection we need not have to write setter method for the property hence the property becomes passed into bean becomes immutable / cannot be modified in future in the bean.
+
+### Disfavor on Constructor Injection
+-Constructor’s parameters list increases, looks very length. Declaring such constructors in the bean is cumbersome/awkward.
+-If there are several ways to create object of a bean then many constructors we need to write. If different constructors are written with different signatures and with more number of parameters then defining constructors itself takes lot of time, using them in spring config file is also tough.
+-If constructor takes two parameters of the same type it may be difficult to determine what each parameter is.
+
+### Bean Wiring
+- Byname – Attempts to find bean in the container whose name (or id) is the same as name of the property.
+- byType – Attempts to find single bean in the container whose type is matched with the property. type looking for injection.
+- constructor – Tries to match one or more beans in the container with the parameters of one of the constructors of the bean being matched.
+- Autodetect – Attempts to auto-wire by constructor first and then using byType.
+
+### Configuring external file in spring
+- Since every standalone – J2EE application are in need of using DB connection object preferably retrieved from the DataSource / Connection Pool object. Because connection obtained from the connection pool are efficient.
+- Hence configuring DataSource is essential in J2EE frameworks like Struts, JSF, Spring, JPA, Hibernate etc.
+- But while configuring DataSource even if we pass driver information such as driver class name, url, username and password is non-recommendable.
+- Hence passing driver properties from an external jdbc.properties file is the most preferred mean.
