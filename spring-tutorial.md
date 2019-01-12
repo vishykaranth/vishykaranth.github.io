@@ -11,7 +11,7 @@ Table of contents:
 - [Spring](#spring)
   - [Basic funtionality](#basic-funtionality)
   - [Advantages of Spring Framework](#advantages-of-spring-framework)
-  - [Spring Core Container Module] (#spring-core-container-module)
+  - [Spring Core Container Module](#spring-core-container-module)
       - [Lists](#python-lists)
 
 <a name='python'></a>
@@ -116,7 +116,7 @@ public class GreetingsController {
     - Bean instance remains in spring container when container shutdowns destroy-method specified in spring xml file is called or DisposableBean interface destroy() method is called.
 
 ### Bean’s lifecycle in ApplicationContext
-    - The only difference between BeanFactory and ApplicationContext is if bean implements ApplicationContextAware interface the setApplicationContext() method is called.
+- The only difference between BeanFactory and ApplicationContext is if bean implements ApplicationContextAware interface the setApplicationContext() method is called.
 
 ### Singleton Vs Prototype Vs Request Vs Session
 - Singleton instances are created usually at the time of container startup in case of ApplicationContext and bean instances are created when getBean() method is called in case of BeanFactory.
