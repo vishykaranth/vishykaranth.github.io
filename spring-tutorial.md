@@ -5,14 +5,13 @@ permalink: /spring-tutorial/
 ---
 
 
-
-Table of contents:
-
 - [Spring](#spring)
   - [Basic funtionality](#basic-funtionality)
   - [Advantages of Spring Framework](#advantages-of-spring-framework)
   - [Spring Core Container Module](#spring-core-container-module)
-      - [Lists](#python-lists)
+    - [Bean’s lifecycle in BeanFactory](#Bean’s-lifecycle-in-BeanFactory)
+    - [Bean’s lifecycle in ApplicationContext](#Bean’s-lifecycle-in-ApplicationContext)
+    - [Singleton Vs Prototype Vs Request Vs Session](#Singleton-Vs-Prototype-Vs-Request-Vs-Session)
 
 <a name='python'></a>
 
@@ -139,12 +138,12 @@ public class GreetingsController {
 - When dependent objects are optional then setter injection is suitable.
 - If dependent objects are passed through constructor less amount of code consumes
 - If dependent objects are passed through setter injection more amount of code occupies in both bean and spring config file.
--If any dependent objects are passed through constructor injection we need not have to write setter method for the property hence the property becomes passed into bean becomes immutable / cannot be modified in future in the bean.
+- If any dependent objects are passed through constructor injection we need not have to write setter method for the property hence the property becomes passed into bean becomes immutable / cannot be modified in future in the bean.
 
 ### Disfavor on Constructor Injection
--Constructor’s parameters list increases, looks very length. Declaring such constructors in the bean is cumbersome/awkward.
--If there are several ways to create object of a bean then many constructors we need to write. If different constructors are written with different signatures and with more number of parameters then defining constructors itself takes lot of time, using them in spring config file is also tough.
--If constructor takes two parameters of the same type it may be difficult to determine what each parameter is.
+- Constructor’s parameters list increases, looks very length. Declaring such constructors in the bean is cumbersome/awkward.
+- If there are several ways to create object of a bean then many constructors we need to write. If different constructors are written with different signatures and with more number of parameters then defining constructors itself takes lot of time, using them in spring config file is also tough.
+- If constructor takes two parameters of the same type it may be difficult to determine what each parameter is.
 
 ### Bean Wiring
 - Byname – Attempts to find bean in the container whose name (or id) is the same as name of the property.
