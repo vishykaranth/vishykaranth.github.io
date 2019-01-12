@@ -10,8 +10,8 @@ Table of contents:
 
 - [Spring](#spring)
   - [Basic funtionality](#basic-funtionality)
-  - [Advantages of Spring Framework](#Advantages-of-Spring-Framework)
-  - [Spring Core Container Module] (#Spring-Core-Container-Module)
+  - [Advantages of Spring Framework](#advantages-of-spring-framework)
+  - [Spring Core Container Module] (#spring-core-container-module)
       - [Lists](#python-lists)
 
 <a name='python'></a>
@@ -65,20 +65,20 @@ public class GreetingsController {
 
 ### Advantages of Spring Framework
 
--Spring enables the developers to develop enterprise applications using POJOs (Plain Old Java Object). 
-    -The benefit of developing the applications using POJO is, that we do not need to have an enterprise container such as an application server but we have the option of using a robust servlet container.
--Spring provides an abstraction layer on existing technologies like servlets, jsps, jdbc, jndi, rmi, jms and Java mail etc., to simplify the develpment process.
--Spring comes with some of the existing technologies like ORM framework, logging framework, J2EE and JDK Timers etc, Hence we don’t need to integrate explicitly those technologies.
--Spring WEB framework has a well-designed  web MVC framework, which provides a great alternate to lagacy web framework.
--Spring can eliminate the creation of the singleton and factory classes.
--Spring provides a consistent transaction management interface that can scale down to a local transaction and scale up to global transactions (using JTA).
--Spring framework includes support for managing business objects and exposing their services to the presentation tier components, so that the web and desktop applications can access the same objects.
--Spring framework has taken the best practice that have been proven over the years in several applications and formalized as design patterns.
--Spring application can be used for the development of different kind of applications, like standalone applications, standalone GUI applications, Web applications and applets as well.
--Spring supports both xml and anotation configurations.
--Spring Framework allows to develop standalone, desktop, 2 tire – n-tire architecture and distributed applications.
--Spring gives built in middleware services like Connection pooling, Transaction management and etc.,
--Spring provides a light weight container which can be activated without using webserver or application server.
+- Spring enables the developers to develop enterprise applications using POJOs (Plain Old Java Object). 
+    - The benefit of developing the applications using POJO is, that we do not need to have an enterprise container such as an application server but we have the option of using a robust servlet container.
+- Spring provides an abstraction layer on existing technologies like servlets, jsps, jdbc, jndi, rmi, jms and Java mail etc., to simplify the develpment process.
+- Spring comes with some of the existing technologies like ORM framework, logging framework, J2EE and JDK Timers etc, Hence we don’t need to integrate explicitly those technologies.
+- Spring WEB framework has a well-designed  web MVC framework, which provides a great alternate to lagacy web framework.
+- Spring can eliminate the creation of the singleton and factory classes.
+- Spring provides a consistent transaction management interface that can scale down to a local transaction and scale up to global transactions (using JTA).
+- Spring framework includes support for managing business objects and exposing their services to the presentation tier components, so that the web and desktop applications can access the same objects.
+- Spring framework has taken the best practice that have been proven over the years in several applications and formalized as design patterns.
+- Spring application can be used for the development of different kind of applications, like standalone applications, standalone GUI applications, Web applications and applets as well.
+- Spring supports both xml and anotation configurations.
+- Spring Framework allows to develop standalone, desktop, 2 tire – n-tire architecture and distributed applications.
+- Spring gives built in middleware services like Connection pooling, Transaction management and etc.,
+- Spring provides a light weight container which can be activated without using webserver or application server.
 
 
 ### Spring Core Container Module
@@ -102,3 +102,26 @@ public class GreetingsController {
     - FileSystemXmlApplicationContext (This class loads spring file from file system)
     - ClassPathXmlApplicationContext (This class loads spring file from classpath)
     - XmlWebApplicationContext (This class loads spring file in spring web & web mvc applications)
+    
+
+### Bean’s lifecycle in BeanFactory
+- The container finds bean configuration in and instantiates bean.
+- Using dependency injection spring populates all the properties as specified in spring xml file
+- Bean implements BeanAware interface, the factory calls setBeanName() passing bean’s ID
+- If Bean implements BeanFactoryAware interface the factory calls setBeanFactory(), passing instance of itself
+- If there are any BeanPostProcessors associated with the bean, their PostProcessBeforeInitialization() methods are called
+- If an init-method is specified for the bean they will be called
+- Finally it there are any BeanPostProcessors associated with the bean, their postProcessAfterInitialization() methods are called
+    - At this time bean is ready to use in application.
+    - Bean instance remains in spring container when container shutdowns destroy-method specified in spring xml file is called or DisposableBean interface destroy() method is called.
+
+### Bean’s lifecycle in ApplicationContext
+    - The only difference between BeanFactory and ApplicationContext is if bean implements ApplicationContextAware interface the setApplicationContext() method is called.
+
+### Singleton Vs Prototype Vs Request Vs Session
+- Singleton instances are created usually at the time of container startup in case of ApplicationContext and bean instances are created when getBean() method is called in case of BeanFactory.
+- Singleton instance is a single instance through spring container.
+- Prototype instances are created as many times as we request getBean() method in our client program.
+- Prototype instances are not created at the time of container startup because we want to call getBean() method to get the bean instance, they are created on-demand.
+- Request scope bean instance must be used in when using Spring web application framework. Their scope is the same bean instance is returned throughout the conversation.
+- Session scope instances are per session scope. Whether you request single call HTML call or multiple calls on web application if you request from the same browser their instances are same.
