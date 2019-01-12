@@ -9,7 +9,7 @@ permalink: /spring-tutorial/
 Table of contents:
 
 - [Spring](#spring)
-  - [Basic data types](#python-basic)
+  - [Basic funtionality](#basic-funtionality)
   - [Containers](#python-containers)
       - [Lists](#python-lists)
 
@@ -53,3 +53,11 @@ public class GreetingsController {
     }
 }
 ```
+
+
+### Basic funtionality
+
+- Spring is a light weight framework made easy for development with POJO.
+- Dependency injection and programming to interface provides loose coupling.
+- Supports declarative programming through aspects.
+- Boilerplate code is reduced via aspects and templates.
