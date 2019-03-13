@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Python Tutorial
-permalink: /python-tutorial/
+title: DDD Tutorial
+permalink: /ddd-tutorial/
 ---
 
 - [Domain Driven Design](#Domain-Driven-Design)
