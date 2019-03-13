@@ -1,0 +1,126 @@
+### Scalability - Onwards and upwards
+
+- Of all the system qualities debated by architects and developers, scalability is perhaps the one that has the greatest reputation for being mysterious and poorly understood. 
+- A service is said to be scalable if, when we increase the resources in a system, it results in increased performance in a manner proportional to resources added.
+- Any system can scale given enough time and money. 
+    - An extreme example of this would constitute a rewrite, which though inconvenient could still provide a proportional uplift. 
+    - double the CPU, double the throughput capability. 
+    - And to remain truly scalable, when we double that CPU and reap the commercial rewards of handling twice as much business, 
+        - we must not see a diminishing capability in other system qualities like data integrity.
+- Our business runs a web site selling fruit and vegetables. 
+    - In a normal day we sell 500 bananas, 
+    - but recently a need has been identified for us to scale up to 1000 banana sales per day because we are launching a new campaign in the run up to Christmas, 
+    - to capitalise on the seasonal trifle-fest.
+    - Our board of directors can empirically say whether or not we are delivering the scale required, 
+    - because in one day there will be 1000 bananas or more leaving the warehouse and not 500. 
+    - Although we’ll obviously have to track uncompleted orders just to make sure that marketing and the product managers got their predictions correct and orders for 1000+ bananas were actually placed into online baskets.
+- The first thing to dispense with is any form of rewriting or restructuring our platform. 
+    - That can’t possibly be scalability. 
+    - If we’ve written our banana-shop software in all the worst ways, 
+    - we may have no choice but to respond to the business with a plan, 
+    - budget and team schedule to meet their scaling needs but that would break the change-partity concept I’ve talked about before 
+    - a measurably good architecture meets a small business change (selling more bananas) with a small technology change (buying more memory, for example).
+    - Change, and therefore scaling, is rarely going to be free but anyone would understand the frustration of a product manager who has to watch all those banana-obsessed English people going to competitor websites because the project to enable them to buy his fruit can’t be completed in time to meet the seasonal surge.
+    - Next on our dispensing list is consequential effect. 
+        - There’s no sense being able to handle 1000 banana orders in one day if our customer service application becomes unstable as it receives the order data, 
+        - thereby reducing our ability to handle calls about cranberry availability. 
+        - That can’t possibly be scalability either.
+- And finally we must understand that scalability comes in many forms. 
+    - This example uses an increase in throughput (bananas per day), 
+    - but maybe if we examined the requirement more closely we would find that our customers aren’t domestic trifle-makers but restaurants hoping to cater to hoards of trifle-loving office workers at the annual Christmas party. 
+    - Suddenly we’re facing more fruit and vegetables per basket in one hour (because restaurants buy all their day’s supply between 6am and 7am say). 
+    - Now we have to scale capacity in addition to scaling throughput.
+- So a few points about scalability to bear in mind are:
+    - Only local circumstances will define how your business measures ease of scaling 
+    - but do make sure it is defined somewhere and not left as a debatable point for later. 
+    - Clearly, most organisations will put direct and indirect cost at the top of the list, 
+    - closely followed by timeliness, 
+    - unless you work in the FMCG world where moving quickly can often trump the initial cost of deployment.
+- Scaling, even easily, against one metric easily may not be of much value if another application or service is negatively impacted.
+- How you scale can be a multi-directional thing. 
+    - It’s easy to capture a requirement badly, 
+    - which is why I always says you need to be careful of blindly meeting business requirements.
+- Some of this may sound a little vague, 
+    - but if scalability were that prescriptive then everyone would be doing it, with ease, and with little debate. 
+    - I think that what makes scalability seem more dark art than simple checklist is also what makes it an engrossing design feature.
+- Scalability is an enormous subject. 
+    - Certainly too big to do any justice to here. 
+    - A couple of good sources worth reading are Building Scalable Web Sites and sites like High Scalability. 
+    - It’s also true to say that almost every design decision you make will affect the ease with which you can scale or add to the cost of doing so. 
+    - But there are some basic techniques and ideas we might have adopted when we designed portal-of-fruit.com such that this banana opportunity could more easily be seized.
+- Look for Queues
+    - A prime enemy of scalability is the queue. 
+    - Just as for cars on the roads around the holiday season, 
+    - anything that causes a small queue in one place can quickly have a knock-on affect in other places. 
+    - In reality, of course, there are queues and latencies all through software - if there weren’t then everything would complete in zero seconds 
+    - but avoiding operations that require blocking should be a primary directive for the critical (i.e. customer affecting) portions of the business process.
+    - Blocking generally takes place whenever something requires consistency in its result. 
+    - For example, when you hand data over from one application to another you would expect a short pause while the receiver get’s itself into a consistent state 
+    - (i.e. persists the data somewhere so that it can survive a crash). 
+    - This is good for the sender because it can be confident its data is safe, 
+        - but the downside is that a queue can form because no other process can use the service while the block is in place.
+- Granularity
+    - To reduce blocking incidents you need to do more in one place (within the same memory space, same process etc), 
+    - so it’s no coincidence that discussions on the topic of transactions and consistency often focus on component scope and granularity. 
+    - I’m of the school of thought that these things will, by and large, sort themselves out once some other issues are resolved.
+    - One end of the consistency spectrum would be to see the banana order process as one big transaction 
+    - the basket is submitted as the initiation of that transaction and, 
+    - from the user’s point of view, it either succeeds or fails 
+    - (failure here would be because of lack of available stock, insufficient credit, or perhaps a technical reason). 
+    - And, of course, this view is true from the user’s perspective - a customer clicks a button and either gets what they want, or not.
+- Transactions
+    - Indeed this is closer to the perspective commonly taken by product managers. 
+    - What they want is to give the customer the best possible experience, 
+    - and so naturally they see the purchase process in quite literal transactional terms 
+    - (they might not know they are talking about ACID, but in essence they are). 
+    - To them the best possible customer experience is for the web site to go away and do all the work and then come back with a nice message for the customer saying all is well and bananas will be leaving to meet them shortly.
+    - And when you analyse our banana order fulfilment business process it is tempting to draw it out as an elongated data flow diagram: 
+        - validate order, 
+        - if ok then check stock, 
+        - if ok then reserve stock, 
+        - if ok then take payment, 
+        - if ok then update ERP, 
+        - if ok then alert warehouse, 
+        - if ok then confirm order. 
+    - Clearly each activity depends on the previous one being successful for it to start and for websites with low throughput figures this approach might even work fine.
+    - Every process step (reserve stock, take payment) could be and ACID transaction talking directly to a database. 
+    - You would have very strong consistency and customers would indeed be happy. 
+    - If you were to think in terms of services then each order step would be an atomic service, 
+    - and your process control would simply call each service and get an OK (in which case it would call the next service in the workflow chain) 
+    - or it would get an error (in which case it would perform some atomic rollback operations such as un-reserving the stock and return some conciliatory error message back to the customer).
+- Rollback
+    - And here we have identified one of the quandaries of atomic services. 
+    - What if a rollback fails? We have reserved some stock successfully but, because the customer failed on payment, we have to un-reserve it successfully too. 
+    - If the stock reserve/un-reserve service experiences an issue, we could end up with reserved stock that will never leave the warehouse, 
+    - and we can’t get into a wait-and-try-again loop because we have a customer waiting for an answer.
+    - This scenario is interesting because we have an operation that’s important to us, but not the customer. 
+    - They care that we reserve stock for them, but not that we un-reserve something that they are never going to be receiving. 
+    - If you think of the order process as a vector that must get from A (submitted basket) to B (happy, or at least informed, customer) then un-reserving stock is orthogonal to that process. 
+    - And for scalability, orthogonal activities should be designed as asynchronous services - because they don’t block and there’s minimal latency (only long enough to acknowledge that the instruction has been received successfully).
+- Orthogonality
+    - So there’s an interesting idea. 
+    - If we can remove operations from the order vector that are important to us but not the customer, 
+    - perhaps we should ask ourselves long and hard about what really is important to the customer?
+    - What about reserving stock? 
+    - On the face of it, it seems logical to make this part of the critical path, but why? 
+    - If we offline the entire stock control service what would be the experience? 
+    - Well, we’d have to email the customer a few minutes later if we we’re experiencing a stock level issue (once the asynchronous transaction had completed) 
+    - and give them a chance to cancel the order, but we’d also have an opportunity to place a back order.
+    - Not only do we get better scalability, 
+    - we get an additional customer service and we’ve managed to decouple order processing workflow from the stock control service so if it’s down we can still collect orders.
+    - As an aside, much of the logic I am talking about here went into the development of the bespoke order management system that powered the Virgin Mobile UK website. 
+    - I chose Gigaspaces as the operating platform for that system because it had another advantage that boosts scalability by a factor - grid technology that doesn’t tie consumers and suppliers together.
+    - Taking the pessimistic view that any legacy system we needed to talk to might suffer from sporadic availability, 
+    - the design used a shared-memory Javaspace as a repository for order documents.
+    - All a process step required was an order document in the appropriate state (i.e. needing a credit check) to be collected from the space 
+    - and passed to the relevant legacy application. 
+    - If the application was down the document remained in the space. 
+    - The user was long gone from the process, having received a confirmation email on submission of the order. 
+    - If a document sat too long in the space, an alert could be raised. 
+    - If a document contained data that for some reason made it incompatible with a legacy application (e.g. non-existent post code entered erroneously) this could be fixed and the document put back in the space.
+    - The point being that the “consumer” simply had to put a document of the right format into the space, 
+    - having no idea of the implementation details or location of the “supplier”. 
+    - Moving things in and out of the space was atomic, 
+    - as were the eventual writes to the database - thus, according to Brewers Theorem, 
+    - we sacrificed immediate data consistency in return for improved availability of the money-making customer-satisfying processing engine and better partition-tolerance of those areas of the architecture that might not be as reliable as we need. 
+    - This sacrifice is what also gives us scalability.

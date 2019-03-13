@@ -9,8 +9,8 @@ permalink: /spring-tutorial/
   - [Basic funtionality](#basic-funtionality)
   - [Advantages of Spring Framework](#advantages-of-spring-framework)
   - [Spring Core Container Module](#spring-core-container-module)
-    - [Bean’s lifecycle in BeanFactory](#bean’s-lifecycle-in-beanFactory)
-    - [Bean’s lifecycle in ApplicationContext](#bean’s-lifecycle-in-applicationContext)
+    - [Bean lifecycle in BeanFactory](#bean-lifecycle-in-beanFactory)
+    - [Bean lifecycle in ApplicationContext](#bean-lifecycle-in-applicationContext)
     - [Singleton Vs Prototype Vs Request Vs Session](#Singleton-Vs-Prototype-Vs-Request-Vs-Session)
 
 <a name='python'></a>
@@ -103,7 +103,7 @@ public class GreetingsController {
     - XmlWebApplicationContext (This class loads spring file in spring web & web mvc applications)
     
 
-### Bean’s lifecycle in BeanFactory
+#### Bean’s lifecycle in BeanFactory
 - The container finds bean configuration in and instantiates bean.
 - Using dependency injection spring populates all the properties as specified in spring xml file
 - Bean implements BeanAware interface, the factory calls setBeanName() passing bean’s ID
@@ -114,7 +114,7 @@ public class GreetingsController {
     - At this time bean is ready to use in application.
     - Bean instance remains in spring container when container shutdowns destroy-method specified in spring xml file is called or DisposableBean interface destroy() method is called.
 
-### Bean’s lifecycle in ApplicationContext
+#### Bean lifecycle in ApplicationContext
 - The only difference between BeanFactory and ApplicationContext is if bean implements ApplicationContextAware interface the setApplicationContext() method is called.
 
 ### Singleton Vs Prototype Vs Request Vs Session
