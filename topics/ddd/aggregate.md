@@ -1,3 +1,10 @@
+---
+layout: page
+title: Aggregates
+permalink: /aggregates/
+---
+
+
 ### Aggregates 
 
 - Clustering entities and value objects into an aggregate with a carefully crafted consistency boundary may at first seem like quick work, but among all [DDD] tactical guidance, this pattern is one of the least well understood.

@@ -1,10 +1,3 @@
----
-layout: page
-title: Event Sourcing
-permalink: /event-sourcing/
----
-
-
 ### Event Sourcing
 
 - As Event Sourcing (ES) becomes more and more mainstream, usually bundled with DDD and CQRS, 
