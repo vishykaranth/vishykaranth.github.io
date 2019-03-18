@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Aggregates
-permalink: /aggregates/
+title: Aggregate
+permalink: /aggregate/
 ---
 
 
