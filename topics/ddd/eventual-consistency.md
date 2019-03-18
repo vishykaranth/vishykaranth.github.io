@@ -1,3 +1,10 @@
+---
+layout: page
+title: Eventual Consistency 
+permalink: /eventual-consistency/
+---
+
+
 ### Eventual Consistency (EC)
 
 - When an application makes a change to a data item on one machine, that change has to be propagated to the other replicas. 

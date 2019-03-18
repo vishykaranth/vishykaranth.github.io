@@ -1,3 +1,10 @@
+---
+layout: page
+title: Latency
+permalink: /latency/
+---
+
+
 ### The Challenges of Latency
 
 - The time it takes packets to flow from one part of the world to another. 

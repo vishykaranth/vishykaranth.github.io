@@ -1,3 +1,10 @@
+---
+layout: page
+title: CAP
+permalink: /cap/
+---
+
+
 ### CAP - Brewer’s Theorem
 
 - There are three core systemic requirements that exist in a special relationship when it comes to designing and deploying applications in a distributed environment - 

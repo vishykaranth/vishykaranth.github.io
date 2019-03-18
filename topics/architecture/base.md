@@ -1,3 +1,10 @@
+---
+layout: page
+title: BASE
+permalink: /base/
+---
+
+
 ### BASE : Basically Available, Soft state, Eventual consistency
 
 

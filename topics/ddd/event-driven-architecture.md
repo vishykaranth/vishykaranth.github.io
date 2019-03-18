@@ -1,3 +1,10 @@
+---
+layout: page
+title: Event Driven Architecture
+permalink: /event-driven-architecture/
+---
+
+
 ### The Event-Driven Architecture - Right here. Right now
 - Simple Events
     - Every second of every day you are talking about IT strategy, designing blueprints for the future, and selling your architectural vision, 

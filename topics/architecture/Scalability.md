@@ -1,3 +1,10 @@
+---
+layout: page
+title: Scalability 
+permalink: /scalability/
+---
+
+
 ### Scalability - Onwards and upwards
 
 - Of all the system qualities debated by architects and developers, scalability is perhaps the one that has the greatest reputation for being mysterious and poorly understood. 

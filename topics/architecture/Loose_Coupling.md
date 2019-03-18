@@ -1,3 +1,10 @@
+---
+layout: page
+title: Loose Coupling 
+permalink: /loose-coupling/
+---
+
+
 ### A Loose Coupling Strategy
 
 - Loose coupling is basically minimizing the dependencies between two or more components. 
