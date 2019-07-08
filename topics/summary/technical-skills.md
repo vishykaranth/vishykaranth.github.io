@@ -7,9 +7,20 @@ permalink: /technical-skills/
 
 ### Technical Skills 
 
-- Java 
-- JavaScript 
-- Python 
+- Java Ecosystem  
+    - JVM
+    - Classloading       
+    - Threads
+    - Collections  
+    - Spring  
+    - Spring Boot    
+    - Hibernate 
+    - JPA 
+    - REST API 
+- Messaging Paradigm 
+    - Kafka 
+    - Active MQ 
+    - RMI
 - Design and Architecture
     - Domain Driven Design (DDD) 
     - Event Driven Architecture 
@@ -20,36 +31,12 @@ permalink: /technical-skills/
     - Design Patterns 
     - UML 
     - OOAD
-- Middleware
-    - REST API 
-    - Messaging 
-    - Kafka 
-    - Active MQ 
-    - RMI
-    - Spring  
-    - Hibernate 
-    - JPA 
-    - Spring Boot
-- Cloud Computing    
-    - AWS 
-    - Lambda 
-    - S3 
-    - EC2    
-- Web Technologies
-    - JS 
-    - HTML 
-    - CSS 
-    - AngularJS 
-    - EmberJS 
-    - JQuery 
-    - Bootstrap 
-    - JSON 
-    - NodeJS
 - Process 
     - Agile Methodology 
     - SCRUM 
     - Kanban 
     - SPOTify
+    - Continuous Delivery 
 - Automated Testing 
     - TDD 
     - BDD 
@@ -62,4 +49,20 @@ permalink: /technical-skills/
     - Mongo DB
 - Web Servers
     - Tomcat 
-    - Jetty                         
+    - Jetty        
+- Web Technologies
+    - JavaScript 
+    - HTML 
+    - CSS 
+    - AngularJS 
+    - EmberJS 
+    - JQuery 
+    - Bootstrap 
+    - JSON 
+    - NodeJS
+- Python                      
+- Cloud Computing    
+    - AWS 
+    - Lambda 
+    - S3 
+    - EC2    
