@@ -4,9 +4,6 @@ title: Technical Skills
 permalink: /technical-skills/
 ---
 
-
-### Technical Skills 
-
 - Java Ecosystem  
     - JVM
     - Classloading       

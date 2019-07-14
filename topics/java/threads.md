@@ -1,0 +1,111 @@
+---
+layout: page
+title: Threads
+permalink: /threads/
+---
+
+- Thread Management
+    - Another concept related to concurrency is parallelism
+    - Every Java program has at least one execution thread. 
+        - When you run the program, the JVM runs this execution thread that calls the main() method of the program. 
+    - When we call the start() method of a Thread object, we are creating another execution thread. 
+        - Our program will have as many execution threads as calls to the start() method are made.
+    - A Java program ends when all its threads finish (more specifically, when all its non-daemon threads finish). 
+        - If the initial thread (the one that executes the main() method) ends, the rest of the threads will continue with their execution until they finish. 
+        - If one of the threads use the System.exit() instruction to end the execution of the program, all the threads end their execution.    
+        - Creating an object of the Thread class doesn't create a new execution thread. 
+            - Also, calling the run() method of a class that implements the Runnable interface doesn't create a new execution thread. 
+            - Only calling the start() method creates a new execution thread.  
+        - The Thread class saves some information attributes that can help us to identify a thread, know its status, or control its priority. 
+            - ID: This attribute stores a unique identifier for each Thread.
+            - Name: This attribute store the name of Thread.
+            - Priority: This attribute stores the priority of the Thread objects. 
+                - Threads can have a priority between one and 10, where one is the lowest priority and 10 is the highest one. 
+                - It's not recommended to change the priority of the threads, but it's a possibility that you can use if you want.
+            - Status: This attribute stores the status of Thread. In Java, Thread can be in one of these six states: new, runnable, blocked, waiting, time waiting, or terminated.   
+        - Java provides the interruption mechanism to indicate to a thread that we want to finish it.
+            - One peculiarity of this mechanism is that Thread has to check if it has been interrupted or not, and it can decide if it responds to the finalization request or not. 
+            - Thread can ignore it and continue with its execution.
+        - There is an important difference between the isInterrupted() and the interrupted() methods. 
+            - isInterrupted() : doesn't change the value of the interrupted attribute, 
+            - interrupted() : sets it to false. 
+            - As the interrupted() method is a static method, the utilization of the isInterrupted() method is recommended.   
+        - You only can call the setDaemon() method before you call the start() method. 
+            - Once the thread is running, you can't modify its daemon status.
+        - You can use the isDaemon() method to check if a thread is a daemon thread (the method returns true) or a user thread (the method returns false).  
+        - There are two kinds of exceptions in Java:
+            - Checked exceptions: These exceptions must be specified in the throws clause of a method or caught inside them. For example, IOException or ClassNotFoundException.
+            - Unchecked exceptions: These exceptions don't have to be specified or caught. For example, NumberFormatException.
+        - One of the most common situations in concurrent programming occurs when more than one execution thread shares a resource. 
+        - In a concurrent application, it is normal that multiple threads read or write the same data or have access to the same file or database connection.
+        - These shared resources can provoke error situations or data inconsistency and we have to implement mechanisms to avoid these errors.
+        - The solution for these problems comes with the concept of critical section. 
+        - A critical section is a block of code that accesses a shared resource and can't be executed by more than one thread at the same time.
+        - When a thread wants access to a critical section, it uses one of those synchronization mechanisms to find out if there is any other thread executing the critical section.
+
+### Synchronized         
+- The synchronized keyword penalizes the performance of the application, so you must only use it on methods that modify shared data in a concurrent environment. 
+    - If you have multiple threads calling a synchronized method, only one will execute them at a time while the others will be waiting. 
+    - If the operation doesn't use the synchronized keyword, all the threads can execute the operation at the same time, reducing the total execution time. 
+    - If you know that a method will not be called by more than one thread, don't use the synchronized keyword. 
+- You can use recursive calls with synchronized methods. As the thread has access to the synchronized methods of an object, you can call other synchronized methods of that object, including the method that is executing. 
+    - It won't have to get access to the synchronized methods again.
+- We can use the synchronized keyword to protect the access to a block of code instead of an entire method. 
+    - We should use the synchronized keyword in this way to protect the access to the shared data, leaving the rest of operations out of this block, obtaining a better performance of the application. 
+    - The objective is to have the critical section (the block of code that can be accessed only by one thread at a time) be as short as possible. 
+    - We have used the synchronized keyword to protect the access to the instruction that updates the number of persons in the building, leaving out the long operations of this block that don't use the shared data. 
+    - When you use the synchronized keyword in this way, you must pass an object reference as a parameter. 
+    - Only one thread can access the synchronized code (blocks or methods) of that object. 
+    - Normally, we will use the this keyword to reference the object that is executing the method.    
+- When you use the synchronized keyword to protect a block of code, you use an object as a parameter. 
+    - JVM guarantees that only one thread can have access to all the blocks of code protected with that object (note that we always talk about objects, not about classes).
+- A classic problem in concurrent programming is the producer-consumer problem. 
+    - We have a data buffer, one or more producers of data that save it in the buffer and one or more consumers of data that take it from the buffer.
+- As the buffer is a shared data structure, we have to control the access to it using a synchronization mechanism such as the synchronized keyword, but we have more limitations. 
+    - A producer can't save data in the buffer if it's full and the consumer can't take data from the buffer if it's empty.    
+- For these types of situations, Java provides the wait(), notify(), and notifyAll() methods implemented in the Object class. 
+    - A thread can call the wait() method inside a synchronized block of code. 
+    - If it calls the wait() method outside a synchronized block of code, the JVM throws an IllegalMonitorStateException exception. 
+    - When the thread calls the wait() method, the JVM puts the thread to sleep and releases the object that controls the synchronized block of code that it's executing and allows the other threads to execute other blocks of synchronized code protected by that object. 
+    - To wake up the thread, you must call the notify() or notifyAll() method inside a block of code protected by the same object.    
+
+# Synchronizing a block of code with a Lock
+- Java provides another mechanism for the synchronization of blocks of code. 
+- It's a more powerful and flexible mechanism than the synchronized keyword. 
+- It's based on the Lock interface and classes that implement it (as ReentrantLock). 
+- This mechanism presents some advantages, which are as follows:
+    - It allows the structuring of synchronized blocks in a more flexible way. 
+    - With the synchronized keyword, you have to get and free the control over a synchronized block of code in a structured way. 
+    - The Lock interfaces allow you to get more complex structures to implement your critical section.
+- The Lock interfaces provide additional functionalities over the synchronized keyword. 
+- One of the new functionalities is implemented by the tryLock() method.
+- This method tries to get the control of the lock and if it can't, because it's used by other thread, it returns the lock. 
+- With the synchronized keyword, 
+    - when a thread (A) tries to execute a synchronized block of code, 
+    - if there is another thread (B) executing it, 
+    - the thread (A) is suspended until the thread (B) finishes the execution of the synchronized block. 
+- With locks, you can execute the tryLock() method. 
+    - This method returns a Boolean value indicating if there is another thread running the code protected by this lock.
+- The Lock interfaces allow a separation of read and write operations having multiple readers and only one modifier.
+- The Lock interfaces offer better performance than the synchronized keyword.
+- In this recipe, you will learn how to use locks to synchronize a block of code and create a critical section using the Lock interface and the ReentrantLock class that implements it, implementing a program that simulates a print queue.
+- You have to be very careful with the use of Locks to avoid deadlocks. 
+    - This situation occurs when two or more threads are blocked waiting for locks that never will be unlocked. 
+    - For example, 
+        - a thread (A) locks a Lock (X) and a thread (B) locks a Lock (Y). 
+        - If now, the thread (A) tries to lock the Lock (Y) and 
+        - the thread (B) simultaneously tries to lock the Lock (X), 
+        - both threads will be blocked indefinitely, 
+        - because they are waiting for locks that will never be liberated. 
+        - Note that the problem occurs, because both threads try to get the locks in the opposite order.
+# Synchronizing data access with read/write locks
+- One of the most significant improvements offered by locks is the ReadWriteLock interface and the ReentrantReadWriteLock class, the unique one that implements it. 
+- ReentrantReadWriteLock class has two locks, one for read operations and one for write operations. 
+- There can be more than one thread using read operations simultaneously, but only one thread can be using write operations. 
+- When a thread is doing a write operation, there can't be any thread doing read operations.       
+- The lock used in read operations is obtained with the readLock() method declared in the ReadWriteLock interface. 
+- This lock is an object that implements the Lock interface, so we can use the lock(), unlock(), and tryLock() methods. 
+- The lock used in write operations is obtained with the writeLock() method declared in the ReadWriteLock interface. 
+- It is the responsibility of the programmer to ensure the correct use of these locks, using them with the same purposes for which they were designed.
+- When you get the read lock of a Lock interface, you can't modify the value of the variable. 
+- Otherwise, you probably will have inconsistency data errors.                                         
