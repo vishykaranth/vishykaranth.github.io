@@ -1,29 +1,46 @@
 ## Topics 
 
 ### Java Ecosystem 
-
-#### Java 
-- JVM 
-- Threads and Concurrency 
-- Collections 
-- OOPS
-
-#### REST
-
-#### Hibernate / JPA   
+- Java 
+    - JVM
+        - Classloader 
+        - Garbage Collection
+        - JIT Compile   
+    - Threads and Concurrency 
+    - Collections 
+        - HashMap Internal  
+    - OOPS
+        - Inheritance
+        - Polymorphism 
+        - Data Encapsulation
+        - Abstraction (Interface/Type)     
+- Spring Framework 
+    - Dependency Injection 
+    - Spring Boot 
+- REST
+- Hibernate / JPA   
+- Messaging 
+    - Kafka 
+    - JMS 
 
 ### Design Patterns 
 - GOF 
 - EIP 
 
-
 ### Architecture
 - Architectural Patterns 
+- DDD
+- Micro-services 
+    - Micro-services Patterns 
+- Event Driven Architecture
+- CQRS 
+- Eventual Consistency
 
-#### DDD
+### Testing 
 
-#### Micro-services 
-
-#### Event Driven Architecture 
+### Deployment 
+- CI/CD
+- Jenkins  
+ 
 
  
