@@ -6,7 +6,7 @@ permalink: /jvm-memory-model-gc/
 
 ## Java (JVM) Memory Model 
 
-- ![](../../imgs/jvm/Java-Memory-Model-450x186.png) 
+- ![](../../../imgs/jvm/Java-Memory-Model-450x186.png) 
 - As you can see in the above image, JVM memory is divided into separate parts. At broad level, JVM Heap memory is physically divided into two parts – Young Generation and Old Generation.
 
 ### Memory Management in Java – Young Generation

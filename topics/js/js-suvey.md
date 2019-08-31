@@ -1,0 +1,270 @@
+---
+layout: page
+title: Java Survey 
+permalink: /js-survey/
+---
+
+- JS is not a web toy. 
+- It is a real language. 
+- It's small but sophisticated, and it is not a subset of Java. 
+- JS is load and go delivery. 
+    - That means that programs are delivered to the execution site as text, and they're compiled there and executed immediately. 
+    - This is different from most other languages in which the compiler produces some sort of intermediate file which might go through a linker, and that executable then gets delivered to the execution site. 
+    - The reason for that was that originally JavaScript programs were going to be embedded in HTML files, which are text. 
+    - So having the program delivered as text as part of a text delivery system made a lot of sense. 
+    - It turns out that's a really bad model for doing programming, that we should be putting programs in separate files, not embedding them into HTML. 
+    - But they didn't know that at the time, and so that's what they optimized for. 
+- The second idea was **loose typing**, where any variable, any parameter can contain any value of any type. 
+    - That's going against a popular convention. 
+    - Languages like Java have strong typing. 
+    - Loose typing is a more radical feature, but it makes the language much easier for beginners. 
+    - And so a lot of the success the language has seen, I think, is because of that feature. 
+    - It has objects as general containers, which is a brilliant thing, where objects, instead of being rigid instances of classes, are just collections of stuff, and you can put new properties into objects at any time. 
+    - That turns out to be amazingly powerful. 
+- JS has a **prototypal inheritance**, which says that objects can inherit directly from other objects. 
+    - You don't need classes. 
+    - This is an uncommon way of doing inheritance, but it is really powerful, but it's not well understood. 
+    - So you see a lot of frameworks written in JavaScript which attempt to reapply classical inheritance on top of this model. 
+    - And this model is powerful enough that you can do that. 
+    - I discovered over the course of time that that's a waste of time. 
+    - That prototypal inheritance is actually really, really good. 
+    - It contains **Lambda**, which is the best idea in the history of programming languages. 
+        - Lambda is the idea of functions as first class objects. 
+        - And JavaScript got this right. 
+- JavaScript has one of the worst ideas ever put in a programming language-- linkage through global variables. 
+    - Continuing on the load and go idea, you can have lots of separate compilation units, lots of separate script tags or event handlers. 
+    - Each is a separate hunk of program. 
+    - How do you get those to communicate with each other? 
+    - We don't have a linker in the browser, so how do those code units get to talk? 
+    - The solution that Netscape came up with was, they all get loaded into a common global space. 
+    - And so it turns out, in all languages, global variables are bad, because that get in the way of reliability. 
+    - And in JavaScript, they're not avoidable. 
+    - They are the central idea for allowing for linkage. 
+    - So they not only introduce reliability problems, they also introduce security problems. 
+    - So you've all heard of cross-site scripting attacks. 
+    - This is the fundamental enabler of that. 
+    - This is what makes those attacks possible. 
+    - So we're going to be looking at how we can avoid use of global variables. 
+- JS has these values-- numbers, strings, Booleans, objects, and the two special values, null and undefined. 
+    - There's only one number type in this language. 
+    - In a lot of languages, you'll have integers of several sizes and maybe floats of several sizes. 
+    - In JavaScript, there's just one. 
+    - It's 64-bit binary floating point or IEEE-754 binary point or "Double," as it's called in Java and some other languages. 
+    - It's really convenient having just one number type of a language. 
+    - It means that you don't have to worry about overflowing or wrap around, which you would have with integers. 
+    - Unfortunately, binary floating point doesn't map very well to the way people think about numbers. 
+    - And so the most reported bug in the Mozilla database is some variation on 0.1 plus 0.2 is not exactly equal to 0.3. 
+    - And the reason for that is because it is unable to accurately represent any of these numbers. 
+    - At best, it can represent an approximation. 
+    - And when you add the approximations together, you may not necessarily get the same approximation on the other side. 
+    - For a lot of applications, this doesn't matter, which is why binary floating point is so popular. 
+    - But if you're dealing with money, it matters a lot. 
+    - When you're adding up people's money, they have a reasonable expectation that you're going to get the right answer. 
+    - And this language makes it very difficult to do that.
+    - So generally, what you need to do is scale your money into whole numbers, like into pennies, which you can do by multiplying by 100, do the sums, and then finally divide it back at the end. 
+    - It has a special value called NaN. 
+        - This comes out of the floating point standard. 
+        - NaN means "not a number." 
+        - It's a result of an undefined or erroneous operation, and it's toxic. 
+        - Any expression which has NaN as an input will have NaN as an output. 
+        - So you might have a number of formulas or computations, and at the end you might get a final result of NaN. 
+        - Which means somewhere in the first part of the program, you either got a bad value or a bad operation. 
+        - But it can be difficult to figure out what went wrong. 
+        - One tricky thing that was in the IEEE standard, which works really badly in practice, is that NaN is not equal to anything else, including itself. 
+        - So NaN equals NaN is false, which is insane. 
+        - I don't know how mathematicians could have thought that was a good idea, but they did that. 
+        - And even worse, NaN not equal NaN is true. 
+        - There is a number of function which will take a string and turn it into a number, which can be a handy thing. 
+        - And it will produce NaN if there was something wrong with the string, that it couldn't be converted into a number. 
+        - There is also a plus prefix operator, which does the same thing, but it's a little bit more compact. 
+        - JavaScript has a parseInt function, which will take a string and a radix and convert the number into an integer. 
+        - Unfortunately, it stops at the first non-digit character. 
+        - And it doesn't tell you where that character was or what it was. 
+        - So it can be a little tricky to use correctly. 
+        - So for example, parseInt of 12em produces 12. 
+        - There's no indication that there was an em there, which is sometimes a good thing, but often a bad thing. 
+        - The radix should always be included. 
+        - If you leave the radix out, it's allowed to interpret the thing as octal if the first digit is a 0, with the result that parseInt of 08 produces 0. 
+        - The reason it does that is it sees the first 0, it goes OK, octal. 
+        - Then it sees eight and says, that's not an octal character, so I stop here. 
+        - Very common error, particularly when you see people messing with dates and times. 
+        - They'll pull these two digit things out which could have a leading 0 and get the wrong result. 
+        -So my advice is, always include the radix parameter, and then you'll always get the right result. 
+        - It copies the same mistake Java did in putting the math functions in a math object rather than having them be methods of numbers. 
+        - The most useful of them is probably the floor function, which is used for getting the decimal part of a number. 
+        - So you can take a floating point number and turn it into an integer. 
+        - It has strings. 
+        - A string is a sequence of 0 or more 16-bit characters. 
+        - They're encoding UCS-2, which isn't quite UTF-16. 
+        - The difference between those is awareness of surrogate pairs. 
+        - Unicode provides for about 65,000 characters, and then an additional supplementary million. 
+        - JavaScript is able to represent all of those, but that extra million accounts as two characters rather than as one. 
+        - There is no separate character type in JavaScript. 
+        - Characters are represented as a string with a length of one. 
+        - Strings are immutable, which means once you make a string, you can't change it. 
+        - You can't go into the middle of the string and change a character to a different one. 
+        - And that has some really nice properties. 
+        - If you want to change a string, you need to make a new one. 
+        - You'll usually do that by taking pieces of a string and concatenating them together with new material. 
+        - Similar strings are equal, which is good.
+        - And you can write string literals using either single quotes or double quotes. 
+        - They both do exactly the same thing. 
+        - There are no magical quotes or semiquotes in this language. 
+        - Strings are objects in this language, as are numbers. 
+        - So strings have a length property, and it will tell you how many 16-bit code units are in the string. 
+        - And again, extended characters will be counted as two characters. 
+        - There is a string function which can convert a number into a string. 
+        - And because strings are objects, there are a lot of methods for searching, and for doing replacement, and splitting a string, slicing it into pieces, and turning it to uppercase and lowercase. 
+        - You'll be glad to know there are exactly two Boolean values in the language, and that they are true and false. 
+        - There's a Boolean function which will take a value and return true if it's truthy and false if it's falsey. 
+        - There's also a bang bang prefix operator, which does the same thing a little bit more compactly. 
+        - There is null, which is the value that represents something that isn't anything. 
+        - And there is undefined, which is a value which isn't even that. 
+        - There are too many bottom values in this language. 
+        - Having both null and undefined, I think, was an unnecessary bit of confusion, but it's something you have to deal with. 
+        - Undefined is the default value of variables and parameters. 
+        - So if you create a variable and don't initialize it, it gets initialized as undefined. 
+        - Which is a little confusing, because you're defining the variable and giving it an undefined value at the same time. 
+        - There might have been a better name for that. 
+        - So these are the falsey values. 
+        - False, null, undefined, the empty string, the number 0, and NaN. 
+        - All of these things are considered falsey. So if you put them in the conditional part of an if statement, all of these will cause you to take the else branch. 
+        - All other values, including all objects and all arrays, including all empty objects and empty arrays, are truthy. 
+        - Also including the string 0 and the string false, they are truthy, despite how they look. 
+        - So everything else in this language is objects. 
+        - And in particular, they are dynamic objects. 
+        - It's sort of the unification of objects and class tables-- or hash tables. 
+        - A new object produces an empty container of name value pairs, which you can then populate at anytime. 
+        - A name can be any string and a value can be any value, except undefined. 
+        - We want to reserve undefined for missing members. 
+        - Members can be accessed with both dot notation and square brackets subscript notation. 
+        - This is something a little bit uncommon, but it turns out to be really useful. 
+        - And even though these objects behave like hash tables, there's no hash nature visible-- no rehash functions, no hash codes or keys that you can see. 
+        - The language is loosely typed, which means that any variable, or any parameter, or any property within an object can contain anything of any type. 
+        - There is no automatic type checking anywhere or declaration. 
+        - The language is not untyped. 
+        - There are a lot of specific types in this language, but it's loosely typed, and you can use any of those types anywhere. 
+        - Syntactically, JavaScript is clearly a member of the C family. 
+        - It differs from C mainly in its type system, which allows functions to be values. 
+        - We have identifiers in the language, which can start with any letter or underbar or dollar sign, which can then be followed by 0 or more letters, digits, underbars, or dollar signs. 
+        - By convention, all variables, parameters, members, and function names start with lowercase. 
+        - Only constructor functions should start with uppercase. 
+        - And later, we'll get to why that's important. 
+        - Initial underbars should be reserved for implementations. 
+        - There are some browsers, particularly Firefox, which does a lot of really ugly stuff with secret underbar members. 
+        - So to avoid any conflicts with the crazy stuff they're doing, I recommend you not start any of your names with underbar. 
+        - The standard added dollar sign as a character in names, it did that for the benefit of macroprocessors and program generators, things that wanted to create names and be able to guarantee that they were unique from anything else. 
+        - And the standard clearly said that was why it was adding that. 
+        - There are some Ajax library authors who ignored that and adopted dollar sign for their own stuff. 
+        - So there is dollar sign all over this stuff now. 
+        - And in fact, a lot of those libraries have trouble interacting with each other, because they all want to do something crazy with dollar sign. 
+        - So I recommend you not use it, but everyone else is ignoring my advice. 
+        - So you can do what you want. 
+        - There are a lot of reserved words in JavaScript. Way too many. 
+        - Only the ones that are in boldface here are actually used in the language. 
+        - It reserved a lot of stuff that it doesn't use and will probably never use, which is unfortunate. 
+        - So when you're naming things in this language, you need to be aware of this list and avoid those names. 
+        - There are two ways of making comments in this language. 
+        - You can use slash slash. 
+        - And that comments out till the end of the line. 
+        - And slash star, which comments out until it sees star slash. 
+        - I recommend the first one, because it turns out there are some valid things you can write in the language which look like slash star comments, and so you can get confused there. 
+        - Being a C-like language, it has a lot of the operators that you've come to know and love. 
+        - But some of them work a little bit differently, so I'll look at some of the changes. 
+        - One of the big mistakes in the languages that plus is used for both additions and concatenation. 
+        - So if both operands are numbers, it adds them. Otherwise, it can concatenates them. 
+        - And that turns out to be a problem, because expressions like this can do something unexpected This was a bad habit that the language learned from Java. 
+        - Java is strongly typed, so it's possible to predict which one it's going to do. 
+        - But having operator overloading in a loosely typed language turns out to be really dangerous. 
+        - So a very, very common source of errors. 
+        - One way to avoid that is by using the plus prefix operator to turn strings into numbers, so you can be sure that it's a number type before you do the addition. 
+        - So one way to do it would be putting plus in front of one string, plus in front of another string, and then adding them. 
+        - In my programs, I want to avoid having two pluses next to each other, because there's also a plus plus operator, and you don't want that confusion. 
+        - So I'll put parents around one of them to keep that from happening. 
+        - The division operator can produce a non-integer result, even when it's dividing two integers. 
+        - So that's something you have to watch out for. 
+        - And again, because it can't accurately represent decimal numbers, you might not even get the fractional result that you might expect.
+        - It has equality operators equal, equal and bang equal. 
+        - Unfortunately, they do type coercion, which can cause false positives. 
+        - It also has triple equal and bang double equal, equal which do the same thing, except they don't do type coercion. 
+        - So they always produce the correct result. 
+        - So here's why you want to use triple equal. 
+        - Triple equal will produce false for all of these, as it should. 
+        - Transitivity doesn't exist with the equal operator. 
+        - Transitivity says, if a equals b and a equal c, then b and c should pretty damn better be equal too. 
+        - And they're not in this language. 
+        - And so that can lead to mishaps. 
+        - So I recommend always use triple equal, always. 
+        - JavaScript has a guard operator, sometimes called logical and. 
+        - It works a little differently than logical and in most of the other C languages. 
+        - If the first operand is truthy, it returns the result of the second operand. 
+        - Otherwise, it returns the result of the first operand. 
+        - And it shortcircuits. 
+        - So if it doesn't have to compute the second operand, it won't. 
+        - So this can be used to avoid null references. For example, I can take this if statement, if a is falsey, return a. 
+        - Or if a is truthy, return a.member. 
+        - Otherwise, return a. 
+        - I can rewrite it as return a guarding a.member. 
+        - Does exactly the same thing. 
+        - There is also a default operator, also called logical or, which does the reverse of the other one. 
+        - So if the first operand is truthy, the result is the first operand. 
+        - Otherwise, the result is the second operand. 
+        - And it can be used to fill in default values. 
+        - So here, if input doesn't have a value, or if it has a falsey value, then instead we'll use number of items. 
+        - But if input is truthy, then we'll use input. 
+        - Exclamation point is the logical not operator. 
+        - So the first operand is truthy, the result is false. 
+        - Otherwise, the result is true. 
+        - And bang bang does the reverse of that. 
+        - JavaScript has bitwise operators, but it doesn't have integers for them to act on. 
+        - So what it does is, it takes your 64-bit floating point number, turns it into a 32-bit integer, does this work on it, and then turns it back. 
+        - Now, it turns out for most web applications you never need to use these operators. 
+        - In fact, for most applications, you don't use them. 
+        - Most of the place where you see them used is to try to do things a little faster. 
+        - Like, it might be faster to do a shift than a divide by a power of 2. 
+        - Turns out, that doesn't work in this language. 
+        - You'll get the right result most of the time, but it's going to be slower. 
+        - So if you mean division, do a division. 
+        - In fact, one problem with these operators is that they look a lot like other operators, but they behave a little bit differently.
+        - It has a set of statements, most of which look very much like statements you see in other languages. 
+        - But a few of them work a little bit differently. 
+        - I'll show you some of the exceptions. 
+        - We have label break statements. 
+        - This is a nice thing that it got from Java, which is very good. 
+        - So if you have a nested loop or a switch statement within a loop, and you need to get out of it, you can put a label on the outer container, and then break from that. 
+        - That turns out to be a very nice thing. 
+        - We have a for statement, which allows us to iterate through the elements of an array or some other kind of collection. 
+        - We also have a for in statement, which allows us to iterate through the contents of an object. 
+        - But it is a little tricky, because it interacts very badly with the way the language does inheritance on objects. 
+        - And so while you're trying to go through the data members of an object, you will also get the methods that the object may have inherited. 
+        - So I recommend, whenever you write a for in statement, always filter them out with a statement, perhaps using a hasOwnProperty method in order to avoid that kind of confusion. 
+        - Not doing that can cause a lot of mistakes. 
+        - JavaScript has the switch statement, which is a multiway branch. 
+        - One very nice thing is that the switch value does not need to be a number. 
+        - In particular, can be a string, which is really handy. 
+        - And the case values can be expressions. 
+        - They don't have to be constants, which is also very nice. 
+        - So it's a much more powerful switch statement than we see in other languages. 
+        - It contains the same defect that the other languages have, in that cases can fall through to the next case, unless a disruptive statement like a break ends the case. 
+        - So that's something you need to watch out for. 
+        - So a switch statement might look like this, where you have the cases. 
+        - If any of these cases match the expression, you do this code. 
+        - If none of them match, then you do that code. 
+        - We have exception handling in JavaScript. 
+        - This was added in 1999, but we weren't able to use it until 2005 or maybe a little later, because it was a syntax error on the older browsers. 
+        - So you can't be catching expressions when the whole program fails. 
+        - So until recently, the best practice was try to write programs that never make mistakes. 
+        - It's a little bit easier now. 
+        - So you can throw an object in this language, and you can either use an error constructor to do that, or you can use an object literal. 
+        - We'll look more at object literals in a little bit. Because we don't have exception types in this language, there will only be one catch clause on a try statement. 
+        - So the one catch will catch everything that happens. 
+        - It could then do a switch on what it caught and decide how to deal with it, whether it wants to throw it on or return or ignore. 
+        - JavaScript provides these error types. 
+        - Generally error is the only one you want to use. 
+        - JavaScript has a with statement. 
+        - It was intended to be a convenience for dealing with deeply nested objects. 
+        - But unfortunately, it's ambiguous, and it's error prone. 
+        - So I recommend you not use it. 
+        - Here we have a with a statement with object o. 
+        And we're going to set foo to coda. 
+        It's going to do one of these four things. Can anyone guess which one it's going to do? I'm not surprised. It's a trick question. It can do any of them. So if you can't read the program and know what it's going to do, how can you possibly get it right? So it's just erroneous. It's wrong. So I recommend never ever use with. Is that because it's not specified well or it's not implemented well? It's not specified well. So what it does is, it looks up the name in o. And if it can find it there, it uses that one. If not, it uses a different one. So which one it will do will depend on the contents of o. Which is particularly a problem in these two cases, where you're trying to assign something to o. If it doesn't already have something with that name, it will assign it to a global variable instead, which would be very, very bad. JavaScript has a function statement, which allows you to define functions, where a function has a name, some parameters, and a body, which gets executed when the function gets called. Functions can have var statements. These define the variables that are used by the function. You don't specify types in these things. You just say what its name is going to be, and possibly you can give it an initial value. If you don't give an initial value, undefined will be the default initial value. So I can say var name. I can save var nErrors and initialize It. This one will be undefined. Here I'm creating three variables. You can have multiple names separated by commas. There's an idea in programming languages called scope. A scope is something that's defined within or is a place where names can be defined. And it defines the range and the life expectancy of those things. So something defined in a block would be visible only inside of that block. And when that block goes away, the variables go away. And that's a really good thing. And in most C languages, curly braces are used to identify that. JavaScript has blocks, but JavaScript's blocks do not have scope. A variable defined anywhere in a function is visible everywhere in the function. And so people coming to this language from C or Java commonly will want to define their variables as close as they can to the first use. And that turns out to be bad in this language, because they're visible in more places than you thought. Also, if you define a variable multiple times in a function, you just get one. And you don't get a warning. So it intentionally masks problems that are caused by that confusion. So I recommend, define all of your variables at the beginning of the function. And that way, these scoping rules will not mess you up. Only functions have scope in this language, not box. Yeah? So on this slide and the last slide, you said something that makes me think that there is a function that I didn't know about, which is the top level anonymous function. Mm-hm. So is that right? I mean, so the global variables are defined in this. Right. In this global function. Global variables go into a global object. And we'll talk later about how to avoid that, because that's the source of a lot of misery. But this says vars are defined in a function. So I mean, is there a function up there that I don't know about or that-- No, there should be, but there isn't. OK. I'll get to that later. There's a return statement, which can return either the value of an expression or return nothing. When you return nothing, it's actually going to return the undefined value. Every function always returns a value. And if you don't say what it is, it's undefined. There's an exception to that rule, which is if there are cases when you're calling a constructor, where instead of returning undefined, it returns the value of this. We'll talk about that more later. So I said everything is objects. Objects can contain data and methods. And objects can inherit from other objects. So those are all nice properties of this language. An object is an unordered collection of name value pairs, where a name is a string, and a value can be any value except undefined. The values can be other objects. So you can nest these things as deeply as you want. You can also create cyclical structures. You can get as crazy and complicated as you want with them. JavaScript objects are very nice at representing records and trees. You can think of every object as being a little database, where you can query on keys and get values back. They're very, very convenient. We have a very nice object literal notation in this language, which provides for creating objects in a descriptive way. So an object literal is wrapped in curly braces. The names can be names or strings, and the values can be expressions. We use colons to separate the names and values and commas to separate the pairs of names and values. Object liberals can appear anywhere that a value can appear. So we can assign them to variables. We can pass them to functions. We can return them from functions. So here's an example. I've got an object literal here, and you can think of it as producing this little database table, where I can retrieve those values on those keys. And in JavaScript, I can access things by name, using the dot notation. Or I can also extract them by an expression using the subscript notation. In this case, the expression happens to be a literal string, but it could have been any expression. Now, remember I warned you about the reserved word policy in the language. Generally, we prefer using the dot notation, just because it's shorter and cleaner and better. But I can't use the dot notation for reserved words. It turns out "goto" to is a reserved word. "Class" is a reserved word. There are a lot of really good words that are reserved. So if you want to use any of those, you have to use the subscript notation. So I can mix this with functions. So I can have a function which returns the value of one of these quasi-literals. so I've got my maker function, where I pass it a bunch of parameters, and it will make a new object. A pair of empty curly braces makes a new, empty object. And then I can add new properties to that object simply by doing assignment. And when I'm all done, I can return it. So this could be a very nice notation for making things. So I can call it this way. I call maker, provide those parameters, and it'll return a nice object for me. I can also nest objects in objects using object literal notation. So you can see in color, I've got another object which is assigned to the format property. It's a little hard to read all squished up like this. JavaScript allows us to insert whitespace in our structures to make them more readable. Intending this way, it's very clear that I have an object within an object. I can use object literals anywhere a value can go. So I can pass an object literal as a parameter to a function. Or I can use an object literal as an expression I'm going to throw or return. Yeah, can you add other parameters? You can put anything you want in here. In fact, name and message are not required, which is maybe a problem. You can pass anything you want. You can even pass a literal string or a number to throw. I'm not sure if that makes sense, but it's allowed. So some years ago, I was creating these complicated objects, which were wrapping things in the DOM. And I had an API with like 10 or 12 parameters in it. And I couldn't remember what they were. It's just really hard to keep straight. And from time to time, I would discover that I had a parameter that I didn't need anymore, but I couldn't take it out because that would break all the old programs. And I decided that was a really bad way to be designing objects. A much smarter way that this language allows is, I could just pass a single object, and that object could contain all of those things. And each of those things would be associated with a name, so I could put them in any order. I could have very nice rules for filling in defaults for things that got left out. It would just be so much better. So that's one of the very pleasant things this language allows. New members can be added to any object by simple assignment. So there's no need to define a new class if you want an object which is slightly different. You just make it the way you want, either by doing a new dot notation or by using a subscript notation with a computed value. Objects can be created with a secret link to another object, and it uses that for inheritance. If an attempt is made to access a name and it fails, then it goes to the linked object and see if it has a property with that name. And if it does, that value gets returned as though it had belonged in the initial object. This linkage is not used when storing. So if you're storing something, it always goes to the first object. But when you're retrieving values, you can inherit values from its inheritance chain. And we've got a function called Object.create, which makes a new empty object which has this linkage property. So I'm going to make a new object called myNewObject, which will inherit from my old object. So my old object has all this stuff in it. This object is empty, but if I ask for myNewObject.name, I will get Jack B. Nimble. If I change the name, the name gets changed here. So now if I ask for the name, I go here. I don't need to follow the link down, because I've got that name. One interesting case is, you remember level was three initially. So if I increment level by one, it goes here, gets initial value, adds 1 to it, it becomes 4, and it stores it in this one. Yes? Can you have multiple linkages? Yeah, can you have multiple linkages? You can link these things as long as you can stand it. [INAUDIBLE] It'll keep going until it gets to the very end. And at the very end is an object called object.prototype, which is always the end of the chain. So linkage provides a simple inheritance mechanism. An object can inherit from an older object. Objects are linked directly or indirectly to Object.prototype. All objects inherit some basic methods. Unfortunately, none of them are very useful. The basic set of object methods just don't have much in them. HasOwnProperty, we talked a little bit about that one. That one's kind of useful. It allows you to figure out if a property belongs to the object or if it came somewhere from the inheritance chain. There's no copy method, which is maybe surprising. And there's no equals method, so there's no easy way to find out if two objects contain similar material. So there are three ways to make a new empty object. These all do exactly the same thing. We can say new Object. We can say two curly braces, or we can say Object.create(Object.prototype). All three do exactly the same thing. I recommend the empty curly braces. It's small and easy to type, and I think it's clearest. Let's see. Objects are passed by reference. They're never passed by copy. So objects can be passed as arguments to functions. They can be returned from functions. They can be stored in other objects. You can even store an object in itself. And what that does is store a reference to itself within itself. The triple equal operator works on objects, but it compares references. So it will be true if the two values are the same object. It would be false if they are similar objects. There's a delete operator that can remove a property from an object. So you can say delete myObject and then either a subscript or a dot, and it will take that property out. Now, one surprising thing about that is, if you're deleting a property that also exists on the inheritance chain, deleting one from the front object allows an inherited object to shine through. So that's something to watch out for. JavaScript has arrays, but they're kind of weird. In most languages, you've got an array which is a linear sequence of memory, which is broken into equal sized slots, and you can index it by number really fast. JavaScript doesn't have anything like that. Instead, it has a trick that it applies to objects. So objects are sort of like hash tables. That's how arrays work in this language as well. So it takes the subscript that you're looking up, turns it into a string, and then uses it as a name in the table. It makes it really efficient for sparse array applications, where you've got an array where only 1% of the elements are going to be filled in. It's really good for that. Most of our array applications are for dense arrays, in which every item is filled in. Not so good for that. They tend to be kind of slow. One advantage, though, is that the arrays are really easy to use. There's no need to declare a dimension or a length or a type when you're creating the array. You just need to make an empty array, and that's good enough. You can then put anything you want in it. Arrays, unlike objects, have a special length number. Length does not contain the number of things in the array. It contains one more than the highest integer subscript in the array. And that's useful, because it allows you to use a for statement for looping through all the members. You shouldn't use for in for arrays. It works, but it's not guaranteed to produce the items in the correct order. And usually when you're doing array processing, you want to keep the sequence straight. And for in is not guaranteed to do that. So for in might make sense for sparse array applications, if you don't care about the sequence. We have an array literal syntax in this language, which is similar to the object literal syntax, except it uses square brackets, and you just have the values in the array separated by commas. So it's pretty convenient. We can add a new item by assigning to the arrays length. For example, my list here contains three things. Its length is 3. So if I say my myList[myList.length], that will be 3. That will assign barley to the 3 slot, changing length to 4. The dot notation should not be used for arrays, because there's a syntactic confusion with dots and numbers, since dot is sometimes a decimal point. And the preferred way of making a new empty array is a pair of brackets. There is a much nicer set of methods available for arrays, for concatenating arrays together. Join will take all of the members of an array, turn them into strings and concatenate them all together. Pop and push will let you use it as a stack. Slice can make subarrays of portions of it. Sort can put things in order. And splice can insert and remove things from the array. You can use the delete operator to delete elements from an array, but it doesn't do what you want. Because it will leave a hole in it. Generally, when you delete something from an array, you want to close it up, and it doesn't do that. Fortunately, there's a splice method which can. So I can say, for my array, starting at some subscript that I want to delete, delete one item there. That removes the item, and renumbers all the remaining ones. So here's an example. I want to remove the b from my array. So if I say, delete myArray[1]. I now have an undefined thing in here, because I took that key out. And if I then try to read it back, I get undefined for the missing member. So what I want to do is change the number of the key of c and d. And I can do that with splice, and that gives me the correct result. There is confusion sometimes about when to use arrays and when to use objects in this language, because they're both really the same thing. And in fact, if you use the wrong one, it'll probably work most of the time. But I recommend that it is good to get it right. So use names. Use arrays when the names are sequential integers. And in all other cases, use objects. Don't be confused by the term "associative array." In this language, object is the associative array. Functions are first class objects in this language for two completely different definitions of first class object. There's the computer science definition, where functions can be passed and returned and stored just like any other value. That's the lambda property. That's really, really good. But also in the sense that functions in this language are objects that can be containers of name value pairs. And that seems really weird, but that's how it works. So it's possible in this language for a function to have a method. And we'll look at some of the consequences of that. We have a function operator in this language, which creates function values. Unfortunately, it looks exactly like the function statement. And so people sometimes get confused by it, because it looks like the same thing. The difference is in where it exists in the program. It can be placed anywhere that you can have a value. Whereas a function statement is always in a statement position, and can't be in a loop, and can't be in an if statement. A function operator takes an optional name parameter list and a block of statements and returns a function object, which we can then store or pass. A function can appear anywhere that an expression can appear. But JavaScript calls function. Other languages call lambda. It's a source of enormous expressive power. And unlike most powerful constructs in programming languages, this is a secure constructor. Ultimately, we can use it for securing the language. So the function statement is really a shorthand for a var statement that is initialized with a function value. So if I have a statement that says function foo, that expands to a var foo, which gets that function value. In fact, in my own use, I'm more and more preferring this form, because it makes it clear what exactly is going on. Functions do not all have to be declared at the top level or at the left side of the page. Functions can be defined inside of other functions. And this is a really good thing. This is something that the language got right. An inner function has access to all of the variables and the parameters of the function that it's contained within. This is sometimes called Static Scoping or Lexical Scoping. The scope that an inner function enjoys continues even after the parent function has returned. This is called closure. Now, it sounds really weird. How can you have access to a variable of a function that's returned already? How is that meaningful? Let me show you an example. This is an Ajax function called fade. This was a popular thing in Ajax applications a couple of years ago, where I'll take something and change its color from yellow to white to indicate maybe that it changed or that it's worthy of your notice. So let me step through how the function works. Function fade takes an ID. I will look that ID up in the document object model. I'll set level to 1. I'm ultimately going to go through 16 levels. I'm going to define a step function, and then I'm going to call set timeout passing that step function and have it fire in a 10th of a second. And then I exit. I return from fade. I'm done. OK, so the outer function has returned. A 10th of a second later, the step function gets executed. So now start running that. It gets level, and turns it into a hex character. How did it get level? It has access to the parent's level. So the parent variable survived as long as the child variable needs it. It then has access to the same DOM element, where it sets its background color. It then modifies level. It's not modifying a copy. It is modifying the same variable that existed up there, and then calls setTimeout again. And then when setTimeout calls step again, now level will be 2, and we'll keep going through this process until we get to 15, and then we'll stop. Now, one really nice thing about this property, suppose I have two elements on the page at the same time that both need to fade. So I'll call fade on one, fade on the other. Will the two interfere with each other? No, because each call to fade creates its own instances of these variables. Each invocation has its own set, which are not visible to the other invocations. So all this magical stuff is happening privately to both. So it's a very reliable programming pattern. And I can nest these things as deeply as I want, so I have remarkable control over the visibility of all of the components in this iteration. This is a simple example, but you can get quite sophisticated with this stuff. Functions are objects, so they can contain name value pairs. And this can serve the same purpose as static members in other Languages at least, I think that was the intention. It turned out not to have worked very well, so I don't recommend this. But there is a place within functions where you can store stuff for the function. Since functions are values, functions can be stored in an object. When a function is stored in an object, we call it a method. If a function is called with too many parameters, the extra arguments are ignored. And if the function is called with too few arguments, the missing arguments will be set to undefined. There is no explicit type checking on the arguments and no checking on the number of arguments. There are four ways to call a function. There is function form, method form, constructor form, and apply form. The most common are function form and method form. In method form, I'm calling a method of an object. And so I'll have an object expression, and then a dot or a subscript expression, and then parentheses possibly containing arguments. When a function is called in the method form, the special pseudoparameter this is set to the object that was invoked. And that allows the method to have access to that object. Then there is function form in which we simply have a function value, and we execute that. In that form, this is set to the global object, which is possibly the worst thing they could have done, but that's what it does. It's not very useful. It also makes it hard to write a helper function. So if I have an inner function that I want to help the outer function do some work, the inner function gets called with the function form. And so it doesn't have access to this. And so a common workaround for that is, the outer function creates a variable, maybe called "that," assigns this to it. That does become available to the inner function and allows it to do its work. There's a constructor form-- and we'll talk a lot more about constructor form later-- which looks like the function form, except we have a new prefix in front of the invocation. And when we call something that way, this is bound to a new object which inherits from the function's prototype. And if the function does not explicitly return a value, then this will be returned instead of undefined. This is used in the Pseudoclassical style. Again, we'll be talking about that later. So there is an extra this parameter that is available to every function. And what its value will be will depend on how the function was called. In the function form, it will be the global object, which is dangerous. In the method form, it will be bound to the object, which is useful. And in the constructor form, it will be bound to the new object being constructed. When a function is invoked, in addition to its parameters, it also gets a special parameter called arguments. And it contains all of the variables or all the parameters that were passed to the function, even if there were more than were allowed for in the parameter list. And arguments.length will have a number of arguments that were passed. So if I want to write a function which would sum some variable number of parameters, I would not give any parameter names. Instead, I'm going to work over arguments.length. And for each member of arguments.length, I will add a value to a total. So I could then sum a set of numbers of any size in one statement. There is a type of operator which allows you to find out the type of a parameter or of a value. Since we don't have type checking, sometimes you need to look at something and ask "what are you?" If you ask it, give it a string value, it returns "string." If you give it an object, it returns "object." That's really useful. Unfortunately, if you ask it what an array is, it says it's an object, which isn't exactly wrong, but it isn't very useful. A bigger problem is, if you ask it what null is, it says it's an object. And that is just wrong. The way that happened was, initially, he was using 0 in a tagged pointer to indicate the type of things, but he was also using null pointers to represent null, and it happened there was a 0 there too. He didn't check that, and it went out wrong. Microsoft noticed that and got it right, or did it wrong in exactly the same way. And when it came time to put it into the standard, Microsoft insisted this is how it stays. So it's wrong. Microsoft took the very disciplined approach, we will not ever do anything to break programs.

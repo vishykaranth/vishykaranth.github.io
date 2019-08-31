@@ -6,14 +6,15 @@ permalink: /technical-skills/
 
 - Java Ecosystem  
     - JVM
-    - Classloading       
+        - Classloading  
+        - Garbage Collection      
     - Threads
     - Collections  
     - Spring  
-    - Spring Boot    
+        - Spring Boot
+    - REST API            
     - Hibernate 
-    - JPA 
-    - REST API 
+        - JPA         
 - Messaging Paradigm 
     - Kafka 
     - Active MQ 
@@ -40,7 +41,6 @@ permalink: /technical-skills/
     - Mocking 
     - JUnit
 - Database 
-    - Sybase 
     - Oracle 
     - MySQL 
     - Mongo DB
@@ -48,7 +48,7 @@ permalink: /technical-skills/
     - Tomcat 
     - Jetty        
 - Web Technologies
-    - JavaScript 
+    - JavaScript - https://codepen.io/vishwanath_nagendra/post/java-script
     - HTML 
     - CSS 
     - AngularJS 

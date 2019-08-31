@@ -13,7 +13,7 @@ permalink: /jvm-memory-model/
     - The size of the primitive type int will always be a 32-bit signed integer from -2^31 to 2^31-1 whether the JVM is running on a 16bit/32bit/64bit OS.
     - Each JVM stores and uses data in-memory in a big-endian order (where high bytes come first) whether the underlying OS/Hardware is big-endian or little endian.
     - Note: sometimes, the behavior of a JVM implementation differs from another one but it’s generally the same.
-        - ![](../../imgs/jvm/jvm_overview.jpg#thumbnail bordered) 
+        - ![](../../../imgs/jvm/jvm_overview.jpg#thumbnail bordered) 
 
 - The JVM interprets bytecode which is produced by the compilation of the source code of a class. Though the term JVM stands for “Java Virtual Machine”, it runs other languages like scala or groovy, as long as they can be compiled into java bytecode.
 - In order to avoid disk I/O, the bytecode is loaded into the JVM by classloaders in one of the the runtime data areas. This code stays in memory until the JVM is stopped or the classloader (that loaded it) is destroyed.
@@ -30,7 +30,7 @@ permalink: /jvm-memory-model/
 - The JVM executes the developer’s code by executing basics operations described in the Java bytecode. 
     - An operand is a value on which an instruction operates. 
     - According to the JVM specifications, those operations require that the parameters are passed through a stack called the operand stack.
-        - ![](../../imgs/jvm/state_of_java_operand_stack.jpg)      
+        - ![](../../../imgs/jvm/state_of_java_operand_stack.jpg)      
 
 - For example, let’s take the basic addition of 2 integers. 
     - This operation is called iadd (for integer addition). 
@@ -190,7 +190,7 @@ ClassFile {
 
 - The runtime data areas are the in-memory areas designed to store data. 
     - Those data are used by the developer’s program or by the JVM for its inner working.
-    - ![](../../imgs/jvm/jvm_memory_overview.jpg) 
+    - ![](../../../imgs/jvm/jvm_memory_overview.jpg) 
 
 
 ## Heap
@@ -254,7 +254,7 @@ public void functionA(){
 }
 ```    
 - Here is how it works inside the JVM when the functionA() is running on:
-    - ![](../../imgs/jvm/state_of_jvm_method_stack.jpg) 
+    - ![](../../../imgs/jvm/state_of_jvm_method_stack.jpg) 
     - Inside functionA() the Frame A is the top of the stack frame and is the current frame. At the beginning of the inner call to add () a new frame (Frame B) is put inside the Stack. Frame B becomes the current frame. The local variable array of frame B is populated from popping the operand stack of frame A. When add() finished, Frame B is destroyed and Frame A becomes again the current frame. The result of add() is put on the operand stack of Frame A so that functionA() can use it by popping its operand stack.
     - Note: the functioning of this stack makes it dynamically expandable and contractable. There is a maximum size that a stack can’t exceed, which limit the number of recursive calls. If this limit is exceeded the JVM throws a StackOverflowError.
     - With Oracle HotSpot, you can specify this limit with the parameter -Xss.
