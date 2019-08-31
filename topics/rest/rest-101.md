@@ -1,12 +1,12 @@
-##REST 101
-###Resource Oriented
+## REST 101
+### Resource Oriented
 - A resource is something that can be stored on a computer and represented as a stream of bits.
 - Resource-Oriented refers to modelling each entities as Resources which can be accessed by at least one identifier.
-###Representation
+### Representation
 - Some data about the current state of a resource.
-###Addressability
+### Addressability
 - Each resource should be accessible through at least one identifier.
-###Statelessness
+### Statelessness
 - The service never relies on information from previous requests.
 - There are 2 types of states in REST.
     - Resource state
@@ -18,18 +18,18 @@
         - This information or state is provided to the service while making a request.
         - Note:Don’t get confused with the in-memory state of service.
         - This state will be created whenever there is a client request and flushed out after sending the response back to client.    
-###Scalability
+### Scalability
 - Capability to handle large number of requests.
     - X-Axis scaling : Running multiple copies of entire application.
     - Y-Axis scaling : Running multiple copies of a particular service which has huge number of requests at a particular instant of time.
-###Connectedness
+### Connectedness
 - Sometimes representation of a resource is not just a stream of bits,but it may contain links to other resources.
-###Uniform interface
+### Uniform interface
 - Deals with how a client talk to a service and understands what to tell the service.
 - Also the service should be able to understand what clients wants to say.
 
-###Guidelines for REST using HTTP
-####Idempotent HTTP methods
+### Guidelines for REST using HTTP
+#### Idempotent HTTP methods
 - An HTTP method is said to be idempotent if the server provides the same representation of a resource irrespective of the number of times user request it.
 - Example: An image of a cat is stored at server.
     - If the user GETs this image 100 times continuously, the server will serve the same representation 100 times.
