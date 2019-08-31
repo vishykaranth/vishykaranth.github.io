@@ -1,4 +1,4 @@
-##What is virtual machine?
+## What is virtual machine?
 - Software simulation of a machine, which can perform operation like a physical machine.
 - Type of Virtual Machine 
 	- H/W Based or System Based VM 

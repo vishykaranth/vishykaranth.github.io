@@ -22,6 +22,11 @@
 - Messaging 
     - Kafka 
     - JMS 
+- DataStructure 
+- Algorithms 
+- Database 
+    - Oracle
+    - PostGres      
 
 ### Design Patterns 
 - GOF 
@@ -37,10 +42,31 @@
 - Eventual Consistency
 
 ### Testing 
+- TDD
+- BDD 
+- Mockito 
 
 ### Deployment 
 - CI/CD
 - Jenkins  
  
-
+### Agile Methodology 
+- Agile 
+- Scrum 
+- Kanban 
+- Spotify 
  
+## AWS 
+- EC2
+- Lambda 
+
+## JS Ecosystem
+- JS 
+- HTML
+- CSS 
+- EmberJS  
+
+## Python Ecosystem
+- Python 
+- Panda 
+- Numpy 
