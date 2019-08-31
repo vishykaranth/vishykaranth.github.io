@@ -38,7 +38,7 @@
     - But what if there is an image counter resource at server side which gets incremented during an HTTP request. 
     - So in this scenario, if the user requests 100 times, the counter is incremented by 100.
 
-####GET
+#### GET
 - Never send payload in GET requests.
 - It should be Idempotent, meaning it should serve the same representation irrespective of the number of times the client requests.
 - The GET URI must be descriptive,meaningful and resource oriented.
@@ -52,11 +52,11 @@
     - Note : Last-Modified/If-Modified-Since and ETag/If-None-Match can be used interchangeably.
 5)The server should set value for Cache-control headers to avoid caching of resources at client side or Web Gateways for indefinite period of time.    
 
-####POST
+#### POST
 - To create a new resource whose URI is going to be determined by server.
 - It is not idempotent.
 
-####PUT
+#### PUT
 - To replace the current representation of an existing resource with a new representation.
 - If client knows or decides the URI to create a new resource under that URI,then use PUT.
 - It is idempotent.
