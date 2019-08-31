@@ -7,7 +7,7 @@ permalink: /ddd-tutorial/
 - [Domain Driven Design](#Domain-Driven-Design)
 
 
-|  | ![](../../imgs/Domain%20Driven%20Design.png)  |  | 
+|  | ![](../../../imgs/Domain%20Driven%20Design.png)  |  | 
 
 
 
