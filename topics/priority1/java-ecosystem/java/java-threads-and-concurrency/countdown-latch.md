@@ -1,3 +1,10 @@
+---
+layout: page
+title: Countdown Latch
+permalink: /countdown-latch/
+---
+
+
 ## CountDownLatch
 - CountDownLatch is a synchronization aid, introduced in Java 5. 
 - Here the synchronization does not mean restricting access to a critical section. 

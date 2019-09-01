@@ -1,3 +1,10 @@
+---
+layout: page
+title: Threads Overview 
+permalink: /threads-overview/
+---
+
+
 ## How to Create Threads?
 - Sub classing java.lang.Thread and Overriding its run method
     - The first way to customize a thread is to subclass java.lang.Thread (itself a java.lang.Runnable object) and 

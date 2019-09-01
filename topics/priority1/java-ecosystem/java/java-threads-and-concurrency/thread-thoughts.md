@@ -1,3 +1,9 @@
+---
+layout: page
+title: Thread Thoughts
+permalink: /thread-thoughts/
+---
+
 ### CountDownLatch v/s CyclicBarrier
 - The key difference is that CountDownLatch separates threads into waiters and arrivers 
 - while all threads using a CyclicBarrier perform both roles.

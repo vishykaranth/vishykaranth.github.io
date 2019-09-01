@@ -1,3 +1,9 @@
+---
+layout: page
+title: Fork Join
+permalink: /fork-join/
+---
+
 
 ## Fork/Join Framework Tutorial: ForkJoinPool Example
 
