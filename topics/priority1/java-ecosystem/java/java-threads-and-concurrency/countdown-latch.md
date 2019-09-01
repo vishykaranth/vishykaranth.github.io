@@ -96,8 +96,7 @@ permalink: /countdown-latch/
     - To get around this, let’s get the CountdownLatch to work differently than in the previous example. 
     - Instead of blocking a parent thread until some child threads have finished. 
     - we can block each child thread until all the others have started. 
-    ~~~java
-       
+    ~~~java 
         public class WaitingWorker implements Runnable {
         
             private List<String> outputScraper;
