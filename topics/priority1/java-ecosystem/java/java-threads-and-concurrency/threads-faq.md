@@ -2,7 +2,6 @@
 layout: page
 title: Java Threads FAQ
 permalink: /java-threads-faq/
-https://www.javamadesoeasy.com/2015/03/threads-top-75-interview-questions-and_9.html
 ---
 
 ## Threads Basics 
@@ -1109,3 +1108,7 @@ Thread with MIN_PRIORITY is likely to get less CPU as compared to high priority 
 
 setPriority() method is used for Changing the priority of thread. 
 getPriority() method returns the thread’s priority.
+
+
+### References 
+https://www.javamadesoeasy.com/2015/03/threads-top-75-interview-questions-and_9.html

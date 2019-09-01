@@ -94,28 +94,28 @@ permalink: /countdown-latch/
     - This could make it difficult to try and reproduce a concurrency problem, 
     - as we wouldn’t be able to get all our threads to run in parallel.
     - To get around this, let’s get the CountdownLatch to work differently than in the previous example. 
-    - Instead of blocking a parent thread until some child threads have finished, 
-    - we can block each child thread until all the others have started.
-    ~~~java 
+    - Instead of blocking a parent thread until some child threads have finished. 
+    - we can block each child thread until all the others have started. 
+    ~~~java
+       
         public class WaitingWorker implements Runnable {
-         
+        
             private List<String> outputScraper;
             private CountDownLatch readyThreadCounter;
             private CountDownLatch callingThreadBlocker;
             private CountDownLatch completedThreadCounter;
-         
-            public WaitingWorker(
-              List<String> outputScraper,
-              CountDownLatch readyThreadCounter,
-              CountDownLatch callingThreadBlocker,
-              CountDownLatch completedThreadCounter) {
-         
+            
+            public WaitingWorker(List<String> outputScraper,
+                CountDownLatch readyThreadCounter,
+                CountDownLatch callingThreadBlocker,
+                CountDownLatch completedThreadCounter) {
+              
                 this.outputScraper = outputScraper;
                 this.readyThreadCounter = readyThreadCounter;
                 this.callingThreadBlocker = callingThreadBlocker;
                 this.completedThreadCounter = completedThreadCounter;
             }
-         
+            
             @Override
             public void run() {
                 readyThreadCounter.countDown();
@@ -129,47 +129,52 @@ permalink: /countdown-latch/
                     completedThreadCounter.countDown();
                 }
             }
-        }
- 
-    @Test
-    public void whenDoingLotsOfThreadsInParallel_thenStartThemAtTheSameTime()
-     throws InterruptedException {
-      
-        List<String> outputScraper = Collections.synchronizedList(new ArrayList<>());
-        CountDownLatch readyThreadCounter = new CountDownLatch(5);
-        CountDownLatch callingThreadBlocker = new CountDownLatch(1);
-        CountDownLatch completedThreadCounter = new CountDownLatch(5);
-        List<Thread> workers = Stream
-          .generate(() -> new Thread(new WaitingWorker(
+        }   
+        
+        @Test
+        public void whenDoingLotsOfThreadsInParallel_thenStartThemAtTheSameTime()
+          throws InterruptedException {
+        
+            List<String> outputScraper = Collections.synchronizedList(new ArrayList<>());
+            CountDownLatch readyThreadCounter = new CountDownLatch(5);
+            CountDownLatch callingThreadBlocker = new CountDownLatch(1);
+            CountDownLatch completedThreadCounter = new CountDownLatch(5);
+            List<Thread> workers = Stream
+            .generate(() -> new Thread(new WaitingWorker(
             outputScraper, readyThreadCounter, callingThreadBlocker, completedThreadCounter)))
-          .limit(5)
-          .collect(toList());
-     
-        workers.forEach(Thread::start);
-        readyThreadCounter.await(); 
-        outputScraper.add("Workers ready");
-        callingThreadBlocker.countDown(); 
-        completedThreadCounter.await(); 
-        outputScraper.add("Workers complete");
-     
-        assertThat(outputScraper)
-          .containsExactly(
-            "Workers ready",
-            "Counted down",
-            "Counted down",
-            "Counted down",
-            "Counted down",
-            "Counted down",
-            "Workers complete"
-          );
-    }
+            .limit(5)
+            .collect(toList());
+            
+            workers.forEach(Thread::start);
+            readyThreadCounter.await(); 
+            outputScraper.add("Workers ready");
+            callingThreadBlocker.countDown(); 
+            completedThreadCounter.await(); 
+            outputScraper.add("Workers complete");
+            
+            assertThat(outputScraper)
+                .containsExactly(
+                    "Workers ready",
+                    "Counted down",
+                    "Counted down",
+                    "Counted down",
+                    "Counted down",
+                    "Counted down",
+                    "Workers complete"
+            );
+        }                
+    ~~~       
+    
+    ~~~java 
+    
     ~~~
     
 - This pattern is really useful for trying to reproduce concurrency bugs, as can be used to force thousands of threads to try and perform some logic in parallel.
 - Terminating a CountdownLatch Early
     - Sometimes, we may run into a situation where the Workers terminate in error before counting down the CountDownLatch. 
     - This could result in it never reaching zero and await() never terminating:
-    ~~~java 
+    ~~~java
+       
         @Override
         public void run() {
             if (true) {
@@ -193,13 +198,15 @@ permalink: /countdown-latch/
             workers.forEach(Thread::start);
             countDownLatch.await();
         }
-    ~~~
+    ~~~        
+
 - Clearly, this is not the behavior we want – it would be much better for the application to continue than infinitely block.
 - To get around this, let’s add a timeout argument to our call to await().
-    ~~~java 
+
+   ~~~java
         boolean completed = countDownLatch.await(3L, TimeUnit.SECONDS);
         assertThat(completed).isFalse();
-    ~~~
+    ~~~            
 - As we can see, the test will eventually time out and await() will return false.
 - CountDownLatch Summary
     - When you create an object of CountDownLatch you pass an int to its constructor (the count), this is actually number of invited parties (threads) for an event.
