@@ -1,0 +1,1 @@
+https://www.amazon.jobs/en/jobs/893034/software-development-manager
