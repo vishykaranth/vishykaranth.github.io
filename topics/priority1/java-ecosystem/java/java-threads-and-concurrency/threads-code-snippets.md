@@ -4,22 +4,88 @@ title: Threads Code Snippets
 permalink: /threads-code-snippets/
 ---
 
-- Thread Management
-    - Another concept related to concurrency is parallelism
-    - Every Java program has at least one execution thread. 
-        - When you run the program, the JVM runs this execution thread that calls the main() method of the program. 
-    - When we call the start() method of a Thread object, we are creating another execution thread. 
-        - Our program will have as many execution threads as calls to the start() method are made.
-    - A Java program ends when all its threads finish (more specifically, when all its non-daemon threads finish). 
-        - If the initial thread (the one that executes the main() method) ends, the rest of the threads will continue with their execution until they finish. 
-        - If one of the threads use the System.exit() instruction to end the execution of the program, all the threads end their execution.    
-        - Creating an object of the Thread class doesn't create a new execution thread. 
-            - Also, calling the run() method of a class that implements the Runnable interface doesn't create a new execution thread. 
-            - Only calling the start() method creates a new execution thread.  
-        - The Thread class saves some information attributes that can help us to identify a thread, know its status, or control its priority. 
-            - ID: This attribute stores a unique identifier for each Thread.
-            - Name: This attribute store the name of Thread.
-            - Priority: This attribute stores the priority of the Thread objects. 
-                - Threads can have a priority between one and 10, where one is the lowest priority and 10 is the highest one. 
-                - It's not recommended to change the priority of the threads, but it's a possibility that you can use if you want.
-            - Status: This attribute stores the status of Thread. In Java, Thread can be in one of these six states: new, runnable, blocked, waiting, time waiting, or terminated.              
+### CountDownLatch
+
+~~~java
+
+import java.util.Date;
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * Java program to demonstrate How to use CountDownLatch in Java. CountDownLatch is
+ * useful if you want to start main processing thread once its dependency is completed
+ * as illustrated in this CountDownLatch Example
+ * 
+ * @author Javin Paul
+ */
+public class CountDownLatchDemo {
+
+    public static void main(String args[]) {
+       final CountDownLatch latch = new CountDownLatch(3);
+       Thread cacheService = new Thread(new Service("CacheService", 1000, latch));
+       Thread alertService = new Thread(new Service("AlertService", 1000, latch));
+       Thread validationService = new Thread(new Service("ValidationService", 1000, latch));
+      
+       cacheService.start(); //separate thread will initialize CacheService
+       alertService.start(); //another thread for AlertService initialization
+       validationService.start();
+      
+       // application should not start processing any thread until all service is up
+       // and ready to do there job.
+       // Countdown latch is idle choice here, main thread will start with count 3
+       // and wait until count reaches zero. each thread once up and read will do
+       // a count down. this will ensure that main thread is not started processing
+       // until all services is up.
+      
+       //count is 3 since we have 3 Threads (Services)
+      
+       try{
+            latch.await();  //main thread is waiting on CountDownLatch to finish
+            System.out.println("All services are up, Application is starting now");
+       }catch(InterruptedException ie){
+           ie.printStackTrace();
+       }
+      
+    }
+  
+}
+
+/**
+ * Service class which will be executed by Thread using CountDownLatch synchronizer.
+ */
+class Service implements Runnable{
+    private final String name;
+    private final int timeToStart;
+    private final CountDownLatch latch;
+  
+    public Service(String name, int timeToStart, CountDownLatch latch){
+        this.name = name;
+        this.timeToStart = timeToStart;
+        this.latch = latch;
+    }
+  
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(timeToStart);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println( name + " is Up");
+        latch.countDown(); //reduce count of CountDownLatch by 1
+    }
+  
+}
+
+Output:
+ValidationService is Up
+AlertService is Up
+CacheService is Up
+All services are up, Application is starting now
+
+
+Read more: https://javarevisited.blogspot.com/2012/07/countdownlatch-example-in-java.html#ixzz5yFOVQ1PF
+ 
+~~~              
