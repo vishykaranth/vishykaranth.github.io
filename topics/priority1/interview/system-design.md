@@ -1,3 +1,10 @@
+---
+layout: page
+title: System Design Elaborate 
+permalink: /system-design-elaborate/
+---
+
+
 # System Design 
 
 - [System design](#system-design)
