@@ -1,0 +1,188 @@
+
+### Tactical Design with Domain Events 
+ - **Domain events** play a part in integration between bounded context. 
+ - Or how they can even have a reactive impact on the publishing bounded context when the publishing bounded context is also a subscribing bounded context. 
+ - the publishing bounded context has an aggregate that publishes a domain event. 
+ - The domain event eventually makes it way to a messaging mechanism, 
+	- the messaging mechanism then publishes the domain event to interested parties or subscribing bounded context, 
+	- and those subscribing bounded context receive the domain event 
+	- and then react to them by updating an aggregate or multiple aggregates in the subscribing bounded context. 
+- **Casual consistency** plays into the use of domain events. 
+- There is always a cause and an effect. 
+    - The cause is what causes the domain event to happen and then another domain event may happen in response. 
+    - But we must make sure that the original cause is seen before the effect is seen 
+        - because the cause must happen before the effect. 
+    - E.g. Sue posts a message to the discussion saying, 
+        - "I lost my wallet!" In response to that, 
+        - Gary reads her message and says, "That's terrible," in reply. 
+        - Then Sue posts a new message that says, "Don't worry, I found my wallet!" 
+        - Finally, Gary replies to Sue's new post saying, "That's great!" 
+        - Now, think about distributed systems for a moment. 
+        - If these posts all occur, let's say, in the Bay Area of California, but they're replicated onto machines in New York City 
+        - for other employees to see locally, 
+        - what would happen if the cause and effect were out of order? 
+        - What if, for example, Sue's post, the first post saying "I lost my wallet," 
+        - reaches the servers in New York very quickly, but for some reason, 
+        - there's a delay in Gary's response to Sue's original message, 
+        - and Gary doesn't say "That's terrible," in New York City in the same order that it happened in the Bay Area in California. 
+        - What happens is message two and message three actually don't reach the servers in New York City in the same order in which they occurred. 
+        - But instead, Gary's reply, the fourth message, reaches New York City and says, "That's great!" 
+        - Apparently, in response to, "I lost my wallet." 
+        - Frankly, this makes Gary look pretty bad, and in fact, it's not actually what Gary said in response to Sue's first message. 
+        - So, what do we have to do? We have to ensure that message number two, where Gary says, "That's terrible," is seen in response to Sue's message, number one, "I lost my wallet." 
+        - Following message number two, we must ensure that message number three is seen next. 
+        - Sue's post that says, "Don't worry, I found my wallet," 
+        - and then finally, we must make certain that message number four is seen after message number three, 
+        - where Gary replies, "That's great." **This is causal consistency**. 
+        - We make sure that the cause is seen before the effect, or the response to each of those. 
+        - So if you thought of each of these as being a domain event, domain event one, domain event two, domain event three, and domain event four, 
+        - we have to make certain that each of the events are received and handled in the sequence in which they occurred. 
+        - This is causal consistency, and it makes for robust, well-defined and correctly operating systems.
+        
+### Aggregate Rules of Thumb 
+- The first rule is protect business invariants inside aggregate boundaries. 
+    - As an example, aggregates of type one and aggregates of type two that we were previously looking at, followed this rule of thumb.
+    - So, here we have an example of a product aggregate and our sprint aggregate. 
+    - Each of these are controlled under a separate transaction. 
+    - As you can see, the product aggregate has a root entity named product. 
+    - The product holds a reference to product ID and also has a reference to product backlog item. 
+    - And this is a one to many relationship. 
+    - So, for each product root entity, there may be many product backlog items. 
+    - Looking at the sprint aggregate, 
+        - we have a sprint root entity and the sprint holds a sprint ID which is a value object, 
+        - and it holds a set of entities committed backlog item. 
+    - Again, the relationship oo association between sprint and committed backlog item is a one to many relationship. 
+    - So, there may be many committed backlog items within the sprint. 
+    - The product aggregate and the sprint aggregate are each controlled under separate transactions. 
+    - So, their business invariants are being protected individually as single instances of aggregates. 
+    - Notice that the backlog item aggregate in this example has a root entity backlog item. 
+    - It holds a backlog item ID value object and it has a one to many relationship to tasks. 
+    - In other words, there may be many tasks under a single backlog item. 
+    - Notice that the backlog item has a status. 
+    - The status will be set to planned, committed and done under different situations. 
+    - Also notice that each task has an hours remaining that may be set to the number of hours, one, two, three, four, five and so forth, or to zero. 
+    - When all tasks under a single backlog item have transitioned to zero hours remaining, then the status of the backlog item must be set to done. 
+    - Therefore, when all other tasks have hours remaining of zero except for one task, which has some number of hours remaining, the status of the backlog item will still be set to committed. 
+    - But when that one remaining task has it's hours remaining set to zero, in the same transaction we must transition the status of the backlog item to done. 
+    - This is a business constraint that is required to be consistent at all times, and therefore must be controlled under a single transaction. 
+    - At the beginning of the transaction, status will still be set to committed, one of the tasks will have some hours remaining. 
+    - At the end of the transaction when the hours remaining under that task are set to zero, the status of the backlog item will be transitioned to done and that entire transaction will be committed with those states in tact. 
+    - That's protecting business invariants, the first rule of thumb.  
+- The second rule is design small aggregates.
+    - The second rule of thumb, of aggregate design is to design small aggregates. 
+    - As you can see here, it's possible to design the product aggregate to hold all of its backlog items, all of its releases, and all of its sprints. 
+    - But this is a large aggregate, and we want to focus on designing small aggregates. 
+    - One of the problems that is faced is that this large aggregate design will likely cause transactional failures because of separate users with different goals modifying the same aggregate in separate transactions. 
+    - For example, if we commit a backlog item to a sprint and we plan a new backlog item, this will change different parts of the same aggregate instance at the same time, causing failure. 
+    - Or, if we schedule a new release and plan a new backlog item at the same time, again, different parts of this large cluster product aggregate will be modified at the same time by two different users, causing transactional failure. 
+    - Because, one of the transactions will win and the other transaction will fail because of a concurrency violation in the database. 
+    - So, you can see that there is at least one big disadvantage to designing large aggregates. 
+    - Some other disadvantages are the size of the aggregate in memory at any given time takes up a lot of memory. 
+    - It's also slower to load and causes garbage collection problems potentially. 
+    - So, there are several reasons to design small aggregates. 
+    - Let's look at the product aggregate as we've broken it up and we have now four separate aggregates. 
+    - The product aggregate no longer holds backlog items, releases in sprints. 
+    - Instead, what we've done is design backlog item release in sprint aggregate types. 
+    - So, there are four different aggregate types. 
+    - Now, this is a much better design. 
+    - It prevents concurrency failures, it prevents large memory footprints of an aggregate and allows each aggregate to take up only the memory needed, garbage collection is vastly improved and so, overall, we've improved our modeling situation tremendously. 
+- The third rule is reference other aggregates by identity only.
+    - The third rule of aggregate design is to reference by identity only. 
+    - Here you can see the four aggregates that we now have the product aggregate, the backlog item aggregate, the release aggregate and the sprint aggregate. 
+    - Each of these child aggregates, backlog item release and sprint need to know their parent, the product aggregate. 
+    - So, we can say that each of the three child aggregates are owned by their parent. 
+    - But how do they know about the parent? 
+    - Notice that we do not hold a reference to the product parent aggregate directly in any of the children. 
+    - Instead, the children simply reference their parent by product ID. 
+    - This has several advantages. 
+    - One of the advantages is that, again, there is a smaller footprint when loading the child aggregates into memory. 
+    - On the other hand, there's another big advantage in that we cannot reach out to the parent aggregate directly and make a modification to it at the same time that one of the child aggregates is being modified. 
+    - Therefore, we're not tempted to break the first rule of aggregate design by putting constraints around a single aggregate and managing a single transaction on a single instance of the aggregate. 
+    - This will make our aggregates perform much better and will be less susceptible to failures in transactions. 
+- The fourth rule is update other aggregates using eventual consistency.
+    - Backlog item is committed to a sprint, it's going to hold the identity of the sprint to which it is now committed. 
+    - When the backlog item is committed to a sprint and the sprint ID is set on it, that backlog item is going to be committed in a single transaction. 
+    - The sprint aggregate does not yet know that the backlog item has been committed to it. 
+    - Eventually, the sprint aggregate will learn that a new backlog item has been committed to it, 
+        - and it will now hold a committed backlog item instance, 
+        - entity under the sprint root, 
+        - this entity will be set in a separate transaction. 
+    - How does this happen? 
+        - Notice that when the backlog item is committed to the sprint, 
+        - the backlog item publishes a backlog item committed domain event. 
+    - This domain event is eventually reacted to by our agile project management context and the agile project management context sees to it that this backlog item committed domain event has an eventual impact on the sprint aggregate. 
+    - In the end, the sprint aggregate has a new committed backlog item added to it and that committed backlog item has a reference to the backlog item that is committed to it through the backlog item ID. 
+    - So, here you can see that eventual consistency has two different aggregate instances being updated in separate transactions. 
+    - How does this work? 
+    - The publishing bounded context, the aggregate within publishes a domain event which is eventually received by a messaging mechanism. 
+    - The messaging mechanism then publishes this domain event to interested parties. 
+    - The subscribing bounded context then receives the domain event notification and reacts to it and likely an aggregate in the subscribing bounded context is updated. 
+    - It's just that in the case of the agile project management context, 
+        - with the backlog item committed operation, 
+        - when the backlog item publishes the backlog item committed domain event, 
+        - the messaging mechanism notifies the agile project management context which is a subscriber to its own domain events 
+        - and the sprint within that agile project management context receives the impact or reacts to the fact that this domain event has been received 
+        - and the sprint is eventually updated and committed under a separate transaction. 
+### Modeling Aggregates
+- How do we model aggregates? 
+- Don't take the bait when you're tempted to model with the anemic domain model. 
+- You'll probably find a lot of getters and setters on an anemic domain model. 
+- This leads to all of the overhead of a domain model without gaining any of the benefits, so as we go through this modeling material, I'm going to steer you away where appropriate from using anemic domain model. 
+- How do you model an aggregate appropriately? 
+- **First of all remember that an aggregate is a transactional consistency boundary.** 
+- The entire aggregate of aggregate type one is represented here in this diagram. 
+- This aggregate has an aggregate root entity. 
+- At a minimum, you will always have a root entity for your aggregates. 
+- An aggregate root entity may also hold other parts. 
+- For example, it may hold a reference to other entities or just one entity. 
+- It may hold a reference to value objects or just one value object. 
+- At a minimum though, you will always have root entity, and the root entity is named in such a way that it represents the entire aggregate concept. 
+- Here you have a root entity for the product aggregate. 
+- This entity is named product. 
+- In C# code, you can see that this is a simple class, a public class product which extends an entity base type. 
+- This entity may be a layer supertype. 
+- In fact, you don't even need to inherit from entity. 
+- You don't need a layer supertype to create or design a worthy product aggregate. 
+- I'm just using this to show you that you can use an entity layer supertype if it helps you. 
+- What about the internal parts? Well, the product root entity will hold a tenantId and a productId. 
+- The tenantId allows for different tenants to subscribe to this service, and each tenant has a unique identity, therefore, the product class will hold two different value objects, a productId, and a tenantId. 
+- Notice too, that product has some other properties or fields. 
+- The product needs a name and a description. 
+- The name and description are simple strings, and are also held inside the aggregate root entity. 
+- What about the property accessors. 
+- In C#, notice that I have a description and a name property. 
+- Also notice that each of those has a public get accessor, but a private set accessor. 
+- Why is it that I'm using a private setter, but a public getter? 
+- This is important. 
+- This is where you can fall into anemic domain model if you're not careful. 
+- An anemic domain model has mostly public getters and public setters where you can simply modify the data inside the root entity or any other entity without actually using any behavior. 
+- Therefore, you actually want to purposely create a private setter, and this will cause you to design behavior inside the product root entity. 
+- Because you're designing behavior inside the product root entity, the behavior can call the private setter, or any of the private setters, whether it's on name or description, or any other property, but it's only the behavior that is public, and therefore, forces consumers or clients to use the public behavior. 
+- This will help you to fight against, or oppose the anemic domain model, and here's a look at some public behavior. 
+- Notice that the product root entity has a planned backlog item behavior. 
+- This behavior is designed according to the ubiquitous language of the agile project management context. 
+- According to the behavior that the product needs. 
+- Notice in UML in the diagram portion of this slide, that there is a planned product backlog item behavior, and this behavior is implemented in the C# class as a public void planned product backlog item method. 
+- Thus, as you're designing and modeling your aggregates, all of your aggregates will be modeled according to the ubiquitous language. 
+- This is extremely important when following the DDD approach. 
+- As programmers, we don't just make up the names of the methods or the aggregate roots, or any of the parts of an aggregate. 
+- We are always following the contours of the ubiquitous language as we do so, as we model. 
+- This will help us to meet the needs of the business, and design effective aggregates.
+### Choose Your Abstractions Wisely 
+- As we model our ubiquitous language within our bounded context, remember to choose abstractions wisely. Here we're going to look at our Core Domain, the Scrum Project Management Application or service, and its natural ubiquitous language. The ubiquitous language that is spoken by the domain experts is naturally using concepts such as Product, BacklogItem, Release, and Sprint. These are the natural language elements or concepts within Scrum. They fit, and therefore the agile project management context model should be designed with these concepts in mind. However, it's also possible to take a completely different direction when modeling for a ubiquitous language. What if the developers on the project decided to try to overly abstract the model? They would actually, most likely, be ignoring the natural ubiquitous language spoken by a domain expert, and perhaps they would instead of modeling Product, BacklogItem, Release and Sprint, decide to use something like a ScrumElement. You can imagine that a Scrum Element could be used to model a Product and a BacklogItem. The ScrumElement would no doubt have a type name, field, or property, and that type name, field, or property would be set to the string, Product, when we're representing a product in the ScrumElement, and BacklogItem when we're representing a BacklogItem in the ScrumElement. But what about Release and Sprint? How would they be modeled? Well, the ScrumElementContainer might be a worthy use. The ScrumElementContainer would contain ScrumElements, and the ScrumElementContainer would have a type name that would be set to the string release when a release is being represented, and would be set to Sprint when a sprint is being represented. But, do you notice, the pitfall that we're facing here? We are moving against the tide of the ubiquitous language that is naturally spoken in Scrum. ScrumElement, and ScrumElementContainer do not properly represent the actual concrete types that naturally live within Scrum. So let's consider some of the problems that you will face if you use wrong abstractions in your model design. First and foremost, you ignore the natural ubiquitous language. Second, it's hard to model the details of specific types. For example, the ScrumElement doesn't fully represent a product or a BacklogItem. It represents something far more general. There are also going to be special cases for complex and the a-complex class hierarchy. The special cases will no doubt occur because of the differences between products and BacklogItems, and as much as we would like to think that we can create a general purpose type of ScrumElement for Product and for BacklogItem to represent both of those, it's just going to fail, because of the special cases in each of those different types. There will likely be more code than necessary, than if you were modeling explicitly. General purpose concepts require much more code than concrete's concepts. The wrong abstractions will also influence the user interface. The user interface will not follow the basic shape of the domain model that is the natural types of the ubiquitous language. Rather, it will tend to follow the shapes of the highly abstract types. This will also likely impact the user negatively. You'll waste a lot of time, and a lot of money pursuing the wrong design. It just will not work in the long run. And you'll spend a lot of time trying to maintain and work around the special cases. The imagined future proofing that you're attempting to design into the model will definitely meet with failure, because the future concepts that you imagined, that you can defensively code for today, will not be realized as you imagined them. In order to avoid all of the problems that you would face with an overly abstract model, model explicitly per the natural ubiquitous language. In doing so, you will adhere to the mental model of domain experts. This will create an understandable model. A model that can actually be understood by domain experts, because it does adhere to their mental model. It protects the organization's software investment, which then naturally leads to a saving of time and money.
+### Right-Sizing Aggregates
+- How do we right-size aggregates? 
+    - Aggregate type one has an aggregate root entity. 
+    - It also holds an entity part, and it holds a value object part, is this the right size for aggregate type one? How do we know? Should aggregate type one hold the entity and hold the value object? Is there some sort of guidance that will help us to understand how to model this aggregate effectively? There is. And I'm gonna go through those steps now. These are some modeling steps that can help you to understand if you have right-sized your aggregate. The first step is to start with the rule of thumb number two, design small aggregates. So, as a first step, what you actually want to do, is design all of your aggregates with just one entity, where possible. Unless you absolutely know that a specific entity is needed. So, in this previous example of aggregate type one, you would actually break up aggregate type one to have a root entity and to make the entity that it was holding a separate aggregate. Just as a first step. The next step is to then apply rule one, protect business invariants inside consistency boundaries. Make a chart, this chart will have the names of all aggregate types in a list and the list will also have the dependents for each of those aggregates. In other words, the other aggregates that will updated in some time frame, according to the business rules. The third step is to ask domain experts for an acceptable timeframe for updates to occur to each of the dependents on each of the aggregate root entities. This will be either a, immediate, or b, eventually. And when I say eventually, it could be N, number of seconds, N, number of minutes, N, number of hours, N, number of days, and so forth. But you get the point, updates will either be required to be immediate, or eventual. Fourth, you want to house all of the 3a, or immediate updates, inside a single aggregate. So for example, in aggregate type one, if you were to conclude with a guidance from domain experts that the entity that is dependent on the root entity of aggregate type one to be an immediate update, then you're going to house that entity under the root entity for aggregate type one. Because it requires immediate update or transactional consistency. If you ask a domain expert, and they say that an update can be eventual, then plan to update all 3b, or eventual, dependencies eventually. Here's an example. I'm here looking at aggregate A1. I have another aggregate A2, and yet another aggregate C14. When I have a discussion with domain experts about the time dependency of updates between A1 and A2, domain experts say, yes, those must be immediately updated. They must be consistent at all times. In that case, what we're actually going to do is fold aggregate A1 and aggregate A2 into a single aggregate instance. Or aggregate type. We're gonna call that, aggregate A12. But notice, that when I have a conversation with domain experts, I learn that aggregate A1 and aggregate C14 can be eventually consistent, and that they should be up to date within about 30 seconds. In that case, aggregate A1 and aggregate C14, will be consistent by means of a domain event. Therefore, because I have collapsed A1 and A2 into aggregate A12, aggregate A12 will publish a domain event which will eventually have an impact on aggregate type C14 instances, or one instance. And that aggregate C14 will be updated eventually, within approximately 30 seconds.
+### Testable Units
+- You want your aggregate designs to accommodate unit testing. 
+- It's important to unit test your aggregates. 
+- Earlier acceptance tests are really holding the model to the design of the ubiquitous language according to domain experts. 
+- So as you're developing your ubiquitous language you are creating unit tests as acceptance tests. 
+- But these unit tests that I'm talking about now are different. 
+- Using Rule 2, Design Small Aggregates, will have you to make aggregates testable. 
+- They will create small aggregates that are considerably easier to test than large cluster aggregates. 
+- Unit tests again are different from acceptance tests. 
+- In this case what we're testing is for the correctness and robustness of each of the aggregate components.    
+### Event Sourcing
+- So far I haven't been talking about using events for the persistent state of aggregates. But that's what Event Sourcing provides. So let's talk about Event Sourcing now. If our backlog item aggregate were an event-sourced aggregate, we would actually save an event for every significant thing that happens to the aggregate. For example, if you look at the sequence of events on the right-hand side of the diagram, we see that "BacklogItemPlanned" was the first event to occur to the backlog item aggregate. The second event that occurred was "BacklogItemStoryDefined". The third event that happened is in response to the command on the left-hand side, "CommitBacklogItemtoSprint". When the "CommitBacklogItemToSprint" happens on the the backlog item, it causes a domain event, "BacklogItemCommited" to be published. When each of these domain events occur, they are saved as an event stream to an event log in our database. Then if we want to recover the state of the backlog item aggregate, we can read back each of those domain events in the order in which they originally occurred and interpret those or apply those domain events onto the state of the backlog item. So let's take this in the steps that they occur. Step one: "CommitBacklogItemtoSprint" is a command that is executed on the backlog item aggregate. Step two: The backlog item aggregate emits a backlog item-committed domain event. Step three: The "BacklogItemCommitted" domain event is saved in the order in which it occurred to a database table which is an event log. As step four, the backlog item aggregate needs to be reconstituted from its persistent state. We read the events in the order in which they originally occurred: "BacklogItemPlanned", "BacklogItemStoryDefined" and "BacklogItemCommited" from the Event Store log and reapply those to the backlog item aggregate which recovers its state and the backlog item is now reconstituted to its current state. This is the basic idea behind event sourcing. When the "BacklogItemCommited" domain event is written to the Event Store, notice that the stream is appended. Let's say that our backlog item has a unique identity named "BacklogItem123". This becomes the Stream ID of the backlog item. That's when we update the table for the event log. We're going to append it with "BacklogItem123" as the Stream ID. The Stream Version will be a one-based sequence number telling the order in which the event actually occurred. Then the domain event is also written into the table under the Event Type column so the "BacklogItemCommited" event is written into the Event Type and then the Event Content is the actual serialized domain event. So the Event Type names the type of the class of the domain event. Event Content is the content of the state of the domain event. Now if we want to reconstitute the backlog item aggregate, we would read the entire stream for the Stream ID "BacklogItem123" and we would read all versions that exist for "BacklogItem123". In this case, it's Stream Version 1, 2 and 3, which would be Event Types "BacklogItemPlanned", and then "BacklogItemStoryDefined", and then "BacklogItemCommmited". With the Event Content, those would be used to reconstitute the state of the backlog item aggregate. 
