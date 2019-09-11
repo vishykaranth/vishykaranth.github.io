@@ -1,0 +1,64 @@
+## Tech Skills @ Walmart
+### Apache Spark — The Swiss Army Knife for Data at Walmart
+- Our business requirement was simple: 
+    - Receive, store, analyze, and publish data as meaningful information 
+    - (either as a report or as a downward stream to Kafka, etc.) to the customer. 
+    - We have a new buzzword for it at Walmart: datafy! I’m pretty sure that’s a trend across the industry. 
+    - We needed a cost effective solution that would not only scale to the size of the data we were dealing with, 
+    - but also be flexible enough to plug in additional sources or sinks of data with minimal effort.
+- The complexity lied in the fact that in the past couple of years, there was an explosion of micro service architectures. 
+    - Every team was free to choose any database of their choice for their micro service. 
+    - This led to an increase in complexity of combining this data to do any analysis. 
+    - We researched multiple options ranging from ETL and reporting tools, to open source databases like Clickhouse, Druid, etc. 
+    - While each of them were good in their own way, none of them fit our use cases perfectly. 
+    - Enter **Apache Spark**! Very quickly we found that it could be used for all three of our use cases (storage, analysis, and publication). 
+    - There was flexibility because it’s a very generic framework that could plug into most data sources and data stores and it also contained a fairly comprehensive API for analyzing that data. 
+    - So we began developing our solution on Spark and realized very quickly that it could become our go-to framework for pretty much anything “data”!
+- From a high level, our use cases for Spark fall into the following categories:
+    - Stream to Storage
+        - As part of our Audit platform, 
+            - we ingest audit events from a variety of systems 
+            - and store them in HDFS (either as Parquet or CSV). 
+        - We then use this data for analysis, reporting, etc.
+    - Stream to Stream
+        - We receive change events from a variety of systems (primarily over Kafka). 
+        - We combine this data with other data sources 
+            - (both internal to our cluster and from external sources), 
+            - analyze it and publish resolved events to other downstream consumers. 
+        - For example, when an item attribute changes, 
+            - such as price, 
+            - we’re notified and we combine this change along with other item data like cost, description, etc. 
+            - and publish it to a Kafka topic that the store systems consume.
+    - Storage to Stream
+        - We have a Spark job that loads massive DB2 and Teradata tables 
+        - (in the order of billions of rows) into a dataframe, 
+        - and performs calculations and aggregations, then publishes this information on Kafka.  
+    - Data Analysis
+        - We run Spark jobs to analyze and generate reports from data stored in HDFS/Hive. 
+        - Spark SQL has proven to be an order of magnitude faster than Hive QL, 
+        - and we’re able to generate reports in seconds rather than minutes. 
+        - Due to Spark natively supporting Openstack Swift, 
+        - we upload csv reports to a storage cloud which the business customer can download very easily. 
+        - We use an awesome framework called spark-jobserver which provides APIs for submitting and managing Spark jobs.
+    - Data Migration
+        - We have a variety of databases which sometimes need data transferred between them,
+        - either as a result of a decommission project or a modernization project. 
+        - Examples could be 
+            - DB2 to Cassandra, 
+            - DB2 to Maria DB, 
+            - DB2 to Teradata, 
+            - Cassandra to Solr, etc. 
+         - The flexibility of Spark to connect to such a large number of databases and its generic nature, 
+            - has helped us migrate large amounts of data in a short duration. 
+- A point to note is that on our team at Walmart, 
+    - we deployed Apache Spark on top of our existing Hadoop cluster for the following reasons:
+        - Walmart has already invested in building massive Hadoop clusters.
+        - We have upwards of 2000TB of HDFS storage available.
+        - We have thousands of cores at our disposal and Spark scales beautifully on this cluster.  
+- Summary
+    - Apache Spark truly ended up being our Swiss Army knife when it came to dealing with data.
+    - Spark is a simple, scalable and generic framework to handle pretty much anything thrown at it. 
+    - I believe we’ve only scraped the surface of what Spark is capable of and there’s a whole new world of data analysis 
+    - and data science that we’re getting into that we’ll also be using Spark for. 
+    
+                                          

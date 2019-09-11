@@ -1,0 +1,104 @@
+## People Skills @ Walmart 
+
+### 5 Principles of Teamwork
+- Principle #1: Division of Labor
+    - Division of labor is about role clarity and how your contributions align with the goals set by the team to ensure its success.
+    - As an individual on a team, 
+        - it is important you take time to self-reflect, 
+        - understand your weaknesses, 
+        - invest in your strengths, 
+        - and leverage your talents towards the success of the team.
+    - As a manager of a team, 
+        - it is important you understand the strengths of each member, 
+        - place them in positions to be successful, 
+        - and clearly communicate their role within the team so there is a consistent understanding of the division of labor.
+    - Doing these things will put you on a fast track to operational efficiency.
+- Principle #2: Communication
+    - Encourage in-person meetings or if using web conference software, ensure everyone has their video camera on
+    - Be open minded: practice positive intent, active listening and empathy
+    - Get the team together for events outside of work (i.e., happy hour, quarterly team activities)
+- Principle #3: Collaboration
+    - Are you willing to work with others with an open mind to new ideas or approaches?
+    - Do you know and trust the members of your team?
+    - Are you aware of each team member’s role and the benefit they bring?
+    - Are you willing to help a struggling team member for the success of the team?     
+- Principle #4: Conflict Resolution
+    - Align on team processes and standards to ensure operational consistency
+    - Encourage fact-based decision-making to remove emotion and personal attachment
+    - Remove the “I” from the equation. Challenge the cost benefit by identifying what is right for the customer, company, and/or team
+    - Provide real-time feedback addressing issues up-front instead of allowing resentment to build
+- Principle #5: Support
+    - Building a strong team culture takes patience and discipline. 
+    - The principles above can help lay a solid foundation, but to tie it all together the final principle of Support is required.
+    - As a leader, whether people-manager or individual contributor, ask yourself, this question:
+        - “What is my role in supporting the team?” 
+        - Remember — it only takes one person to make a difference.
+- Wrapping Up
+    - Ants have an instinctual understanding that the colony needs to work together in order to be successful. 
+    - Use the principles below as a guide to help create a support system for a strong team culture:
+    - Clear division of labor and role definitions within your team
+    - Align on a set of communication best practices understood by all members of the team
+    - Create a work environment built on trust and empathy
+    - Manage healthy conflict through standards, processes, and real-time feedback
+    - Develop a support system through patience and discipline 
+    - “Coming together is a beginning. Keeping together is progress. Working together is success.” -Henry            
+
+## Are You An Effective Delegator 
+- Do you find yourself stressed out, spending extra hours accomplishing routine tasks?
+    - How often do you feel others don’t take ownership of their work and you need to step in and pick up the slack?
+- Do you find yourself consistently missing deadlines or producing mediocre results?
+    - How often do you find yourself “trying to do it all” only to fall short in the end?
+- Do you find yourself micro-managing others or feel they are not capable of doing the task?
+    - How often do you feel it’s easier to do the task yourself rather than trusting others for help?
+- The Foundation for Effective Delegation
+    - Effective delegation can be distilled into two principle skills: Self-Awareness and Communication.
+    - Self-Awareness
+        - The ability to be aware of the control you want as the delegator vs. 
+        - the amount of control required to give up to the delegatee.
+        - Do’s and Don’ts
+            - Do: Be thoughtful about what you can hand off
+            - Don’t: Delegate too much at one time
+            - Do: Choose tasks that align with the person’s career goals
+            - Don’t: Delegate to the wrong person   
+            - Do: Identify ways to coach and mentor providing ongoing growth opportunities
+            - Don’t: View delegation as a onetime event
+            - Do: Practice adaptive leadership
+            - Don’t: Delegate without adjusting your leadership style throughout the process
+            - Do: Learn to trust and support from afar
+            - Don’t: Delegate without providing the appropriate level of autonomy
+    - Communication
+        - The ability to clearly articulate the roles, responsibilities, goals, timelines, and expected results.
+        - Do’s and Don’ts
+            - Do: Provide clarity on why the task is important
+            - Don’t: Expect people to read your mind
+            - Do: Align on a due date for completing the task
+            - Don’t: Delegate without an end date in mind
+            - Do: Outline what success looks like
+            - Don’t: Delegate without explaining why something must get done
+            - Do: Discuss what resources are required to ensure success
+            - Don’t: Only delegate down and not up or sideways
+            - Do: Establish regular check-ins to monitor progress
+            - Don’t: Delegate without following through
+- The art of delegation is a journey. 
+    - Remember to be self-aware, avoiding excessive criticism of others or of situations, while communicating continuously providing clear direction and guidance. 
+- The Benefits of Delegation
+    - Delegate work to team members whose skills are better suited for the task. 
+    - This will keep the team productive, giving you time to focus on planning and strategizing for the future.
+    - Encourage team members to become experts, even if that means they may surpass your abilities. 
+    - Not only will this strengthen the relationship between leader and team member, it ensures the overall success of the team
+    - Invest in your team members through coaching and mentorship helping them learn new skills, then delegate tasks so they use those new skills. 
+    - This will encourage them to take a personal interest in their own development to learn and grow.  
+- Delegate like a Pro by Mastering these Techniques
+    - Level 1: Look into this problem. Give me all the facts. I will decide what to do.
+    - Level 2: Let me know the options available with the pros and cons of each. I will decide what to select.
+    - Level 3: Let me know the criteria for your recommendation, which alternatives you have identified and which one appears best to you with any risk identified.I will make the decision.
+    - Level 4: Recommend a course of action for my approval.
+    - Level 5: Let me know what you intend to do. Delay action until I approve.
+    - Level 6: Let me know what you intend to do. Do it unless I say not to.
+    - Level 7: Take action. Let me know what you did. Let me know how it turns out.
+    - Level 8: Take action. Communicate with me only if the action is unsuccessful.
+    - Level 9: Take action. No further communication with me is necessary.
+- Tip: It’s a good idea to practice using the different levels of delegation so you become familiar with the type of language needed for each and are able to use them interchangeably. 
+- Doing so will enable you to adapt your style to fit the situation and person to whom you are delegating to.                                  
+
+### Do you have a healthy team culture?
