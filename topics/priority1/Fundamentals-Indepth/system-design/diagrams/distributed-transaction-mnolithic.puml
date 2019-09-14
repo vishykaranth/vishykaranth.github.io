@@ -1,0 +1,16 @@
+@startuml
+autonumber
+skinparam ParticipantPadding 40
+box "Monolithic Application" #LightBlue
+actor User
+participant Amazon #99FF99
+database AmazonDB #FFAA00
+User -> Amazon : Place Order
+'note left : Monolithic
+Amazon -> AmazonDB : Start Transaction
+Amazon -> AmazonDB : Update Balance Wallet
+Amazon -> AmazonDB : Update Order
+Amazon -> AmazonDB : Commit
+User <-[#0000FF]- Amazon : Order Placed
+end box
+@enduml

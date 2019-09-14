@@ -1,0 +1,21 @@
+@startuml
+actor User
+
+
+cloud "Customer Service" {
+    [Customer Wallet]
+    database CustomerDB #1122AA
+}
+
+cloud "Order Service" {
+    [Order]
+    database OrderDB #FFAA00
+}
+
+User -down-> [Orchestrator] : Place Order
+[Orchestrator] -down-> [Customer Wallet] : Check Balance
+[Orchestrator] -down-> [Order] : Place Order
+
+[Customer Wallet] -down-> CustomerDB
+[Order] -down-> OrderDB
+@enduml

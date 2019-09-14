@@ -1,0 +1,12 @@
+## AWS Services 
+- Amazon GuardDuty 
+    - A managed threat detection service that continuously monitors for malicious or unauthorized behavior to help you protect your AWS accounts and workloads.
+- AWS Config 
+    - provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance.
+- Amazon CloudWatch Logs 
+    - allows you to centralize logs into streams, natively integrating with features and services like Amazon VPC Flow Logs and CloudTrail. CloudWatch Logs scales to ingest logs without the need to manage infrastructure.
+- Amazon Simple Storage Service (S3) and 
+- Amazon Glacier 
+    - can be used to centralize storage and long-term archiving of log data.
+- Amazon Athena 
+    - can be used to analyze logs, such as CloudTrail logs, to help you identify trends and further isolate activity by attribute, such as source IP address or user.

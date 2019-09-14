@@ -1,4 +1,12 @@
-##Algorithms 
+## Algorithms and Data-structure 
+
+### High Level contents
+- Time Complexity, Arrays, Maths.
+- Binary Search, String, Bit Manipulation.
+- Linked Lists, Two Pointers, Stacks & Queues.
+- Backtracking, Hashing, Greedy.
+- Heaps & Maps, Trees.
+- Graphs, DP.
 
 ###Graph Algorithms 
 - Breadth First Search (BFS)

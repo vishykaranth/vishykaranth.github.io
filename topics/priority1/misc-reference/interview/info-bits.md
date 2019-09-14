@@ -1,3 +1,12 @@
+## Experience  
+- SecTM Business Isolation maps to Sharding 
+- SecTM distributed architecture maps to Mediator Pattern 
+- SecDB Ring - Sharding region based
+- JOLT - equivalent of distributed transaction across DB and Messaging 
+
+## Misc - Thoughts 
+- Little-Endian and Big-Endian in Java  
+
 ##Canary release
 - Canary release is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody.
 - Similar to a BlueGreenDeployment, you start by deploying the new version of your software to a subset of your infrastructure, to which no users are routed.

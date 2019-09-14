@@ -1,0 +1,12 @@
+## Interview Prep 
+- Core of the assessment is often around implementing algorithms and understanding the performance. 
+    - Make sure you understand how the core sorting and searching algorithms work and how they perform, 
+    - because this will prepare you for any complex algorithms you are asked to perform during an interview.
+    - Some of the algorithms shown here are recursive. Make sure you understand the implications of a recursive algorithm: 
+        - They can look elegant, but can have surprising side effects due to the practicalities of calling a new method. 
+        - The call stack has new values added, and if your call stack is too deep, you run the risk of a StackOverflowException.
+        - Outside of an interview situation, whenever you need to sort a collection, use a library implementation.
+        - A tried and tested algorithm will almost always be more efficient than your own ad-hoc implementation.
+        - Any performance and memory concerns will have been examined. 
+        - In fact, some of the sorting algorithms inside the Java standard libraries are implemented differently depending on the size of the list: 
+            - Small lists are sorted in place using insert sort, but after a defined threshold, a merge sort is used.
