@@ -1,27 +1,27 @@
-- Graphs
+## Graphs
 - Directed Graphs
 - Undirected Graphs
 - Weighted Graphs
-- Graph Representations
+## Graph Representations
 - Adjacency Matrix Representation
 - Adjacency List Representation
-- Graph Traversals
+## Graph Traversals
 - Depth-First Search
 - Definitions, Traversal, Analysis and Examples
-- Introduction
+## Introduction
 - Glossary of graph theory
 - Graph theory
 - The Basics
 - Element
 - Path
-- Graph
+## Graph
 - Directed graph
 - Complete graph
 - Elaborations
 - Tree
 - Multi graph
 - External graph theory
-- Graph Traversal
+## Graph Traversal
 - Minimum spanning tree
 - Steiner tree problem
 - Shortest path problem
@@ -32,5 +32,3 @@
 - Bipartite graph
 - Complete bipartite graph
 - Petri net
-- Adjacency matrix
-- Example Applications of Graph Theory
