@@ -1,8 +1,11 @@
 ## Experience  
-- SecTM Business Isolation maps to Sharding 
-- SecTM distributed architecture maps to Mediator Pattern 
-- SecDB Ring - Sharding region based
-- JOLT - equivalent of distributed transaction across DB and Messaging 
+- **SecTM** Business Isolation maps to Sharding 
+- **SecTM** distributed architecture maps to Mediator Pattern 
+- **SecDB Ring** - Shard-ing region based
+- JOLT - equivalent of distributed transaction across DB and Messaging - **Payment Project @ GS**
+- Event Driven Architecture for **Prime Broker** and **Overnight Funding** enhancements 
+- Event Storming sessions for MTF P&L and Revenue Allocation 
+- Event Sourcing, Snapshot, State Recovery using snapshot, Event Source versioning for **Asset Ledger & Balance**   
 
 ## Misc - Thoughts 
 - Little-Endian and Big-Endian in Java  
