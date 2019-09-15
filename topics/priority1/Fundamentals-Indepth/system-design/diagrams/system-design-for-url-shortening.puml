@@ -1,0 +1,19 @@
+@startuml
+cloud "Clients" {
+}
+
+package "Application Server App" {
+    [Application Server]
+    database Database #11FFAA
+}
+
+package "Key Generation Service Service" {
+    [Key Generation Service]
+    database Key_DB #FFAA00
+}
+
+Clients <-right-> [Application Server] : P
+[Application Server] <-right- [Key Generation Service] : P
+[Application Server] <-down-> Database
+[Key Generation Service] <-down-> Key_DB
+@enduml

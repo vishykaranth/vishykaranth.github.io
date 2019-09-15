@@ -1,0 +1,65 @@
+## HTTP
+### Re-directions in HTTP
+- URL redirection, 
+    - also known as URL forwarding, 
+    - is a technique to give a page, 
+    - a form or a whole Web application, 
+    - more than one URL address. 
+- HTTP provides a special kind of responses, HTTP redirects, to perform this operation used for numerous goals: 
+    - temporary redirection while site maintenance is ongoing, 
+    - permanent redirection to keep external links working after a change of the site's architecture, 
+    - progress pages when uploading a file, and so on. 
+- A **redirection is triggered by the server** by sending special responses to a request: redirects. 
+    - HTTP redirects are responses with a status code of 3xx. 
+    - A browser, when receiving a redirect response, uses the new URL provided and immediately loads it: most of the time, the redirection is transparent to the user, besides a small performance hit.
+- There are several types of redirects and they fall into three categories: permanent, temporary and special redirections.
+    - Permanent redirections
+        - These redirections are meant to last forever. 
+        - They imply that the original URL should not be used anymore and that the new one is preferred. 
+        - Search engine robots trigger an update of the associated URL for the resource in their indexes.
+            - Code : 301 
+                - Text : Moved Permanently
+                - Method handling : GET methods unchanged. Others may or may not be changed to GET.[1]
+                - Typical use case : Reorganization of a Web site.
+            - Code : 308 
+                - Text : Permanent Redirect
+                - Method handling : Method and body not changed.
+                - Typical use case : Reorganization of a Web site, with non-GET links/operations.
+        - [1] The specification had no intent to allow method changes, but practically there are user agents out there doing this. 
+            - 308 has been created to remove the ambiguity of the behavior when using non-GET methods.       
+    - Temporary redirections
+        - Sometimes the requested resource cannot be accessed from its canonical location, but it can be accessed from another place. 
+        - In this case, a temporary redirect can be used. 
+        - Search engine robots don't memorize the new, temporary link. 
+        - Temporary redirections are also used when creating, updating and deleting resources to present temporary progress pages.
+        - Code : 302 
+            - Text : Found
+            - Method handling : GET methods unchanged. Others may or may not be changed to GET.[2]
+            - Typical use case : The Web page is temporarily not available for reasons that have not been unforeseen. That way, search engines don't update their links.
+        - Code : 303 
+            - Text : See Other
+            - Method handling : GET methods unchanged. Others changed to GET (body lost).
+            - Typical use case : Used to redirect after a PUT or a POST to prevent a refresh of the page that would re-trigger the operation.
+        - Code : 307 
+            - Text : Temporary Redirect
+            - Method handling : Method and body not changed
+            - Typical use case : The Web page is temporarily not available for reasons that have not been unforeseen. 
+                - That way, search engines don't update their links. 
+                - Better than 302 when non-GET links/operations are available on the site.
+        - The specification had no intent to allow method changes, but practically there are user agents out there doing this. 
+            - [2] 307 has been created to remove the ambiguity of the behavior when using non-GET methods.
+    - Special redirections
+        - In addition to these usual redirections, there are two specific redirections. 
+            - The 304 (Not Modified) redirects a page to the locally cached copy (that was stale), 
+            - and 300 (Multiple Choice) is a manual redirection: the body, presented by the browser as a Web page, lists the possible redirections and the user clicks on one to select it.
+        - Code : 300 
+            - Text : Multiple Choice
+            - Typical use case : Not many: the choices are listed in an HTML page in the body. Could be served with a 200 OK status.
+        - Code : 304 
+            - Text : Not Modified
+            - Typical use case : Cache refresh: this indicates that the cache value is still fresh and can be used.                 
+- References
+    - https://www.httpwatch.com/httpgallery/redirection/
+    - https://www.practicalecommerce.com/6-Reasons-to-Use-URL-Redirects
+    - https://blog.hubspot.com/blog/tabid/6307/bid/7430/what-is-a-301-redirect-and-why-should-you-care.aspx                      
+                                     
