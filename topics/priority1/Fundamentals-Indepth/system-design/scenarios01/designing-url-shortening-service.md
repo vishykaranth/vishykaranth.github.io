@@ -1,3 +1,10 @@
+---
+layout: page
+title: Designing a URL Shortening service 
+permalink: /designing-url-shortening-service/
+---
+
+
 ## Designing a URL Shortening service
 ### Why do we need URL shortening?
 - URL shortening is used to create shorter aliases for long URLs. 
