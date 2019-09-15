@@ -70,7 +70,7 @@
     - Event stream of online reservation
     - Fig.1 - Event stream of online reservation
     - o
-    - ![](imgs/kafka/event-stream-of-online-reservation.jpg)
+    - ![](../../../misc-reference/interview/imgs/kafka/event-stream-of-online-reservation.jpg)
     - o         
     - As the event is received to your application, you want to schedule a reminder that should be sent a couple of hours before the show. However, such a reminder doesn’t make sense If the ticket is booked fifteen minutes before the show, and hence you want to filter out those tickets from flowing to the scheduler. The point is straight. The timestamping of the event is critical for many stream processing use cases, and hence you may have to attach a timestamp with your events.
 

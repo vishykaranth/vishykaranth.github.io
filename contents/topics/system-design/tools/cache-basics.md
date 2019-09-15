@@ -43,9 +43,14 @@ permalink: /cache-basics/
     - Although, write through minimizes the risk of data loss, 
         - since every write operation must be done twice before returning success to the client, 
         - this scheme has the **disadvantage of higher latency for write operations**.    
-
-Write-around cache: This technique is similar to write through cache, but data is written
-directly to permanent storage, bypassing the cache. This can reduce the cache being
-flooded with write operations that will not subsequently be re-read, but has the
-disadvantage that a read request for recently written data will create a “cache miss” and
-must be read from slower back-end storage and experience higher latency.        
+- **Write-around cache**: 
+    - This technique is similar to write through cache, but data is written directly to permanent storage, bypassing the cache. 
+    - This can reduce the cache being flooded with write operations that will not subsequently be re-read, 
+        - but has the disadvantage that a read request for recently written data will create a “cache miss” 
+        - and must be read from slower back-end storage and experience higher latency. 
+- **Write-back cache**: Under this scheme, data is written to cache alone and completion is
+immediately confirmed to the client. The write to the permanent storage is done after
+specified intervals or under certain conditions. This results in low latency and high
+throughput for write-intensive applications, however, this speed comes with the risk of
+data loss in case of a crash or other adverse event because the only copy of the written data
+is in the cache.               
