@@ -4,8 +4,6 @@ title: Designing a URL Shortening service
 permalink: /designing-url-shortening-service/
 ---
 
-
-## Designing a URL Shortening service
 ### Why do we need URL shortening?
 - URL shortening is used to create shorter aliases for long URLs. 
 - We call these shortened aliases “short links.” 
@@ -14,6 +12,7 @@ permalink: /designing-url-shortening-service/
 - Additionally, users are less likely to mistype shorter URLs.
 - The shortened URL is nearly one-third the size of the actual URL.
 - URL shortening is used for optimizing links across devices, tracking individual links to analyze audience and campaign performance, and hiding affiliated original URLs.
+
 ### Requirements
 - Given a URL, our service should generate a shorter and unique alias of it. 
     - This is called a short link. 
@@ -29,6 +28,7 @@ permalink: /designing-url-shortening-service/
 - Extended Requirements
     - Analytics; e.g., how many times a redirection happened?
     - Our service should also be accessible through REST APIs by other services. 
+
 ### Capacity Estimation and Constraints
 - Our system will be read-heavy. 
 - There will be lots of redirection requests compared to new URL shortenings. 
@@ -70,6 +70,7 @@ permalink: /designing-url-shortening-service/
     - Outgoing data 10MB/s
     - Storage for 5 years 15TB
     - Memory for cache 170GB       
+
 ### System APIs
 - We can have SOAP or REST APIs to expose the functionality of our service. 
 - Following could be the definitions of the APIs for creating and deleting URLs:
@@ -85,6 +86,7 @@ permalink: /designing-url-shortening-service/
 - How do we detect and prevent abuse? A malicious user can put us out of business by consuming all URL keys in the current design.
 - To prevent abuse, we can limit users via their api_dev_key. 
     - Each api_dev_key can be limited to a certain number of URL creations and re-directions per some time period (which may be set to a different duration per developer key).
+
 ### Database Design
 - Defining the DB schema in the early stages of the interview would help to understand the data flow among various components and later would guide towards data partitioning.
     - A few observations about the nature of the data we will store:
@@ -92,6 +94,7 @@ permalink: /designing-url-shortening-service/
     - Each object we store is small (less than 1K).
     - There are no relationships between records—other than storing which user created a URL.
     - Our service is read-heavy.
+
 #### Database Schema     
 ![](url-shortening-database-design.png) 
 - What kind of database should we use? 
