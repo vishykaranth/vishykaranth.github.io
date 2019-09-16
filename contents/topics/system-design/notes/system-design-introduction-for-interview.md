@@ -1,0 +1,191 @@
+# Introduction For Interview
+[YouTube](https://www.youtube.com/watch?v=UzLMhqg3_Wc) - Video tutorial by Tushar Roy
+
+## Things to do
+- Ask good questions
+  - What features to work on
+  - How much to scale
+- Don't use buzzwords
+- Clear and organized thinking
+- Drive discussions (80-20 rule)
+
+## Things to consider
+- Features
+- Define APIs
+- Availability
+  - What if something goes down
+- Latency Performace
+  - Cache
+- Scalability
+- Durability
+  - Data stored securely
+  - Not lost
+  - Not compromised
+  - Matter in some interviews
+- Class Diagram
+  - OO Priciples
+- Security & Privacy
+- Cost effective
+
+## Concepts
+- Vertical & Horizontal scaling
+  - Vertical - Cap at how much for 1 host
+  - Horizontal - Infinite add more hosts
+    - Has to deal with distributed system challenges
+    - Preferred over vertical
+- CAP Theorem
+  - Consistency - read has most recent write
+  - Availability - get data back irregardless of most recent or not
+  - Partition Tolerance - bw 2 nodes packets could be dropped
+  - Only achieve 2/3
+  - Traditional Consistency > Availability
+  - NoSQL Availability > Consistency
+- ACID - Atomic Consistent Isolated Durable
+  - Relational
+- BASE - Basic Availability Soft-State Eventual consistency
+  - NoSQL
+  - If use NoSQL know which part of ACID sacrifice
+- Partitioning / Sharding Data
+  - Store in different servers
+  - **Consistent Hashing**
+- Optimistic vs Pessimistic Locking
+- Strong vs Eventual consistency
+  - Strong - always see latest write
+    - Relation more
+  - Eventual - see some, eventually will see latest
+    - NoSQL, can choose
+    - Higher availability
+- RelationalDB vs NoSQL
+  - rDB - ACID
+  - NoSQL - Scales better, better availability
+- Types of NoSQL
+  - Key Value
+  - Wide Column
+  - Document Based
+    - Semi-structured
+    - XML, JSON
+  - Graph Based
+- Caching
+  1. Every node does own cache
+  2. Distributed cache - sharing
+  - Considerations
+    - Cache cannot be source of truth
+    - Small - in memory
+    - Eviction policy? around cache
+- Data center / Racks / hosts
+  - Latency cross hosts, DC
+- CPU/Memory/HD/Bandwidth
+  - Limited resources
+- Ramdom vs sequential read/write on disk
+  - Design around sequential since faster
+- HTTP vs HTTP2 vs websockets
+  - HTTP2 improve
+    - Multiple requests or single
+  - websocket - fully bidirectional communication
+- TCP/IP Model
+- IPV4 vs IPV6
+  - ipv4 = 32 bit addresses
+  - ipv6 = 128 bit addresses
+- TCP vs UDP
+  - TCP - reliable
+    - documents
+  - UDP - unreliable
+    - Faster
+    - Video
+- DNS Lookup
+  - Translate address -> ip address
+  - Caching
+- HTTPS & TLS
+- Public key infrastructure & certificate authority
+- symmetric vs asymmetric encryption
+  - asymmetric - private / public encryption
+    - More computation so better for smaller data
+  - symmetric - AES
+- Load Balancer
+  - Sit in front service and delegate to node behind server
+  - Round Robin or load average
+  - L4
+    - Both client and destination & port
+  - L7
+    - HTTP URI for routing
+- CDNs & Edge
+  - Content Delivery Network
+    - Data close to streaming point
+    - Improve performance and latency
+  - Edge
+    - Processing close to end-user
+- Bloom Filters & Count-min sketch
+  - Bloom Filters
+    - Determine if element is part of set
+    - False positives but never false negatives
+    - Space efficient
+  - Count-min sketch
+    - Count frequency of events
+    - Close to answer w/ some error rate
+- Paxos - Consensus over distributed hosts
+  - Paxos solve: Leader election amonst hosts
+- Design Patterns & OO
+- Virtual Machines & Containers
+  - containers - run application & dependencies in isolated env.
+- Publishers-Subscribers over Queue
+  - Publish -> Queue -> Subscriber
+  - Customer facing should not expose to PubSub system
+- MapReduce
+  - Distributed mass parallel big data
+  - Map - filtering and sort
+  - Reduce - Summarizing data
+- Multithreading, concurrency, locks, synchronization, CAS
+  
+## Tools
+- Cassandra
+  - Wide-column high-scalable DB
+  - Simple key value
+  - Time series data
+  - Rows w/ lots of colums
+  - Eventual and strong consistency
+  - Hashing to shard data
+  - Gossiping to keep nodes informed
+- MongoDB
+  - JSON
+  - ACID at Document
+  - Scale
+- MySQL
+  - Traditional
+  - ACID
+  - Master Slave
+- Memcached
+  - Distributed cache
+  - Hold data in memory
+  - Key value
+- Redis
+  - Key value
+  - Cluster
+- Zookeeper
+  - Centralized config management
+  - Leader election
+  - Distributed locking
+  - Scale for reads but not writes
+  - In memory
+- Kafka
+  - Fault tolerant , highly available queue
+  - PubSub or stream
+  - Deliver messages once
+  - Keep ordered in partition
+- NGINX & HA Proxy
+  - Load balancers
+  - Efficient
+- Solr & Elastic Search
+  - Full text search
+- Blobstore like Amazon S3
+  - Picture & file storage
+- Docker
+  - Containers
+  - Kubernetes & Mesos
+    - Manage & coordinate containers
+- Hadoop/Spark
+  - Hadoop - uese map reduce
+  - Spark - faster Hadoop since in-memory
+  - HDFS 
+    - Java based
+    - Distributed & fault tolerant
+  - Hadoop relies on HDFS for processing

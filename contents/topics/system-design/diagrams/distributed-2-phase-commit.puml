@@ -1,0 +1,21 @@
+@startuml
+autonumber
+skinparam ParticipantPadding 40
+box "2 Phase commit" #059199
+actor User
+participant Coordinator #22FFA9
+participant Customer_Wallet #99FF99
+participant Order #99FF99
+User -> Coordinator : Place Order
+Coordinator -> Coordinator : Create Transaction Id
+Coordinator -> Customer_Wallet : Prepare Wallet
+Coordinator -> Order : Prepare Order
+Coordinator <-[#0000FF]- Customer_Wallet : Prepared Successfully
+Coordinator <-[#0000FF]- Order : Prepared Successfully
+Coordinator -> Customer_Wallet : Check Balance / Deduct - Commit Wallet
+Coordinator <-[#0000FF]- Customer_Wallet : Wallet Committed
+Coordinator -> Order : Create Order - Commit Order
+Coordinator <-[#0000FF] Order : Order Committed
+User <-[#0000FF] Coordinator : Order Placed
+end box
+@enduml

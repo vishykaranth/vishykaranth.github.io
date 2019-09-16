@@ -1,0 +1,66 @@
+### Interesting movie scenes 
+- https://www.youtube.com/watch?v=Hhy7JUinlu0
+- https://www.youtube.com/watch?v=CeGtqouT8eA
+- https://www.youtube.com/watch?v=U2lVmSlDJhg&t=58s
+- https://www.youtube.com/watch?v=zaRkONvyGr8
+- https://www.youtube.com/watch?v=4Q72kbwyEmk
+- https://www.youtube.com/watch?v=7ocpwK9uesw&t=527s
+- https://www.youtube.com/watch?v=_BpmfnqjgzQ&t=1051s
+- https://www.youtube.com/watch?v=EcFVTgRHJLM
+- https://www.youtube.com/watch?v=v-GiuMmsXj4
+- https://www.youtube.com/watch?v=hUE_j6q0LTQ
+- https://www.youtube.com/watch?v=2PKQtcJjYvc
+- https://www.youtube.com/watch?v=GCraGHx6gso
+- https://www.youtube.com/watch?v=uNTNEfwYXhI
+- https://www.youtube.com/watch?v=DJF_sGOs2V4
+- https://www.youtube.com/watch?v=F1YQ7YRjttI
+- https://www.youtube.com/watch?v=lPsSL6_7NBg
+- https://www.youtube.com/watch?v=rQ7BzfRz7OY
+- https://www.youtube.com/watch?v=N12L5D78MAA
+- https://www.youtube.com/watch?v=9qA5kw8dcSU
+- https://www.youtube.com/watch?v=vRSRElAIdsU
+- https://www.youtube.com/watch?v=uqeTSCh_Ki0
+- https://www.youtube.com/watch?v=-h72OXgx5co
+### Hibernate 
+- https://www.youtube.com/watch?v=ZLeTFBvegfY
+### Java Brains
+- https://www.youtube.com/watch?v=1EIb-4ipWFk
+- https://www.youtube.com/watch?v=c79blxc0oR0
+- https://www.youtube.com/watch?v=1MPDOdFihPo
+- https://www.youtube.com/watch?v=mJ8JSach2P4
+- https://www.youtube.com/watch?v=kr-2li6kr9s
+- https://www.youtube.com/watch?v=ht8HNsX_jBQ
+- https://www.youtube.com/watch?v=ht8HNsX_jBQ
+### Microservices Patterns 1
+- https://www.youtube.com/watch?v=BCXcIllT7Lc
+- https://www.youtube.com/watch?v=8BPDv038oMI
+- https://www.youtube.com/watch?v=lTkL1oIMiaU
+### Microservices 
+- https://www.youtube.com/watch?v=Ijs55IA8DIk
+- https://www.youtube.com/watch?v=W_wySQ0lTI4
+- https://www.youtube.com/watch?v=A0goyZ9F4bg
+- https://www.youtube.com/watch?v=GRPLRONVDWY
+- https://www.youtube.com/watch?v=Bcs-inRnLDc
+- https://www.youtube.com/watch?v=RsyOkifmamI G 
+### Spring Boot 
+- https://www.youtube.com/watch?v=aA4tfBGY6jY
+- https://www.youtube.com/watch?v=s9vt6UJiHg4
+- https://www.youtube.com/watch?v=pP7QIdEpEzQ
+### Kubernetes 
+- https://www.youtube.com/watch?v=OsWXtVbTnv0
+- https://www.youtube.com/watch?v=RelPurLZnII
+- https://www.youtube.com/watch?v=hkbRRpADRi8
+### code comp
+- https://www.youtube.com/watch?v=w81-gJQL-vg
+### Reactive 
+- https://www.youtube.com/watch?v=aIDFYBhENN4
+### Chris R 
+- https://www.youtube.com/watch?v=7kX3fs0pWwc
+### Optimistic Locking 
+- https://www.youtube.com/watch?v=whk988N6y1Q
+### References 
+- https://eventuate.io/exampleapps.html
+- https://dzone.com/articles/microservices-and-business-transactions?fromrel=true
+- https://microservices.io/patterns/data/saga.html
+- https://blog.knoldus.com/microservices-and-the-saga-pattern/
+- 	

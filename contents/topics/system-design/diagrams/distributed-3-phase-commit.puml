@@ -1,0 +1,24 @@
+@startuml
+autonumber
+skinparam ParticipantPadding 40
+box "3 Phase commit" #059199
+participant Coordinator #22FFA9
+participant Participators #99FF99
+Coordinator -> Participators : Can Commit
+Coordinator <-[#0000FF] Participators : Yes
+note left : Collect Votes
+note right : Step 1
+
+Coordinator -> Participators : Pre Commit
+Coordinator <-[#0000FF] Participators : ACK
+note left : Commits Authorized
+note right : Step 2
+
+Coordinator -> Participators : Do Commit
+Coordinator <-[#0000FF] Participators : Have Committed
+note left : Finalize Commit
+note right : Step 3
+
+
+end box
+@enduml

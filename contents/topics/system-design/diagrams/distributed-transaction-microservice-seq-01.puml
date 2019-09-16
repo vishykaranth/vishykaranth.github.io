@@ -1,0 +1,14 @@
+@startuml
+autonumber
+skinparam ParticipantPadding 40
+box "Microservice Application" #LightBlue
+actor User
+participant Orchestrator #22FFA9
+participant Customer_Wallet #99FF99
+participant Order #99FF99
+User -> Orchestrator : Place Order
+Orchestrator -> Customer_Wallet : Check Balance / Deduct
+Orchestrator -> Order : Create Order
+User <-[#0000FF]- Orchestrator : Order Placed
+end box
+@enduml

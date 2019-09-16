@@ -1,0 +1,23 @@
+@startuml
+actor User
+cloud "Event Bus (Order Created)"{
+    [Kafka Topic Request]
+}
+cloud "Event Bus (Cancel)"{
+    [Kafka Topic Cancel]
+}
+cloud "Event Bus (Created)"{
+    [Kafka Topic Created]
+}
+
+User -[#000000]down-> [OrderMS] : Order
+[OrderMS] -[#000000]down-> [Kafka Topic Request] : <OrderCreatedEvent>
+[Kafka Topic Request] -[#000000]down-> [CustomerWalletMS] : Consume Order
+[CustomerWalletMS] -[#000000]right-> [Kafka Topic Created] : Sufficient Fund
+[CustomerWalletMS] -[#000000]left-> [Kafka Topic Cancel] : InSufficient Fund
+[Kafka Topic Cancel] -[#FF0000]right-> [OrderMS] : CancelOrder
+[Kafka Topic Created] -[#00FF00]up-> [OrderMS] : CompleteOrder
+[OrderMS] -[#FF0000]up-> User : Rollback Order
+[OrderMS] -[#00FF00]up-> User : Placed Order
+
+@enduml

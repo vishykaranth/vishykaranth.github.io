@@ -1,0 +1,38 @@
+
+### Graphs
+- Directed Graphs
+- Undirected Graphs
+- Weighted Graphs
+- Graph Representations
+- Adjacency Matrix Representation
+- Adjacency List Representation
+- Graph Traversals
+- Depth-First Search
+- Definitions, Traversal, Analysis and Examples
+- Introduction
+- Glossary of graph theory
+- Graph theory
+- The Basics
+- Element
+- Path
+- Graph
+- Directed graph
+- Complete graph
+- Elaborations
+- Tree
+- Multi graph
+- External graph theory
+- Graph Traversal
+- Minimum spanning tree
+- Steiner tree problem
+- Shortest path problem
+- Dijkstra's algorithm
+- Bellman–Ford algorithm
+- A* search algorithm
+- Analysis
+- Bipartite graph
+- Complete bipartite graph
+- Petri net
+- Adjacency matrix
+- Example Applications of Graph Theory
+

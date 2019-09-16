@@ -324,3 +324,6 @@ A web application for instant messaging, eg whatsapp, facebook chat. Issues of e
 - Twitter by Hired in tech	Link	High
 - DropBox scaling	Link	High
 - Interviewing at Google	Link	Low
+
+### References 
+- https://github.com/donnemartin/system-design-primer

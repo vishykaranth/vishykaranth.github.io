@@ -65,3 +65,20 @@
     - unless the response from other origins includes the right CORS headers.
 - The CORS mechanism supports secure cross-origin requests and data transfers between browsers and servers. 
     - Modern browsers use CORS in a APIs such as XMLHttpRequest or Fetch to mitigate the risks of cross-origin HTTP requests.
+    
+## Solr:
+- It's an open source search platform written in Java from Apache Lucene project
+- Major features:
+    - Full text search: Searching document in full text database rather than metadata
+    - Hit highlighting: Term search 
+    - Faceted search: Search as per faceted classification system
+    - Real-time indexing
+    - Dynamic clustering: Can have nodes
+    - Database integration
+    - NoSQL features
+    - Rich Document handling. 
+- Solr is widely used for search & analytic use case
+- It runs as a standalone full-text search server. 
+    - It uses the Lucene Java search library at its core for full-text indexing & search. 
+- It has REST like HTTP/xml & JSON APIs that make it usable from programming languages. 
+- Solr's external configuration allows it to be tailored to many types of application without Java coding.     
