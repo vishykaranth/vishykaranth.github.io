@@ -1,3 +1,10 @@
+---
+layout: page
+title: Twitter System Design 2
+permalink: /twitter-system-design-2/
+---
+
+
 ### Twitter Numbers
 - 200ms latency for timeline generation
 - 28B tweet views per day

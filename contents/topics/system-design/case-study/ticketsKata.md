@@ -1,3 +1,10 @@
+---
+layout: page
+title: Tickets Kata 
+permalink: /tickets-kata/
+---
+
+
 # Tickets Reservation System Kata
 
 ### Description
