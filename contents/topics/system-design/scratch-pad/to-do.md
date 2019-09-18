@@ -20,4 +20,5 @@
  	
  	
 - https://www.allthingsdistributed.com/2008/12/eventually_consistent.html
-- https://orrsella.gitbooks.io/soft-eng-interview-prep/content/topics/system-architecture-examples.html 	
+- https://orrsella.gitbooks.io/soft-eng-interview-prep/content/topics/system-architecture-examples.html
+- https://stackoverflow.com/questions/21424962/how-does-three-phase-commit-avoid-blocking 	
