@@ -9,4 +9,5 @@
 - Structral Patterns 
     - Bridge
     - Adaptor 
-    -  
+    -
+- Behavioural Patterns      
