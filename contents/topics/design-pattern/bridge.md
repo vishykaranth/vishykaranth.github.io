@@ -1,0 +1,81 @@
+## Bridge Pattern 
+
+-  Now bridge is confusing to people because people don't understand how big it is.
+-  In other words, a bridge is a very, very big thing.
+-  Adapters and decorators are very, very small things.
+-  They're one class.
+-  In the case of an adapter, in fact, the class is on almost trivial classes.
+-  Most of the methods in it are only a line long.
+-  A bridge on the other hand is a huge thing, and the bridge is often made up of adapters and decorators and other things.
+-  So the difference again as usual is an intent.
+-  The purpose of a bridge is to isolate two subsystems from each other so that you can modify them independently.
+-  Now you could implement a bridge in a trivial way with an adapter I suppose.
+-  In other words, if you have an interface, then things on one side of the interface can be modified independently of things on the other side of the interface because the interface is in the middle.
+-  So if something implements an interface, for example, and something else uses the interface, well, in theory, you could implement this interface in different ways, and this guy would be unaware of the fact that you made the change on this side.
+-  So that is a kind of bridge, and structurally, of course, this looks almost identical to a decorator and adapter, which is what confuses people.
+-  Bridges in practice though are big.
+-  They're not little.
+-  So JDBC is a bridge.
+-  Looking at the structure, for example, if you come over here to the diagram, this picture is the entire JDBC system.
+-  Now this is a huge thing.
+-  It's got adapters in it.
+-  It's got a bunch of classes in it.
+-  It's not a small piece of code.
+-  In fact, we're not going to look at all of this code because it would take us two hours to go through it, and there wouldn't be much benefit here.
+-  The main point is that I have a set of interfaces on one side of the bridge, and I have a set of client classes that are written entirely in terms of those interfaces.
+-  On the other side of the bridge, I have a set of classes that implement those interfaces one way or another.
+-  Now in this case, they're doing it indirectly because we have our Java adapters in the middle, but the basic idea is that the classes on one side of the bridge implement interfaces on the other side of this-- on the other side of the bridge.
+-  But unlike something simple like an adapter or a decorator, these classes on the left are doing a lot of work.
+-  Is that I said a moment ago when we were talking about adapters that the methods are not only one line long or so, but if they're doing something more elaborate than that, you should be thinking about a different design pattern.
+-  Well, bridge is usually the design pattern that you come to.
+-  So the point of JDBC, of the whole system, is that I have this elaborate set of classes or the set of interfaces on the right.
+-  And as long as I program to that set of interfaces, I don't care what's on the left.
+-  The implementation of that interface, in other words, could talk to Oracle, it could talk to SQL Server, it could talk to MySQL.
+-  I really don't care because I am isolated from the underlying implementation.
+-  So I can change the application, of course, and my database layer could care less.
+-  But more importantly, I can change the database layer, and the application could care less.
+-  And, in fact, in the case of the JDBC bridge, I can even make that change at runtime.
+-  In other words, the way the JDBC works is at runtime, you get a connection to a particular kind of database, and it gives you back something that implements one of these interfaces.
+-  It will implement the Java dot SQL dot connection.
+-  So you have a Java dot SQL dot driver interface, which is the means that you use to get access to a connection.
+-  But the point is that you might not know what kind of database that that connection is connecting you to.
+-  In fact, you shouldn't know.
+-  And you could even swap that out at runtime in some situations, and the code would be none the wiser that that swap had happened.
+-  So the two sides of the bridge are completely isolated from each other, or they should be.
+-  Which brings me to one of the big flaws of bridge is that if any of you have used JDBC, you know that the huge flaw in JDBC is that there's no standardization of the SQL that you use to actually access the database.
+-  In other words, you should have a set of interfaces that isolate you from mechanics of creating a connection, for example, in making a query.
+-  But the actual underlying database shines through if you will in a way that is very undesirable.
+-  So you can use Oracle SQL.
+-  You could use PL SQL, for example, to make a query through JDBC.
+-  But if the you then swapped out Oracle and swapped in MySQL instead, you'd be in deep trouble because the SQL wouldn't work anymore.
+-  So JDBC is not very successful as a bridge.
+-  The whole point of the bridge is to completely isolate yourself from the underlying layer, and it is not doing that.
+-  So it is a bridge, but it's not a good one.
+-  Same can be said for ODBC and all of the other similar kinds of database bridges that I've seen.
+-  So how could you solve the problem? Well, one way to solve the problem would be to define a dialect of SQL that the user of the bridge could be guaranteed would work and then at the same time not allow any other dialect of SQL to be used.
+-  Now that, of course, has all sorts of implementation issues associated with it because the bridge now not only has to just call methods on the other side.
+-  It has to actually implement a SQL dialect in order to work properly, and nobody wants to do that.
+-  So that's one solution.
+-  You could go to an even larger extreme.
+-  If you think about object relational mapping systems that allow you to define objects which underneath them have some kind of database but you have no idea how they interact with that database, that's actually a much more successful bridge, but it's a vastly harder thing to implement than a bridge written in a simple way like a JDBC bridge or an ODBC bridge would be implemented.
+-  So the basic issue here then is that the purpose of a bridge is to completely isolate subsystems.
+-  If it does not completely isolate the subsystems and JDBC does not, then you do not have a successful bridge though you might have a bridge.
+-  If you are not trying to isolate subsystems, if you're just putting an intermediary in between two pieces of the program, that's a different design pattern entirely, which we will talk about in a moment.
+-  But it is not a bridge anymore.
+-  The source of confusion is that when you get down to a trivial, trivial, trivial case, you might implement a bridge with something as simple as an adapter or something as simple as a couple of decorators in an adapter.
+-  So people get confused.
+-  They say, well, what's the difference then between an adapter and a bridge? And the main difference is in scope and intent.
+-  So just to summarize, the intent of a adaptor is to mix an interface into a class that does not currently implement that interface.
+-  The intent of a decorator is to change the way that a method behaves so that-- the reed method, for example, changes-- behaves in one way when you're looking at one particular kind of decorator.
+-  If it happens to be looking at a different decorator, it will behave in a different way.
+-  And the intent of bridge is to isolate subsystems so that you can swap out the subsystem that's on the other side without impacting the code that's using that subsystem.
+-  There's absolutely no reason why you can't combine these things.
+-  So it's perfectly reasonable to have a situation where a decorator, for example, or a set of decorators or a set of adapters would also serve as a bridge.
+-  There's nothing wrong with that in a couple-- in a very simple situation, you might implement a bridge rather as a set of adapters.
+-  So again what matters here is intent, not the structure of the implementation.
+-  And bridges get so complicated, in fact, that it's hard to peg down a specific structure with that you could look at and say, oh, that's definitely a bridge.
+-  You really have to know what the intent of the programmer is in order to make that work.
+-  Now as I said, I'm not going to look at source code for bridge because bridges are these huge things.
+-  It's that anything that implements a bridge is going to-- anything that implements a bridge successfully was isolate the subsystems from each other no matter how they do that.
+-  There's another design pattern called facade, which we will look at next.
+-  The facade is also very bridge like in the sense that it stands between two different subsystems, but it does a completely different thing.

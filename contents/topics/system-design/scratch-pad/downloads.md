@@ -1,4 +1,8 @@
-### Interesting movie scenes 
+### GO To conf
+https://www.youtube.com/watch?v=U_NgcAg7jyY
+https://www.youtube.com/watch?v=weWSYIUdX6c
+
+### Learn  
 - https://www.youtube.com/watch?v=Hhy7JUinlu0
 - https://www.youtube.com/watch?v=CeGtqouT8eA
 - https://www.youtube.com/watch?v=U2lVmSlDJhg&t=58s
