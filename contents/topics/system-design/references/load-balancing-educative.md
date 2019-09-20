@@ -1,3 +1,9 @@
+---
+layout: page
+title: Load Balancing  
+permalink: /load-balancing/
+---
+
 - Load Balancer (LB) is another critical component of any distributed system. 
 - It helps to spread the traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases. 
 - LB also keeps track of the status of all the resources while distributing requests. 
@@ -55,4 +61,4 @@
     - and, since both of them are equally capable of serving traffic and failure detection, 
     - in the event the main load balancer fails, 
     - the second load balancer takes over.
-    - ![](imgs/LB_002.png)    
+    - ![](imgs/LB_003.png)    
