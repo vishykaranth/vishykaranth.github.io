@@ -1,0 +1,19 @@
+## System Design Basics
+- Whenever we are designing a large system, we need to consider few things:
+    - What are different architectural pieces that can be used?
+    - How do these pieces work with each other?
+    - How can we best utilize these pieces, what are the right tradeoffs?
+- Investing in scaling before it is needed is generally not a smart business proposition; however, some forethought into the design can save valuable time and resources in the future. 
+- System Design aspects are,
+    - core building blocks of scalable systems. 
+    - distributed system concepts. 
+    - Consistent Hashing, 
+    - CAP Theorem, 
+    - Load Balancing, 
+    - Caching, 
+    - Data Partitioning, 
+    - Indexes, 
+    - Proxies, 
+    - Queues, 
+    - Replication
+    - choosing between SQL vs. NoSQL.

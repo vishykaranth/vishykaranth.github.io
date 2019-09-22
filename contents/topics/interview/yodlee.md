@@ -50,6 +50,23 @@
     - Yodlee is an American software company that develops an account aggregation service 
     - that allows users to see their credit card, bank, investment, email, travel reward accounts, etc. on one screen. 
 - Explain how an API works  
+
+### Preparation 
+- Interview Videos 
+    - Kafka
+        - Consumer Group & Consumers & Offsets
+        - role of zookeeper
+        - InsyncReplicas
+        - Data retention
+        - general Performance issues and debugging
+        - monitoring of services
+        - back pressure 
+            - How it is handled in Kafka + spark streaming    
+    - Spring, 
+    - Hibernate, 
+    - MongoDB 
+- Downloads 
+    - https://www.youtube.com/watch?v=MhyW1FUdN8I    
     
     
 

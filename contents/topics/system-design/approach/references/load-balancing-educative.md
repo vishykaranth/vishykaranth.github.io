@@ -62,3 +62,27 @@ permalink: /load-balancing/
     - in the event the main load balancer fails, 
     - the second load balancer takes over.
     - ![](imgs/LB_003.png)    
+- There are many ways to implement load balancing.
+    - Smart Clients
+        - One way to implement load-balancing is through the client applications. 
+        - Developers can add the load balancing algorithm to the application or the database client. 
+        - Such a client will take a pool of service hosts and balances load across them. 
+        - It also detects hosts that are not responding to avoid sending requests their way. 
+        - Smart clients also have to discover recovered hosts, deal with adding new hosts, etc. 
+        - Smart clients look easy to implement and manage especially when the system is not large, but as the system grows, LBs need        to be evolved into standalone servers.
+- Hardware Load Balancers
+    - The most expensive–but very high performance–solution to load balancing is to buy a dedicated hardware load balancer (like a Citrix NetScaler ). 
+    - While they can solve a remarkable range of problems, hardware solutions are costly, and they are not trivial to configure.
+    - As such, even large companies with large budgets will often avoid using dedicated hardware for all their load-balancing needs. 
+    - Instead, they use them only as the first point of contact for user requests to their infrastructure and use other mechanisms for load-balancing for traffic within their network.
+- Software Load Balancers
+    - If we want to avoid the pain of creating a smart client, and since purchasing dedicated hardware is expensive, we can adopt a hybrid approach, called software load-balancers.
+    - HAProxy is one of the popular open source software LB. The load balancer can be placed between the client and the server or between two server-side layers. 
+    - If we can control the machine where the client is running, HAProxy could be running on the same machine. 
+    - Each service we want to load balance can have a locally bound port (e.g., localhost:9000) on that machine, and the client will use this port to connect to the server. 
+    - This port is, actually, managed by HAProxy; every client request on this port will be received by the proxy and then passed to the backend service in an efficient way (distributing load). 
+    - If we can’t manage the client’s machine, HAProxy can run on an intermediate server. 
+    - Similarly, we can have proxies running between different server-side components. 
+    - HAProxy manages health checks and will remove or add servers to those pools. 
+    - It also balances requests across all the servers in those pools.
+    - For most systems, we should start with a software load balancer and move to smart clients or hardware load balancing as the need arises.    

@@ -1,0 +1,75 @@
+@startuml
+' uncomment the line below if you're using computer with a retina display
+' skinparam dpi 300
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+' we use bold for primary key
+' green color for unique
+' and underscore for not_null
+!define primary_key(x) <b>x</b>
+!define unique(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+' other tags available:
+' <i></i>
+' <back:COLOR></color>, where color is a color name or html color code
+' (#FFAACC)
+' see: http://plantuml.com/classes.html#More
+hide methods
+hide stereotypes
+
+' entities
+
+Table(user, "User") {
+primary_key(UserId) INTEGER
+not_null(name) VARCHAR[32]
+not_null(email) VARCHAR[32]
+DateOfBirth DATETIME
+creationDate DATETIME
+LastLogin DATETIME
+}
+
+
+Table(entity, "Entity") {
+primary_key(EntityId) int
+name VARCHAR[32]
+type tinyint
+description VARCHAR[512]
+creationDate DATETIME
+category tinyint
+phone VARCHAR[32]
+email VARCHAR[32]
+}
+
+Table(userFollow, "UserFollow") {
+primary_key(UserId) int
+primary_key(EntityOrFriendId) int
+type tinyint
+}
+
+
+Table(feedItem, "FeedItem") {
+primary_key(FeedItemId) int
+UserId int
+contents VARCHAR[512]
+EntityId int
+LocationLongitude int
+LocationLatitude int
+creationDate DATETIME
+numLikes int
+}
+
+Table(feedMedia, "FeedMedia") {
+primary_key(FeedItemId) int
+primary_key(MediaId) int
+}
+
+Table(media, "Media") {
+primary_key(MediaId) int
+type tinyint
+description VARCHAR[512]
+path VARCHAR[512]
+LocationLongitude int
+LocationLatitude int
+creationDate DATETIME
+}
+
+@enduml
