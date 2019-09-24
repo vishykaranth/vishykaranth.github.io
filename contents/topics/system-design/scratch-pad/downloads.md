@@ -3,10 +3,9 @@ https://www.youtube.com/watch?v=U_NgcAg7jyY
 https://www.youtube.com/watch?v=weWSYIUdX6c
 
 ### Learn  
-- https://www.youtube.com/watch?v=-W9F__D3oY4 scalability 
-- https://www.youtube.com/watch?v=5cKTP36HVgI
-- https://www.youtube.com/watch?v=4upppuW7lGE
-- https://www.youtube.com/watch?v=uryHucNEZXk
+
+- 
+- 
 - https://www.youtube.com/watch?v=_F1U6Rh0wfo
 - https://www.youtube.com/watch?v=IbRPTURqa6Y
 - https://www.youtube.com/watch?v=lbLZiHvPIKE&t=251s
@@ -45,8 +44,8 @@ https://www.youtube.com/watch?v=weWSYIUdX6c
 - https://www.youtube.com/watch?v=ht8HNsX_jBQ
 - https://www.youtube.com/watch?v=ht8HNsX_jBQ
 ### Microservices Patterns 1
-- https://www.youtube.com/watch?v=BCXcIllT7Lc
-- https://www.youtube.com/watch?v=8BPDv038oMI
+- 
+- 
 - https://www.youtube.com/watch?v=lTkL1oIMiaU
 ### Microservices 
 - https://www.youtube.com/watch?v=Ijs55IA8DIk
@@ -64,13 +63,8 @@ https://www.youtube.com/watch?v=weWSYIUdX6c
 - https://www.youtube.com/watch?v=RelPurLZnII
 - https://www.youtube.com/watch?v=hkbRRpADRi8
 ### code comp
-- https://www.youtube.com/watch?v=w81-gJQL-vg
-### Reactive 
-- https://www.youtube.com/watch?v=aIDFYBhENN4
-### Chris R 
-- https://www.youtube.com/watch?v=7kX3fs0pWwc
-### Optimistic Locking 
-- https://www.youtube.com/watch?v=whk988N6y1Q
+- https://www.youtube.com/watch?v=w81-gJQL-vg (very long, 480 mb) 
+
 ### References 
 - https://eventuate.io/exampleapps.html
 - https://dzone.com/articles/microservices-and-business-transactions?fromrel=true

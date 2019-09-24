@@ -1,0 +1,36 @@
+## Apache Kafka vs Active MQ
+- Although Apache Kafka and Active MQ were designed for different purposes, there is some overlap which is worth comparison.
+- Apache Kafka vs Active MQ – what do they do?
+    - As a distributed streaming platform, 
+        - Kafka allows streamed data to be processed and reprocessed on disk.  
+        - Its high throughput means it is more commonly used for data streaming in real-time.
+    - Active MQ, on the other hand, is a message broker for more general purposes.  
+        - It is able to support various messaging protocols including AMQP, STOMP and MQTT.  
+        - It is commonly used for integration between application/services.
+    - Explore Apache Kafka vs RabbitMQ
+- Apache Kafka vs Active MQ – design
+    - Active MQ was based on JMS specification, which is a standard method used when interfacing with message brokers, 
+    - whereas the design of Kafka was related to the needs of LinkedIn.  
+    - This ‘universal data pipeline’ needed a different type of message broker.  
+    - Active MQ is not able to support these data pipelines as well as Kafka.  
+    - Although Kafka does offer persistence it doesn’t come with the same guarantees as brokers based on JMS.
+- Apache Kafka vs Active MQ – reliability
+    - Active MQ concerns itself with reliable and persistent messaging, and minimising the burden on the messaging clients.  
+        - One example of this is that it is the broker’s responsibility to retain messages until consumers have processed them.  
+        - This increases the complexity and degrades the performance as the number of consumers increases.
+    - Apache Kafka, on the other hand, uses a ‘topic’ (unified destination model) model.  
+        - In comparison to Active MQ messages are kept for a while but persistence is time limited 
+        - and the responsibility is on the consumer to consume any relevant messages before they are deleted.  
+        - This means that messages can be lost.
+- Apache Kafka vs Active MQ – disk space usage and capacity
+    - The Kafka message broker can increase disk usage by up to 1000 times that of Active MQ.  
+    - Active MQ does consume a little more disk space because it keeps messages for consumers.  
+    - To offset this disk usage Active MQ allows the user to set a message lifetime, and the message will be deleted after a certain time period.
+    - Kafka offers no guarantees to consumers who don’t pick up their messages, but it has speed and the capacity to handle millions of messages each second.
+    - Today almost all message brokers have a similar total capacity in MB/s.  
+    - Kafka does particularly well with small messages in comparison to others, but similar at around the 75MB/s mark.
+- Kafka vs Active MQ
+    - Where Kafka clusters the publishing and consumers are required to track subscriptions, 
+    - Active MQ cluster the publishing of messages and also track consumer subscriptions.
+    - If you are looking for higher performance monitoring and message loss is not so critical, Kafka is ideal for your purposes.  
+    - On the other hand, a classical message broker such as Active MQ will be ideal if you care about one-time delivery and have valuable messages.

@@ -10,7 +10,7 @@ permalink: /designing-paste-bin/
     - Such services are also used to share data over the network quickly, 
     - as users would just need to pass the URL to let other users see it.
 
-### Requirements:
+### Functional Requirements:
 - Users should be able to upload or “paste” their data and get a unique URL to access it.
 - Users will only be able to upload text.
 - Data and links will expire after a specific timespan automatically; users should also be able to specify expiration time.

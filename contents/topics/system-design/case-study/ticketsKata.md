@@ -15,7 +15,7 @@ You know that there will be interactive map for each event, and users will be ab
 <br>
 You must create subsystem responsible for online tickets reservation.
 
-### Business requirements
+### Functional requirements
 
 - Subsystem has tickets, which can be in 3 states FREE -> RESERVED -> SOLD
 - Tickets can be stored for many events. Events are defined and maintained in another subsystem.
@@ -33,7 +33,7 @@ You must create subsystem responsible for online tickets reservation.
 - System should check whether all tickets are bought or not. If yes, then system should emit event
 (with meaningful name and eventId) that tickets reservation for event is already closed.
 
-# Endpoints requirements
+# System API's
 
 - Create endpoint for pool of tickets creation. After another subsystem create event for some show, we should recieve JSON with information about tickets pool. We should create ticket categories, then create tickets for event.
 
