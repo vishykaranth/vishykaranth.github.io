@@ -1,0 +1,78 @@
+### Java 8 Interview Questions 
+- Differences between Functional Programming and Object-Oriented Programming?
+    - Functional Programming
+        - Does not exist State
+        - Uses Immutable data
+        - It follows Declarative Programming Model
+        - Stateless Programming Model
+        - Main Focus on: “What you are doing”
+        - Good for Parallel (Concurrency) Programming
+        - Good for BigData processing and analysis
+        - Supports pure Encapsulation
+        - Functions with No-Side Effects
+        - Functions are first-class citizens
+        - Primary Manipulation Unit is “Function”
+        - Flow Controls: Function calls, Function Calls with Recursion
+        - It uses “Recursion” concept to iterate Collection Data.
+        - Order of execution is less importance.
+        - Supports both “Abstraction over Data” and “Abstraction over Behavior”.
+        - We use FP when we have few Things with more operations.
+    - OOP
+        - Exists State
+        - Uses Mutable data
+        - It follows Imperative Programming Model
+        - Stateful Programming Model
+        - Main focus on “How you are doing”
+        - Poor for Parallel (Concurrency) Programming
+        - NOT Good for BigData processing and analysis
+        - It breaks Encapsulation concept
+        - Methods with Side Effects
+        - Objects are first-class citizens
+        - Primary Manipulation Unit is Objects(Instances of Classes)
+        - Flow Controls: Loops, Conditional Statements
+        - It uses “Loop” concept to iterate Collection Data. For example:-For-each loop in Java
+        - Order of execution is must and very important.
+        - Supports only “Abstraction over Data”.
+        - We use OOP when we have few Operations with more Things. 
+            - For example: Things are classes and Operations are Methods in Java.
+- What are the Differences between Java’s OLD Java Date API and Java 8’s Date and Time API?
+    - Java’s OLD Java Date API
+        - Available before Java 8 too.
+        - Not Thread Safe.
+        - Mutable API.
+        - Less Performance.
+        - Less Readability.
+        - It’s not recommended to use as its deprecated.
+        - Not Extendable.
+        - It defines months values from 0 to 11, that is January = 0.
+        - It’s an old API.
+    - Java 8’s Date and Time API
+        - It is introduced in Java SE 8
+        - Thread Safe.
+        - Immutable API.
+        - Better Performance.
+        - More Readability.
+        - It’s always recommended to use.
+        - Easy to Extend.
+        - It defines months values from 1 to 12, that is January = 1.
+        - It’s a new API.
+- What is Diamond Problem in Inheritance? How Java 8 Solves this problem?
+    - A Diamond Problem is a Multiple Inheritance problem. In Java, It occurs when a Class extends more than one Interface which have same method implementation
+    - To avoid this problem, Java 7 and Earlier versions does not support methods implementation in interface and also doesn’t support Multiple Inheritance. 
+    - Java 8 has introduced new feature: Default methods to support Multiple Inheritance with some limitations.
+- What is a Static Method? Why do we need Static methods in Java 8 Interfaces?
+    - A Static Method is an Utility method or Helper method, which is associated to a class (or interface). 
+        - It is not associated to any object.
+    - We can keep Helper or Utility methods specific to an interface in the same interface rather than in a separate Utility class.
+    - We do not need separate Utility Classes like Collections, Arrays etc to keep Utility methods.
+    - Clear separation of Responsibilities. 
+        - That is we do not need one Utility class to keep all Utility methods of Collection API like Collections etc.
+    - Easy to extend the API.
+    - Easy to Maintain the API.
+- What is a Default Method? Why do we need Default methods in Java 8 Interfaces?
+    - A Default Method is a method which is implemented in an interface with “default” keyword. It’s new featured introduced in Java SE 8.
+    - It allow us to provide method’s implementation in Interfaces.
+    - To add new Functionality to Interface without breaking the Classes which implement that Interface.
+    - To provide elegant Backwards Compatibility Feature.
+    - To ease of extend the existing Functionality.
+    - To ease of Maintain the existing Functionality.    

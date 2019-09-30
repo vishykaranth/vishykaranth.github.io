@@ -1,18 +1,4 @@
-### GO To conf
-https://www.youtube.com/watch?v=U_NgcAg7jyY
-https://www.youtube.com/watch?v=weWSYIUdX6c
-
 ### Learn  
-
-- 
-- 
-- https://www.youtube.com/watch?v=_F1U6Rh0wfo
-- https://www.youtube.com/watch?v=IbRPTURqa6Y
-- https://www.youtube.com/watch?v=lbLZiHvPIKE&t=251s
-- https://www.youtube.com/watch?v=U9P96XQ2688&t=76s
-- https://www.youtube.com/watch?v=UH7wkvcf0ys
-- https://www.youtube.com/watch?v=8KuO4r5CHjM&t=18s
-
 - https://www.youtube.com/watch?v=U2lVmSlDJhg&t=58s
 - https://www.youtube.com/watch?v=zaRkONvyGr8
 - https://www.youtube.com/watch?v=4Q72kbwyEmk
