@@ -1,5 +1,5 @@
 ### Learn  
-- https://www.youtube.com/watch?v=U2lVmSlDJhg&t=58s
+- &t=58s
 - https://www.youtube.com/watch?v=zaRkONvyGr8
 - https://www.youtube.com/watch?v=4Q72kbwyEmk
 - https://www.youtube.com/watch?v=7ocpwK9uesw&t=527s

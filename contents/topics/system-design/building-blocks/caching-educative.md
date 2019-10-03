@@ -62,7 +62,7 @@
 - While caching is fantastic, it does require some maintenance for keeping cache coherent with the source of truth (e.g., database). 
 - If the data is modified in the database, it should be invalidated in the cache, if not, this can cause inconsistent application behavior.
 - Solving this problem is known as cache invalidation, there are three main schemes that are used:
-#### Write-through cache: 
+#### Write-through cache: Write to both Cache and Database 
 - Under this scheme data is written into the cache and the corresponding database at the same time. 
 - The cached data allows for fast retrieval, 
     - and since the same data gets written in the permanent storage, 
@@ -71,12 +71,12 @@
 - Although write through minimizes the risk of data loss, 
     - since every write operation must be done twice before returning success to the client, 
     - this scheme has the disadvantage of higher latency for write operations.
-#### Write-around cache: 
+#### Write-around cache: Write to only Database, Update Cache on first read.
 - This technique is similar to write through cache, but data is written directly to permanent storage, bypassing the cache. 
 - This can reduce the cache being flooded with write operations that will not subsequently be re-read, 
     - but has the disadvantage that a read request for recently written data will create a “cache miss” 
     - and must be read from slower back-end storage and experience higher latency.
-#### Write-back cache: 
+#### Write-back cache: Write to only Cache, Update DB async later (replication)
 - Under this scheme, data is written to cache alone, and completion is immediately confirmed to the client. 
 - The write to the permanent storage is done after specified intervals or under certain conditions. 
 - This results in low latency and high throughput for write-intensive applications, 

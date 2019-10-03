@@ -1,0 +1,16 @@
+## Data Hiding and Abstraction 
+- Data hiding is encapsulating data, to avoid the risk of data modification by the user. 
+- Data abstraction is separation of implementation from the actual use of the data. 
+    - For eg. I create a list ADT with operations like add/remove. 
+    - But I have a different main class where I play around with this list. 
+    - My user need not know the detail implementation inside add/remove method in my ADT class, 
+    - they should only know how to use it eg: return type and parameters and what it does. 
+    - That is **data abstraction**. 
+- Similarly, while using the listADT, 
+    - just in case he doesn't change the instance variables original form,
+    - I lock my instance variable by making it private, 
+    - but for his custom modification for his own application, 
+    - I also create getters and setters to access the instance variable. 
+    - That is **data hiding** also **encapsulation**. 
+- Abstraction is a concept where encapsulation is actually a visible action. 
+- They are like two sides of a coin.

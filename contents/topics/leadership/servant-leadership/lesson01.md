@@ -64,25 +64,30 @@
 - Servant leadership, like stewardship, assumes a commitment to serving the needs of others.
 - It also emphasizes the use of openness and persuasion rather than control.
 
-### Commitment to the growth of people. Servant leaders believe that people have an intrinsic value beyond their tangible contributions as workers. As such, the servant leader is deeply committed to the growth of each individual within his or her organization. The servant leader recognizes the tremendous responsibility to do everything in his or her power to nurture the personal and professional growth of employees and colleagues. In practice, this can include concrete actions such as making funds available for personal and professional development, taking a personal interest in the ideas and suggestions from everyone, encouraging worker involvement in decision making, and actively assisting laid-off employees to find other positions.
+### Commitment to the growth of people. 
+- Servant leaders believe that people have an intrinsic value beyond their tangible contributions as workers. 
+- As such, the servant leader is deeply committed to the growth of each individual within his or her organization. 
+- The servant leader recognizes the tremendous responsibility to do everything in his or her power to nurture the personal and professional growth of employees and colleagues. 
+- In practice, this can include concrete actions such as making funds available for personal and professional development, 
+    - taking a personal interest in the ideas and suggestions from everyone, 
+    - encouraging worker involvement in decision making, 
+    - and actively assisting laid-off employees to find other positions.
 
-### Building community. The servant leader senses that much has been lost in recent human history as a result of the shift from local communities to large institutions as the primary shaper of human lives. This awareness causes the servant leader to seek to identify some means for building community among those who work within a given institution. Servant leadership suggests that true community can be created among those who work in businesses and other institutions. Greenleaf said, “All that is needed to rebuild community as a viable life form for large numbers of people is for enough servant leaders to show the way, not by mass movements, but by each servant leader demonstrating his or her unlimited liability for a quite specific community-related group.”5
-
-These ten characteristics of servant leadership are by no means exhaustive. However, they do serve to communicate the power and promise that this concept offers to those who are open to its invitation and challenge.
-
-We are experiencing a rapid shift in many businesses and not-for-profit organizations—away from the more traditional autocratic and hierarchical models of leadership and toward servant leadership as a way of being in relationship with others. Interest in the meaning and practice of servant leadership continues to grow. Many books, articles, and papers on the subject have now been published. Workshops, courses, and degrees in servant leadership are now available. Many of the companies named to Fortune magazine’s annual listing of “The 100 Best Companies to Work For” espouse servant leadership and have integrated it into their corporate cultures. My own work in servant leadership over the past quarter century has brought me into direct or indirect contact with millions of people who embrace servant leadership, and who are now working to create servant-led organizations of all kinds.
-
-Servant leadership characteristics often occur naturally within many individuals and, like many natural tendencies, they can be enhanced through learning and practice. Servant leadership offers great hope for the future in creating better, more caring, institutions.
-
-Larry C. Spears, a noted author and speaker on servant leadership, is president and CEO of the Spears Center for Servant Leadership (www.spearscenter.org) and also serves as servant leadership scholar at Gonzaga University. From 1990 to 2007, Larry was president and CEO of the Robert K. Greenleaf Center for Servant Leadership. He is the editor and contributing author of more than a dozen books on servant leadership including Insights on Leadership, as well as editor of five books of Greenleaf’s writings.
-
-NOTES
-1.   Robert K. Greenleaf, Servant Leadership: A Journey into the Nature of Legitimate Power and Greatness (Mahwah, NJ: Paulist Press, 1977).
-
-2.   Robert K. Greenleaf, “The Servant as Leader” (Atlanta: The Greenleaf Center for Servant Leadership, 1970).
-
-3.   Ibid.
-
-4.   Peter Block, The Empowered Manager: Positive Political Skills at Work (San Francisco: Jossey-Bass, 1987), and Stewardship: Choosing Service over Self Interest (San Francisco: Jossey-Bass, 1993).
-
-5.   Greenleaf, “The Servant as Leader.”
+### Building community. 
+- The servant leader senses that much has been lost in recent human history as a result of the shift from local communities to large institutions as the primary shaper of human lives. 
+- This awareness causes the servant leader to seek to identify some means for building community among those who work within a given institution. 
+- Servant leadership suggests that true community can be created among those who work in businesses and other institutions. 
+- Greenleaf said, “
+    - All that is needed to rebuild community as a viable life form for large numbers of people is for enough servant leaders to show the way, 
+    - not by mass movements, but by each servant leader demonstrating his or her unlimited liability for a quite specific community-related group.”
+- These ten characteristics of servant leadership are by no means exhaustive. 
+- However, they do serve to communicate the power and promise that this concept offers to those who are open to its invitation and challenge.
+- We are experiencing a rapid shift in many businesses and not-for-profit organizations—away from the more traditional autocratic 
+- and hierarchical models of leadership and toward servant leadership as a way of being in relationship with others. 
+- Interest in the meaning and practice of servant leadership continues to grow. 
+- Many books, articles, and papers on the subject have now been published. Workshops, courses, and degrees in servant leadership are now available. 
+- Many of the companies named to Fortune magazine’s annual listing of “The 100 Best Companies to Work For” espouse servant leadership and have integrated it into their corporate cultures. 
+- My own work in servant leadership over the past quarter century has brought me into direct or indirect contact with millions of people who embrace servant leadership, 
+- and who are now working to create servant-led organizations of all kinds.
+- Servant leadership characteristics often occur naturally within many individuals and, like many natural tendencies, they can be enhanced through learning and practice. 
+- Servant leadership offers great hope for the future in creating better, more caring, institutions.
