@@ -1,5 +1,8 @@
 ### Learn  
-- &t=58s
+- Data Structure (Good) :: https://www.youtube.com/watch?v=RBSGKlAvoiM&t=529s
+- EDA : https://www.youtube.com/watch?v=Ab5-ebHja3o
+- Mock System Design : https://www.youtube.com/watch?v=jItLuOTsCX4&t=60s
+- SD : https://www.youtube.com/watch?v=Ns5WQfb8JGc
 - https://www.youtube.com/watch?v=zaRkONvyGr8
 - https://www.youtube.com/watch?v=4Q72kbwyEmk
 - https://www.youtube.com/watch?v=7ocpwK9uesw&t=527s

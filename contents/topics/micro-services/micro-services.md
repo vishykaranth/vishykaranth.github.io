@@ -1,0 +1,69 @@
+## Micro-services 
+- SOA 
+    - A service is a self-contained implementation of a well-defined business functionality that is accessible over the network.
+        - Applications in SOA are built based on services.
+    - Services are software components with well-defined interfaces that are implementation-independent. 
+    - An important aspect of SOA is the separation of the service interface (the what) from its implementation(the how).
+    - The consumers are only concerned about the service interface and do not care about its implementation.
+    - Services are self-contained (perform predetermined tasks) and loosely coupled (for independence).
+    - Services can be dynamically discovered. 
+        - The consumers often don’t need to know the exact location and other details of a service. 
+        - They can discover the service’s metadata via a service metadata repository or a service registry. 
+        - When there’s a change to the service metadata, the service can update its metadata in the service registry.
+- Composite services can be built from aggregates of other services.
+- The successful and increasing adaptation of containers and container management technologies such as Docker, Kubernetes, and Mesos are vital for the realization of service autonomy and contribute to the success of the microservices architecture as a whole.
+- API Management/API Gateway layer on top of the existing SOA implementations. 
+    - This layer is known as the API façade, 
+    - and it exposes a simple API for a given business functionality and hides all the internal complexities of the ESB/Web Services layer. 
+    - The API layer is also used for security, throttling, caching, and monetization.
+- No Central ESB: Smart Endpoints and Dumb Pipes
+- We need to apply all the resiliency-related capabilities, such as 
+	- circuit breakers, 
+	- disaster recovery, 
+	- load-balancing,
+	- fail-over, and 
+	- dynamic scaling based on traffic patterns
+- The micro-services compositions (using synchronous or asynchronous styles), 
+	- inter-services communication via different communication protocols, 
+	- application of resiliency patterns such as circuit breakers, 
+		- integrating with other applications, 
+		- SaaS (e.g.,Salesforce), 
+		- APIs, 
+		- data and proprietary systems, 
+		- and observability of integrated services need to be implemented as part of the micro-services that you develop.
+- Failure Tolerance
+    - Designing microservices in failure-tolerable fashion requires the adaptation of the required technologies from the design, development, and deployment phases.
+    - It is really important to mimic all such possible failures as part of the service development and testing, 
+        - using tools such as Netflix’s Chaos Monkey. 
+        - A given service implementation should also be responsible for all the resiliency related activities;
+        - such behaviors are automatically verified as part of the CICD (continuous integration,continuous delivery) process. 		
+        - The other aspect of failure tolerance is the ability to observe the behavior of the microservices that you run in production. 
+            - Detecting or predicting failures in a service and restoring such services is quite important.
+- Decentralized Data Management
+- Service Governance
+- Observability
+
+### Microservices: Benefits and Liabilities
+- Benefits
+    - Agile and Rapid Development of Business Functionalities
+    - Replaceability
+    - Failure Isolation and Predictability
+    - Agile Deployment and Scalability
+    - Align with Organizational Structure
+- Liabilities
+    - Inter-Service Communication
+    - Service Governance
+    - Heavily Depends on Deployment Methodologies
+    - Complexity of Distributed Data and Transaction Management
+    
+### How and When to Use Microservices
+- The microservices architecture is ideal when your current enterprise architecture requires modularity.
+- If the business problem that you are trying to solve with your software application is quite simple, 
+    - you may not need microservices at all (having a simple monolithic web application and a database is usually sufficient).
+- Your software application has to embrace container-based deployment.
+- If your system is far too complex to be segregated into microservices, you should identify the areas into which you can introduce microservices with minimal impact. 
+    - Then, start implementing a small use case on microservices and build the required ecosystem components around that.
+- Understanding business capabilities is quite critical for designing microservices. 
+    - Understanding microservices design techniques are essential prior to service implementation
+- For each specific microservice domain (such as data management, inter-service communication, security, etc.), we discuss in detail the best practices and anti-patterns in the upcoming chapters.
+                          
