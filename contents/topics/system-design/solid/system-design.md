@@ -6,7 +6,6 @@
 </p>
 
 > Summaries of various system design topics, including pros and cons.  **Everything is a trade-off**.
->
 > Each section contains links to more in-depth resources.
 
 <p align="center">
