@@ -1,3 +1,10 @@
+---
+layout: page
+title: The System Design Primer
+permalink: /system-design-primer/
+---
+
+
 # The System Design Primer
 
 <p align="center">
