@@ -42,7 +42,7 @@
 - https://www.youtube.com/watch?v=A0goyZ9F4bg
 - https://www.youtube.com/watch?v=GRPLRONVDWY
 - https://www.youtube.com/watch?v=Bcs-inRnLDc
-- https://www.youtube.com/watch?v=RsyOkifmamI G 
+-  G 
 ### Spring Boot 
 - https://www.youtube.com/watch?v=aA4tfBGY6jY
 - https://www.youtube.com/watch?v=s9vt6UJiHg4

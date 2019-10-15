@@ -127,7 +127,7 @@ Factory Method lets a class defer instantiation to subclasses.
     - or can return a subclass rather than an object of that exact type.
 - Some Factory Method advocates recommend that as a matter of language design (or failing that, as a matter of style) absolutely all constructors should be private or protected.
     - It's no one else's business whether a class manufactures a new object or recycles an old one.
-- The new operator considered harmful.
+- **The new operator considered harmful**.
     - There is a difference between requesting an object and creating one.
     - The new operator always creates an object, and fails to encapsulate object creation.
     - A Factory Method enforces that encapsulation,
