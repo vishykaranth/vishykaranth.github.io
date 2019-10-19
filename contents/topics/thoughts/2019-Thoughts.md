@@ -4,3 +4,14 @@
     - People who do not believe in you
     - People who put you down
     - You deserve to be where you are appreciated, your opinion counts,  your value is recognized.
+- 10 things you will never REGRET 
+    - Investing in yourself
+    - Learning new skills
+    - Being polite
+    - Facing your biggest fears
+    - Quitting a job you hate
+    - Being honest and loyal
+    - Thinking before acting
+    - Seeing the beauty in everyone and everything 
+    - Spending time with family 
+    - Living while you can    
