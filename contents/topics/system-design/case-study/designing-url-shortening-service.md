@@ -58,9 +58,9 @@ permalink: /designing-url-shortening-service/
     - If we want to cache some of the hot URLs that are frequently accessed, how much memory will we need to store them? 
     - If we follow the 80-20 rule, meaning 20% of URLs generate 80% of traffic, we would like to cache these 20% hot URLs.
     - Since we have 20K requests per second, we will be getting 1.7 billion requests per day:
-        - 20K * 3600 seconds * 24 hours = ~1.7 billion
+        - 200 (Unique URL's) * 3600 seconds * 24 hours * 30 days = ~500 million
     - To cache 20% of these requests, we will need 170GB of memory.
-        - 0.2 * 1.7 billion * 500 bytes = ~170GB
+        - 0.2 * 500 million * 500 bytes = 51GB
     - One thing to note here is that since there will be a lot of duplicate requests (of the same URL), therefore, our actual memory usage will be less than 170GB.
 - High level estimates: 
     - Assuming 500 million new URLs per month and 100:1 read:write ratio, following is the summary of the high level estimates for our service:    
@@ -69,7 +69,7 @@ permalink: /designing-url-shortening-service/
     - Incoming data 100KB/s
     - Outgoing data 10MB/s
     - Storage for 5 years 15TB
-    - Memory for cache 170GB       
+    - Memory for cache 51GB       
 
 ### System APIs
 - We can have SOAP or REST APIs to expose the functionality of our service. 
