@@ -97,7 +97,7 @@ permalink: /designing-url-shortening-service/
 
 #### Database Schema     
 ![](url-shortening-database-design.png) 
-- What kind of database should we use? 
+- What kind of database should we use ? 
     - Since we anticipate storing billions of rows, 
     - and we don’t need to use relationships between objects – a NoSQL key-value store like DynamoDB, Cassandra or Riak is a better choice. 
     - A NoSQL choice would also be easier to scale. Please see SQL vs NoSQL for more details.
