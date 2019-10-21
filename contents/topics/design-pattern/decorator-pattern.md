@@ -1,7 +1,7 @@
 ## Decorator Pattern 
 
 ### Decorator Class Diagram 
-- ![](imgs/decorator_pattern.png)
+- ![](imgs/decorator_pattern_02.png)
  
 ### Common Interface 
 - A single core component, several optional wrappers and a "common interface".
