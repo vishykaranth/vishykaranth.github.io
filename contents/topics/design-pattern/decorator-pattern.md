@@ -38,3 +38,46 @@
 
 ### Examples
 - ![](imgs/decorator_pattern.png)
+
+### Code 
+~~~java
+        IceCream iceCream = new VanillaFlavor(
+                new PlasticCupContainer(
+                        new ConcreteIceCream()
+                )
+        );
+        System.out.println(iceCream.getPrice());
+
+
+        iceCream = new VanillaFlavor(
+                new EdibleConeContainer(
+                        new ConcreteIceCream()
+                )
+        );
+        System.out.println(iceCream.getPrice());
+
+        iceCream = new VanillaFlavor(
+                new EdibleCupContainer(
+                        new ConcreteIceCream()
+                )
+        );
+        System.out.println(iceCream.getPrice());
+
+
+        iceCream = new VanillaFlavor(
+                new StrawberryFlavor(
+                        new EdibleCupContainer(
+                                new ConcreteIceCream()
+                        )
+                )
+        );
+        System.out.println(iceCream.getPrice());
+
+        Output :
+                
+        2.25
+        2.4
+        2.8
+        4.8
+        5.3        
+~~~
