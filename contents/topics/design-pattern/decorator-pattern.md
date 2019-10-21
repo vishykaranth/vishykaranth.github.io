@@ -12,7 +12,7 @@ public interface IceCream {
 } 
 ~~~
 ### Abstract Decorator  
-- Create a second level base class (Decorator) to support the optional wrapper classes.
+- Create Decorator to support the optional wrapper classes.
 - The Decorator class declares a composition relationship to the "common interface", and this data member is initialized in its constructor.
 - The Decorator class delegates to the "common interface".
 ~~~java
