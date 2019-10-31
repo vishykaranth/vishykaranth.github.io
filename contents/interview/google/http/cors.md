@@ -50,6 +50,7 @@ permalink: /google-http-cors/
 - Note: These are the same kinds of cross-site requests that web content can already issue, and no response data is released to the requester unless the server sends an appropriate header. Therefore, sites that prevent cross-site request forgery have nothing new to fear from HTTP access control.
 - Note: WebKit Nightly and Safari Technology Preview place additional restrictions on the values allowed in the Accept, Accept-Language, and Content-Language headers. If any of those headers have ”nonstandard” values, WebKit/Safari does not consider the request to be a “simple request”. What values WebKit/Safari consider “nonstandard” are not documented, except in the following WebKit bugs:
 - For example, suppose web content at https://foo.example wishes to invoke content on domain https://bar.other. Code of this sort might be used in JavaScript deployed on foo.example:
+
 ~~~text
 const xhr = new XMLHttpRequest();
 const url = 'https://bar.other/resources/public-data/';
@@ -58,9 +59,9 @@ xhr.open('GET', url);
 xhr.onreadystatechange = someHandler;
 xhr.send(); 
 This performs a simple exchange between the client and the server, using CORS headers to handle the privileges:
-~~~~
-- Let's look at what the browser will send to the server in this case, and let's see how the server responds:
-~~~text
+
+Let's look at what the browser will send to the server in this case, and let's see how the server responds:
+
 GET /resources/public-data/ HTTP/1.1
 Host: bar.other
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:71.0) Gecko/20100101 Firefox/71.0
@@ -82,9 +83,9 @@ Transfer-Encoding: chunked
 Content-Type: application/xml
 
 […XML Data…]
-~~~
-- In response, the server sends back an Access-Control-Allow-Origin header. The use of the Origin header and of Access-Control-Allow-Origin show the access control protocol in its simplest use. In this case, the server responds with Access-Control-Allow-Origin: *, which means that the resource can be accessed by any domain. If the resource owners at https://bar.other wished to restrict access to the resource to requests only from https://foo.example, they would send:
-~~~text
+
+In response, the server sends back an Access-Control-Allow-Origin header. The use of the Origin header and of Access-Control-Allow-Origin show the access control protocol in its simplest use. In this case, the server responds with Access-Control-Allow-Origin: *, which means that the resource can be accessed by any domain. If the resource owners at https://bar.other wished to restrict access to the resource to requests only from https://foo.example, they would send:
+
 Access-Control-Allow-Origin: https://foo.example
 ~~~
 - Now no domain other than https://foo.example can access the resource in a cross-site manner. The Access-Control-Allow-Origin header should contain the value that was sent in the request's Origin header.
