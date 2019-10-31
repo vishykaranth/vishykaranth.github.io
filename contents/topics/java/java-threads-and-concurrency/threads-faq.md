@@ -169,141 +169,127 @@ Thread thread=new Thread(runnable);
 
           ~~~~       
          
-    - What is difference between starting thread with run() and start() method? ()
-        - Here the question is, why can't we just call the run() method instead of calling the start() method? 
-            - Since start() is calling the run() anyway, calling run directly should have the same effect as calling the start, no?
-        - When you directly call the run() method then the code inside run() method is executed in the same thread which calls the run method. 
-        - JVM will not create a new thread until you call the start method.
-
-    - What is significance of using Volatile keyword? ()
-        - Java allows threads to access shared variables. 
-        - As a rule, to ensure that shared variables are consistently updated, 
-        - a thread should ensure that it has exclusive use of such variables by obtaining a lock that enforces mutual exclusion for those shared variables.
-        - If a field is declared volatile, in that case the Java memory model ensures that all threads see a consistent value for the variable.
-
-Few small questions>
-Q. Can we have volatile methods in java?
-No, volatile is only a keyword, can be used only with variables.
-Q. Can we have synchronized variable in java?
-No, synchronized can be used only with methods, i.e. in method declaration.
-
-DETAILED DESCRIPTION : Volatile keyword in java- difference between synchronized and volatile with programs, 10 key points about volatile keyword, why volatile variables are not cached in memory
-        
-
-Question 11. Differences between synchronized and volatile keyword in Java? ()
-Answer. Its very important question from interview perspective.
-
-Volatile can be used as a keyword against the variable, we cannot use volatile against method declaration.
- volatile void method1(){} //it’s illegal, compilation error.
- volatile int i; //legal
-
-While synchronization can be used in method declaration or we can create synchronization blocks (In both cases thread acquires lock on object’s monitor). Variables cannot be synchronized.
-Synchronized method: 
-synchronized void method2(){} //legal
-
-Synchronized block: 
-    void method2(){
-       synchronized (this) {
-           //code inside synchronized block.
-           }
- }
-
-Synchronized variable (illegal): 
-synchronized int i; //it’s illegal, compilatiomn error.
-
-Volatile does not acquire any lock on variable or object, but Synchronization acquires lock on method or block in which it is used.
-
-Volatile variables are not cached, but variables used inside synchronized method or block are cached.
-
-When volatile is used will never create deadlock in program, as volatile never obtains any kind of lock . But in case if synchronization is not done properly, we might end up creating dedlock in program.
-
-Synchronization may cost us performance issues, as one thread might be waiting for another thread to release lock on object. But volatile is never expensive in terms of performance.
- DETAILED DESCRIPTION : Differences between synchronized and volatile keyword in detail with programs.
-
-
-Question 12. Can you again start Thread?
-Answer. No, we cannot start Thread again, doing so will throw runtimeException java.lang.IllegalThreadStateException. The reason is once run() method is executed by Thread, it goes into dead state. 
-Let’s take an example-
-Thinking of starting thread again and calling start() method on it (which internally is going to call run() method) for us is some what like asking dead man to wake up and run. As, after completing his life person goes to dead state.
-
-Question 13. What is race condition in multithreading and how can we solve it? ()
-Answer. This is very important question, this forms the core of multi threading, you should be able to explain about race condition in detail. When more than one thread try to access same resource without synchronization causes race condition.
-So we can solve race condition by using either synchronized block or synchronized method. When no two threads can access same resource at a time phenomenon is also called as mutual exclusion.
-
-Few sub questions>
-What if two threads try to read same resource without synchronization?
-When two threads try to read on same resource without synchronization, it’s never going to create any problem.
-
-What if two threads try to write to same resource without synchronization?
-When two threads try to write to same resource without synchronization, it’s going to create synchronization problems.
-
-Question 14. How threads communicate between each other?
-Answer. This is very must know question for all the interviewees, you will most probably face this question in almost every time you go for interview.
-Threads can communicate with each other by using wait(), notify() and notifyAll() methods.
-
-Question 15. Why wait(), notify()  and notifyAll() are in Object class and not in Thread class? ()
-Answer.  
- Every Object has a monitor, acquiring that monitors allow thread to hold lock on object. But Thread class does not have any monitors. 
-
- wait(), notify() and notifyAll() are called on objects only > When wait() method is called on object by thread it waits for another thread on that object to release object monitor by calling notify() or notifyAll() method on that object.
-When notify() method is called on object by thread it notifies all the threads 
-which are waiting for that object monitor that object monitor is available now.
-So, this shows that wait(), notify() and notifyAll() are called on objects only.
-Now, Straight forward question that comes to mind is how thread acquires object lock by 
-acquiring object monitor? Let’s try to understand this basic concept in detail?
-
- Wait(), notify() and notifyAll() method being in Object class allows all the threads created on that object to communicate with other.  [As multiple threads may exist on same object]. 
-
-As multiple threads exists on same object. Only one thread can hold object monitor at a time. As a result thread can notify other threads of same object that lock is available now. But, thread having these methods does not make any sense because multiple threads exists on object its not other way around (i.e. multiple objects exists on thread).
-
-Now let’s discuss one hypothetical scenario, what will happen if Thread class contains wait(), notify() and notifyAll() methods?
-Having wait(), notify() and notifyAll() methods means Thread class also must have their monitor. 
-Every thread having their monitor will create few problems -
->Thread communication problem.
->Synchronization on object won’t be possible- Because object has monitor, one object can have multiple threads and thread hold lock on object by holding object monitor. But if each thread will have monitor, we won’t have any way of achieving synchronization. 
->Inconsistency in state of object (because synchronization won't be possible). 
-
-
-Question 16. Is it important to acquire object lock before calling wait(), notify() and notifyAll()?
-Answer. Yes, it’s mandatory to acquire object lock before calling these methods on object. As discussed above wait(), notify()  and notifyAll() methods are always called from Synchronized block only, and as soon as thread enters synchronized block it acquires object lock (by holding object monitor). If we call these methods without acquiring object lock i.e. from outside synchronize block then java.lang. IllegalMonitorStateException is thrown at runtime.
-Wait() method needs to enclosed in try-catch block, because it throws compile time exception i.e. InterruptedException.
-
-Question 17. How can you solve consumer producer problem by using wait() and notify() method? ()
-Answer.  Here come the time to answer very very important question from interview perspective. Interviewers tends to check how sound you are in threads inter communication. Because for solving this problem we got to use synchronization blocks, wait() and notify() method very cautiously. If you misplace synchronization block or any of the method, that may cause your program to go horribly wrong. So, before going into this question first i’ll recommend you to understand how to use synchronized blocks, wait() and notify() methods.
-
-Key points we need to ensure before programming :
->Producer will produce total of 10 products and cannot produce more than 2 products at a time until products are being consumed by consumer.
- Example> when sharedQueue’s size is 2, wait for consumer to consume (consumer will consume by calling remove(0) method on sharedQueue and reduce sharedQueue’s size). As soon as size is less than 2, producer will start producing. 
->Consumer can consume only when there are some products to consume.
- Example> when sharedQueue’s size is 0, wait for producer to produce (producer will produce by calling add() method on sharedQueue and increase sharedQueue’s size).   As soon as size is greater than 0, consumer will start consuming. 
-
-Explanation of Logic >
-We will create sharedQueue that will be shared amongst Producer and Consumer. We will now start consumer and producer thread.
-Note: it does not matter order in which threads are started (because rest of code has taken care of synchronization and key points mentioned above)
-        
-First we will start consumerThread >
-
-consumerThread.start();
-
-consumerThread will enter run method and call consume() method. There it will check for sharedQueue’s size.
--if size is equal to 0 that means producer hasn’t produced any product, wait for producer to produce by using below piece of code-
-
-       synchronized (sharedQueue) {
-           while (sharedQueue.size() == 0) { 
-                 sharedQueue.wait();
-         }
-       }
-
- -if size is greater than 0, consumer will start consuming by using below piece of code.
-
-        synchronized (sharedQueue) {
-           Thread.sleep((long)(Math.random() * 2000));
-         System.out.println("consumed : "+ sharedQueue.remove(0));
-         sharedQueue.notify();
-        }
-
-        
-Than we will start producerThread >
+- What is difference between starting thread with run() and start() method? ()
+    - Here the question is, why can't we just call the run() method instead of calling the start() method? 
+        - Since start() is calling the run() anyway, calling run directly should have the same effect as calling the start, no?
+    - When you directly call the run() method then the code inside run() method is executed in the same thread which calls the run method. 
+    - JVM will not create a new thread until you call the start method.
+- What is significance of using Volatile keyword? ()
+    - Java allows threads to access shared variables. 
+    - As a rule, to ensure that shared variables are consistently updated, 
+    - a thread should ensure that it has exclusive use of such variables by obtaining a lock that enforces mutual exclusion for those shared variables.
+    - If a field is declared volatile, in that case the Java memory model ensures that all threads see a consistent value for the variable.
+- Can we have volatile methods in java?
+    - No, volatile is only a keyword, can be used only with variables.
+- Can we have synchronized variable in java?
+    - No, synchronized can be used only with methods, i.e. in method declaration.
+- Differences between synchronized and volatile keyword in Java? ()
+    - Its very important question from interview perspective.
+    - Volatile can be used as a keyword against the variable, we cannot use volatile against method declaration.
+    ~~~java
+     volatile void method1(){} //it’s illegal, compilation error.
+     volatile int i; //legal
+    ~~~
+    - While synchronization can be used in method declaration or we can create synchronization blocks 
+        - (In both cases thread acquires lock on object’s monitor). 
+        -  Variables cannot be synchronized.
+    - Synchronized method: 
+    ~~~java
+    synchronized void method2(){} //legal
+    Synchronized block: 
+        void method2(){
+           synchronized (this) {
+               //code inside synchronized block.
+               }
+     }
+    
+    Synchronized variable (illegal): 
+    synchronized int i; //it’s illegal, compilatiomn error.
+    ~~~
+    - Volatile does not acquire any lock on variable or object, but Synchronization acquires lock on method or block in which it is used.
+    - Volatile variables are not cached, but variables used inside synchronized method or block are cached.
+    - When volatile is used will never create deadlock in program, as volatile never obtains any kind of lock . But in case if synchronization is not done properly, we might end up creating dedlock in program.
+    - Synchronization may cost us performance issues, as one thread might be waiting for another thread to release lock on object. But volatile is never expensive in terms of performance.
+- Can you again start Thread?
+    - No, we cannot start Thread again, doing so will throw runtimeException java.lang.IllegalThreadStateException. 
+        - The reason is once run() method is executed by Thread, it goes into dead state. 
+    - Let’s take an example-
+    - Thinking of starting thread again and calling start() method on it 
+    - (which internally is going to call run() method) for us is some what like asking dead man to wake up and run. 
+    - As, after completing his life person goes to dead state.
+- What is race condition in multithreading and how can we solve it? ()
+    - This is very important question, this forms the core of multi threading, you should be able to explain about race condition in detail. When more than one thread try to access same resource without synchronization causes race condition.
+    - So we can solve race condition by using either synchronized block or synchronized method. When no two threads can access same resource at a time phenomenon is also called as mutual exclusion.
+    - What if two threads try to read same resource without synchronization?
+    - When two threads try to read on same resource without synchronization, it’s never going to create any problem.
+    - What if two threads try to write to same resource without synchronization?
+    - When two threads try to write to same resource without synchronization, it’s going to create synchronization problems.
+- How threads communicate between each other?
+    - This is very must know question for all the interviewees, you will most probably face this question in almost every time you go for interview.
+    - Threads can communicate with each other by using wait(), notify() and notifyAll() methods.
+- Why wait(), notify()  and notifyAll() are in Object class and not in Thread class? ()
+    - Every Object has a monitor, acquiring that monitors allow thread to hold lock on object. But Thread class does not have any monitors. 
+    - wait(), notify() and notifyAll() are called on objects only 
+    - When wait() method is called on object by thread it waits for another thread on that object to release object monitor by calling notify() or notifyAll() method on that object.
+    - When notify() method is called on object by thread it notifies all the threads 
+    - which are waiting for that object monitor that object monitor is available now.
+    - So, this shows that wait(), notify() and notifyAll() are called on objects only.
+    - Now, Straight forward question that comes to mind is how thread acquires object lock by 
+    - Wait(), notify() and notifyAll() method being in Object class allows all the threads created on that object to communicate with other.  [As multiple threads may exist on same object]. 
+    - As multiple threads exists on same object. 
+    Only one thread can hold object monitor at a time. 
+    As a result thread can notify other threads of same object that lock is available now. 
+    But, thread having these methods does not make any sense because multiple threads exists on object its not other way around (i.e. multiple objects exists on thread).
+    - Now let’s discuss one hypothetical scenario, what will happen if Thread class contains wait(), notify() and notifyAll() methods?
+    - Having wait(), notify() and notifyAll() methods means Thread class also must have their monitor. 
+    - Every thread having their monitor will create few problems -
+- Thread communication problem.
+    - Synchronization on object won’t be possible- Because object has monitor, 
+        - one object can have multiple threads and thread hold lock on object by holding object monitor. 
+        - But if each thread will have monitor, we won’t have any way of achieving synchronization. 
+    - Inconsistency in state of object (because synchronization won't be possible). 
+- Is it important to acquire object lock before calling wait(), notify() and notifyAll()?
+    - Yes, it’s mandatory to acquire object lock before calling these methods on object. 
+    - As discussed above wait(), notify()  and notifyAll() methods are always called from Synchronized block only, 
+    - and as soon as thread enters synchronized block it acquires object lock (by holding object monitor). 
+    - If we call these methods without acquiring object lock i.e. from outside synchronize block then java.lang.IllegalMonitorStateException is thrown at runtime.
+    - Wait() method needs to enclosed in try-catch block, because it throws compile time exception i.e. InterruptedException.
+- How can you solve consumer producer problem by using wait() and notify() method?
+    - Here come the time to answer very very important question from interview perspective. 
+    - Interviewers tends to check how sound you are in threads inter communication. 
+    - Because for solving this problem we got to use synchronization blocks, wait() and notify() method very cautiously. 
+    - If you misplace synchronization block or any of the method, that may cause your program to go horribly wrong. 
+    - So, before going into this question first i’ll recommend you to understand how to use synchronized blocks, wait() and notify() methods.
+    - Key points we need to ensure before programming :
+    - Producer will produce total of 10 products and cannot produce more than 2 products at a time until products are being consumed by consumer.
+    - Example> when sharedQueue’s size is 2, wait for consumer to consume (consumer will consume by calling remove(0) method on sharedQueue and reduce sharedQueue’s size). 
+        - As soon as size is less than 2, producer will start producing. 
+    - Consumer can consume only when there are some products to consume.
+    - Example> when sharedQueue’s size is 0, wait for producer to produce (producer will produce by calling add() method on sharedQueue and increase sharedQueue’s size).   
+        - As soon as size is greater than 0, consumer will start consuming. 
+    - Explanation of Logic >
+        - We will create sharedQueue that will be shared amongst Producer and Consumer. We will now start consumer and producer thread.
+        - Note: it does not matter order in which threads are started (because rest of code has taken care of synchronization and key points mentioned above)
+        - First we will start consumerThread >
+        - consumerThread.start();
+        - consumerThread will enter run method and call consume() method. There it will check for sharedQueue’s size.
+        - if size is equal to 0 that means producer hasn’t produced any product, wait for producer to produce by using below piece of code-
+            ~~~java
+            synchronized (sharedQueue) {
+                while (sharedQueue.size() == 0) { 
+                    sharedQueue.wait();
+                }
+            }
+            ~~~
+        - if size is greater than 0, consumer will start consuming by using below piece of code.
+            ~~~java
+            synchronized (sharedQueue) {
+               Thread.sleep((long)(Math.random() * 2000));
+             System.out.println("consumed : "+ sharedQueue.remove(0));
+             sharedQueue.notify();
+            }
+            ~~~
+        - Than we will start producerThread >
 
 producerThread.start();
 

@@ -4,8 +4,19 @@ title: JVM
 permalink: /jvm/
 ---
 
-- The JVM is an abstract computing machine that enables a computer to run a Java program. There are three notions of JVM: specification (where working of JVM is specified. But the implementation has been provided by Sun and other companies), implementation (known as (JRE) Java Runtime Environment) and instance (after writing Java command, to run Java class, an instance of JVM is created).
-- The JVM loads the code, verifies the code, executes the code, manages memory (this includes allocating memory from the Operating System (OS), managing Java allocation including heap compaction and removal of garbage objects) and finally provides the runtime environment.
+- The JVM is an abstract computing machine that enables a computer to run a Java program. 
+    - There are three notions of JVM: specification (where working of JVM is specified. 
+    - But the implementation has been provided by Sun and other companies), 
+    - implementation (known as (JRE) Java Runtime Environment) and 
+    - instance (after writing Java command, to run Java class, an instance of JVM is created).
+- The JVM 
+    - loads the code, 
+    - verifies the code, 
+    - executes the code, 
+    - manages memory (
+        - this includes allocating memory from the Operating System (OS), 
+        - managing Java allocation including heap compaction and removal of garbage objects) and 
+    - finally provides the runtime environment.
 - Java (JVM) Memory Structure
 - JVM memory is divided into multiple parts: Heap Memory, Non-Heap Memory, and Other.
 
@@ -18,7 +29,8 @@ permalink: /jvm/
 
 ### Non-Heap memory
 - The JVM has memory other than the heap, referred to as Non-Heap Memory. 
-- It is created at the JVM startup and stores per-class structures such as runtime constant pool, field and method data, and the code for methods and constructors, as well as interned Strings. 
+- It is created at the JVM startup and stores per-class structures such as runtime constant pool, field and method data, 
+    - and the code for methods and constructors, as well as interned Strings. 
 - The default maximum size of non-heap memory is 64 MB. 
 - This can be changed using –XX:MaxPermSize VM option.
 
@@ -30,60 +42,66 @@ permalink: /jvm/
 - The JVM heap is physically divided into two parts (or generations): 
     - nursery (or young space/young generation) and 
     - old space (or old generation).
-- The nursery is a part of the heap reserved for allocation of new objects. When the nursery becomes full, garbage is collected by running a special young collection, where all the objects that have lived long enough in the nursery are promoted (moved) to the old space, thus freeing up the nursery for more object allocation. This garbage collection is called Minor GC. The nursery is divide into three parts – Eden Memory and two Survivor Memory spaces.
-
+- The nursery is a part of the heap reserved for allocation of new objects. 
+    - When the nursery becomes full, 
+    - garbage is collected by running a special young collection, 
+    - where all the objects that have lived long enough in the nursery are promoted (moved) to the old space, 
+    - thus freeing up the nursery for more object allocation. 
+    - This garbage collection is called Minor GC. 
+    - The nursery is divide into three parts 
+        – Eden Memory and 
+        - two Survivor Memory spaces.
 - Important points about the nursery space:
     - Most of the newly created objects are located in the Eden Memory space
     - When Eden space is filled with objects, Minor GC is performed and all the survivor objects are moved to one of the survivor spaces
     - Minor GC also checks the survivor objects and moves them to the other survivor space. So at a time, one of the survivor space is always empty
-    - Objects that have survived many cycles of GC, are moved to the old generation memory space. Usually it is done by setting a threshold for the age of the nursery objects before they become eligible to promote to old generation
-    - When the old generation becomes full, garbage is collected there and the process is called as old collection. Old generation memory contains the objects that are long lived and survived after many rounds of Minor GC. Usually garbage collection is performed in Old generation memory when it’s full. Old generation garbage collection is called as Major GC and usually takes longer time. The reasoning behind a nursery is that most objects are temporary and short lived. A young collection is designed to be swift at finding newly allocated objects that are still alive and moving them away from the nursery. Typically, a young collection frees a given amount of memory much faster than an old collection or a garbage collection of a single-generational heap (a heap without a nursery).
+    - Objects that have survived many cycles of GC, are moved to the old generation memory space. 
+        - Usually it is done by setting a threshold for the age of the nursery objects before they become eligible to promote to old generation
+    - When the old generation becomes full, garbage is collected there and the process is called as old collection. 
+        - Old generation memory contains the objects that are long lived 
+        - and survived after many rounds of Minor GC. 
+        - Usually garbage collection is performed in Old generation memory when it’s full. 
+        - Old generation garbage collection is called as Major GC and usually takes longer time. 
+        - The reasoning behind a nursery is that most objects are temporary and short lived. 
+        - A young collection is designed to be swift at finding newly allocated objects that are still alive and moving them away from the nursery. 
+        - Typically, a young collection frees a given amount of memory much faster than an old collection or a garbage collection of a single-generational heap (a heap without a nursery).
+- Recent releases include a part of nursery called as keep area and it is reserved. 
+    - The keep area contains the most recently allocated objects in the nursery 
+    - and is not garbage collected until the next young generation. 
+    - This prevents objects from being promoted just because they were allocated right before a young collection is started.
 
-Recent releases include a part of nursery called as keep area and it is reserved. The keep area contains the most recently allocated objects in the nursery and is not garbage collected until the next young generation. This prevents objects from being promoted just because they were allocated right before a young collection is started.
+### Java Memory Models
+- Permanent Generation (Replaced by Metaspace since Java 8)
+- Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. 
+- Perm Gen is populated by JVM at runtime based on the classes used by the application. 
+- Perm Gen also contains Java SE library classes and methods. 
+- Perm Gen objects are garbage collected in a full garbage collection.
 
-Java Memory Models
-Permanent Generation (Replaced by Metaspace since Java 8)
+### Metaspace
+- With Java 8, there is no Perm Gen, that means there is no more “java.lang.OutOfMemoryError: PermGen” space problems. Unlike Perm Gen which resides in the Java heap, Metaspace is not part of the heap. Most allocations of the class metadata are now allocated out of native memory. Metaspace by default auto increases its size (up to what the underlying OS provides), while Perm Gen always has fixed maximum size. Two new flags can be used to set the size of the metaspace, they are: “-XX:MetaspaceSize” and “-XX:MaxMetaspaceSize”. The theme behind the Metaspace is that the lifetime of classes and their metadata matches the lifetime of the classloaders. That is, as long as the classloader is alive, the metadata remains alive in the Metaspace and can’t be freed.
 
-Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Perm Gen is populated by JVM at runtime based on the classes used by the application. Perm Gen also contains Java SE library classes and methods. Perm Gen objects are garbage collected in a full garbage collection.
+### Code Cache
+- When a Java program is run, it executes the code in a tiered manner. In the first tier, it uses client compiler (C1 compiler) in order to compile the code with instrumentation. The profiling data is used in the second tier (C2 compiler) for the server compiler, to compile that code in an optimized manner. Tiered compilation is not enabled by default in Java 7, but is enabled in Java 8.
+- The Just-In-Time (JIT) compiler stores the compiled code in an area called code cache. It is a special heap that holds the compiled code. This area is flushed if its size exceeds a threshold and these objects are not relocated by the GC.
+- Some of the performance issues and the problem of the compiler not getting re-enabled has been addressed in Java 8 and one of the solution to avoid these issues in Java 7 is to increase the size of the code cache up to a point never being reached.
 
- 
+### Method Area
+- Method Area is part of space in the Perm Gen and used to store class structure (runtime constants and static variables) and code for methods and constructors.
 
- 
+### Memory Pool
+- Memory Pools are created by JVM memory managers to create pool of immutable objects. Memory Pool can belong to Heap or Perm Gen, depending on JVM memory manager implementation.
 
-Metaspace
+### Runtime Constant Pool
+- Runtime constant pool is a per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is part of the method area.
 
-With Java 8, there is no Perm Gen, that means there is no more “java.lang.OutOfMemoryError: PermGen” space problems. Unlike Perm Gen which resides in the Java heap, Metaspace is not part of the heap. Most allocations of the class metadata are now allocated out of native memory. Metaspace by default auto increases its size (up to what the underlying OS provides), while Perm Gen always has fixed maximum size. Two new flags can be used to set the size of the metaspace, they are: “-XX:MetaspaceSize” and “-XX:MaxMetaspaceSize”. The theme behind the Metaspace is that the lifetime of classes and their metadata matches the lifetime of the classloaders. That is, as long as the classloader is alive, the metadata remains alive in the Metaspace and can’t be freed.
+### Java Stack Memory
+- Java stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
 
-Code Cache
-
-When a Java program is run, it executes the code in a tiered manner. In the first tier, it uses client compiler (C1 compiler) in order to compile the code with instrumentation. The profiling data is used in the second tier (C2 compiler) for the server compiler, to compile that code in an optimized manner. Tiered compilation is not enabled by default in Java 7, but is enabled in Java 8.
-
-The Just-In-Time (JIT) compiler stores the compiled code in an area called code cache. It is a special heap that holds the compiled code. This area is flushed if its size exceeds a threshold and these objects are not relocated by the GC.
-
-Some of the performance issues and the problem of the compiler not getting re-enabled has been addressed in Java 8 and one of the solution to avoid these issues in Java 7 is to increase the size of the code cache up to a point never being reached.
-
-Method Area
-
-Method Area is part of space in the Perm Gen and used to store class structure (runtime constants and static variables) and code for methods and constructors.
-
-Memory Pool
-
-Memory Pools are created by JVM memory managers to create pool of immutable objects. Memory Pool can belong to Heap or Perm Gen, depending on JVM memory manager implementation.
-
-Runtime Constant Pool
-
-Runtime constant pool is a per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is part of the method area.
-
-Java Stack Memory
-
-Java stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
-
-Java Heap Memory Switches
-
-Java provides a lot of memory switches that we can use to set the memory sizes and their ratios. Some of the commonly used memory switches are:
+### Java Heap Memory Switches
+- Java provides a lot of memory switches that we can use to set the memory sizes and their ratios. Some of the commonly used memory switches are:
 
 VM Switch	VM Switch Description
-–Xms	For setting the initial heap size when JVM starts
+–Xms	    For setting the initial heap size when JVM starts
 -Xmx	For setting the maximum heap size
 -Xmn	For setting the size of young generation, rest of the space goes for old generation
 -XX:PermGen	For setting the initial size of the Permanent Generation Memory
