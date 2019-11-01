@@ -1,0 +1,244 @@
+---
+layout: page
+title: Tree Data Structure 
+permalink: /google-ds-tree/
+---
+
+## Binary Tree Q/A
+- What are binary trees?
+    - A binary tree is one type of data structure that has two nodes, a left node and a right node. 
+    - In programming, binary trees are actually an extension of the linked list structures.
+- Explain Binary Search Tree
+    - A binary search tree stores data in such a way that they can be retrieved very efficiently. 
+    - The left subtree contains nodes whose keys are less than the node’s key value, 
+        - while the right subtree contains nodes whose keys are greater than or equal to the node’s key value. 
+    - Moreover, both subtrees are also binary search trees.
+- What is the minimum number of nodes that a binary tree can have?
+    - A binary tree can have a minimum of zero nodes, which occurs when the nodes have NULL values. Furthermore, a binary tree can also have 1 or 2 nodes.
+- Give a basic algorithm for searching a binary search tree.
+    - if the tree is empty, then the target is not in the tree, end search
+    - if the tree is not empty, the target is in the tree
+    - check if the target is in the root item
+    - if target is not in the root item, check if target is smaller than the root’s value
+    - if target is smaller than the root’s value, search the left subtree
+    - else, search the right subtree
+- What is an AVL tree?
+    - An AVL tree is a type of binary search tree that is always in a state of partially balanced. 
+    - The balance is measured as a difference between the heights of the subtrees from the root. 
+    - This self-balancing tree was known to be the first data structure to be designed as such.
+- In which method, the root is processed before traversing the left and right subtrees.
+    - In Preorder traversal method, the root is processed before traversing the left and right sub-trees.
+- Traversing a binary tree?
+    - The steps for in order traversing a binary tree are as follows:
+        - Traverse the left subtree
+        - Visit the root
+        - Traverse the right subtree
+- A min heap is used to sort the list in which order?
+    - A min heap is used to sort the list in descending order.
+- Which are the various variants of binary tree?
+    - Various variants of binary tree are:
+        - Strictly binary tree: A binary tree is said to be strictly binary if every node, except for the leaf nodes, have non-empty left and right children. 
+        - In the preceding binary tree, every non-leaf node has precisely two children. Therefore, it is strictly binary tree.
+        - Full binary tree: A binary tree of depth d is said to be a full binary tree if it has exactly 2d-1 nodes
+        - Complete binary tree: 
+            - A binary tree with n nodes and depth d is complete if and only if 
+                - its nodes correspond to the nodes numbered from 0 to n-1 in the full binary tree of depth k.             
+- How traversing is done in a binary tree?
+    - Traversing a tree refers to the process of visiting all the nodes of the tree once. There are three ways in which traversing is done such as :
+        - Inorder
+        - Preorder
+        - Postorder
+- How do you define tree in a data structure?
+    - A tree is a nonlinear data structure that represents a hierarchical relationship among the various data elements,
+    - Each data elements in a tree is called a node. The topmost node of the tree is called a root
+- Various terms of Binary Tree:
+    - Siblings/Brothers: 
+        - Children of the same node are called siblings of each other. 
+    - Internal Node: 
+        - An intermediate node between the root and the leaf nodes is called an internal node. 
+        - It is also referred to as a non terminal node. 
+    - Level of a node: 
+        - The distance of a node from the root is called the level of a node. 
+        - The root always lies at level 0. 
+        - As we move down the tree, 
+            - the level of a node increases in such a way that if a node is at level n, 
+            - then its children are at level n+1.
+    - Depth of a tree: 
+        - The maximum number of levels in a tree is called the depth of a tree. 
+        - Depth of a tree is one more than maximum level of the tree.
+        
+## Tree Properties 
+- Binary Tree 
+    - The number of edges from the root to the node is called depth of the tree.
+    - The number of edges from the node to the deepest leaf is called height of the tree.
+    - A full binary tree is a tree in which each node has exactly 0 or 2 children.
+    - A binary tree, which is completely filled, with the possible exception of the bottom level, which is filled from left to right is called complete binary tree. A Tree in which each node has exactly zero or two children is called full binary tree. A Tree in which the degree of each node is 2 except leaf nodes is called perfect binary tree.
+    - The nodes are either a part of left sub tree or the right sub tree, so we don’t have to traverse all the nodes, this means the complexity is lesser than n, in the average case, assuming the nodes are spread evenly, the time complexity becomes O(logn).
+    - Undo/Redo operations in a notepad is an application of stack. Hierarchical structure, Faster search, Router algorithms are advantages of trees.
+    - Number of Leaf nodes in full binary tree is equal to 1 + Number of Internal Nodes i.e L = I + 1
+    - Relation between number of internal nodes(I) and nodes(N) is N = 2*I+1.
+    - The relation between number of nodes(N) and leaves(L) is N=2*L-1.
+    - In a binary tree, there are atmost 2k nodes in level k and 2k-1 total number of nodes. Number of levels is at least ceil(log(N+1)).
+- BST
+    - In order sequence of binary search trees will always give ascending order of elements. Remaining all are true regarding binary search trees.
+    - As a binary search tree consists of elements lesser than the node to the left and the ones greater than the node to the right, an inorder traversal will give the elements in an increasing order.
+    - In a postorder traversal, first the left child is visited, then the right child and finally the parent.
+    - In a preorder traversal, first the parent is visited, then the left child and finally the right child.
+    - Since all the elements lesser than a given node will be towards the left, iterating to the leftmost leaf of the root will give the minimum element in a binary search tree.
+    - Worst case arises when the tree is skewed(either to the left or right) in which case you have to process all the nodes of the tree giving O(n) complexity, otherwise O(logn) as you process only the left half or the right half of the tree.
+    - The property of a binary search tree is that the lesser elements are to the left and greater elements are to the right, we use this property here and iterate through the tree such that we reach a point where the 2 elements are on 2 different sides of the node, this becomes the least common ancestor of the 2 given elements.
+    - For an optimal binary search The tree should not be modified and we need to find how often keys are accessed. Optimal binary search improves the lookup cost.
+- Balanced Binary Tree
+    - A balanced full binary tree with l leaves has height h, where h = log2l + 1. So, the height of a balanced full binary tree with 8 leaves = log28 + 1 = 3 + 1 = 4.
+    - For a node in a binary tree, the difference between the heights of its left subtree and right subtree is known as balance factor of the node.
+    - Only the node P will become unbalanced, with balance factor +2.
+    - In a balanced binary tree the heights of two subtrees of every node never differ by more than 1.
+    - AVL tree, Red-black tree, Splay tree are balanced, but B-tree can have more than two children.
+    - In Some tree diagrams, the root of tree has balance factor +2, so the tree is not balanced. If every node in the tree is balanced, then it’s a balanced tree.
+    - Searching an item in balanced binary is fast and worst-case time complexity of the search is O(log n).
+    - Height-Balanced binary search tree can provide an efficient implementation of sets, priority queues.
+    - First we store the in-order traversals of both the trees in two separate arrays and then we can merge these sorted sequences in O(m+n) time. And then we construct the balanced tree from this final sorted array.
+    - Insertion and deletion, in both the binary heap and balanced binary search tree takes O(log n). But searching in balanced binary search tree requires O(log n) while binary heap takes O(n). Construction of balanced binary search tree takes O(nlog n) time while binary heap takes O(n).
+    - AVL tree is more balanced than a Red-black tree because AVL tree has less height than Red-black tree given that both trees have the same number of elements.
+    - Node U will get unbalanced if node P is deleted, because it’s balance factor will become -2.
+    - 2-3-4 Tree is balanced search trees. But it is not a binary tree. So, it is not a self balancing binary tree. AVL tree, Red-Black Tree and Splay tree are self balancing binary search tree.
+    - The worst case running time of the binary tree sort is O(n2). But, the worst case running time can be improved to the O(n log n) using a self – balancing binary search tree.
+    - In an AVL tree, the difference between heights of the two child sub trees of any node is at most one. If the height differs by more than one, AVL tree performs rotations to balance the tree.
+    - Associative arrays can be implemented using a self balancing binary search tree as the worst-case time performance of self – balancing binary search trees is O(log n).
+    - For lookup, insertion and deletion hash table take O(1) time in average-case while self – balancing binary search trees takes O(log n). Therefore, hash tables perform better in average-case.
+    - An AA tree, which is a variation of red-black tree, is a self – balancing binary search tree. 2-3 is B-tree of order 3 and Treat is a randomized binary search tree. A threaded binary tree is not a balanced tree.
+    - Self-balancing binary search trees can be used to construct and maintain ordered lists, to achieve the optimal worst case performance. So, self – balancing binary search tree can be used to implement a priority queue, which is ordered list.
+    - In a Splay tree, the recently accessed element can be accessed quickly. In Splay tree, the frequently accessed nodes are moved towards the root so they are quick to access again.
+    - Self – balancing binary trees adjust the height by performing transformations on the tree at key insertion times, in order to keep the height proportional to log2(n).
+    - The worst case performance of binary tree sort is O(n log n) when it is implemented using a self balancing binary search tree. Self balancing binary search trees perform transformations to balance the tree, which caused balancing overhead. Due to this overhead, binary tree sort is slower than merger sort.
+    - Treap, also known as random binary search tree, Random binary tree and Uniform spanning tree are all random tree. Random tree is a tree formed by a random process of addition and deletion of nodes. AVL tree is a self – balanced binary search tree.
+    - The randomized binary search tree is formed by the stochastic process. The stochastic process or also called random process is a mathematical tool or object including random variables.
+    - As there are 3 numbers (1, 3, 2) so total of 6 combinations can be formed using three numbers but Since (2, 1, 3) and (2, 3, 1) are same so in total there are 5 randomized binary search tree that can be formed.
+    - The expected value of depth of a node that is for a node a, the expected value of length of path from root to node a is found to be at most 2 log n + O(1).
+    - Although it is difficult to find the length of the longest path in randomized binary search tree, but it has been found that the longest length is around 4.311 log x.
+    - The longest path in a randomized binary search tree, but it has been found that the longest length is around 4.311 log x for node x. This is also equal to 1/β log x where β lies in the range (0, 1).
+    - In a random mathematical model, the expected value of number of leaves in a randomized binary search tree is found to be exactly (n + 1)/3 using probability.
+    - Treap is a type of data structure which is a combination of binary tree and heap. It is an example of a randomized binary search tree. It stores value in pairs.
+    - Catalan number is a sequence of natural number that is used in counting problem. Hence it is found that the selecting off a tree uniformly at random is reciprocal of Catalan number.
+    - Beta distribution can be used using a different shape to generate a randomized binary search tree to create a special type of tree known as a botanical tree.
+- AA Tree
+    - AA Trees are implemented using levels instead of colors to overcome the disadvantages of Red-Black trees.
+    - A horizontal link is a connection between a node and a child of equal levels.
+    - A left horizontal link is removed by right rotation. A right horizontal link is removed by left rotation.
+    - A skew removes a left horizontal link by right rotation and a split removes a right horizontal link by left rotation.
+    - In an AA-tree, skew is processed first followed by a split.
+    - An AA-Tree needs to consider only two shapes unlike a red-black tree which needs to consider seven shapes of transformation.
+    - The prime condition of AA-Tree is that only the right children can be red to eliminate possible restructuring cases.
+    - AA- Tree is a small variation of Red-Black tree. AA-Trees overcome the complexity faced in performing insertion and deletion in Red-Black Trees.
+    - The worst case analysis of an AA-Tree is mathematically found to be O(log N).
+    - AA- trees make more rotations than a red-black tree since only two shapes are considered for an AA-Tree whereas seven shapes are considered in Red-Black trees.
+    - AA-tree is invented by Arne Anderson. Daniel Sleator invented Splay Tree. Rudolf Bayer invented a Red-Black tree. Jon Louis Bentley invented K-d tree.
+    - The level of a left node should be strictly less than that of its parent. The level of a right node is less than or equal to that of its parent.
+    - In an AA-Tree, both left and right children can be present. The only condition is that only right children can be red.
+    - B is initially the right child of X. It is then rotated right side and now, B is the left child of P.
+    - Since an AA-tree tends to be flatter, AA-tree has a faster search time than a Red-Black tree.
+- AVL Tree
+    - It is a self balancing tree with height difference atmost 1.
+    - In real world dealing with random values is often not possible, the probability that u are dealing with non random values(like sequential) leads to mostly skew trees, which leads to worst case. hence we make height balance by rotations.
+    - The property of AVL tree is it is height balanced tree with difference of atmost 1 between left and right subtrees. All AVL trees are binary search tree.
+    - Consider height of tree to be ‘he’, then number of nodes which totals to p can be written in terms of height as N(he)=N(he-1)+1+N(he-2). since N(he) which is p can be written in terms of height as the beside recurrence relation which on solving gives N(he)= O(logp) as worst case height.
+    - It is interesting to note that after insertion, only the path from that point to node or only that subtrees are imbalanced interms of height.
+    - Sort the given input, find the median element among them, make it as root and construct left and right subtrees with elements lesser and greater than the median element recursively. this ensures the subtrees differ only by height 1.
+    -  At every level we can form a tree with difference in height between subtrees to be atmost 1 and so there can be log(n) such levels since height of AVL tree is log(n).
+    - The condition to check the height difference between left and right subtrees is missing. if (absolute(left_tree_height – right_tree_height)>1) must be added.
+    - In the code we are trying to make the left rotation and so we need to find maximum of those two values.
+    - Every node in an AVL tree need to store the balance factor (-1, 0, 1) hence space costs to O(n), n being number of nodes. but in red-black we can use the sign of number (if numbers being stored are only positive) and hence save space for storing balancing information. there are even other reasons where redblack is mostly prefered.
+- Cartesian tree
+    - A tree with heap property (parent is either small or big than children) and when traversed in inorder yields the given input sequence. refer below diagram question for clarity.
+    - A tree with heap property (parent is either small or big than children) and when traversed in inorder yields the given input sequence is called as a cartesian tree. as the above figure satisies both the properties. note that even min heap tree can be generated. the above is a max heap tree.
+    - A height balanced cartesian tree is not possible as seen in above question. also any time a unique sequnce possess a unique cartesian tree, this can be proven through induction.
+    - It can sort a set which requires only some sorting or displacements. for example consider 78, 79, 80, 82, 81, 83, In this only 81 and 82 must be swaped to make it a complete sorted set, in this case cartesian sort comes to the rescue.
+    - Consider any of the tie breaking rules, for example the element which appears first can be taken as small among the same elements and then apply cartesian tree rules.
+    - cartesian sort is benificial in case of partially sorted set of elements. a cartesian sort can be considered as a selection or heap sort maintaing a priority queue.
+    - In a cartesian tree minimum value can be found by finding lowest common ancestor for the extreme elements. consider 11,9,19,16 the lowest element is 9 and is a lowest common ancestor for 11 and 16. and by applying few techniques cartesian tree can be used to even find lowest common ancestors efficiently.
+    - these can be done in constant time. tree can be constructed in linear time (this is the most efficient time for any tree construction) and takes space as many elements are there.
+    - A cartesian tree, if feeded with a sorted sequence will generate a straight path (or in tree terminology a skew tree). moreover a cartesian tree basing on same values from the search keys doesnot work well. so a cartesian tree with priority value in addition to search key is called treap.
+    - Range minmum query is finding the minimum element in a given subarray of an array. Constant time is achieved by storing the Cartesian trees for all the blocks in the array. Rmq’s are used in string matchings, computing lowest common ancestor and longest common prefix of a sring.
+    - This can be solved efficiently using treap which is a modification of cartesian tree. an attribute like “boolean reverse” can be maintained with every node representing whether to reverse or not.
+- Weight Balanced Tree
+    - Unlike AVL and redblack trees which uses height and color as book keeping information, weight balanced trees use the size of subtrees.
+    - They are a type of self balancing trees which are mostly used in storing key-value pairs, which is mostly used in functional programming languages. they are very useful to maintain big set of ordered objects.
+    - As a weight balanced tree stores height of the subtrees, we need to use size as an additional attribute to every node. also value(for mappings) may be an optional attribute.
+    - Size of a node k is size[k] = size[k.left] + 1 + size[k.right] and based on this the weight will be given as weight[k] = size[k] + 1.
+    - The tree is said to be a-balanced if the condition is satisfied. and ‘a’ value will be determined during tree formation. large value of ‘a’ is more effective.
+    - The speciality of a weight balanced tree is a part from basic operations we can perform collective operations like set intersection, which helps in rapid prototyping in functional programming languages.
+    - Total number of nodes can be described by the recurrence T(n) = T((n-1)/3)) + T(2(n-1)/3) + 1 T(1) = 1. height of the tree will be H(n) = H(2/3(n-1)) + 1, H(1). drawing a recurrence tree and the cost at each level is 1 and the height will be log(3/2)n.
+    - The rotations of children must be interchanged in the code.
+    - They are the definations of weight and height balanceness. height balanced trees wont convey weight balanceness but opposite can be true.
+    - In a weight balanced tree we can even store the key information so as to use as a key value pair.
+- Red Black Tree
+    - An extra attribute which is a color red or black is used. root is black because if it is red then one of red-black tree property which states that number of black nodes from root to null nodes must be same, will be violated.
+    - We impose below restrictions to achieve self balancing trees with logarithmic complexities for insertions, deletions, search.
+    - root property is black
+    - every leaf is black
+    - children of red node are black
+    - all leaves have same black
+    - We impose restrictions (refer question 2) to achieve logarithm time complexities.
+    - RB tree is used for Linux kernel in the form of completely fair scheduler process scheduling algorithm. It is used for faster insertions, retrievals.
+    - Though both trees are balanced, when there are more insertions and deletions to make the tree balanced, AVL trees should have more rotations, it would be better to use red-black. but if more search is required AVL trees should be used.
+    - Redblack trees have O(logn) for ordering elements in terms of finding first and next elements. also whenever table size increases or decreases in hash table you need to perform rehashing which can be very expensive in real time. also red black stores elements in sorted order rather than input order.
+    - The node pointers can be used to store color with the help of significant bits. the exceptions of this method are in languages like java where pointers are not used this may not work.
+    - Red black when frequent inserts and deletes, AVL when less frequent inserts and deletes, B-tree when using paging from a slow storage device.
+- Top Tree
+    - Top tree is a type of data structure which is based on unrooted dynamic binary tree and is used to solve path related problems. It allows an algorithm called divide and conquer.
+    - Top tree is defined for a set having a maximum of 2 vertices for its underlying tree. Those sets having at maximum 2 vertices is called External Boundary Vertices.
+    - There are at least 2 edges present in path cluster. Cluster in data structure is defined as the subtree that is connect having maximum of 2 vertices known as Boundary Vertices.
+    - If a cluster has no edges and contains only one vertex known as boundary vertex then, it is known as leaf cluster. So a leaf cluster doesn’t contain any edges. It is also known as Point cluster.
+    - A cluster containing only single edge is known as Edge cluster. So there are in total 1 edge present in edge cluster. Cluster in data structure is defined as the subtree that is connect having maximum of 2 vertices known as Boundary Vertices.
+    - Top tree data structure is used to maintain a dynamic forest using link or cut operations. Top tree is a type of data structure which is based on unrooted dynamic binary tree and is used to solve path related problems.
+    - If (A and B are two clusters) is a singleton set where A and B are two clusters, that is there are only one node that is common between the clusters then they are known as Merge able cluster.
+    - Top tree data structure is used to maintain a dynamic forest using link or cut operations. Top tree is a type of data structure which is based on unrooted dynamic binary tree and is used to solve path related problems.
+    - Generally, trees have weight on its edges. Also there is one to one correspondence of the edges with the top trees. Therefore, top trees can be initialized in O (n) time.
+    - Tree having a single vertex has no clusters of tree present in the structure. Therefore, there are empty top trees in a tree having a single vertex. Trees with one node are single node.
+    - Top tree can be considered as a binary tree if the nodes form a cluster, leaves act as an edge and the root of the top tree acts as a tree itself. Then the top tree is called binary tree.
+    - Link returns a single tree having different vertices from top trees. Cut removes the edge from the top tree. Expose is used to implement queries on top trees. Hence all of the options are used as dynamic operations.
+    - Expose is used to implement queries on top trees. While merge is an internal operation used to merge two clusters and return as a parent cluster.
+- Splay Tree
+    - Splay trees are height balanced, self adjusting BST’s.
+    - This is a property of splay tree that ensures faster access. we push the most recently used nodes to top which leads to faster access to recently used values.
+    - Whenever you insert an element or remove or read an element that will be pushed or stored at the top which facilitates easier access or recently used stuff.
+    - We go with amortized time complexity when we feel that not all operations are worst and some can be efficiently done. in splay trees not all splay operations will lead to O(logn) worst case complexity.
+    - Splay trees mainly work using splay operations. wheneve we insert, delete and search for a node we splay the respective nodes to root. we have zig-zag and zig-zig operations.
+    - Splay trees can be used for faster access to recently accessed items and hence used for cache implementations.
+    - May be the stats showing 80-20% may be not accurate, but in real time that is the widely spread scenario seen. If you are into this type of situation, you must choose implementing splay trees.
+    - There is a zig-zag and right operation(zig) which gives the right hand side tree. refer splay operations for insertion in splay tree.
+    - When a right rotation is done the parent of the rotating node becomes it’s right node and it’s child becomes it’s left child.
+    - This will be the case after accessing all n elements in non-decreasing order. Since the height of a tree corresponds to the worst-case access time, this means that the actual cost of an operation can be high. However the amortized access cost of this worst case is logarithmic O(log n).
+- Treap
+    - The average case and worst case space complexity of a treap is mathematically found to be O(N).
+    - A treap is a combination of a tree and a heap. The structure of a treap is determined by the fact that it is heap-ordered.
+    - A treap is the simplest of all binary search trees. Each node is given a numeric priority and implementation is non recursive.
+    - A treap is the simplest of all because we don’t have to worry about adjusting the priority of a node.
+    - A node’s priority should satisfy heap order. That is, any node’s priority should be at least as large as its parent.
+    - Other than insertion, deletion and search operations, several operations like union, intersection and set difference can be done in treaps.
+    - The average case and worst case analysis of a treap are mathematically found to be O(log N).
+    - A root node has the lowest priority in a treap since the node’s priority is based on heap order.
+    - The priority of a null node is set to be infinity in a treap so that during deletion, priority of that particular node is set to infinity, rotated and freed.
+    - Cecilia and Raimund invented Treaps. Arne Andersson invented AA – Trees. Donald Shell invented shell sort and Harris and Ross formulated maximum flow problem.
+- Tango Tree
+    - Tango tree is an online binary search tree whose time complexity is O (log (log n)) when compared to the time complexity of offline binary search tree model. Online algorithm processes input or data provided piece by piece.
+    - Tango tree is constructed by simulating a complete binary search tree. This tree is also known as Reference tree, that contains all the elements of the tree. Also, the reference tree is never showed in actual implementation.
+    - The path starting from the root and following the path of preferred child node till the end of leaf node is known as preferred path. Nodes are stored in Red – Black tree for the representation of the preferred path.
+    - Partitioning method is used by tango tree which partitions a binary search tree into small sets of paths and then storing them to auxiliary trees. Hence tango tree is represented as a tree of trees.
+    - If the top node of one of the reference tree amongst the two, is the is the child of the bottom node of the other reference tree, then the join operation can be carried out to join the two auxiliary trees.
+    - Partitioning method is used by tango tree which partitions a binary search tree into small sets of paths and then storing them to auxiliary trees. Hence tango tree is represented as a tree of trees.
+    - A preferred path is broken into two parts. One of them is known as top part while other is known as bottom part. To break a preferred path into two sets, cut operation is used at a particular node.
+    - Upper bound is found to analyze the work done by a tango tree on a given set of sequences. In order to connect to the tango tree, the upper bound is found to be k+1 O (log (log n)).
+    - Since each search operation in the auxiliary tree takes O (log (log n)) time as auxiliary tree size is bounded by the height of the reference tree that is log n. So for k+1 auxiliary trees, total search time is k+1 O (log (log n)).
+    - The update cost also is bounded by the upper bound. We perform one cut as well as one join operation for the auxiliary tree, so the total update cost for the auxiliary tree is found to be k+1 O (log (log n)).
+    - Splay tree is a self – adjusting binary search tree. It performs basic operations on the tree like insertion, deletion, loop up performing all these operations in O (log n) time.
+- Rope 
+    - Rope is a special binary tree in which the end nodes contain the string and its length. The array is a linear data structure. Linked List is a linear data structure having a node containing data input and the address of the next node. The queue is a data structure working on the principle of FIFO.
+    - In order to find the node at x position in a rope data structure where N is the length of the rope, we start a recursive search from the root node. So the time complexity for worst case is found to be O (log N).
+    - In order to perform the concatenation on the rope data structure, one can create two nodes S1 and S2 and then performing the operation in constant time that is the time complexity is O (1).
+    - To perform the basic operations on a rope data structure like insertion, deletion, concatenation and splitting, the rope should be a balanced tree. After performing the operations one should again re-balance the tree.
+    - In order to perform the insertion on the rope data structure, one can insert the given string at any position x to form a new string in O (log n) time. So, the time complexity for worst case is O (log n). This can be done by one split operation and two concatenation operations.
+    - In order to perform the insertion on the rope data structure, the time complexity is O (log n). In order to perform the deletion on the rope data structure, the time complexity for worst case is O (log n). While for arrays the time complexity is O (n).
+    - In order to perform the deletion on the rope data structure, one can delete the given string at any position x to form a new string in O (log n) time. So, the time complexity for worst case is O (log n). This can be done by two split operations and one concatenation operation.
+    - In order to perform the splitting on the rope data structure, one can split the given string into two new string S1 and S2 in O (log n) time. So, the time complexity for worst case is O (log n). The split operation can be performed if the split point is either at the end of the string or in the middle of the string.
+- 
