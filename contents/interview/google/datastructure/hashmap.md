@@ -19,7 +19,7 @@ permalink: /google-ds-hashmap/
 - A hash is usually a hexadecimal string of several characters. 
 - Hashing is also a unidirectional process so you can never work backwards to get back the original data.
 - A good hash algorithm should be complex enough such that it does not produce the same hash value from two different inputs. 
-- If it does, this is known as a hash collision. 
+- If it does, this is known as a hash collision 
 - A hash algorithm can only be considered good and acceptable if it can offer a very low chance of collision.
 
 #### Why do we need it?
