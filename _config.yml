@@ -4,8 +4,8 @@ email: vishykaranth@gmail.com
 description: "Vishwanath Nagendra's Notes"
 baseurl: ""
 url: "https://vishykaranth.github.io"
-#twitter_username: vishwa
-#github_username:  vishwa
+twitter_username: vishwa
+github_username:  vishwa
 
 # Build settings
 markdown: kramdown
