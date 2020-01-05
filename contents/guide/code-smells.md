@@ -85,6 +85,23 @@
 - Dead Code
     - A variable, parameter, field, method or class is no longer used (usually because it’s obsolete).
 - Speculative Generality
-    - There’s an unused class, method, field or parameter.		
+    - There’s an unused class, method, field or parameter.	
+    
+### Couplers
+- All the smells in this group contribute to excessive coupling between classes or show what happens if coupling is replaced by excessive delegation.
+- Feature Envy
+    - A method accesses the data of another object more than its own data.
+- Inappropriate Intimacy
+    - One class uses the internal fields and methods of another class.
+- Message Chains
+    - In code you see a series of calls resembling $a->b()->c()->d()
+- Middle Man
+    - If a class performs only one action, delegating work to another class, why does it exist at all?
+
+### Other Smells
+- Below are the smells which don’t fall into any broad category.
+- Incomplete Library Class
+    - Sooner or later, libraries stop meeting user needs. 
+    - The only solution to the problem – changing the library – is often impossible since the library is read-only.        	
 
 		
