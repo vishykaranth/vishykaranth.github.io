@@ -1,0 +1,7 @@
+## Start UP Postgres
+
+### Credentials 
+
+- url : "jdbc:postgresql://127.0.0.1:5432/postgres"
+- username : "postgres"
+- password : "database123"
