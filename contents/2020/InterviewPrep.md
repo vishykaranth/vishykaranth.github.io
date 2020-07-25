@@ -1,0 +1,11 @@
+## Interview Pointers 
+- The details aren't always there (ask questions in an Interview)
+- Working Code ISN'T everything (improve your efficiency)
+- Your code isn't evaluated, YOU ARE! (think out loud)
+- Focusing on things that don't matter (don't worry about comparative statistics on Leetcode)
+- Not practicing in the right setting (practice without autocomplete/syntax highlighting using a whiteboard/pen-paper)
+- Aspects like how you communicate, listen and respond to things matter as much as your coding skills
+- Before jumping into solution you can explain your approach. You can get all clarifications at this point. 
+- You may not need to write sort code( or custom code) every time - before writing check with interviewer whether you can use standard library.
+- If you forget some syntax or stuck at some point don't be down, speak out. This is also a way to find team players.
+- If you are not getting an algorithm with nlogn or n complexity, don't worry start with exponential time complexity algorithm and optimise it in second iteration.
