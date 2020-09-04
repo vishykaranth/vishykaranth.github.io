@@ -1,0 +1,88 @@
+## OAuth 
+- The “Auth” in OAuth is for authorization, not authentication!
+- Example :: Photo printing service **[PPS]** 
+    - Usecase 
+        - **[User]** provide **[PPS]** an image file. 
+        - **[User]** pay **[PPS]** to ship printed photos to your address.
+    - Additional Details     
+        - **[User]** use the [cloud]  
+        - **[PPS]** keep getting feature requests to provide **[User]** the ability to import their photos from somewhere like **{Google Drive}** 
+        - Then **[PPS]** print it directly from there, without the users having to download them and upload again.
+- Implementing an Import from **{Google Drive}** to **[PPS]** 
+    - **[PPS]** need to connect to the user’s **{Google Drive}** account and access their files. 
+    - The **[User]** files on **{Google Drive}** needs the **[User]** Google authentication. 
+    - **[PPS]** can ask the **[User]** for their Google ID and password. 
+    - **[PPS]** login to your Google account and access **[User]** photos and print them.
+    - **[User]** don’t trust **[PPS]** 
+    - **[User]** just want to give **[PPS]** access to certain photos. 
+    - **[User]** don’t want to give **[PPS]** access to their whole **{Google Drive}** and email and everything else. 
+    - **[PPS]** might promise that it’ll access just **[User]** photos, but there is no guarantee! 
+    - **[PPS]** might say — **{Google Drive}** has a share feature! 
+    - **[User]** can share the files to **[PPS]**. 
+    - What if the **[User]** don’t want to share files out to anyone. 
+    - what if it’s a different scenario where sharing isn’t an option? 
+    - E.g. **[PPS]** wants to access the **[User]** contacts to send app invites? 
+    - There’s no way **[PPS]** can ask the **[User]** to share their address book. 
+    - How do you have a **[PPS]** authorize with a service like Google without **[User]** providing it their credentials?
+- Solution :: **OAuth**
+    - To solve this problem of **[PPS]** trying to access each other on behalf of the **[User]**, there was a standard protocol created called **OAuth**. 
+        - OAuth 1, wasn’t that popular. 
+        - OAuth 2, is very widely used and adopted. 
+        - When anyone mentions OAuth these days, they are almost always referring to OAuth 2.
+    - How does OAuth work? 
+        - Similar to valet key model for cars. 
+            - **Car owner** drives up to a parking garage, 
+            - **Car owner** hand their key to the **valet** and say, “Hey Mr Valet guy, park my car for me”. 
+            - The **valet** takes the key, drives the car, finds a spot and parks the car.
+            - What if a **valet** picks up the keys and takes the car for a long drive or opens the trunk or glove compartment?
+            - Some cars come with an additional key called the **valet key**. 
+                - This key is just like the main car key but with reduced access. 
+                - It can start and stop the car. 
+                - But it cannot open the trunk or the glove compartment. 
+                - It cannot open the fuel tank. Stuff like that. 
+                - If the sports car owner has such a key, they would be more comfortable handing this key to the valet.
+                - They know the valet cannot do a whole lot with that key apart from their intended purpose.
+            - So, here the car owner is using two “services”. 
+                - The car service and the valet service. 
+                - The valet service needs to access the car service directly to do the job. 
+                - So, rather than give the complete “credentials” of the car service to the valet service, 
+                - the car owner gives reduced or limited access to the car service.
+- The OAuth flow
+    - OAuth is an authorization mechanism where services can authorize against each other on your behalf once you’ve given them permission. 
+    - It is often referred to as delegated access for this reason. 
+    - It is also an open standard — as it obviously needs to be — because multiple services over the internet need to talk to each other. 
+    - So there is a specification that all these services need to follow so that they understand each other. 
+    - There is a certain flow that needs to happen for this whole process to work — the OAuth flow.
+- Back to our photo printing example. Here’s the situation:
+    - You have a service that needs to access the user’s **{Google Drive}** files
+    - We have a user who is logged into both this service and to Google. Both services trust the user. They just don’t trust each other.
+    - The problem we want to solve is to have these two services work with each other.
+    - If both these services have OAuth implemented, here’s how the interaction works
+    - The photo print service goes to Google and says, “Hey, I need this user’s files”.
+    - With OAuth implemented, Google does something interesting. 
+        - It goes to the user and says “Look here, user. 
+        - There’s this service here that wants to access some of your files. 
+        - Is this legit? Here’s the list of things this service wants to do. Shall I go ahead and allow it?”
+        - Now the user sees a screen that clearly specifies A) 
+            - Who is asking for access to the user’s Google account and B) 
+            - What’s the list of permissions that the service wants.
+        - Now if the user is the person who is trying to print the photo, they’ll look at that and say “Okay, this is all correct. Please allow access”.
+        - Now Google has reason to trust the service, so it gives the service a key token (called the authorization token) that contains all the allowed permissions. 
+            - It’s a limited access token. A “valet key token”, if you will!
+        - And now every time the photo printing service needs to access the **{Google Drive}**, it just hands this token with the request and says “Hey Google, I need access to that file. 
+            - Here’s the token that you gave me which has user verified access to these permissions. Let me in!”
+        - And each time this happens, Google looks at the token and says “Hmm, okay, that’s legit. You can access this”. 
+            - With the token, the photo service has limited access to only the permissions the user has previously approved
+    - You might have seen these screens from Facebook or Google asking for permissions.
+    - The screen informs you which service is trying to access what permissions on your behalf. If you accept, an access token is handed to the service which allows future access so that you don’t have to click allow every time.
+- Access token
+    - What does this access token look like? 
+        - It has to be a token that contains information about all the allowed permissions 
+        - and also needs to be tamper-proof — something that the service can verify. 
+        - How do you create a token that can contain data within it but is also secure so that it cannot be modified? 
+            - There is a specific token format called JWT that works perfectly. 
+            - Check out this article to learn how JWT works!
+    - Now that you know how this flow works, 
+        - it is also obvious to see why OAuth is used for authorization, not authentication. 
+        - In this case, the user is actually authenticated to both the services already. 
+        - The problem solved here is how to authorize one service with another.
