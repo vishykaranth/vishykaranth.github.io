@@ -558,13 +558,3 @@ assert (b1 + b2).size == 15
 assert (b1 + 11).size == 15
 
 ~~~
-
-
-### Unary operators
-~~~groovy
-~~~
-
-
-### Unary operators
-~~~groovy
-~~~
