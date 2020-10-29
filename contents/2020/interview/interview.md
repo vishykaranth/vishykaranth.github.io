@@ -3479,7 +3479,7 @@ public class Solution
 }
 ```
 
-### References 
+## References 
 * [Java-success.com](http://www.java-success.com/)
 * [Massive tech interview](http://massivetechinterview.blogspot.com/)
 * [Java best practices](http://www.javapractices.com/home/HomeAction.do)
