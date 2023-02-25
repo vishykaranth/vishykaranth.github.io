@@ -42,7 +42,7 @@ Cache invalidation is a process where the computer system declares the cache ent
 
 ### Write-through cache
 
-![write-through-cache](/static/courses/system-design/chapter-I/caching/write-through-cache.png)
+![write-through-cache](/contents/2023/system-design/images/system-design/chapter-I/caching/write-through-cache.png)
 
 Data is written into the cache and the corresponding database simultaneously.
 
@@ -52,7 +52,7 @@ Data is written into the cache and the corresponding database simultaneously.
 
 ### Write-around cache
 
-![write-around-cache](/static/courses/system-design/chapter-I/caching/write-around-cache.png)
+![write-around-cache](/contents/2023/system-design/images/system-design/chapter-I/caching/write-around-cache.png)
 
 Where write directly goes to the database or permanent storage, bypassing the cache.
 
@@ -62,7 +62,7 @@ Where write directly goes to the database or permanent storage, bypassing the ca
 
 ### Write-back cache
 
-![write-back-cache](/static/courses/system-design/chapter-I/caching/write-back-cache.png)
+![write-back-cache](/contents/2023/system-design/images/system-design/chapter-I/caching/write-back-cache.png)
 
 Where the write is only done to the caching layer and the write is confirmed as soon as the write to the cache completes. The cache then asynchronously syncs this write to the database.
 
@@ -83,13 +83,13 @@ Following are some of the most common cache eviction policies:
 
 ## Distributed Cache
 
-![distributed-cache](/static/courses/system-design/chapter-I/caching/distributed-cache.png)
+![distributed-cache](/contents/2023/system-design/images/system-design/chapter-I/caching/distributed-cache.png)
 
 A distributed cache is a system that pools together the random-access memory (RAM) of multiple networked computers into a single in-memory data store used as a data cache to provide fast access to data. While most caches are traditionally in one physical server or hardware component, a distributed cache can grow beyond the memory limits of a single computer by linking together multiple computers.
 
 ## Global Cache
 
-![global-cache](/static/courses/system-design/chapter-I/caching/global-cache.png)
+![global-cache](/contents/2023/system-design/images/system-design/chapter-I/caching/global-cache.png)
 
 As the name suggests, we will have a single shared cache that all the application nodes will use. When the requested data is not found in the global cache, it's the responsibility of the cache to find out the missing piece of data from the underlying data store.
 
