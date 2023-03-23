@@ -93,4 +93,42 @@ public DataSource dataSource() {
     - What environment variables, system properties, configuration properties, and command-line arguments are available to your application
     - The current state of the threads in and supporting your application
     - A trace of recent HTTP requests handled by your application
-    - Various metrics pertaining to memory usage, garbage collection, web requests, and data source usage          
+    - Various metrics pertaining to memory usage, garbage collection, web requests, and data source usage    
+
+### What Spring Boot isn’t
+- Spring Boot is not an application server. 
+    - This misconception stems from the fact that it’s possible to create web applications as self-executable JAR files that can be run at the command line 
+    - without deploying applications to a conventional Java application server. 
+    - Spring Boot accomplishes this by embedding a servlet container (Tomcat, Jetty, or Undertow) within the application. 
+    - But it’s the embedded servlet container that provides application server functionality, not Spring Boot itself. 
+- Spring Boot doesn’t implement any enterprise Java specifications such as JPA or JMS. 
+    - It does support several enterprise Java specifications, 
+    - but it does so by automatically configuring beans in Spring that support those features. 
+    - For instance, Spring Boot doesn’t implement JPA, but it does support JPA by auto-configuring the appropriate beans for a JPA implementation (such as Hibernate).
+- Spring Boot doesn’t employ any form of code generation to accomplish its magic. 
+    - Instead, it leverages conditional configuration features from Spring 4, 
+        - along with transitive dependency resolution offered by Maven and Gradle, 
+        - to automatically configure beans in the Spring application context.   
+- Spring Boot is just Spring. 
+    - Spring Boot is doing the same kind of bean configuration in Spring that you might do on your own if Spring Boot didn’t exist. 
+    - you’re freed from dealing with explicit boilerplate configuration and are able to focus on the logic that makes your application unique.
+    
+### Sprint init 
+- spring init -dweb,jpa,security
+- spring init -dweb,jpa,security --build gradle
+- spring init -dweb,jpa,security --build gradle -p war
+- spring init -dweb,jpa,security --build gradle -p war myapp
+- spring init -dweb,jpa,security --build gradle -p jar -x
+
+### @SpringBootApplication
+- The @SpringBootApplication enables Spring component-scanning and Spring Boot auto-configuration. 
+- In fact, @SpringBootApplication combines three other useful annotations:
+    - @Configuration
+        - Designates a class as a configuration class using Spring’s Java-based configuration. 
+    - @ComponentScan
+        - Enables component-scanning so that the web controller classes and other components 
+        - you write will be automatically discovered and registered as beans in the Spring application context. 
+            - @Controller @Component, @Service
+    - @EnableAutoConfiguration 
+    - it’s the one line of configuration that enables the magic of Spring Boot auto-configuration. 
+    - This one line keeps you from having to write the pages of configuration that would be required otherwise.                          
