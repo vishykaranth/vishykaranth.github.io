@@ -83,4 +83,14 @@ public DataSource dataSource() {
     - If it needs security, you can add the “security” starter. 
     - In short, you no longer need to think about what libraries you’ll need to support certain functionality; you simply ask for that functionality by way of the pertinent starter dependency.
     - Also note that Spring Boot’s starter dependencies free you from worrying about which versions of these libraries you need. 
-    - The versions of the libraries that the starters pull in have been tested together so that you can be confident that there will be no incompatibilities between them.         
+    - The versions of the libraries that the starters pull in have been tested together so that you can be confident that there will be no incompatibilities between them.
+    
+### Actuator
+- The Actuator instead offers the ability to inspect the internals of your application at runtime. 
+- inspect the inner workings of your application, including details such as   
+    - What beans have been configured in the Spring application context
+    - What decisions were made by Spring Boot’s auto-configuration
+    - What environment variables, system properties, configuration properties, and command-line arguments are available to your application
+    - The current state of the threads in and supporting your application
+    - A trace of recent HTTP requests handled by your application
+    - Various metrics pertaining to memory usage, garbage collection, web requests, and data source usage          
