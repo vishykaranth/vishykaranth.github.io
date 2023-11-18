@@ -53,6 +53,15 @@ public DataSource dataSource() {
     - There’s a lot more to Spring Boot auto-configuration than embedded databases and JdbcTemplate. 
     - There are several dozen ways that Spring Boot can take the burden of configuration off your hands, 
         - including auto-configuration for the Java Persistence API (JPA), Thymeleaf templates, security, and Spring MVC.
+
+#### Using automatic configuration
+- Examples of Spring Boot auto-configuration might consider:
+    - Is Spring’s JdbcTemplate available on the classpath? 
+        - If so and if there is a Data-Source bean, then auto-configure a JdbcTemplate bean.
+    - Is Thymeleaf on the classpath? 
+        - If so, then configure a Thymeleaf template resolver, view resolver, and template engine.
+    - Is Spring Security on the classpath? 
+        - If so, then configure a very basic web security setup.
         
 ### Starter Dependencies
 - It can be challenging to add dependencies to a project’s build. 
@@ -130,5 +139,34 @@ public DataSource dataSource() {
         - you write will be automatically discovered and registered as beans in the Spring application context. 
             - @Controller @Component, @Service
     - @EnableAutoConfiguration 
-    - it’s the one line of configuration that enables the magic of Spring Boot auto-configuration. 
-    - This one line keeps you from having to write the pages of configuration that would be required otherwise.                          
+        - it’s the one line of configuration that enables the magic of Spring Boot auto-configuration. 
+        - This one line keeps you from having to write the pages of configuration that would be required otherwise.      
+        
+### Getting Groovy with the Spring Boot CLI 
+
+- The Spring Boot CLI takes the simplicity offered by Spring Boot auto-configuration and starter dependencies and turns it up a notch. 
+- Using the elegance of the Groovy language, the CLI makes it possible to develop Spring applications with minimal code noise.
+In this chapter we completely rewrote the reading-list application from chapter 2.
+But this time we developed it in Groovy as a Spring Boot CLI application. You saw how
+the CLI makes Groovy even more elegant by automatically adding import statements
+for many commonly used packages and types. And the CLI is also able to automatically
+resolve several dependency libraries.
+For libraries that the CLI is unable to automatically resolve, CLI-based applications
+can take advantage of the Grape @Grab annotation to explicitly declare dependencies
+without a build specification. Spring Boot’s CLI extends @Grab so that, for many commonly
+needed library dependencies, you only need to declare the module ID.
+Finally, you also saw how to execute tests and build deployable artifacts, tasks commonly
+handled by build systems, with the Spring Boot CLI.
+Spring Boot and Groovy go well together, each boosting the other’s simplicity.44444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+We’re going to take another look at how Spring Boot and Groovy play well together in
+the next chapter as we explore how Spring Boot is at the core of the latest version of
+Grails.                            
+
+
+- Spring Boot has a lot of power when it comes to bootstrapping an application and configuring it with exactly the things that are needed, 
+    - all without much of the glue code that is required of us, the developers. 
+- The secret behind this power actually comes from Spring itself or rather from the Java Configuration functionality that it provides. 
+- As we add more starters as dependencies, more and more classes will appear in our classpath. 
+- Spring Boot detects the presence or absence of specific classes and based on this information, makes some decisions, 
+- which are fairly complicated at times, and automatically creates and wires the necessary beans to the application context.4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444`444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
