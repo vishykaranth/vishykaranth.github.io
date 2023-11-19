@@ -1,3 +1,9 @@
+---
+layout: page
+title: aws
+permalink: /aws/
+---
+
 # Amazon Web Services (AWS)
 
 AWS stands for Amazon Web Service; it is a collection of remote computing services also known as a cloud computing
