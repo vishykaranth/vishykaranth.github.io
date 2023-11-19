@@ -3,15 +3,14 @@ layout: page
 title: Spring Boot 3
 permalink: /spring-boot-3/
 ---
-Spring
-=================
+
 
 PUT, POST, GET, DELETE and PATCH IN HTTP
 ------------------
 
-POST is always for creating a resource ( does not matter if it was duplicated )
-PUT is for checking if resource is exists then update , else create new resource
-PATCH is always for update a resource
+- POST is always for creating a resource ( does not matter if it was duplicated )
+- PUT is for checking if resource is exists then update, else create new resource
+- PATCH is always for update a resource
 
 
 Dependency Injection
@@ -56,7 +55,7 @@ public Class A{
     B b;
     A(B b){
         this.b=b;
-        }
+    }
 }
 ```
 Java Class B:
