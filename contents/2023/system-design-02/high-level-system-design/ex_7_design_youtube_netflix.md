@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-youtube-or-netflix
-topic: design-youtube-or-netflix
+layout: page
+title: design-youtube
+permalink: /design-youtube/
 ---
 
 

@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-instagram
-topic: design-instagram
+layout: page
+title: design-instagram
+permalink: /design-instagram/
 ---
 
 

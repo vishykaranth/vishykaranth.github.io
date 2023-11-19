@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-facebook-messenger
-topic: design-facebook-messenger
+layout: page
+title: design-facebook-messenger
+permalink: /design-facebook-messenger/
 ---
 
 

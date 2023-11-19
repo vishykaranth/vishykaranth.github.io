@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-typeahead-suggestion
-topic: design-typeahead-suggestion
+layout: page
+title: design-typeahead-suggestion
+permalink: /design-typeahead-suggestion/
 ---
 
 

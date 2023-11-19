@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-bookmyshow
-topic: design-bookmyshow
+layout: page
+title: design-book-my-show
+permalink: /design-book-my-show/
 ---
 
 

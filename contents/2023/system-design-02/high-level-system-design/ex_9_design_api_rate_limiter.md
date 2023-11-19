@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-api-rate-limiter
-topic: design-api-rate-limiter
+layout: page
+title: design-api-rate-limiter
+permalink: /design-api-rate-limiter/
 ---
 
 

@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-uber
-topic: design-uber
+layout: page
+title: design-uber
+permalink: /design-uber/
 ---
 
 

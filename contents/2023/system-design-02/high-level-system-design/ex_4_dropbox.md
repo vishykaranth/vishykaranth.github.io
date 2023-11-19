@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-dropbox
-topic: design-dropbox
+layout: page
+title: design-dropbox
+permalink: /design-dropbox/
 ---
 
 

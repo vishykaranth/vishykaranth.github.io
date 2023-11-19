@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-pastebin
-topic: design-pastebin
+layout: page
+title: design-paste-bin
+permalink: /design-paste-bin/
 ---
 
 

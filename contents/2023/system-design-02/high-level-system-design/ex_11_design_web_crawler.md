@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-web-crawler
-topic: design-web-crawler
+layout: page
+title: design-web-crawler
+permalink: /design-web-crawler/
 ---
 
 

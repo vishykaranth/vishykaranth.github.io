@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-facebook-newsfeed
-topic: design-facebook-newsfeed
+layout: page
+title: design-facebook-newsfeed
+permalink: /design-facebook-newsfeed/
 ---
 
 

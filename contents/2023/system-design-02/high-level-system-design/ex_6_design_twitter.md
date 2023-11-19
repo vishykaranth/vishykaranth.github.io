@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/high-level-system-design/design-twitter
-topic: design-twitter
+layout: page
+title: design-twitter
+permalink: /design-twitter/
 ---
 
 
