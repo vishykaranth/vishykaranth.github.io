@@ -4,6 +4,8 @@ title: micro-service
 permalink: /micro-service/
 ---
 
+
+
 Microservices
 
 Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are
@@ -20,7 +22,7 @@ What is Micro Service?
 
 > Micro Service is an architecture that allows the developers to develop and deploy services independently. Each service running has its own process and this achieves the lightweight model to support business applications.
 
-<img src="./images-ms/Beehive-Representation-Microservices.png" width="700" border="2" />
+![](../micro-services/images/Beehive-Representation-Microservices.png)  
 
 SOA(Service-oriented architecture) vs Microservices
 ---------------------------------------------------
@@ -170,7 +172,7 @@ A microservice architecture has the components:
 - **Content Delivery Networks** – Distributed network of proxy servers and their data centers.
 - **Remote Service** – Enables the remote access information that resides on a network of IT devices.
 
-<img src="./images-ms/microservice-architecture.png" width="500" border="2" />
+![](../micro-services/images/microservice-architecture.png)  
 
 Communicating Between Microservices
 -----------------------------------
@@ -300,7 +302,8 @@ What are best practices for microservices architecture?
 
 Microservices Architecture can become cumbersome & unmanageable if not done properly. There are best practices that help design a resilient & highly scalable system. The most important ones are -
 
-<img src="./images-ms/Best Practices in Microservices Architecture.png" width="800" border="2" />
+![](../micro-services/images/Best%20Practices%20in%20Microservices%20Architecture.png)
+
 
 **Partition correctly**
 
@@ -520,8 +523,7 @@ What are different layers of a single microservice?
 ---------------------------------------------------
 
 Like any typical Java application, a microservice has layered architecture. Most common layers in any microservice are:
-
-<img src="./images-ms/Different Layers in a Single Microservice.png" width="700" border="2" />
+![](../micro-services/images/Different%20Layers%20in%20a%20Single%20Microservice.png)
 
 Note
 From layering perspective, any microservice is no different than any other 3-tier architecture application.
@@ -724,7 +726,7 @@ build.gradle - Eureka Client (to be included in all microservices).
 
 Eureka server provides a basic dashboard for monitoring various instances and their health in service registry. The ui is written in freemarker and provided out of the box without any extra configuration. Screenshot for Eureka Server looks like the following.
 
-<img src="./images-ms/Eureka Registry Screenshot.png" width="800" border="2" />
+![](../micro-services/images/Eureka%20Registry%20Screenshot.png)
 
 It contains list all services that are registered with Eureka Server. Each server has information like zone, host, port and protocol.
 
@@ -760,8 +762,8 @@ Externalize configuration in a distributed system
 -------------------------------------------------
 
 Spring Cloud Config provides server and client side support for externalized configuration in a distributed system. With a config server we have a central place to manage external properties for applications across all environments. The default implementation of the config-server storage uses git so it easily supports labelled versions of configuration environments.
+![](../micro-services/images/Config%20Server%20Architecture.png)
 
-<img src="./images-ms/Config Server Architecture.png" width="800" border="2" />
 
 **Key features of Spring Cloud config-server**
 
