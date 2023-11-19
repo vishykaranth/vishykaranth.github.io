@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Spring Boot 2
-permalink: /spring-boot/
+permalink: /spring-boot-2/
 ---
 # Spring Boot : Complete guide from development to deployment
 

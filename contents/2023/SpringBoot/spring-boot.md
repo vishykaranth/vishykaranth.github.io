@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Spring Boot 
-permalink: /spring-boot/
+title: Spring Boot 1
+permalink: /spring-boot-1/
 ---
 
 Spring Boot
