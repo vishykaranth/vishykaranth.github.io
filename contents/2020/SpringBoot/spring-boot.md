@@ -1,3 +1,9 @@
+---
+layout: page
+title: Spring Boot 
+permalink: /spring-boot/
+---
+
 Spring Boot
 ===========
 
