@@ -104,7 +104,8 @@ permalink: /design-tiny-url-service/
 - Assuming 500 million new URLs per month and 100:1 read:write ratio.
 - Following is the summary of the high level estimates for our service.
 
-<img src="assets/tiny_url_high_level_estimate.png" style="width:45%;" />
+
+![](../high-level-system-design/assets/tiny_url_high_level_estimate.png)  
 
 <br>
 
@@ -164,8 +165,7 @@ deleteURL(api_dev_key, url_key)
 ###### Database Schema:
 
 - We would need two tables, one for storing information about the URL mappings and the other for users’ data.
-
-<img src="assets/db_tables.png" style="width:45%;" />
+![](../high-level-system-design/assets/db_tables.png)  
 
 ###### What kind of database should we use ?
 
@@ -206,7 +206,7 @@ deleteURL(api_dev_key, url_key)
    - However, if the user has not signed in, we can ask the user to choose a unique key.
    - Even after this if we have a conflict, we have to keep generating a key until we get a unique one.
 
-<img src="assets/request_flow_url_shortening.png" style="width:45%;" />
+![](../high-level-system-design/assets/request_flow_url_shortening.png)  
 
 <br>
 
@@ -254,7 +254,7 @@ deleteURL(api_dev_key, url_key)
 - However, it is reasonable (and often desirable) to impose a size limit on a custom alias, so that we have a consistent URL database.
 - Let’s assume users can specify maximum 16 characters long customer key (as reflected in the above database schema).
 
-<img src="assets/hld_url_shortening.png" style="width:40%;" />
+![](../high-level-system-design/assets/hld_url_shortening.png)  
 
 <br>
 
@@ -305,7 +305,7 @@ deleteURL(api_dev_key, url_key)
 - Whenever this happens, we can update the cache and pass the new entry to all the cache replicas.
 - Each replica can update their cache by adding the new entry. If a replica already has that entry, it can simply ignore it.
 
-<img src="assets/accessing_tiny_url.png" style="width:55%;" />
+![](../high-level-system-design/assets/accessing_tiny_url.png)  
 
 <br>
 
@@ -338,7 +338,7 @@ deleteURL(api_dev_key, url_key)
 - Should we remove links that haven’t been visited in some length of time, say six months ?
 - This could be tricky. Since **storage is getting cheap**, we can decide to **keep links forever**.
 
-<img src="assets/url_shortening_detailed_design.png" width="60%">
+![](../high-level-system-design/assets/url_shortening_detailed_design.png)  
 
 <br>
 
