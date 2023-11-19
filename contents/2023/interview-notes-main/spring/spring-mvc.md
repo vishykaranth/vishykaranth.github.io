@@ -1,8 +1,3 @@
----
-layout: page
-title: spring-boot-9-mvc
-permalink: /spring-boot-9-mvc/
----
 Spring MVC
 ==========
 
@@ -444,4 +439,5 @@ For more information:
 3. [Quartz Configuration Reference](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/configuration/ConfigJDBCJobStoreClustering.html)
 4. [Guide to ShedLock with Spring](https://www.baeldung.com/shedlock-spring)
 5. [Introduction to Quartz](https://www.baeldung.com/quartz)
+
 
