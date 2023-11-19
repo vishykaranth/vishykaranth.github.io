@@ -1,3 +1,8 @@
+---
+layout: page
+title: kafka
+permalink: /kafka/
+---
 Kafka
 =================
 

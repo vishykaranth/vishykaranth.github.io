@@ -1,3 +1,8 @@
+---
+layout: page
+title: hibernate
+permalink: /hibernate/
+---
 Hibernate
 =================
 
