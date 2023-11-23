@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/low-level-design-basics
-topic: low-level-design-basics
+layout: page
+title: low-level-design-basics
+permalink: /low-level-design-basics/
 ---
 
 

@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-restaurant-design-system
-topic: design-restaurant-design-system
+layout: page
+title: design-restaurant-design-system
+permalink: /design-restaurant-design-system/
 ---
 
 # Design Restaurant Design System

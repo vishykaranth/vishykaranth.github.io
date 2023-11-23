@@ -2,6 +2,11 @@
 permalink: /techblogs/low-level-system-design/design-stackoverflow
 topic: design-stackoverflow
 ---
+---
+layout: page
+title: design-stackoverflow
+permalink: /design-stackoverflow/
+---
 
 # Design StackOverflow
 

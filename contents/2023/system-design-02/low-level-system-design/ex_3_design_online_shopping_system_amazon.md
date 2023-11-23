@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-online-shopping-system-amazon
-topic: design-online-shopping-system-amazon
+layout: page
+title: design-online-shopping-system-amazon
+permalink: /design-online-shopping-system-amazon/
 ---
 
 # Design Online Shopping System - Amazon

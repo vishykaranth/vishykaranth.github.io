@@ -1,9 +1,8 @@
 ---
-permalink: /techblogs/low-level-system-design/unified-modeling-language-uml
-topic: unified-modeling-language-uml
+layout: page
+title: unified-modeling-language-uml
+permalink: /unified-modeling-language-uml/
 ---
-
-
 
 # Unified Modeling Language (UML)
 
@@ -257,5 +256,5 @@ topic: unified-modeling-language-uml
 
 ----
 
-<a href="low-level-design-basics" class="prev-button">&larr; Previous: Low Level Design Basics</a>
+<a href="unified-modeling-language-uml" class="prev-button">&larr; Previous: Low Level Design Basics</a>
 

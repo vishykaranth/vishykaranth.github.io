@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-chess
-topic: design-chess
+layout: page
+title: design-chess
+permalink: /design-chess/
 ---
 
 # Design Chess

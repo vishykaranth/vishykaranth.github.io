@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-online-brokerage-system
-topic: design-online-brokerage-system
+layout: page
+title: design-online-brokerage-system
+permalink: /design-online-brokerage-system/
 ---
 
 # Design Online Brokerage System

@@ -1,6 +1,8 @@
+
 ---
-permalink: /techblogs/low-level-system-design/design-parking-lot
-topic: design-parking-lot
+layout: page
+title: design-parking-lot
+permalink: /design-parking-lot/
 ---
 
 # Design Parking Lot

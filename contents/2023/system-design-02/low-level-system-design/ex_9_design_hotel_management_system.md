@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-hotel-management-system
-topic: design-hotel-management-system
+layout: page
+title: design-hotel-management-system
+permalink: /design-hotel-management-system/
 ---
 
 # Design Hotel Management System

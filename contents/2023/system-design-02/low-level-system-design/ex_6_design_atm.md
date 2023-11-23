@@ -1,6 +1,7 @@
 ---
-permalink: /techblogs/low-level-system-design/design-atm
-topic: design-atm
+layout: page
+title: design-atm
+permalink: /design-atm/
 ---
 
 # Design ATM
