@@ -1,3 +1,9 @@
+---
+layout: page
+title: distributed-systems-observability
+permalink: /distributed-systems-observability/
+---
+
 # [Distributed Systems Observability](https://www.goodreads.com/book/show/40182805-distributed-systems-observability)
 
 - [The need of observability](#the-need-of-observability)
