@@ -1,3 +1,9 @@
+---
+layout: page
+title: system-design-concepts
+permalink: /system-design-concepts/
+---
+
 # System Design 101
 
 Explain complex systems using visuals and simple terms. 
@@ -147,9 +153,6 @@ When it comes to API design, REST and GraphQL each have their own strengths and 
 The diagram below shows a quick comparison between REST and GraphQL.
 
 ![](images/graphQL.jpg)
-<p>
-  <img src="images/graphQL.jpg">
-</p>
 
 REST
 
@@ -177,10 +180,8 @@ Neither API approach is a silver bullet. Carefully evaluating requirements and t
 RPC (Remote Procedure Call) is called “**remote**” because it enables communications between remote services when services are deployed to different servers under microservice architecture. From the user’s point of view, it acts like a local function call.
 
 The diagram below illustrates the overall data flow for **gRPC**.
+![](images/grpc.jpg)
 
-<p>
-  <img src="images/grpc.jpg">
-</p>
 
 Step 1: A REST call is made from the client. The request body is usually in JSON format.
 
@@ -197,10 +198,7 @@ Steps 12 - 14: The order service receives the packets, decodes them, and sends t
 ### What is a webhook?
 
 The diagram below shows a comparison between polling and Webhook. 
-
-<p>
-  <img src="images/webhook.jpeg" style="width: 680px" />
-</p>
+![](images/webhook.jpg)
 
 Assume we run an eCommerce website. The clients send orders to the order service via the API gateway, which goes to the payment service for payment transactions. The payment service then talks to an external payment service provider (PSP) to complete the transactions. 
 
@@ -231,10 +229,7 @@ Webhooks are often referred to as reverse APIs or push APIs because the server s
 ### How to improve API performance?
 
 The diagram below shows 5 common tricks to improve API performance.
-
-<p>
-  <img src="images/api-performance.jpg">
-</p>
+![](images/api-performance.jpg)
 
 Pagination
 
@@ -262,9 +257,7 @@ What problem does each generation of HTTP solve?
 
 The diagram below illustrates the key features.
 
-<p>
-  <img src="images/http3.jpg" />
-</p>
+![](images/http3.jpg)
 
 - HTTP 1.0 was finalized and fully documented in 1996. Every request to the same server requires a separate TCP connection.
 
@@ -288,18 +281,14 @@ Over time, different API architectural styles are released. Each of them has its
 
 You can check out the use cases of each style in the diagram.
 
-<p>
-  <img src="images/SOAP vs REST vs GraphQL vs RPC.jpeg" />
-</p>
+![]("images/SOAP vs REST vs GraphQL vs RPC.jpeg")
 
 
 ### Code First vs. API First 
 
 The diagram below shows the differences between code-first development and API-first development. Why do we want to consider API first design?
 
-<p>
-  <img src="images/api_first.jpg" style="width: 680px" />
-</p>
+![](images/api_first.jpg)
 
 
 - Microservices increase system complexity and we have separate services to serve different functions of the system. While this kind of architecture facilitates decoupling and segregation of duty, we need to handle the various communications among services. 
@@ -340,6 +329,7 @@ The diagram below shows the details.
 <p>
   <img src="images/api_gateway.jpg" style="width: 520px" />
 </p>
+![](images/grpc.jpg)
 
 Step 1 - The client sends an HTTP request to the API gateway. 
 
@@ -364,6 +354,7 @@ The diagram below shows typical API designs with a shopping cart example.
 <p>
   <img src="images/safe-apis.jpg" />
 </p>
+![](images/grpc.jpg)
 
 
 Note that API design is not just URL path design. Most of the time, we need to choose the proper resource names, identifiers, and path patterns. It is equally important to design proper HTTP header fields or to design effective rate-limiting rules within the API gateway. 
@@ -375,6 +366,7 @@ How is data sent over the network? Why do we need so many layers in the OSI mode
 <p>
   <img src="images/osi model.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 The diagram below shows how data is encapsulated and de-encapsulated when transmitting over the network.
 
@@ -399,6 +391,7 @@ The diagram below shows the differences between a 𝐟𝐨𝐫𝐰𝐚𝐫𝐝 �
 <p>
   <img src="images/Forward Proxy v.s. Reverse Proxy2x.jpg" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
 A forward proxy is a server that sits between user devices and the internet.
 
@@ -424,6 +417,7 @@ The diagram below shows 6 common algorithms.
 <p>
   <img src="images/lb-algorithms.jpg" />
 </p>
+![](images/grpc.jpg)
 
 - Static Algorithms 
 
@@ -460,6 +454,7 @@ The diagram below shows a comparison of URL, URI, and URN.
 <p>
   <img src="images/url-uri-urn.jpg" />
 </p>
+![](images/grpc.jpg)
 
 - URI 
 
@@ -485,6 +480,7 @@ If you would like to learn more detail on the subject, I would recommend [W3C’
 <p>
   <img src="images/ci-cd-pipeline.jpg" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
 
 Section 1 - SDLC with CI/CD
 
@@ -514,6 +510,7 @@ A typical CI/CD pipeline has several connected stages:
 <p>
   <img src="images/netflix-ci-cd.jpg" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
 Planning: Netflix Engineering uses JIRA for planning and Confluence for documentation. 
 
@@ -539,6 +536,7 @@ These architecture patterns are among the most commonly used in app development,
 <p>
   <img src="images/client arch patterns.png" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
 - MVC, the oldest pattern, dates back almost 50 years 
 - Every pattern has a "view" (V) responsible for displaying content and receiving user input 
@@ -552,6 +550,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 <p>
   <img src="images/18-oo-patterns.png" />
 </p>
+![](images/grpc.jpg)
 
 - Abstract Factory: Family Creator - Makes groups of related items. 
 - Builder: Lego Master - Builds objects step by step, keeping creation and appearance separate. 
@@ -579,6 +578,7 @@ Patterns are reusable solutions to common design problems, resulting in a smooth
 <p>
   <img src="images/cloud-dbs2.png" />
 </p>
+![](images/grpc.jpg)
 
 Choosing the right database for your project is a complex task. Many database options, each suited to distinct use cases, can quickly lead to decision fatigue. 
 
@@ -593,6 +593,7 @@ The answer will vary depending on your use case. Data can be indexed in memory o
 <p>
   <img src="images/8-ds-db.jpg" />
 </p>
+![](images/grpc.jpg)
 
 The following are some of the most popular data structures used for indexing data: 
 
@@ -612,6 +613,7 @@ The diagram below shows the process. Note that the architectures for different d
 <p>
   <img src="images/sql execution order in db.jpeg" style="width: 580px" />
 </p>
+![](images/grpc.jpg)
 
 
 Step 1 - A SQL statement is sent to the database via a transport layer protocol (e.g.TCP).
@@ -637,6 +639,7 @@ The CAP theorem is one of the most famous terms in computer science, but I bet d
 <p>
   <img src="images/cap theorem.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 CAP theorem states that a distributed system can't provide more than two of these three guarantees simultaneously.
 
@@ -663,6 +666,7 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 <p>
   <img src="images/Types_of_Memory_and_Storage.jpeg" style="width: 420px" />
 </p>
+![](images/grpc.jpg)
 
 
 ### Visualizing a SQL query
@@ -670,6 +674,7 @@ I think it is still useful as it opens our minds to a set of tradeoff discussion
 <p>
   <img src="images/sql-execution-order.jpg" style="width: 580px" />
 </p>
+![](images/grpc.jpg)
 
 SQL statements are executed by the database system in several steps, including: 
 
@@ -692,6 +697,7 @@ In 1986, SQL (Structured Query Language) became a standard. Over the next 40 yea
 <p>
   <img src="images/how-to-learn-sql.jpg" />
 </p>
+![](images/grpc.jpg)
 
 There are 5 components of the SQL language: 
 
@@ -712,6 +718,7 @@ This diagram illustrates where we cache data in a typical architecture.
 <p>
   <img src="images/where do we cache data.jpeg" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
 
 There are **multiple layers** along the flow.
@@ -737,6 +744,7 @@ There are 3 main reasons as shown in the diagram below.
 <p>
   <img src="images/why_redis_fast.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 
 1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
@@ -752,6 +760,7 @@ You might have noticed the style of this diagram is different from my previous p
 <p>
   <img src="images/top-redis-use-cases.jpg" style="width: 520px" />
 </p>
+![](images/grpc.jpg)
 
 
 There is more to Redis than just caching. 
@@ -807,6 +816,7 @@ Below are five caching strategies that are frequently utilized.
   <img src="images/top_caching_strategy.jpeg" style="width: 680px" />
 </p>
 
+![](images/grpc.jpg)
 
 
 ## Microservice architecture
@@ -816,6 +826,7 @@ Below are five caching strategies that are frequently utilized.
 <p>
   <img src="images/typical-microservice-arch.jpg" style="width: 520px" />
 </p>
+![](images/grpc.jpg)
 
 
 The diagram below shows a typical microservice architecture. 
@@ -841,6 +852,7 @@ A picture is worth a thousand words: 9 best practices for developing microservic
 <p>
   <img src="images/microservice-best-practices.jpeg" />
 </p>
+![](images/grpc.jpg)
 
  
 When we develop microservices, we need to follow the following best practices: 
@@ -862,6 +874,7 @@ Below you will find a diagram showing the microservice tech stack, both for the 
 <p>
   <img src="images/microservice-tech.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 
 ▶️ 𝐏𝐫𝐞-𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧
@@ -887,6 +900,7 @@ There are many design decisions that contributed to Kafka’s performance. In th
 <p>
   <img src="images/why_is_kafka_fast.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 1. The first one is Kafka’s reliance on Sequential I/O.
 2. The second design choice that gives Kafka its performance advantage is its focus on efficiency: zero copy principle.
@@ -922,6 +936,7 @@ Zero copy is a shortcut to save the multiple data copies between application con
 <p>
   <img src="images/learn-payments.jpg" />
 </p>
+![](images/grpc.jpg)
 
 ###  Why is the credit card called “the most profitable product in banks”? How does VISA/Mastercard make money? 
 
@@ -930,6 +945,7 @@ The diagram below shows the economics of the credit card payment flow.
 <p>
   <img src="images/how does visa makes money.jpg" style="width: 640px" />
 </p>
+![](images/grpc.jpg)
 
 1.&nbsp;&nbsp;The cardholder pays a merchant $100 to buy a product.
 
@@ -954,6 +970,7 @@ Why should the issuing bank be compensated?
 <p>
   <img src="images/visa_payment.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 
 VISA, Mastercard, and American Express act as card networks for the clearing and settling of funds. The card acquiring bank and the card issuing bank can be – and often are – different. If banks were to settle transactions one by one without an intermediary, each bank would have to settle the transactions with all the other banks. This is quite inefficient.   
@@ -999,6 +1016,7 @@ UPI = payment markup language + standard for interoperable payments
 <p>
   <img src="images/how-does-upi-work.png"  style="width: 600px" />
 </p>
+![](images/grpc.jpg)
 
 
 ## DevOps
@@ -1010,6 +1028,8 @@ The concepts of DevOps, SRE, and Platform Engineering have emerged at different 
 <p>
   <img src="images/devops-sre-platform.jpg" />
 </p>
+![](images/grpc.jpg)
+
 
 DevOps as a concept was introduced in 2009 by Patrick Debois and Andrew Shafer at the Agile conference. They sought to bridge the gap between software development and operations by promoting a collaborative culture and shared responsibility for the entire software development lifecycle. 
 
@@ -1026,6 +1046,8 @@ K8s is a container orchestration system. It is used for container deployment and
 <p>
   <img src="images/k8s.jpeg" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
+
 
 A k8s cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.
 
@@ -1068,6 +1090,7 @@ The worker node(s) host the Pods that are the components of the application work
 <p>
   <img src="images/docker-vs-k8s.jpg" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
 
 
 What is Docker ? 
@@ -1096,6 +1119,7 @@ and “docker run”.
 <p>
   <img src="images/docker.jpg" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
 
 There are 3 components in Docker architecture: 
 
@@ -1128,6 +1152,7 @@ To begin with, it's essential to identify where our code is stored. The common a
 <p>
   <img src="images/git-commands.png" style="width: 600px" />
 </p>
+![](images/grpc.jpg)
 
 
 - Working directory: where we edit files 
@@ -1144,6 +1169,7 @@ The diagram below shows the Git workflow.
 <p>
   <img src="images/git-workflow.jpeg" style="width: 520px" />
 </p>
+![](images/grpc.jpg)
 
 
 Git is a distributed version control system. 
@@ -1162,6 +1188,7 @@ What are the differences?
   <img src="images/git-merge-git-rebase.jpeg" style="width: 680px" />
 </p>
 
+![](images/grpc.jpg)
 
 When we **merge changes** from one Git branch to another, we can use ‘git merge’ or ‘git rebase’. The diagram below shows how the two commands work.
 
@@ -1190,6 +1217,7 @@ Never use it on public branches!
 <p>
   <img src="images/cloud-compare.jpg" />
 </p>
+![](images/grpc.jpg)
 
 
 ### What is cloud native?
@@ -1199,6 +1227,7 @@ Below is a diagram showing the evolution of architecture and processes since the
 <p>
   <img src="images/cloud-native.jpeg" style="width: 640px" />
 </p>
+![](images/grpc.jpg)
 
 Organizations can build and run scalable applications on public, private, and hybrid clouds using cloud native technologies. 
 
@@ -1235,6 +1264,7 @@ Additionally, the generated diagrams can be downloaded as images.
 <p>
   <img src="images/json-cracker.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 
 ### Automatically turn code into architecture diagrams
@@ -1242,6 +1272,7 @@ Additionally, the generated diagrams can be downloaded as images.
 <p>
   <img src="images/diagrams_as_code.jpeg" style="width: 640px" />
 </p>
+![](images/grpc.jpg)
 
 
 What does it do?
@@ -1260,6 +1291,7 @@ What does it do?
 <p>
   <img src="images/linux-file-systems.jpg" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
 
 The Linux file system used to resemble an unorganized town where individuals constructed their houses wherever they pleased. However, in 1994, the Filesystem Hierarchy Standard (FHS) was introduced to bring order to the Linux file system.
 
@@ -1276,6 +1308,7 @@ This diagram below shows popular Linux commands:
   <img src="images/18 Most-Used Linux Commands You Should Know-01.jpeg" style="width: 680px" />
 </p>
 
+![](images/grpc.jpg)
 
 - ls - List files and directories 
 - cd - Change the current directory 
@@ -1305,6 +1338,7 @@ Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Tran
 <p>
   <img src="images/https.jpg" />
 </p>
+![](images/grpc.jpg)
 
 
 How is the data encrypted and decrypted?
@@ -1332,6 +1366,8 @@ OAuth 2.0 is a powerful and secure framework that allows different applications 
 <p>
   <img src="images/oAuth2.jpg" />
 </p>
+![](images/grpc.jpg)
+
 
 The entities involved in OAuth are the User, the Server, and the Identity Provider (IDP). 
 
@@ -1352,6 +1388,7 @@ Remember, OAuth 2.0 is all about keeping you and your data safe while making you
 <p>
   <img src="images/top4-most-used-auth.jpg" />
 </p>
+![](images/grpc.jpg)
 
 1. SSH Keys: 
    
@@ -1376,6 +1413,8 @@ These terms are all related to user identity management. When you log into a web
 <p>
   <img src="images/session.jpeg" />
 </p>
+![](images/grpc.jpg)
+
 
 From simple to complex, here is my understanding of user identity management:
 
@@ -1396,6 +1435,7 @@ From simple to complex, here is my understanding of user identity management:
 <p>
   <img src="images/salt.jpg" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
  
 **Things NOT to do**
@@ -1429,6 +1469,8 @@ To validate a password, it can go through the following process:
 <p>
   <img src="images/jwt.jpg" />
 </p>
+![](images/grpc.jpg)
+
 
 Imagine you have a special box called a JWT. Inside this box, there are three parts: a header, a payload, and a signature.
 
@@ -1449,6 +1491,7 @@ Google Authenticator is a software-based authenticator that implements a two-ste
   <img src="images/google_authenticate.jpeg" />
 </p>
 
+![](images/grpc.jpg)
 
 There are two stages involved:
 
@@ -1492,6 +1535,8 @@ This post is based on research from many Netflix engineering blogs and open-sour
 <p>
   <img src="images/netflix tech stack.png" style="width: 680px" />
 </p>
+![](images/grpc.jpg)
+
 
 **Mobile and web**: Netflix has adopted Swift and Kotlin to build native mobile apps. For its web application, it uses React.
 
@@ -1517,6 +1562,7 @@ Yes, this is the real Twitter architecture. It is posted by Elon Musk and redraw
   <img src="images/twitter-arch.jpeg" />
 </p>
 
+![](images/grpc.jpg)
 
 ### Evolution of Airbnb’s microservice architecture over the past 15 years
 
@@ -1525,6 +1571,7 @@ Airbnb’s microservice architecture went through 3 main stages.
 <p>
   <img src="images/airbnb_arch.jpeg" />
 </p>
+![](images/grpc.jpg)
 
 
 Monolith (2008 - 2017)
@@ -1562,6 +1609,7 @@ Which is the best? Why do different companies choose different options?
   <img src="images/monorepo-microrepo.jpg" />
 </p>
 
+![](images/grpc.jpg)
 
 Monorepo isn't new; Linux and Windows were both created using Monorepo. To improve scalability and build speed, Google developed its internal dedicated toolchain to scale it faster and strict coding quality standards to keep it consistent. 
 
@@ -1589,6 +1637,7 @@ If your answer is on-premise servers and monolith (on the bottom of the followin
 <p>
   <img src="images/stackoverflow.jpg" />
 </p>
+![](images/grpc.jpg)
 
 
 **What people think it should look like**
@@ -1616,6 +1665,7 @@ The diagram below shows the architecture comparison before and after the migrati
   <img src="images/serverless-to-monolithic.jpeg" />
 </p>
 
+![](images/grpc.jpg)
 
 What is Amazon Prime Video Monitoring Service? 
 
@@ -1648,6 +1698,7 @@ Ex Amazon VP Sustainability Adrian Cockcroft: “The Prime Video team had follow
 <p>
   <img src="images/hotstar_emojis.jpeg" style="width: 720px" />
 </p>
+![](images/grpc.jpg)
 
 
 1. Clients send emojis through standard HTTP requests. You can think of Golang Service as a typical Web Server. Golang is chosen because it supports concurrency well. Threads in Golang are lightweight.
@@ -1671,6 +1722,7 @@ The diagram below shows the evolution of message storage at Discord:
 <p>
   <img src="images/discord-store-messages.jpg" />
 </p>
+![](images/grpc.jpg)
 
 
 MongoDB ➡️ Cassandra ➡️ ScyllaDB 
@@ -1700,6 +1752,7 @@ The diagram below explains what happens behind the scenes to make this possible.
 <p>
   <img src="images/live_streaming_updated.jpg" style="width: 640px" />
 </p>
+![](images/grpc.jpg)
 
  
 Step 1: The raw video data is captured by a microphone and camera. The data is sent to the server side.
