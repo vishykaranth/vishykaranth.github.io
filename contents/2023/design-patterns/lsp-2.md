@@ -4,6 +4,17 @@ title: design-patterns-lsp-2
 permalink: /design-patterns-lsp-2/
 ---
 
+## Contents
+
+ - [LSP ](#lsp-)
+  - [Data Abstraction and Hierarchy](#data-abstraction-and-hierarchy)
+  - [Abstraction & Encapsulation](#abstraction-&-encapsulation)
+  - [LSP violations ](#lsp-violations-)
+  - [LSP Rules ](#lsp-rules-)
+  - [LSP Advantages ](#lsp-advantages-)
+  - [LSP Challenges ](#lsp-challenges-)
+  - [Behavioral Contracts](#behavioral-contracts)
+
 
 ## LSP 
 
@@ -218,3 +229,43 @@ While the Liskov Substitution Principle (LSP) offers numerous benefits, there ar
    - Educating developers about the principles of LSP and ensuring that they consistently apply these principles across the codebase can be a challenge. Inconsistent understanding or application of LSP within a development team may lead to unintentional violations.
 
 Despite these challenges, the benefits of adhering to LSP—such as improved flexibility, maintainability, and code reuse—often outweigh the difficulties. Careful consideration of the design, effective communication, and continuous education within development teams can help mitigate these challenges.
+
+
+### Behavioral Contracts
+
+Behavioral contracts, in the context of software development and object-oriented programming, refer to the expected behaviors and guarantees that a class or interface promises to uphold. These contracts define the interactions and responsibilities that clients (other classes or modules) can rely on when using the services provided by the class. Adherence to behavioral contracts is crucial for ensuring the correct and predictable functioning of a software system.
+
+Here are key aspects of behavioral contracts:
+
+1. **Method Signatures:**
+   - A behavioral contract includes the method signatures provided by a class or interface. It specifies the input parameters, return types, and exceptions thrown by each method. Clients depend on these method signatures for interaction.
+
+2. **Expected Behavior:**
+   - The contract defines the expected behavior of each method. This encompasses the functionality that the method is supposed to perform and the outcomes or side effects that clients can anticipate.
+
+3. **Invariants:**
+   - Invariants are conditions that must always be true for an object during its lifetime. Behavioral contracts often include information about the invariants that the class guarantees. Subclasses are expected to maintain these invariants.
+
+4. **Preconditions:**
+   - Preconditions are conditions that must be satisfied before a method is called. Behavioral contracts specify the preconditions for each method, outlining the expected state of the object or system before the method is invoked.
+
+5. **Postconditions:**
+   - Postconditions define the state or conditions that will be true after a method has executed successfully. These describe the guarantees that the method provides to clients.
+
+6. **Exception Handling:**
+   - Behavioral contracts include information about the exceptions that methods may throw. Clients rely on this information to handle exceptional cases gracefully.
+
+7. **Side Effects:**
+   - Some methods may have side effects—modifying internal state, triggering events, or interacting with external systems. Behavioral contracts describe these side effects so that clients can make informed decisions about using the methods.
+
+8. **Thread Safety and Concurrency Guarantees:**
+   - In a multithreaded environment, behavioral contracts may specify the thread safety of methods. Clients need to know whether methods can be safely used concurrently by multiple threads.
+
+9. **Polymorphic Behavior (Liskov Substitution Principle):**
+   - For classes participating in polymorphism, behavioral contracts ensure that subclasses adhere to the Liskov Substitution Principle. This means that subclasses can be used interchangeably with their base classes without affecting the correctness of the program.
+
+10. **Documentation:**
+    - Proper documentation, including comments in the code and external documentation, plays a vital role in communicating the behavioral contracts to developers who use the class or interface.
+
+Ensuring that classes adhere to their behavioral contracts promotes code reliability, maintainability, and ease of use. It allows developers to build robust systems by relying on well-defined and predictable interactions between components. Violations of behavioral contracts can lead to unexpected behavior, bugs, and difficulties in maintaining and evolving the software.
+
