@@ -8,11 +8,11 @@ permalink: /design-patterns-lsp-2/
 
  - [LSP ](#lsp-)
   - [Data Abstraction and Hierarchy](#data-abstraction-and-hierarchy)
-  - [Abstraction & Encapsulation](#abstraction-&-encapsulation)
-  - [LSP violations ](#lsp-violations-)
-  - [LSP Rules ](#lsp-rules-)
-  - [LSP Advantages ](#lsp-advantages-)
-  - [LSP Challenges ](#lsp-challenges-)
+  - [Abstraction & Encapsulation](#abstraction-and-encapsulation)
+  - [LSP violations ](#lsp-violations)
+  - [LSP Rules ](#lsp-rules)
+  - [LSP Advantages ](#lsp-advantages)
+  - [LSP Challenges ](#lsp-challenges)
   - [Behavioral Contracts](#behavioral-contracts)
 
 
@@ -64,7 +64,7 @@ In practice, adhering to the LSP contributes to more maintainable and flexible s
 
 "Data Abstraction and Hierarchy" has had a significant impact on the field of object-oriented design and programming, particularly in shaping best practices for creating class hierarchies and promoting the principles of abstraction and polymorphism.           
 
-### Abstraction & Encapsulation
+### Abstraction and Encapsulation
 
 **Abstraction:**
 
@@ -107,7 +107,7 @@ Encapsulation is the bundling of data and the methods that operate on that data 
 - Together, abstraction and encapsulation contribute to building modular, maintainable, and scalable software systems. They are key principles in achieving the goals of object-oriented design and programming.
 
 
-### LSP violations 
+### LSP violations
 
 Violating the Liskov Substitution Principle (LSP) in object-oriented programming can lead to unexpected behavior and may compromise the integrity of the class hierarchy. Here are some common ways in which LSP violations can occur:
 
@@ -137,7 +137,7 @@ Violating the Liskov Substitution Principle (LSP) in object-oriented programming
 
 Avoiding these violations is crucial for maintaining the substitutability of objects in a class hierarchy and ensuring that polymorphism works as intended. Adhering to the LSP contributes to the robustness and maintainability of object-oriented systems.
 
-### LSP Rules 
+### LSP Rules
 
 The Liskov Substitution Principle (LSP) is a set of rules and guidelines that help ensure that a derived class can be substituted for its base class without affecting the correctness of the program. The rules of LSP were formulated by Barbara Liskov in her paper "Data Abstraction and Hierarchy" (1987). Here are the key rules of LSP:
 
@@ -164,7 +164,7 @@ The Liskov Substitution Principle (LSP) is a set of rules and guidelines that he
 
 Adhering to these rules helps maintain the substitutability of objects in a class hierarchy, ensuring that polymorphism works correctly and that derived classes can be used seamlessly in code that relies on their base classes. Violating these rules can lead to unexpected behavior and compromises the principles of abstraction and hierarchy in object-oriented programming.
 
-### LSP Advantages 
+### LSP Advantages
 
 The Liskov Substitution Principle (LSP) brings several advantages to object-oriented programming and software design when followed correctly:
 
@@ -197,7 +197,7 @@ The Liskov Substitution Principle (LSP) brings several advantages to object-orie
 
 In summary, LSP provides a foundation for building robust, flexible, and maintainable object-oriented systems by ensuring that subclasses can be used interchangeably with their base classes. This, in turn, supports the principles of abstraction, encapsulation, and polymorphism in effective software design.
 
-### LSP Challenges 
+### LSP Challenges
 
 While the Liskov Substitution Principle (LSP) offers numerous benefits, there are also challenges associated with its application, and developers may face difficulties in adhering to its guidelines. Here are some challenges related to LSP:
 
