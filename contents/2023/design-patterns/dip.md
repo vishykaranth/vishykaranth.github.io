@@ -1,3 +1,9 @@
+---
+layout: page
+title: design-patterns-dip
+permalink: /design-patterns-dip/
+---
+
 ## DIP 
 
 ### What is Dependency Inversion Principle (DIP) about?
