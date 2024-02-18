@@ -8,7 +8,6 @@ topic: design-principles-solid
 # Design Principles (S.O.L.I.D)
 
 ###### What are SOLID Principles ?
-- SOLID 
 - First conceptualized by **Robert C. Martin** in **2000** and later built upon by **Michael Feathers**.
 - In last 20 years, these 5 principles have revolutionized the world of object-oriented programming, changing the way we write software.
 - It encourages us to create more **maintainable**, **understandable**, and **flexible** software.
