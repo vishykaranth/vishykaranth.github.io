@@ -8,7 +8,10 @@ permalink: /spring-framework/
 
 [>> https://docs.spring.io/spring/docs/5.0.3.RELEASE](https://docs.spring.io/spring/docs/5.0.3.RELEASE/spring-framework-reference/index.html)
 
-![alt text](images/Screenshot_4.png "Screenshot_3")
+[//]: # ()
+[//]: # (![alt text]&#40;images/Screenshot_4.png "Screenshot_3"&#41;)
+
+|  | ![](images/Screenshot_4.png)  |  |
 
 Dependency injection is the process whereby a framework or such, for example the Spring
 framework, establishes the relationships between different parts of an application. This as opposed
