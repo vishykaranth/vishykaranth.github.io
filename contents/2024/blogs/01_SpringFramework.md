@@ -239,7 +239,7 @@ public class ComplexBeanImpl implements ComplexBean {
 ```
 
 [//]: # (![alt text]&#40;images/qa/Screenshot_1.png "Screenshot_1"&#41;)
-|  | ![](images/qa/Screenshot_4.png)  |  |
+|  | ![](images/qa/Screenshot_1.png)  |  |
 
 ### Collections
 
@@ -283,7 +283,7 @@ public class ComplexBeanImpl implements ComplexBean {
  </bean>
 ```
 
-![alt text](images/handout/Screenshot_93.png "Screenshot_93")
+|  | ![](images/handout/Screenshot_93.png)  |  |
 
 #### util namespace to deal with collections
 
@@ -316,7 +316,7 @@ public class ComplexBeanImpl implements ComplexBean {
 </beans>
 ```
 
-![alt text](images/handout/Screenshot_94.png "Screenshot_94")
+|  | ![](images/handout/Screenshot_94.png )  |  |
 
 ## Using Bean Factories
 
@@ -394,9 +394,9 @@ public class SpringFactoryBean implements FactoryBean<SimpleBean> {
 
 ### FactoryBean
 
-![alt text](images/handout/Screenshot_91.png "Screenshot_91")
+|  | ![](images/handout/Screenshot_91.png )  |  |
 
-![alt text](images/handout/Screenshot_92.png "Screenshot_92")
+|  | ![](images/handout/Screenshot_92.png )  |  |
 
 ### Bean Definition Inheritance
 
@@ -404,17 +404,17 @@ public class SpringFactoryBean implements FactoryBean<SimpleBean> {
 - Use bean definition inheritance to define the common configuration once
     - Inherit it where needed
 
-![alt text](images/handout/Screenshot_87.png "Screenshot_87")
+|  | ![](images/handout/Screenshot_87.png )  |  |
 
-![alt text](images/handout/Screenshot_88.png "Screenshot_88")
+|  | ![](images/handout/Screenshot_88.png )  |  |
 
-![alt text](images/handout/Screenshot_89.png "Screenshot_89")
+|  | ![](images/handout/Screenshot_89.png )  |  |
 
-![alt text](images/handout/Screenshot_90.png "Screenshot_90")
+|  | ![](images/handout/Screenshot_90.png )  |  |
 
 ## Import configuration files
 
-![alt text](images/pet-sitter/Screenshot_1.png "Screenshot_1")
+|  | ![](images/pet-sitter/Screenshot_1.png )  |  |
 
 ```xml
 <beans>
@@ -450,11 +450,11 @@ Some commonly used implementations of the `ApplicationContext` interface are:
 
 ## The lifecycle of a Spring bean
 
-![alt text](images/handout/Screenshot_15.png "Screenshot_15.png")
+|  | ![](images/handout/Screenshot_15.png )  |  |
 
-![alt text](images/handout/Screenshot_16.png "Screenshot_16.png")
+|  | ![](images/handout/Screenshot_16.png )  |  |
 
-![alt text](images/handout/Screenshot_17.png "Screenshot_17.png")
+|  | ![](images/handout/Screenshot_17.png )  |  |
 
 The lifecycle of a Spring bean looks like this:
 - Spring bean configuration is read and metadata in the form of a `BeanDefinition` object is created for each bean.
@@ -483,7 +483,7 @@ The lifecycle of a Spring bean looks like this:
       Bean destruction methods can be specified either in the value of the `destroy-method` attribute in the corresponding `<bean>` element in a Spring XML configuration or in the `destroyMethod` property of the `@Bean` annotation.
       If the same destruction method has already been invoked, it will not be invoked again.
 
-![alt text](images/core_spring_in_detail/Screenshot_1.png "Screenshot_1")
+|  | ![](images/core_spring_in_detail/Screenshot_1.png )  |  |
 
 - **Initialization methods** are always called when a Spring bean is created, regardless of the scope of the bean.
 - With Spring beans that have prototype scope, that is for which a new bean instance will be created
@@ -662,7 +662,7 @@ public class TriangleLifecycle implements InitializingBean {
     - The use of `<context:component-scan />` implicitly enables the functionality of `<context:annotation-config />`.
     - There is usually no need to include the `<context:annotation-config />` element when using `<context:component-scan />`.
 
-![alt text](images/handout/Screenshot_11.png "Screenshot_11")
+|  | ![](images/handout/Screenshot_11.png )  |  |
 
 [Context name space configuration example](/IOC/Courses/src/main/resources/jb/_3_annotation_event/spring.xml)
 
@@ -719,7 +719,7 @@ public MyBeanClass myBeanWithACloseMethodNotToBeInvokedAsLifecycleCallback() {
     - The destroy method must not have any parameters.
     - The destroy method must return `void`.
 
-![alt text](images/handout/Screenshot_12.png "Screenshot_12")
+|  | ![](images/handout/Screenshot_12.png )  |  |
 
 ## Bean Scopes
 
@@ -831,19 +831,19 @@ public enum ScopedProxyMode {
 
 #### Depends-on
 
-![alt text](images/pet-sitter/Screenshot_5.png "Screenshot_5")
+|  | ![](images/pet-sitter/Screenshot_5.png )  |  |
 
 - Initialization of Bean `monitoring` will be after initialization of bean `app`
 
 #### Accessing a Bean
 
-![alt text](images/handout/Screenshot_1.png "Screenshot_1")
+|  | ![](images/handout/Screenshot_1.png )  |  |
 
 --- 
 
 ## Java Spring Configuration and Annotations
 
-![alt text](images/pet-sitter/Screenshot_4.png "Screenshot_4")
+|  | ![](images/pet-sitter/Screenshot_4.png )  |  |
 
 #### @Configuration
 
@@ -863,7 +863,7 @@ public enum ScopedProxyMode {
   create an instance of the bean. If an instance of the singleton bean already exists, the existing
   instance is returned
 
-![alt text](images/core_spring_in_detail/Screenshot_3.png "Screenshot_3")
+|  | ![](images/core_spring_in_detail/Screenshot_3.png )  |  |
 
 ### Annotations
 
@@ -894,7 +894,7 @@ public enum ScopedProxyMode {
 )
 ```
 
-![alt text](images/handout/Screenshot_13.png "Screenshot_13")
+|  | ![](images/handout/Screenshot_13.png )  |  |
 
 ```java
 @Configuration
@@ -939,9 +939,9 @@ public class DataSourceConfig {
 - `@PropertySource` annotation can be used to add a property source to the Spring environment.
     - The annotation is applied to classes annotated with `@Configuration`.
 
-![alt text](images/handout/Screenshot_9.png "Screenshot_9")
+|  | ![](images/handout/Screenshot_9.png )  |  |
 
-![alt text](images/handout/Screenshot_3.png "Screenshot_3")
+|  | ![](images/handout/Screenshot_3.png )  |  |
 
 - `@ImportResource` for importing another configurations
 - `@Import` annotation to import the bean definition in one class into the other.
@@ -962,7 +962,7 @@ public class SpringApplication {
 }
 ```
 
-![alt text](images/handout/Screenshot_10.png "Screenshot_10")
+|  | ![](images/handout/Screenshot_10.png )  |  |
 
 #### Meta-Annotations
 
@@ -1251,7 +1251,7 @@ public class JdbcRequestRepo extends JdbcAbstractRepo<Request> implements Reques
 }
 ```
 
-![alt text](images/handout/Screenshot_14.png "Screenshot_14")
+|  | ![](images/handout/Screenshot_14.png )  |  |
 
 ## Field Injection
 
@@ -1352,7 +1352,7 @@ public class MethodSecurityConfig {
 }
 ```
 
-![alt text](images/handout/Screenshot_6.png "Screenshot_6")
+|  | ![](images/handout/Screenshot_6.png )  |  |
 
 
 ## Generic Injection
@@ -1416,9 +1416,9 @@ public class JdbcAbstractRepo<T extends AbstractEntity> implements AbstractRepo<
 	 @Value("#{dbProps.password}")String password
 ```
 
-![alt text](images/handout/Screenshot_7.png "Screenshot_7")
+|  | ![](images/handout/Screenshot_7.png )  |  |
 
-![alt text](images/handout/Screenshot_8.png "Screenshot_8")
+|  | ![](images/handout/Screenshot_8.png )  |  |
 
 ## Spring Expression language (SpEL)
 
@@ -1483,13 +1483,13 @@ public class JdbcAbstractRepo<T extends AbstractEntity> implements AbstractRepo<
 
 - The `Environment` is a part of the application container. The `Environment` contains profiles and properties, two important parts of the application environment.
 
-![alt text](images/handout/Screenshot_2.png "Screenshot_2")
+|  | ![](images/handout/Screenshot_2.png )  |  |
 
-![alt text](images/core_spring_in_detail/Screenshot_4.png "Screenshot_4")
+|  | ![](images/core_spring_in_detail/Screenshot_4.png )  |  |
 
-![alt text](images/core_spring_in_detail/Screenshot_5.png "Screenshot_5")
+|  | ![](images/core_spring_in_detail/Screenshot_5.png )  |  |
 
-![alt text](images/core_spring_in_detail/Screenshot_6.png "Screenshot_6")
+|  | ![](images/core_spring_in_detail/Screenshot_6.png )  |  |
 
 ### @Lazy
 
@@ -1592,7 +1592,7 @@ public class ConfigurationClass {
 - There does not seem to be any limitation concerning how many profiles that can be used in a Spring application.
   The Spring framework (in the class ActiveProfilesUtils) use an integer to iterate over an array of active profiles, which implies a maximum number of 2^32 – 1 profiles.
 
-![alt text](images/handout/Screenshot_4.png "Screenshot_4")
+|  | ![](images/handout/Screenshot_4.png "Screenshot_4")
 
 ### Close an application context
 
@@ -1729,13 +1729,13 @@ public final class FooTest  {
 - The ApplicationContext is **instantiated only once** for all tests that use the same set of config files (even across test classes)
 - Annotate test method with `@DirtiesContext` to force recreation of the cached ApplicationContext if method changes the contained beans
 
-![alt text](images/handout/Screenshot_19.png "Screenshot_19")
+|  | ![](images/handout/Screenshot_19.png "Screenshot_19")
 
-![alt text](images/handout/Screenshot_20.png "Screenshot_20")
+|  | ![](images/handout/Screenshot_20.png "Screenshot_20")
 
-![alt text](images/handout/Screenshot_21.png "Screenshot_21")
+|  | ![](images/handout/Screenshot_21.png "Screenshot_21")
 
-![alt text](images/handout/Screenshot_22.png "Screenshot_22")
+|  | ![](images/handout/Screenshot_22.png "Screenshot_22")
 
 
 #### AnnotationConfigContextLoader
@@ -1769,11 +1769,11 @@ public class SpringPetServiceTest3 {
 - `@ActiveProfiles` annotation of test class activates profiles listed
 - `@ActiveProfiles( { "foo", "bar" } )`
 
-![alt text](images/handout/Screenshot_23.png "Screenshot_23")
+|  | ![](images/handout/Screenshot_23.png "Screenshot_23")
 
-![alt text](images/handout/Screenshot_24.png "Screenshot_24")
+|  | ![](images/handout/Screenshot_24.png "Screenshot_24")
 
-![alt text](images/handout/Screenshot_25.png "Screenshot_25")
+|  | ![](images/handout/Screenshot_25.png "Screenshot_25")
 
 #### Inject mocks using Mockito
 
@@ -1942,13 +1942,13 @@ base code, by applying advices to specific join points, specified by pointcuts.
 
 - The original library that provided components for creating aspects is named **AspectJ.**
 
-![alt text](images/handout/Screenshot_27.png "Screenshot_27")
+|  | ![](images/handout/Screenshot_27.png "Screenshot_27")
 
 ## AOP Terminology
 
-![alt text](images/handout/Screenshot_28.png "Screenshot_28")
+|  | ![](images/handout/Screenshot_28.png "Screenshot_28")
 
-![alt text](images/core_spring_in_detail/Screenshot_7.png "Screenshot_7")
+|  | ![](images/core_spring_in_detail/Screenshot_7.png "Screenshot_7")
 
 - **Aspect** - An aspect brings together one or more pointcuts with one or more advice.
 - **Target object** - object to which the aspect applies.
@@ -1978,7 +1978,7 @@ base code, by applying advices to specific join points, specified by pointcuts.
       instead of the original objects and divert method invocations to advice code.
       **Spring AOP uses runtime weaving exclusively**
 
-![alt text](images/core_spring_in_detail/Screenshot_8.png "Screenshot_8")
+|  | ![](images/core_spring_in_detail/Screenshot_8.png "Screenshot_8")
 
 ```java
 @Aspect
@@ -2043,7 +2043,7 @@ public class LoggingAspect {
 
 ## Proxies
 
-![alt text](images/core_spring_in_detail/Screenshot_2.png "Screenshot_2")
+|  | ![](images/core_spring_in_detail/Screenshot_2.png "Screenshot_2")
 
 - Proxy classes are created in the init phase by dedicated BeanPostProcessors
 - Two types of proxies
@@ -2066,7 +2066,7 @@ public class LoggingAspect {
         - Based on proxy inheriting the base class
         - Spring AOP can use CGLIB proxies whether the target object implements an interface or not.
 
-![alt text](images/handout/Screenshot_18.png "Screenshot_18")
+|  | ![](images/handout/Screenshot_18.png "Screenshot_18")
 
 - The default type of proxy used by the Spring framework is the `JDK dynamic proxy`.
 - Proxies limitations:
@@ -2098,7 +2098,7 @@ public class AppConfig {
 }
 ```
 
-![alt text](images/handout/Screenshot_5.png "Screenshot_5")
+|  | ![](images/handout/Screenshot_5.png "Screenshot_5")
 
 - When using proxies, suppose method a() calls method b()
   on the same class/interface, advice will never be executed for method b()
@@ -2128,7 +2128,7 @@ public class AppConfig {
 }
 ```  
 
-![alt text](images/handout/Screenshot_29.png "Screenshot_29")
+|  | ![](images/handout/Screenshot_29.png "Screenshot_29")
 
 - `@EnableAspectJAutoProxy`- to enable aspect support, the configuration class must be annotated, default **JDK dynamic proxy**.
 - `@EnableAspectJAutoProxy(proxyTargetClass = true)` - if the **CGLIB** library is to be added to the application classpath, Spring must be told that we want subclass-based proxies by modifying the aspect enabling annotation
@@ -2141,9 +2141,9 @@ public class AppConfig {
   And because we are using JDK dynamic proxies, the proxy will implement the UserRepo interface
 
 
-![alt text](images/pet-sitter/Screenshot_6.png "Screenshot_6")
+|  | ![](images/pet-sitter/Screenshot_6.png "Screenshot_6")
 
-![alt text](images/pet-sitter/Screenshot_7.png "Screenshot_7")
+|  | ![](images/pet-sitter/Screenshot_7.png "Screenshot_7")
 
 - In order to use aspects in a Spring application you need the following:
     - spring-aop as a dependency
@@ -2152,7 +2152,7 @@ public class AppConfig {
     - enable aspects support by annotating a configuration class with `@EnableAspectJAutoProxy`
     - (optional) add CGLIB as a dependency and enable aspects support using subclassed proxies by annotating a configuration class with `@EnableAspectJAutoProxy(proxyTargetClass = true)`
 
-![alt text](images/handout/Screenshot_30.png "Screenshot_30")
+|  | ![](images/handout/Screenshot_30.png "Screenshot_30")
 
 ## Defining Pointcuts
 
@@ -2316,7 +2316,7 @@ bean(mySuperService)
 
 **Aspect** = **PointCut**(Where the Aspect is applied) + **Advice**(What code is executed)
 
-![alt text](images/aop/Screenshot.png "Screenshot")
+|  | ![](images/aop/Screenshot.png "Screenshot")
 
 #### Before
 
@@ -2330,7 +2330,7 @@ bean(mySuperService)
 - Before advice will, always proceed to the join point unless an execution is thrown from within the advice code.
 - Using a `JoinPoint` parameter in an advice is optional.
 
-![alt text](images/aop/Screenshot_1.png "Screenshot_1")
+|  | ![](images/aop/Screenshot_1.png "Screenshot_1")
 
 ```java
 @Before("com.ps.aspects.PointcutContainer.serviceUpdate(id, pass)")
@@ -2339,7 +2339,7 @@ public void beforeServiceUpdate (Long id, String pass) throws Throwable {
 }
 ```
 
-![alt text](images/pet-sitter/Screenshot_8.png "Screenshot_8")
+|  | ![](images/pet-sitter/Screenshot_8.png "Screenshot_8")
 
 1. The proxy object receives the call destined for the target bean and calls first the advice method
 2. If the advice method returns successfully, it then forwards the initial call to the target bean and forwards the result back to the caller.
@@ -2354,7 +2354,7 @@ public void beforeServiceUpdate (Long id, String pass) throws Throwable {
         - Data validation <br/>
           Validating the data produced by the advised method.
 
-![alt text](images/aop/Screenshot_4.png "Screenshot_4")
+|  | ![](images/aop/Screenshot_4.png "Screenshot_4")
 
 ```java
 @AfterReturning(value="execution (* com.ps.services.*Service+.update*(..))", returning = "result")
@@ -2363,7 +2363,7 @@ public void afterServiceUpdate(JoinPoint joinPoint, int result) throws Throwable
 }
 ```
 
-![alt text](images/pet-sitter/Screenshot_9.png "Screenshot_9")
+|  | ![](images/pet-sitter/Screenshot_9.png "Screenshot_9")
 
 #### After Throwing
 
@@ -2372,7 +2372,7 @@ public void afterServiceUpdate(JoinPoint joinPoint, int result) throws Throwable
         - Error handling
         - Statistics
 
-![alt text](images/aop/Screenshot_3.png "Screenshot_3")
+|  | ![](images/aop/Screenshot_3.png "Screenshot_3")
 
 ```java
 @AfterThrowing(value="execution(* com.ps.services.*Service+.updateUsername(..))", throwing = "e")
@@ -2381,7 +2381,7 @@ public void afterBadUpdate(JoinPoint joinPoint, Exception e) throws Throwable {
 }
 ```
 
-![alt text](images/pet-sitter/Screenshot_10.png "Screenshot_10")
+|  | ![](images/pet-sitter/Screenshot_10.png "Screenshot_10")
 
 #### After
 
@@ -2392,7 +2392,7 @@ public void afterBadUpdate(JoinPoint joinPoint, Exception e) throws Throwable {
           As with finally-blocks in try-finally, the after (finally) advice is always executed after the
           completion of the join point and can thus ensure that resources are always released.
 
-![alt text](images/aop/Screenshot_2.png "Screenshot_2")
+|  | ![](images/aop/Screenshot_2.png "Screenshot_2")
 
 ```java
 @After("execution(public * com.ps.repos.*.JdbcTemplateUserRepo+.updateUsername(..))")
@@ -2401,7 +2401,7 @@ public void afterFindById(JoinPoint joinPoint) throws Throwable {
 }
 ```
 
-![alt text](images/pet-sitter/Screenshot_11.png "Screenshot_11")
+|  | ![](images/pet-sitter/Screenshot_11.png "Screenshot_11")
 
 #### Around
 
@@ -2414,9 +2414,9 @@ public void afterFindById(JoinPoint joinPoint) throws Throwable {
   meaning that the advice decides whether the target method is called, and if so, when.
 - The type `ProceedingJoinPoint` inherits from `JoinPoint` and adds the `proceed()` method that is used to call the target method
 
-![alt text](images/aop/Screenshot_5.png "Screenshot_5")
+|  | ![](images/aop/Screenshot_5.png "Screenshot_5")
 
-![alt text](images/aop/Screenshot_6.png "Screenshot_6")
+|  | ![](images/aop/Screenshot_6.png "Screenshot_6")
 
 ```java
 @Around("execution(public * com.ps.repos.*.*Repo+.find*(..))")
@@ -2475,47 +2475,47 @@ public Object loggingAdvice(
 
 ## PointCuts
 
-![alt text](images/aop/Screenshot_12.png "Screenshot_12")
+|  | ![](images/aop/Screenshot_12.png "Screenshot_12")
 
 #### Wildcards
 
-![alt text](images/aop/Screenshot_7.png "Screenshot_7")
+|  | ![](images/aop/Screenshot_7.png "Screenshot_7")
 
 #### Parameter Wildcards
 
-![alt text](images/aop/Screenshot_8.png "Screenshot_8")
+|  | ![](images/aop/Screenshot_8.png "Screenshot_8")
 
 #### Packages and Classes
 
-![alt text](images/aop/Screenshot_9.png "Screenshot_9")
+|  | ![](images/aop/Screenshot_9.png "Screenshot_9")
 
-![alt text](images/aop/Screenshot_10.png "Screenshot_10")
+|  | ![](images/aop/Screenshot_10.png "Screenshot_10")
 
-![alt text](images/aop/Screenshot_11.png "Screenshot_11")
+|  | ![](images/aop/Screenshot_11.png "Screenshot_11")
 
-![alt text](images/aop/Screenshot_18.png "Screenshot_18")
+|  | ![](images/aop/Screenshot_18.png "Screenshot_18")
 
-![alt text](images/handout/Screenshot_31.png "Screenshot_31")
+|  | ![](images/handout/Screenshot_31.png "Screenshot_31")
 
 #### Annotation
 
-![alt text](images/aop/Screenshot_13.png "Screenshot_13")
+|  | ![](images/aop/Screenshot_13.png "Screenshot_13")
 
-![alt text](images/aop/Screenshot_17.png "Screenshot_17")
+|  | ![](images/aop/Screenshot_17.png "Screenshot_17")
 
-![alt text](images/handout/Screenshot_32.png "Screenshot_32")
+|  | ![](images/handout/Screenshot_32.png "Screenshot_32")
 
 #### Spring beans names as PointCut
 
-![alt text](images/aop/Screenshot_14.png "Screenshot_14")
+|  | ![](images/aop/Screenshot_14.png "Screenshot_14")
 
 #### Boolean expressions in PointCut
 
-![alt text](images/aop/Screenshot_15.png "Screenshot_15")
+|  | ![](images/aop/Screenshot_15.png "Screenshot_15")
 
 ## @PointCut
 
-![alt text](images/aop/Screenshot_16.png "Screenshot_16")
+|  | ![](images/aop/Screenshot_16.png "Screenshot_16")
 
 #### PointCuts XML
 
@@ -2556,9 +2556,9 @@ public interface Server {
 }
 ```
 
-![alt text](images/handout/Screenshot_33.png "Screenshot_33")
+|  | ![](images/handout/Screenshot_33.png "Screenshot_33")
 
-![alt text](images/handout/Screenshot_34.png "Screenshot_34")
+|  | ![](images/handout/Screenshot_34.png "Screenshot_34")
 
 # Data Access
 
@@ -2575,7 +2575,7 @@ public interface Server {
     - Its use allows one to switch between persistence technologies fairly easily and it also allows one to code
       without worrying about catching exceptions that are specific to each technology.
 
-![alt text](images/handout/Screenshot_35.png "Screenshot_35")
+|  | ![](images/handout/Screenshot_35.png "Screenshot_35")
 
 - The `javax.sql.DataSource` interface is the interface from which all data-source classes related to SQL stem.
     - DelegatingDataSource
@@ -2759,7 +2759,7 @@ public class AppConfig {
     - Google's Guava and Caffeine
     - Pivotal's Gemfire
 
-![alt text](images/handout/Screenshot_38.png "Screenshot_38")
+|  | ![](images/handout/Screenshot_38.png "Screenshot_38")
 
 ```java
 @Service
@@ -2784,9 +2784,9 @@ public class CitiesService {
 }
 ```
 
-![alt text](images/handout/Screenshot_36.png "Screenshot_36")
+|  | ![](images/handout/Screenshot_36.png "Screenshot_36")
 
-![alt text](images/handout/Screenshot_37.png "Screenshot_37")
+|  | ![](images/handout/Screenshot_37.png "Screenshot_37")
 
 ### ACID
 
@@ -2810,7 +2810,7 @@ public class CitiesService {
 - This annotation must be used only on public methods; otherwise, the transactional proxy won’t be able to apply the transactional behavior
 - The standard `javax.transaction.Transactional` annotation is also supported as a drop-in replacement to Spring's own annotation.
 
-![alt text](images/pet-sitter/Screenshot_13.png "Screenshot_13")
+|  | ![](images/pet-sitter/Screenshot_13.png "Screenshot_13")
 
 #### Difference between a local and a global transaction
 
@@ -2903,7 +2903,7 @@ public User findById(Long id) {
     - `noRollbackFor` - exception class(es) that never are to cause a transaction rollback.
     - `noRollbackForClassName` - names of exception class(es) that never are to cause a transaction rollback.
 
-![alt text](images/handout/Screenshot_50.png "Screenshot_50")
+|  | ![](images/handout/Screenshot_50.png "Screenshot_50")
 
 - Spring allows for using the JPA `javax.transaction.Transactional` annotation as a replacement for the
   Spring `@Transactional` annotation, though it does not have as many configuration options.
@@ -2932,9 +2932,9 @@ public User findById(Long id) {
 - By default, a transaction is rolled back if a `RuntimeException` has been thrown
 - `@Transactional("myOtherTransactionManager")` - runs a transaction with specific transaction managers
 
-![alt text](images/handout/Screenshot_47.png "Screenshot_47")
+|  | ![](images/handout/Screenshot_47.png "Screenshot_47")
 
-![alt text](images/handout/Screenshot_48.png "Screenshot_48")
+|  | ![](images/handout/Screenshot_48.png "Screenshot_48")
 
 
 ### PlatformTransactionManager
@@ -2970,7 +2970,7 @@ txManager.commit(status);
 
 - **Example 1**
 
-![alt text](images/handout/Screenshot_52.png "Screenshot_52")
+|  | ![](images/handout/Screenshot_52.png "Screenshot_52")
 
 - **Example 2**
 
@@ -3056,7 +3056,7 @@ public class ProgramaticUserService implements UserService {
 
 ### org.springframework.transaction.annotation.Isolation
 
-![alt text](images/handout/Screenshot_49.png "Screenshot_49")
+|  | ![](images/handout/Screenshot_49.png "Screenshot_49")
 
 - **DEFAULT**: the default isolation level of the DBMS.
 - **READ_UNCOMMITED**: data changed by a transaction can be read by a different transaction while the first one is not yet committed, also known as dirty reads.
@@ -3094,7 +3094,7 @@ public class ProgramaticUserService implements UserService {
 - Prevents phantom reads
     - The serializable isolation level will lock the entire range, for both reading and writing by other transactions – a so-called range-lock.
 
-![alt text](images/Screenshot_2.png "Screenshot_2")
+|  | ![](images/Screenshot_2.png "Screenshot_2")
 
 ## Testing transactional methods
 
@@ -3136,17 +3136,17 @@ public void testCount() {
 
 ##### @Sql
 
-![alt text](images/handout/Screenshot_26.png "Screenshot_26")
+|  | ![](images/handout/Screenshot_26.png "Screenshot_26")
 
 ##### @Commit
 
 - The TestContext framework can be instructed to cause the transaction to commit instead of roll back via the `@Commit` annotation
 
-![alt text](images/handout/Screenshot_51.png "Screenshot_51")
+|  | ![](images/handout/Screenshot_51.png "Screenshot_51")
 
 ##### @BeforeTransaction
 
-![alt text](images/handout/Screenshot_53.png "Screenshot_53")
+|  | ![](images/handout/Screenshot_53.png "Screenshot_53")
 
 ## Spring JDBC
 
@@ -3182,9 +3182,9 @@ public void testCount() {
 - `JdbcTemplate` acquire and release a database connection for every method called.
 - `SimpleJdbcCall` class can be used to call Stored Procedures in spring.
 
-![alt text](images/handout/Screenshot_39.png "Screenshot_39")
+|  | ![](images/handout/Screenshot_39.png "Screenshot_39")
 
-![alt text](images/handout/Screenshot_40.png "Screenshot_40")
+|  | ![](images/handout/Screenshot_40.png "Screenshot_40")
 
 - `jdbcTemplate.update` uses for `insert` `update` `delete`
 
@@ -3297,9 +3297,9 @@ List<Actor> actors = this.jdbcTemplate.query(
       });
 ```  
 
-![alt text](images/handout/Screenshot_43.png "Screenshot_43")
+|  | ![](images/handout/Screenshot_43.png "Screenshot_43")
 
-![alt text](images/handout/Screenshot_44.png "Screenshot_44")
+|  | ![](images/handout/Screenshot_44.png "Screenshot_44")
 
 #### RowCallbackHandler
 
@@ -3315,7 +3315,7 @@ public interface RowCallbackHandler {
 }
 ```
 
-![alt text](images/handout/Screenshot_45.png "Screenshot_45")
+|  | ![](images/handout/Screenshot_45.png "Screenshot_45")
 
 #### ResultSetExtractor
 
@@ -3329,13 +3329,13 @@ public interface ResultSetExtractor<T> {
 }
 ``` 
 
-![alt text](images/handout/Screenshot_46.png "Screenshot_46")
+|  | ![](images/handout/Screenshot_46.png "Screenshot_46")
 
 #### Querying for Generic Maps
 
-![alt text](images/handout/Screenshot_41.png "Screenshot_41")
+|  | ![](images/handout/Screenshot_41.png "Screenshot_41")
 
-![alt text](images/handout/Screenshot_42.png "Screenshot_42")
+|  | ![](images/handout/Screenshot_42.png "Screenshot_42")
 
 ## In-Memory Database
 
@@ -3584,7 +3584,7 @@ public class HibernateUserRepo implements UserRepo {
 private EntityManager entityManager;
 ```
 
-![alt text](images/handout/Screenshot_54.png "Screenshot_54")
+|  | ![](images/handout/Screenshot_54.png "Screenshot_54")
 
 - `PlatformTransactionManager`
 
@@ -3663,7 +3663,7 @@ public class JpaUserRepo implements UserRepo {
 private EntityManager entityManager;
 ```
 
-![alt text](images/handout/Screenshot_55.png "Screenshot_55")
+|  | ![](images/handout/Screenshot_55.png "Screenshot_55")
 
 ## Spring + JPA XML configuration
 
@@ -3841,43 +3841,43 @@ find(First[count])By[property expression][comparison operator][ordering operator
 
 ---
 
-![alt text](images/db/Screenshot_1.png "Screenshot_1")
+|  | ![](images/db/Screenshot_1.png "Screenshot_1")
 
-![alt text](images/db/Screenshot_2.png "Screenshot_2")
+|  | ![](images/db/Screenshot_2.png "Screenshot_2")
 
-![alt text](images/db/Screenshot_3.png "Screenshot_3")
+|  | ![](images/db/Screenshot_3.png "Screenshot_3")
 
 ## Query DSL
 
-![alt text](images/db/Screenshot_28.png "Screenshot_28")
+|  | ![](images/db/Screenshot_28.png "Screenshot_28")
 
-![alt text](images/db/Screenshot_4.png "Screenshot_4")
+|  | ![](images/db/Screenshot_4.png "Screenshot_4")
 
-![alt text](images/db/Screenshot_5.png "Screenshot_5")
+|  | ![](images/db/Screenshot_5.png "Screenshot_5")
 
-![alt text](images/db/Screenshot_6.png "Screenshot_6")
+|  | ![](images/db/Screenshot_6.png "Screenshot_6")
 
-![alt text](images/db/Screenshot_7.png "Screenshot_7")
+|  | ![](images/db/Screenshot_7.png "Screenshot_7")
 
-![alt text](images/db/Screenshot_8.png "Screenshot_8")
+|  | ![](images/db/Screenshot_8.png "Screenshot_8")
 
-![alt text](images/db/Screenshot_9.png "Screenshot_9")
+|  | ![](images/db/Screenshot_9.png "Screenshot_9")
 
-![alt text](images/db/Screenshot_10.png "Screenshot_10")
+|  | ![](images/db/Screenshot_10.png "Screenshot_10")
 
-![alt text](images/db/Screenshot_11.png "Screenshot_11")
+|  | ![](images/db/Screenshot_11.png "Screenshot_11")
 
-![alt text](images/db/Screenshot_12.png "Screenshot_12")
+|  | ![](images/db/Screenshot_12.png "Screenshot_12")
 
-![alt text](images/db/Screenshot_13.png "Screenshot_13")
+|  | ![](images/db/Screenshot_13.png "Screenshot_13")
 
-![alt text](images/db/Screenshot_14.png "Screenshot_14")
+|  | ![](images/db/Screenshot_14.png "Screenshot_14")
 
-![alt text](images/db/Screenshot_15.png "Screenshot_15")
+|  | ![](images/db/Screenshot_15.png "Screenshot_15")
 
-![alt text](images/db/Screenshot_16.png "Screenshot_16")
+|  | ![](images/db/Screenshot_16.png "Screenshot_16")
 
-![alt text](images/db/Screenshot_17.png "Screenshot_17")
+|  | ![](images/db/Screenshot_17.png "Screenshot_17")
 
 ## Query Annotation
 
@@ -3885,27 +3885,27 @@ find(First[count])By[property expression][comparison operator][ordering operator
 - `@Query` annotation allows to execute native queries by setting the **nativeQuery** flag to true
 - The execution of pagination or dynamic sorting for `native queries` is not supported.
 
-![alt text](images/db/Screenshot_18.png "Screenshot_18")
+|  | ![](images/db/Screenshot_18.png "Screenshot_18")
 
-![alt text](images/db/Screenshot_19.png "Screenshot_19")
+|  | ![](images/db/Screenshot_19.png "Screenshot_19")
 
-![alt text](images/db/Screenshot_20.png "Screenshot_20")
+|  | ![](images/db/Screenshot_20.png "Screenshot_20")
 
 ## Named Query
 
-![alt text](images/db/Screenshot_21.png "Screenshot_21")
+|  | ![](images/db/Screenshot_21.png "Screenshot_21")
 
 ## Native Query
 
-![alt text](images/db/Screenshot_22.png "Screenshot_22")
+|  | ![](images/db/Screenshot_22.png "Screenshot_22")
 
 ## Query Precedence
 
-![alt text](images/db/Screenshot_23.png "Screenshot_23")
+|  | ![](images/db/Screenshot_23.png "Screenshot_23")
 
 ## Paging and Sorting
 
-![alt text](images/db/Screenshot_24.png "Screenshot_24")
+|  | ![](images/db/Screenshot_24.png "Screenshot_24")
 
 ```java
 @Test
@@ -3938,15 +3938,15 @@ public void testQueryByPriceRangeAndWoodTypePaging_SpringData() {
 ```
 ## Custom Repositories
 
-![alt text](images/db/Screenshot_25.png "Screenshot_25")
+|  | ![](images/db/Screenshot_25.png "Screenshot_25")
 
 ## Auditing
 
-![alt text](images/db/Screenshot_26.png "Screenshot_26")
+|  | ![](images/db/Screenshot_26.png "Screenshot_26")
 
 ## Locking
 
-![alt text](images/db/Screenshot_27.png "Screenshot_27")
+|  | ![](images/db/Screenshot_27.png "Screenshot_27")
 
 ## Spring data for updating data
 
@@ -3961,11 +3961,11 @@ int setPageCount(int pageCount, String title);
 
 - A typical Java Web application architecture
 
-![alt text](images/pet-sitter/Screenshot_14.png "Screenshot_14")
+|  | ![](images/pet-sitter/Screenshot_14.png "Screenshot_14")
 
 - Request life cycle
 
-![alt text](images/Screenshot_1.png "Screenshot_1")
+|  | ![](images/Screenshot_1.png "Screenshot_1")
 
 ### DispatcherServlet
 
@@ -3987,7 +3987,7 @@ int setPageCount(int pageCount, String title);
 - Spring MVC has a JSP tag library that enables data binding and themes.
 - The `DispatcherServlet` is not instantiated via an application context. It is instantiated before any application context is created.
 
-![alt text](images/handout/Screenshot_56.png "Screenshot_56")
+|  | ![](images/handout/Screenshot_56.png "Screenshot_56")
 
 - **Model** - The model holds the current data and business logic of the application.
 - **View** - The view is responsible for presenting the data of the application to the user. The user interacts with the view.
@@ -4002,7 +4002,7 @@ The relationship between the two contexts is a parent–child relationship, with
 
 **Thus, beans in the web context can access the beans in the parent context, but not conversely**
 
-![alt text](images/handout/Screenshot_58.png "Screenshot_58.png")
+|  | ![](images/handout/Screenshot_58.png "Screenshot_58.png")
 
 - When a request is issued to the application:
     - `DispatcherServlet` of the application receives the request.
@@ -4225,7 +4225,7 @@ public String show(@PathVariable("userId") Long id, Model model) {
 - `ThemeResolver` -  resolves themes your web application can use, for example, to offer personalized layouts
 - The `DispatcherServlet` delegates to a `ViewResolver` to obtain View implementation based on view name.
 
-- ![alt text](images/handout/Screenshot_59.png "Screenshot_59.png")
+- |  | ![](images/handout/Screenshot_59.png "Screenshot_59.png")
 
 - When rendering a view, information to display is taken from the model. For example, if the current
   view in the application is to display customer information then the view may refer to keys such as
@@ -4284,7 +4284,7 @@ public ModelAndView passParametersWithModelAndView() {
 }
 ```
 
-![alt text](images/handout/Screenshot_56.png "Screenshot_56.png")
+|  | ![](images/handout/Screenshot_56.png "Screenshot_56.png")
 
 ### SessionAttributes
 
@@ -4398,16 +4398,16 @@ public class TodoListServiceImpl implements TodoListService {
 
 #### Parameter types for a @Controller method
 
-![alt text](images/web/mvc/Screenshot.png "Screenshot.png")
+|  | ![](images/web/mvc/Screenshot.png "Screenshot.png")
 
 #### Annotations might be used on a @Controller method parameter
 
-![alt text](images/web/mvc/Screenshot_1.png "Screenshot_1.png")
-![alt text](images/web/mvc/Screenshot_2.png "Screenshot_2.png")
+|  | ![](images/web/mvc/Screenshot_1.png "Screenshot_1.png")
+|  | ![](images/web/mvc/Screenshot_2.png "Screenshot_2.png")
 
 #### The valid return types of a @Controller method
 
-![alt text](images/web/mvc/Screenshot_3.png "Screenshot_3.png")
+|  | ![](images/web/mvc/Screenshot_3.png "Screenshot_3.png")
 
 #### Spring MVC XML Configuration
 
@@ -4499,7 +4499,7 @@ public class WebInitializer implements WebApplicationInitializer {
 - Another way extending the `AbstractAnnotationConfigDispatcherServletInitializer`
     - Base-class for all Spring MVC apps to implement for servlet configuration without `web.xml`
 
-![alt text](images/handout/Screenshot_57.png "Screenshot_57.png")
+|  | ![](images/handout/Screenshot_57.png "Screenshot_57.png")
 
 ```java
 public class WebAppConfigInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -4576,7 +4576,7 @@ public class TopSpendersReportGenerator extends HttpServlet {
     - Need to set prefix (eg. /WEB-INF/views/) and suffix (eg. .jsp)
 6. Deploy
 
-![alt text](images/web/mvc/workflow.png)
+|  | ![](images/web/mvc/workflow.png)
 
 ## Spring Rest
 
@@ -4611,7 +4611,7 @@ public class TopSpendersReportGenerator extends HttpServlet {
 - `@RequestHeader` can inject value from HTTP request header as a method parameter
 - `@ExceptionHandler({MyException.class})` - Controller methods annotated with it are called when declared exceptions are thrown
 
-![alt text](images/web/mvc/web_services.png)
+|  | ![](images/web/mvc/web_services.png)
 
 # Spring Security
 
@@ -4645,14 +4645,14 @@ public class TopSpendersReportGenerator extends HttpServlet {
     - HttpFirewall
 - Most of the attacks already known and protected by default if using Spring Security
 
-![alt text](images/Screenshot_5.png)
+|  | ![](images/Screenshot_5.png)
 
 - Common user roles
     - `ADMIN` is a role used for full power
     - `MEMBER` is used for limited power
     - `GUEST` is used for restricted use of the application
 
-![alt text](images/handout/Screenshot_77.png)
+|  | ![](images/handout/Screenshot_77.png)
 
 1. A user tries to access the application by making a request. The application requires the user to provide the credentials so it can be logged in.
 2. The credentials are verified by the `Authenticaltion Manager` and the user is granted access to the application. The authorization rights for this user are loaded into the Spring Security context.
@@ -4737,13 +4737,13 @@ public class TopSpendersReportGenerator extends HttpServlet {
 </beans:beans> 
 ```
 
-![alt text](images/handout/Screenshot_95.png)
+|  | ![](images/handout/Screenshot_95.png)
 
-![alt text](images/handout/Screenshot_96.png)
+|  | ![](images/handout/Screenshot_96.png)
 
-![alt text](images/handout/Screenshot_97.png)
+|  | ![](images/handout/Screenshot_97.png)
 
-![alt text](images/handout/Screenshot_98.png)
+|  | ![](images/handout/Screenshot_98.png)
 
 
 ### Spring Security Core Components
@@ -4757,9 +4757,9 @@ public class TopSpendersReportGenerator extends HttpServlet {
 - `UserDetailsService` - Given a user-name this service retrieves information about the user in a UserDetails object.
   Depending on the implementation of the user details service used, the information may be stored in a database, in memory or elsewhere if a custom implementation is used.
 
-![alt text](images/core_spring_in_detail/Screenshot_12.png)
+|  | ![](images/core_spring_in_detail/Screenshot_12.png)
 
-![alt text](images/core_spring_in_detail/Screenshot_13.png)
+|  | ![](images/core_spring_in_detail/Screenshot_13.png)
 
 #### Spring XML Configuration without web.xml
 
@@ -4799,7 +4799,7 @@ public class WebInitializer extends AbstractDispatcherServletInitializer {
 - Your `@Configuration` should extend `WebSecurityConfigurerAdapter`
 - Register your SecurityConfig class with `AbstractSecurityWebApplicationInitializer`
 
-![alt text](images/handout/Screenshot_70.png)
+|  | ![](images/handout/Screenshot_70.png)
 
 
 ```java
@@ -4847,7 +4847,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 ```
 
-![alt text](images/handout/Screenshot_71.png)
+|  | ![](images/handout/Screenshot_71.png)
 
 #### Authorization
 
@@ -4901,7 +4901,7 @@ public class HelloWebSecurityConfiguration extends WebSecurityConfigurerAdapter 
 }
 ```
 
-![alt text](images/handout/Screenshot_73.png)
+|  | ![](images/handout/Screenshot_73.png)
 
 - JDBC Authentication provider
     - Authenticates against DB
@@ -4929,7 +4929,7 @@ public class HelloWebSecurityConfiguration extends WebSecurityConfigurerAdapter 
 }
 ```
 
-![alt text](images/handout/Screenshot_74.png)
+|  | ![](images/handout/Screenshot_74.png)
 
 #### Password Encoding
 
@@ -4998,7 +4998,7 @@ hash("hello" + "QxLUF1bgIAdeQX") = 9e209040c863f84a31e719795b2577523954739fe5ed3
 hash("hello" + "bv5PehSMfV11Cd") = d1d3ec2e6f20fd420d50e2642992841d8338a314b8ea157c9e18477aaef226ab
 ```
 
-![alt text](images/handout/Screenshot_75.png)
+|  | ![](images/handout/Screenshot_75.png)
 
 ### Spring Security filters order
 
@@ -5037,7 +5037,7 @@ The order that filters are defined in the chain is very important. Irrespective 
 - **SecurityFilterChain**
     - The security filter chain implements the SecurityFilterChain interface and the only implementation provided by Spring Security is the DefaultSecurityFilterChain class.
 
-![alt text](images/Screenshot_3.png)
+|  | ![](images/Screenshot_3.png)
 
 ```xml
 <bean id="filterChainProxy" class="org.springframework.security.web.FilterChainProxy">
@@ -5072,9 +5072,9 @@ public class HelloWebSecurityConfiguration extends WebSecurityConfigurerAdapter 
 }
 ```
 
-![alt text](images/handout/Screenshot_72.png)
+|  | ![](images/handout/Screenshot_72.png)
 
-![alt text](images/handout/Screenshot_78.png)
+|  | ![](images/handout/Screenshot_78.png)
 
 ### Method Security
 
@@ -5187,25 +5187,25 @@ public class UserServiceImpl implements UserService {
 
 #### Security annotation are you allowed to use SpEL
 
-![alt text](images/core_spring_in_detail/Screenshot_14.png)
+|  | ![](images/core_spring_in_detail/Screenshot_14.png)
 
 #### Spring Security expressions
 
-![alt text](images/web/security/Screenshot_1.png)
+|  | ![](images/web/security/Screenshot_1.png)
 
-![alt text](images/web/security/Screenshot_2.png)
+|  | ![](images/web/security/Screenshot_2.png)
 
-![alt text](images/web/security/Screenshot_6.png)
+|  | ![](images/web/security/Screenshot_6.png)
 
-![alt text](images/web/security/Screenshot_7.png)
+|  | ![](images/web/security/Screenshot_7.png)
 
-![alt text](images/web/security/Screenshot_3.png)
+|  | ![](images/web/security/Screenshot_3.png)
 
 - `CSRF` - Cross-Site Request Forgery protection is enabled by default in the Java configuration
 
-![alt text](images/web/security/Screenshot_4.png)
+|  | ![](images/web/security/Screenshot_4.png)
 
-![alt text](images/web/security/Screenshot_5.png)
+|  | ![](images/web/security/Screenshot_5.png)
 
 ```java
 @Bean
@@ -5286,7 +5286,7 @@ public CsrfTokenRepository repo() {
 </security:authorize>
 ```
 
-![alt text](images/handout/Screenshot_76.png)
+|  | ![](images/handout/Screenshot_76.png)
 
 
 # Spring Boot
@@ -5300,7 +5300,7 @@ Start collect the project with **spring initializr** by [>> https://start.spring
 
 - Provide common non-functional features
     - embedded servers (Tomcat, Jetty, Undertow)
-      ![alt text](images/qa/Screenshot_3.png)
+      |  | ![](images/qa/Screenshot_3.png)
     - metrics
     - health checks
     - external configuration
@@ -5315,9 +5315,9 @@ Start collect the project with **spring initializr** by [>> https://start.spring
 
 - Everything can be overridden easily, but most of the time not needed
 
-![alt text](images/web/boot/Screenshot_2.png)
+|  | ![](images/web/boot/Screenshot_2.png)
 
-![alt text](images/web/boot/Screenshot_3.png)
+|  | ![](images/web/boot/Screenshot_3.png)
 
 - Project must have as a parent the `spring-boot-starter-parent`
 
@@ -5350,9 +5350,9 @@ Start collect the project with **spring initializr** by [>> https://start.spring
             - `transaction`
             - ...
 
-  ![alt text](images/qa/Screenshot_4.png)
+  |  | ![](images/qa/Screenshot_4.png)
 
-  ![alt text](images/qa/Screenshot_5.png)
+  |  | ![](images/qa/Screenshot_5.png)
 
 - Advantages of using Spring Boot
     - Automatic configuration of “sensible defaults” reducing boilerplate configuration.
@@ -5376,11 +5376,11 @@ Start collect the project with **spring initializr** by [>> https://start.spring
       that allows for applying conditions to Spring configuration classes or Spring bean declaration methods in such classes.
         - A Spring bean is to be created only if a certain dependency is available on the classpath. (`@ConditionalOnClass`)
         - A Spring bean is to be created only if there is no bean of a certain type or with a certain name created. (`@ConditionalOnMissingBean`)
-          ![alt text](images/handout/Screenshot_66.png)
+          |  | ![](images/handout/Screenshot_66.png)
         - A Spring bean is to be created only if a certain dependency is available on the classpath. Use `@ConditionalOnClass` and supply a class contained in the dependency in question.
         - A Spring bean is to be created only if there is no bean of a certain type or with a certain name created. Use `@ConditionalOnMissingBean` and specify name or type of bean to check.
 
-![alt text](images/qa/Screenshot_2.png)
+|  | ![](images/qa/Screenshot_2.png)
 
 - Properties controlling the behavior of Spring Boot applications can be defined using:
     - Property files
@@ -5393,7 +5393,7 @@ Start collect the project with **spring initializr** by [>> https://start.spring
 - The default properties of a Spring Boot application are stores in the application’s JAR in a file named **application.properties** in the **src/main/resources**.
   When developing, this file is found in the `src/main/resources` directory.
 
-![alt text](images/web/boot/Screenshot_1.png)
+|  | ![](images/web/boot/Screenshot_1.png)
 
 - `main` method is the entry point of the application and it follows the Java convention for an application entry point
 - `main` method calls the static run method from the `org.springframework.boot.SpringApplication` class that will bootstrap the application and start the Spring IoC container,
@@ -5411,9 +5411,9 @@ public class Application {
 }
 ```
 
-![alt text](images/handout/Screenshot_60.png)
+|  | ![](images/handout/Screenshot_60.png)
 
-![alt text](images/handout/Screenshot_63.png)
+|  | ![](images/handout/Screenshot_63.png)
 
 - If the `war` we want to produce a deployable web archive that can be deployed on any application server and since the project does not contain a `web.xml` file,
     - to define a class extending `SpringBootServletInitializer` and override its `configure` method.
@@ -5449,13 +5449,13 @@ public class Application extends SpringBootServletInitializer {
     - without embedded Tomcat
     - just drop it in your application server web app directory
 
-![alt text](images/handout/Screenshot_64.png)
+|  | ![](images/handout/Screenshot_64.png)
 
 ### @SpringBootApplication
 
-![alt text](images/handout/Screenshot_61.png)
+|  | ![](images/handout/Screenshot_61.png)
 
-![alt text](images/handout/Screenshot_62.png)
+|  | ![](images/handout/Screenshot_62.png)
 
 
 ### Configuration Using YAML
@@ -5468,13 +5468,13 @@ public class Application extends SpringBootServletInitializer {
     - Provided by spring-boot-starters
 
 
-![alt text](images/web/boot/Screenshot_5.png)
+|  | ![](images/web/boot/Screenshot_5.png)
 
-![alt text](images/web/boot/Screenshot_6.png)
+|  | ![](images/web/boot/Screenshot_6.png)
 
-![alt text](images/web/boot/Screenshot_7.png)
+|  | ![](images/web/boot/Screenshot_7.png)
 
-![alt text](images/web/boot/Screenshot_8.png)
+|  | ![](images/web/boot/Screenshot_8.png)
 
 ```yaml
 app:
@@ -5489,13 +5489,13 @@ server:
     context:  /ps-boot
 ```
 
-![alt text](images/web/boot/Screenshot_4.png)
+|  | ![](images/web/boot/Screenshot_4.png)
 
 ##### Multiple Profiles Inside an YAML File
 
-![alt text](images/handout/Screenshot_68.png)
+|  | ![](images/handout/Screenshot_68.png)
 
-![alt text](images/handout/Screenshot_69.png)
+|  | ![](images/handout/Screenshot_69.png)
 
 ### @ConfigurationProperties
 
@@ -5506,15 +5506,15 @@ server:
 - `@ConfigurationProperties(prefix= "com.example")` + com.example.foo → foo field injected
 - Needs to be enabled on `@Configuration` class - `@EnableConfigurationProperties(MyProperties.class)`
 
-![alt text](images/web/boot/Screenshot_9.png)
+|  | ![](images/web/boot/Screenshot_9.png)
 
-![alt text](images/web/boot/Screenshot_10.png)
+|  | ![](images/web/boot/Screenshot_10.png)
 
-![alt text](images/web/boot/Screenshot_11.png)
+|  | ![](images/web/boot/Screenshot_11.png)
 
-![alt text](images/web/boot/Screenshot_12.png)
+|  | ![](images/web/boot/Screenshot_12.png)
 
-![alt text](images/web/boot/Screenshot_13.png)
+|  | ![](images/web/boot/Screenshot_13.png)
 
 ```java
 @ConfigurationProperties(prefix = "app")
@@ -5536,7 +5536,7 @@ public class AppSettings {
 }
 ```
 
-![alt text](images/handout/Screenshot_67.png)
+|  | ![](images/handout/Screenshot_67.png)
 
 - `@EnableConfigurationProperties` - enable support for beans annotated with `@ConfigurationProperties`
 
@@ -5643,23 +5643,23 @@ public class FooServiceTest {
 
 ### Monitoring using Spring Actuator
 
-![alt text](images/web/boot/Screenshot_14.png)
+|  | ![](images/web/boot/Screenshot_14.png)
 
-![alt text](images/web/boot/Screenshot_15.png)
+|  | ![](images/web/boot/Screenshot_15.png)
 
-![alt text](images/web/boot/Screenshot_16.png)
+|  | ![](images/web/boot/Screenshot_16.png)
 
-![alt text](images/web/boot/Screenshot_17.png)
+|  | ![](images/web/boot/Screenshot_17.png)
 
-![alt text](images/web/boot/Screenshot_18.png)
+|  | ![](images/web/boot/Screenshot_18.png)
 
 - Example monitoring Spring Boot application using actuator and HAL
 
-![alt text](images/qa/Screenshot_6.png)
+|  | ![](images/qa/Screenshot_6.png)
 
-![alt text](images/web/boot/Screenshot_19.png)
+|  | ![](images/web/boot/Screenshot_19.png)
 
-![alt text](images/web/boot/Screenshot_20.png)
+|  | ![](images/web/boot/Screenshot_20.png)
 
 ### Logging
 
@@ -5808,7 +5808,7 @@ public void customize(ConfigurableEmbeddedServletContainer container) {
 - @ConditionalOnSingleCandidate - Spring bean of specified type (class) contained in bean factory and single candidate can be determined.
 ```
 
-![alt text](images/handout/Screenshot_65.png)
+|  | ![](images/handout/Screenshot_65.png)
 
 ### CommandLineRunner
 
@@ -5888,22 +5888,22 @@ a web resource became able to be anything (object, entity) that can be accessed 
 - `Java Remote Invocation` allows for an object running in one JVM to invoke methods on an object running in another JVM.
 - `RMI` (Remote Method Invocation) is Java’s version of `RPC` (Remote Procedure Call).
 
-![alt text](images/pet-sitter/Screenshot_15.png)
+|  | ![](images/pet-sitter/Screenshot_15.png)
 
-![alt text](images/pet-sitter/Screenshot_16.png)
+|  | ![](images/pet-sitter/Screenshot_16.png)
 
 - RMI applications often consist of two processes: a server and a client.
 - The server creates the objects that will be accessed remotely, and it will expose a skeleton (the interface of the remote object).
 - The client invokes methods on a stub (proxy object).
 - Objects transferred using RMI must therefore be serializable and they must implement `java.io.Serializable`
 
-![alt text](images/pet-sitter/Screenshot_17.png)
+|  | ![](images/pet-sitter/Screenshot_17.png)
 
 ## Spring Remote Method Invocation
 
 - The abstract schema of client and server applications remoting using Spring
 
-![alt text](images/pet-sitter/Screenshot_18.png)
+|  | ![](images/pet-sitter/Screenshot_18.png)
 
 ## Spring Remote Configuration
 
@@ -6014,7 +6014,7 @@ public class RmiTests {
     - Spring’s `HttpInvoker` is another Java-to-Java binary remoting protocol; it requires that Spring be used on both the server and the client.
 - The properties for the Spring Http Invoker classes have the same meaning as for the RMI Spring classes; the only difference is that they apply to the HTTP protocol
 
-![alt text](images/pet-sitter/Screenshot_19.png)
+|  | ![](images/pet-sitter/Screenshot_19.png)
 
 - On the server side, a bean of type `HttpInvokerServiceExporter` must be configured.
 
@@ -6069,30 +6069,30 @@ JMS Core Components
 - Implementations of the Destination interface
     - Queue
         - Point-to-point messaging
-          ![alt text](images/handout/Screenshot_99.png)
+          |  | ![](images/handout/Screenshot_99.png)
     - Topic
         - Publish/subscribe messaging
-          ![alt text](images/handout/Screenshot_100.png)
+          |  | ![](images/handout/Screenshot_100.png)
 
 ### JMS Messages
 
-![alt text](images/pet-sitter/Screenshot_20.png)
+|  | ![](images/pet-sitter/Screenshot_20.png)
 
 - The message has a standard structure, being composed of a header and a body
     - The header contains system-level information common to all messages, such as the destination and the time it was sent and application-specific information, stored as keyword/value properties
     - The body contains the effective application data, and JMS defines five distinct message body types represented as Java interfaces extending `javax.jms.Message`
 
-![alt text](images/pet-sitter/Screenshot_21.png)
+|  | ![](images/pet-sitter/Screenshot_21.png)
 
 ### JMS Connection
 
-![alt text](images/handout/Screenshot_101.png)
+|  | ![](images/handout/Screenshot_101.png)
 
 ### JMS Session
 
-![alt text](images/handout/Screenshot_102.png)
+|  | ![](images/handout/Screenshot_102.png)
 
-![alt text](images/handout/Screenshot_103.png)
+|  | ![](images/handout/Screenshot_103.png)
 
 ### JMS Destinations
 
@@ -6101,7 +6101,7 @@ JMS Core Components
     - a queue in `point-to-point` domains, where each message has one producer and one consumer.
     - a topic in `publisher/subscriber` domains, where each message that is published is consumed by multiple subscribers.
 
-![alt text](images/pet-sitter/Screenshot_22.png)
+|  | ![](images/pet-sitter/Screenshot_22.png)
 
 ```java
 // Configuring a ConnectionFactory
@@ -6122,7 +6122,7 @@ public Queue userQueue(){
 }
 ```
 
-![alt text](images/handout/Screenshot_104.png)
+|  | ![](images/handout/Screenshot_104.png)
 
 ### JMSTemplate
 
@@ -6202,11 +6202,11 @@ public void processMessage(String msg) {
 
 ### Asynchronous Message Handling
 
-![alt text](images/handout/Screenshot_105.png)
+|  | ![](images/handout/Screenshot_105.png)
 
-![alt text](images/handout/Screenshot_106.png)
+|  | ![](images/handout/Screenshot_106.png)
 
-![alt text](images/handout/Screenshot_107.png)
+|  | ![](images/handout/Screenshot_107.png)
 
 # Web Services
 
@@ -6216,9 +6216,9 @@ public void processMessage(String msg) {
 - SOAP messages have a structure similar to JMS Messages: they have a header and a body that are enclosed in a special SOAP envelope that identifies the XML document as a SOAP message.
 - SOAP message containing user information looks like the following XML snippet.
 
-![alt text](images/qa/Screenshot_7.png)
+|  | ![](images/qa/Screenshot_7.png)
 
-![alt text](images/qa/Screenshot_8.png)
+|  | ![](images/qa/Screenshot_8.png)
 
 - `Header` contains authentication or authorisation
 - `Body` contains requests
@@ -6281,9 +6281,9 @@ public void processMessage(String msg) {
 
 - WSDL is often used in combination with SOAP and XML Schema to provide web services over the Internet
 
-![alt text](images/integration/Screenshot_2.png)
+|  | ![](images/integration/Screenshot_2.png)
 
-![alt text](images/qa/Screenshot_9.png)
+|  | ![](images/qa/Screenshot_9.png)
 
 - WSDL (Web Services Description Language) describes your service and its operations - what is the service called, which methods does it offer,
   what kind of in parameters and return values do these methods have?
@@ -6429,7 +6429,7 @@ public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetC
 
 ### SOAP Processing
 
-![alt text](images/pet-sitter/Screenshot_23.png)
+|  | ![](images/pet-sitter/Screenshot_23.png)
 
 - Generating Java objects with XJC
     - The JDK comes with a utility executable called `xjc`
@@ -6460,7 +6460,7 @@ public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetC
 </plugin>
 ```
 
-![alt text](images/pet-sitter/Screenshot_24.png)
+|  | ![](images/pet-sitter/Screenshot_24.png)
 
 - The main disadvantage of SOAP is only the use of XML, which is verbose and takes a lot of time to be parsed
 
@@ -6476,9 +6476,9 @@ public GetCourseDetailsResponse processCourseDetailsRequest(@RequestPayload GetC
 - REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations
 - Statelessness of a REST service is one of the fundamental constraints of the REST architectural style. Thus REST is always stateless or else it is no longer REST
 
-![alt text](images/pet-sitter/Screenshot_25.png)
+|  | ![](images/pet-sitter/Screenshot_25.png)
 
-![alt text](images/integration/Screenshot_3.png)
+|  | ![](images/integration/Screenshot_3.png)
 
 - URIs (Uniform Resource Identifiers) are used to identify resources
 - HTTP response: response codes, body, and headers are used to deliver the state to clients
@@ -6504,9 +6504,9 @@ public class RestUserController {
 
 - With Spring MVC, the status code of a response can be set easily using the `@ResponseStatus` annotation on controller methods.
 
-![alt text](images/pet-sitter/Screenshot_26.png)
+|  | ![](images/pet-sitter/Screenshot_26.png)
 
-![alt text](images/pet-sitter/Screenshot_27.png)
+|  | ![](images/pet-sitter/Screenshot_27.png)
 
 - If for some reason `@RestController` cannot be used, in Spring MVC, type `org.springframework.http.ResponseEntity` can be used as the return value from
   a `@Controller` method to tell the dispatcher that the response is to be serialized and forwarded to the client instead of being resolved to a view
@@ -6650,7 +6650,7 @@ public class RestExceptionProcessor {
 - Message converters are automatically detected and used by Spring in applications configured with `<mvc:annotation-driven/>` or `@EnableWebMvc`
     - Or define explicitly (allows you to register extra convertors) - using `WebMvcConfigurer` or `<mvc/>`
 
-![alt text](images/pet-sitter/Screenshot_28.png)
+|  | ![](images/pet-sitter/Screenshot_28.png)
 
 ```java
 public class RestUserController {
@@ -6693,11 +6693,11 @@ public class RestUserController {
     - Allows the server to evolve functionality independently
     - Unique compared to other architectures
 
-![alt text](images/handout/Screenshot_83.png)
+|  | ![](images/handout/Screenshot_83.png)
 
-![alt text](images/handout/Screenshot_84.png)
+|  | ![](images/handout/Screenshot_84.png)
 
-![alt text](images/handout/Screenshot_85.png)
+|  | ![](images/handout/Screenshot_85.png)
 
 #### Building URIs
 
@@ -6709,9 +6709,9 @@ public class RestUserController {
 - `ServletUriComponentsBuilder`
     - Provides access to the URL that invoked the current controller method
 
-![alt text](images/handout/Screenshot_79.png)
+|  | ![](images/handout/Screenshot_79.png)
 
-![alt text](images/handout/Screenshot_80.png)
+|  | ![](images/handout/Screenshot_80.png)
 
 
 #### JAX-RS
@@ -6738,13 +6738,13 @@ public class PersonService {
 
 - Clients use `RestTemplate` to access RESTful servers
 
-![alt text](images/handout/Screenshot_81.png)
+|  | ![](images/handout/Screenshot_81.png)
 
 PATCH and others
 
 [>> Overview of RestTemplate methods](https://docs.spring.io/spring-framework/docs/4.0.9.RELEASE/spring-framework-reference/html/remoting.html#rest-resttemplate)
 
-![alt text](images/handout/Screenshot_82.png)
+|  | ![](images/handout/Screenshot_82.png)
 
 
 - **The return type and the second parameter should be the same.**
@@ -6757,39 +6757,39 @@ String result = restTemplate.getForObject("http://example.com/hotels/{hotel}/the
 
 [>> Hypertext Transfer Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods)
 
-![alt text](images/web/rest/The-Richardson-Maturity-Model-Nordic-APIs.png)
+|  | ![](images/web/rest/The-Richardson-Maturity-Model-Nordic-APIs.png)
 
 - **GET**: method used to retrieve a representation of a resource
     - When resource is not found, a `404 (Not found)` status code is returned, `200(OK)` otherwise
 
-![alt text](images/pet-sitter/Screenshot_29.png)
+|  | ![](images/pet-sitter/Screenshot_29.png)
 
 - **POST**: method used to create a new resource.
     - When the resource being created requires a parent that does not exist, a `404 (Not found)` status code is returned.
     - When an identical resource already exists, a `409 (Conflict)` status code is returned.
     - When the resource was created correctly, a `201 (Created)` status code is returned
 
-![alt text](images/pet-sitter/Screenshot_30.png)
+|  | ![](images/pet-sitter/Screenshot_30.png)
 
 - **PUT**: updates an existing resource or creates it with a known destination URI.
     - When a PUT request refers to an existing resource, the resource is updated
     - When the resource is updated correctly and nothing is returned as a response body, a `204 (No content)` response status is returned.
     - When the resource does not exist, PUT acts like a POST and creates it, and the location of the resource is returned. The response status in this case is `201(CREATED)`
 
-![alt text](images/pet-sitter/Screenshot_31.png)
+|  | ![](images/pet-sitter/Screenshot_31.png)
 
 - **DELETE**: deletes a resource.
     - When the resource being deleted does not exist, a `404 (Not found)` status code is returned.
     - When the resource was deleted correctly, a `200 (OK)` status code is returned.
 
-![alt text](images/pet-sitter/Screenshot_32.png)
+|  | ![](images/pet-sitter/Screenshot_32.png)
 
 - **Idempotent methods**
     - From a RESTful service standpoint, for an operation to be `idempotent`, clients can make that same call repeatedly while producing the same result. In other words, making multiple identical requests has the same effect as making a single request.
 - **Safe methods**
     - Which means they are intended only for information retrieval and should not change the state of the server.
 
-![alt text](images/Screenshot.png)
+|  | ![](images/Screenshot.png)
 
 - Spring RESTful application can be tested without deploying it on a server by declaring a mock restful server and using mock dependencies, so the REST requests can be tested in isolation
 
@@ -6906,7 +6906,7 @@ public class RestUserController {
     - Defines how external management applications can interact with the underlying layers in terms of protocols
     - Changing configuration properties at runtime
 
-![alt text](images/handout/Screenshot_108.png)
+|  | ![](images/handout/Screenshot_108.png)
 
 - The JMX technology defines standard connectors (known as JMX connectors) that enable you to access JMX agents from remote management applications
 - The MBean server acts as a broker for communication between local MBeans and agents and between MBeans and remote clients
@@ -6919,7 +6919,7 @@ public class RestUserController {
 
 - By convention, an MBean interface takes the name of the Java class that implements it, with the suffix **MBean** added.
 
-![alt text](images/pet-sitter/Screenshot_33.png)
+|  | ![](images/pet-sitter/Screenshot_33.png)
 
 ```java
 MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
@@ -6970,7 +6970,7 @@ platformMBeanServer.registerMBean(controller, new ObjectName("profiling", "name"
 - JMX is a technology that enables you to instrument applications for management, monitoring, and configuration
 - JMX MBeans makes it possible for a JMX-based management tool such as JConsole or VisualVM to peer inside a running application to view the beans’ properties and invoke their methods.
 
-![alt text](images/integration/Screenshot_1.png)
+|  | ![](images/integration/Screenshot_1.png)
 
 - Spring’s JMX support provides four core features:
     - The automatic registration of any Spring bean as a JMX MBean.
@@ -6978,7 +6978,7 @@ platformMBeanServer.registerMBean(controller, new ObjectName("profiling", "name"
     - The declarative exposure of MBeans over remote JSR-160 connectors.
     - The simple proxying of both local and remote MBean resources.
 
-![alt text](images/handout/Screenshot_113.png)
+|  | ![](images/handout/Screenshot_113.png)
 
 - JMX infrastructure can be configured using the context namespace or using Java Configuration.
 - The core class in Spring’s JMX framework is the `MBeanExporter` - responsible for taking your Spring beans and registering them with a JMX MBeanServer
@@ -6988,13 +6988,13 @@ platformMBeanServer.registerMBean(controller, new ObjectName("profiling", "name"
     2. Configure Exporter
     3. Control Attribute / Operation Exposure.
 
-![alt text](images/handout/Screenshot_109.png)
+|  | ![](images/handout/Screenshot_109.png)
 
-![alt text](images/handout/Screenshot_110.png)
+|  | ![](images/handout/Screenshot_110.png)
 
-![alt text](images/handout/Screenshot_112.png)
+|  | ![](images/handout/Screenshot_112.png)
 
-![alt text](images/handout/Screenshot_111.png)
+|  | ![](images/handout/Screenshot_111.png)
 
 - The \<context:mbean-server/> declares a bean of type `org.springframework.jmx.support.MBeanServerFactoryBean`.
   This bean has the responsibility of obtaining a `javax.management.MBeanServer` reference from the javax.management.MBeanServerFactory.
@@ -7046,15 +7046,15 @@ public class JmxCounterImpl implements JmxCounter {
 }
 ```
 
-![alt text](images/pet-sitter/Screenshot_34.png)
+|  | ![](images/pet-sitter/Screenshot_34.png)
 
 - Using `jconsole` we can check our MBean
 
-![alt text](images/pet-sitter/Screenshot_35.png)
+|  | ![](images/pet-sitter/Screenshot_35.png)
 
-![alt text](images/pet-sitter/Screenshot_36.png)
+|  | ![](images/pet-sitter/Screenshot_36.png)
 
-![alt text](images/pet-sitter/Screenshot_37.png)
+|  | ![](images/pet-sitter/Screenshot_37.png)
 
 # Spring Microservices with Spring Cloud
 
@@ -7065,7 +7065,7 @@ public class JmxCounterImpl implements JmxCounter {
 [>> LinnykOleh/WickiUp/Microservices Architecture]( https://github.com/LinnykOleh/WickiUp/blob/master/Microservices/Microservices_Architecture_course.md)
 
 
-![alt text](images/spring_cloud/diagram-distributed-systems.svg)
+|  | ![](images/spring_cloud/diagram-distributed-systems.svg)
 
 - Microservices are a specialization and implementation approach for service-oriented architectures (SOA), and they are used to build flexible, independently deployable services.
   Microservices is a paradigm that requires for services to be broken down into highly specialized instances as functionality and be interconnected through agnostic communication protocols (like REST, for example) that work together to accomplish a common business goal.
@@ -7075,7 +7075,7 @@ public class JmxCounterImpl implements JmxCounter {
 - A microservice must be able to scale, up or down, independently of other services in the same application.
 - Microservices architectural idea is similar to how beans are managed by the Spring container and how they communicate in a Spring application context.
 
-![alt text](images/pet-sitter/Screenshot_38.png)
+|  | ![](images/pet-sitter/Screenshot_38.png)
 
 - Spring Cloud builds on Spring Boot
 - To develop a microservices application with Spring components, good knowledge of the following Spring technologies is needed:
@@ -7099,18 +7099,18 @@ public class JmxCounterImpl implements JmxCounter {
 
 ## Registration and Discovery Server
 
-![alt text](images/spring_cloud/Screenshot_1.png)
+|  | ![](images/spring_cloud/Screenshot_1.png)
 
-![alt text](images/spring_cloud/Screenshot_2.png)
+|  | ![](images/spring_cloud/Screenshot_2.png)
 
 - Implementations
     - `Eureka` - by Netflix
     - `Consul` - by Hashicorp
     - `Zookeeper` - by Apache
 
-![alt text](images/spring_cloud/Screenshot_3.png)
+|  | ![](images/spring_cloud/Screenshot_3.png)
 
-![alt text](images/handout/Screenshot_86.png)
+|  | ![](images/handout/Screenshot_86.png)
 
 - Annotate `@SpringBootApplication` with `@EnableEurekaServer`
 - `@EnableEurekaServer` annotation, which is responsible for injecting a Eureka server instance into your project.
@@ -7155,11 +7155,11 @@ server:
 
 To use the Eureka Server in a project, the `spring-cloud-starter-eureka-server` starter project must be included as a dependency of the project
 
-![alt text](images/spring_cloud/Screenshot_4.png)
+|  | ![](images/spring_cloud/Screenshot_4.png)
 
-![alt text](images/spring_cloud/Screenshot_5.png)
+|  | ![](images/spring_cloud/Screenshot_5.png)
 
-![alt text](images/pet-sitter/Screenshot_39.png)
+|  | ![](images/pet-sitter/Screenshot_39.png)
 
 ## Microservices Registration
 
@@ -7264,83 +7264,83 @@ final BigDecimal conversionMultiple = response.getConversionMultiple();
 
 ## Application Configuration server
 
-![alt text](images/spring_cloud/Screenshot_6.png)
+|  | ![](images/spring_cloud/Screenshot_6.png)
 
 ##### Using Spring Cloud Config Server
 
-![alt text](images/spring_cloud/Screenshot_7.png)
+|  | ![](images/spring_cloud/Screenshot_7.png)
 
-![alt text](images/spring_cloud/Screenshot_8.png)
+|  | ![](images/spring_cloud/Screenshot_8.png)
 
-![alt text](images/spring_cloud/Screenshot_9.png)
+|  | ![](images/spring_cloud/Screenshot_9.png)
 
-![alt text](images/spring_cloud/Screenshot_10.png)
+|  | ![](images/spring_cloud/Screenshot_10.png)
 
-![alt text](images/spring_cloud/Screenshot_11.png)
+|  | ![](images/spring_cloud/Screenshot_11.png)
 
 ##### Config Server REST Support: Parameters
 
-![alt text](images/spring_cloud/Screenshot_12.png)
+|  | ![](images/spring_cloud/Screenshot_12.png)
 
-![alt text](images/spring_cloud/Screenshot_58.png)
+|  | ![](images/spring_cloud/Screenshot_58.png)
 
 ##### Config Server REST Support: Endpoints
 
-![alt text](images/spring_cloud/Screenshot_13.png)
+|  | ![](images/spring_cloud/Screenshot_13.png)
 
-![alt text](images/spring_cloud/Screenshot_14.png)
+|  | ![](images/spring_cloud/Screenshot_14.png)
 
-![alt text](images/spring_cloud/Screenshot_15.png)
+|  | ![](images/spring_cloud/Screenshot_15.png)
 
 #### Using Spring Cloud Config Client
 
-![alt text](images/spring_cloud/Screenshot_16.png)
+|  | ![](images/spring_cloud/Screenshot_16.png)
 
-![alt text](images/spring_cloud/Screenshot_17.png)
+|  | ![](images/spring_cloud/Screenshot_17.png)
 
-![alt text](images/spring_cloud/Screenshot_18.png)
+|  | ![](images/spring_cloud/Screenshot_18.png)
 
 #### Refreshing configuration at runtime
 
-![alt text](images/spring_cloud/Screenshot_19.png)
+|  | ![](images/spring_cloud/Screenshot_19.png)
 
 ## Intelligent Routing with Netflix Zuul
 
-![alt text](images/spring_cloud/Screenshot_20.png)
+|  | ![](images/spring_cloud/Screenshot_20.png)
 
-![alt text](images/spring_cloud/Screenshot_21.png)
+|  | ![](images/spring_cloud/Screenshot_21.png)
 
-![alt text](images/spring_cloud/Screenshot_22.png)
+|  | ![](images/spring_cloud/Screenshot_22.png)
 
-![alt text](images/spring_cloud/Screenshot_60.png)
+|  | ![](images/spring_cloud/Screenshot_60.png)
 
-![alt text](images/spring_cloud/Screenshot_23.png)
+|  | ![](images/spring_cloud/Screenshot_23.png)
 
-![alt text](images/spring_cloud/Screenshot_24.png)
+|  | ![](images/spring_cloud/Screenshot_24.png)
 
-![alt text](images/spring_cloud/Screenshot_25.png)
+|  | ![](images/spring_cloud/Screenshot_25.png)
 
-![alt text](images/spring_cloud/Screenshot_26.png)
+|  | ![](images/spring_cloud/Screenshot_26.png)
 
-![alt text](images/spring_cloud/Screenshot_27.png)
+|  | ![](images/spring_cloud/Screenshot_27.png)
 
 ## Load Balancing with Netflix Ribbon
 
-![alt text](images/spring_cloud/Screenshot_28.png)
+|  | ![](images/spring_cloud/Screenshot_28.png)
 
-![alt text](images/spring_cloud/Screenshot_29.png)
+|  | ![](images/spring_cloud/Screenshot_29.png)
 
 - **Client-side load balancing is a natural fit for cloud native architectures**
 
-![alt text](images/spring_cloud/Screenshot_30.png)
+|  | ![](images/spring_cloud/Screenshot_30.png)
 
-![alt text](images/spring_cloud/Screenshot_31.png)
+|  | ![](images/spring_cloud/Screenshot_31.png)
 
-![alt text](images/spring_cloud/Screenshot_32.png)
+|  | ![](images/spring_cloud/Screenshot_32.png)
 
 - By default it uses **round-robbin algorithm** for distributing the load
 
-![alt text](images/spring_cloud/Screenshot_33.png)
+|  | ![](images/spring_cloud/Screenshot_33.png)
 
 - Another way is to use `@RibbonClient`
 
@@ -7357,15 +7357,15 @@ public interface CurrencyExchangeServiceProxy {
 
 #### Load Balancing Strategies
 
-![alt text](images/spring_cloud/Screenshot_34.png)
+|  | ![](images/spring_cloud/Screenshot_34.png)
 
-![alt text](images/spring_cloud/Screenshot_35.png)
+|  | ![](images/spring_cloud/Screenshot_35.png)
 
 #### Liveliness Check
 
-![alt text](images/spring_cloud/Screenshot_36.png)
+|  | ![](images/spring_cloud/Screenshot_36.png)
 
-![alt text](images/spring_cloud/Screenshot_37.png)
+|  | ![](images/spring_cloud/Screenshot_37.png)
 
 ## Circuit Breaker with Netflix Hystrix
 
@@ -7373,56 +7373,56 @@ public interface CurrencyExchangeServiceProxy {
     - `Fault tolerance` problem
     - `Resourse overloading` problem
 
-![alt text](images/spring_cloud/Screenshot_38.png)
+|  | ![](images/spring_cloud/Screenshot_38.png)
 
-![alt text](images/spring_cloud/Screenshot_39.png)
+|  | ![](images/spring_cloud/Screenshot_39.png)
 
-![alt text](images/spring_cloud/Screenshot_40.png)
+|  | ![](images/spring_cloud/Screenshot_40.png)
 
-![alt text](images/spring_cloud/Screenshot_41.png)
+|  | ![](images/spring_cloud/Screenshot_41.png)
 
-![alt text](images/spring_cloud/Screenshot_42.png)
+|  | ![](images/spring_cloud/Screenshot_42.png)
 
-![alt text](images/spring_cloud/Screenshot_43.png)
+|  | ![](images/spring_cloud/Screenshot_43.png)
 
 #### Netflix Hystrix Dashboard
 
-![alt text](images/spring_cloud/Screenshot_44.png)
+|  | ![](images/spring_cloud/Screenshot_44.png)
 
-![alt text](images/spring_cloud/Screenshot_45.png)
+|  | ![](images/spring_cloud/Screenshot_45.png)
 
-![alt text](images/spring_cloud/Screenshot_46.png)
+|  | ![](images/spring_cloud/Screenshot_46.png)
 
-![alt text](images/spring_cloud/Screenshot_47.png)
+|  | ![](images/spring_cloud/Screenshot_47.png)
 
-![alt text](images/spring_cloud/Screenshot_48.png)
+|  | ![](images/spring_cloud/Screenshot_48.png)
 
-![alt text](images/spring_cloud/Screenshot_49.png)
+|  | ![](images/spring_cloud/Screenshot_49.png)
 
 #### Aggregating Hystrix Metrics with Netflix Turbine
 
-![alt text](images/spring_cloud/Screenshot_50.png)
+|  | ![](images/spring_cloud/Screenshot_50.png)
 
-![alt text](images/spring_cloud/Screenshot_51.png)
+|  | ![](images/spring_cloud/Screenshot_51.png)
 
-![alt text](images/spring_cloud/Screenshot_52.png)
+|  | ![](images/spring_cloud/Screenshot_52.png)
 
-![alt text](images/spring_cloud/Screenshot_53.png)
+|  | ![](images/spring_cloud/Screenshot_53.png)
 
-![alt text](images/spring_cloud/Screenshot_54.png)
+|  | ![](images/spring_cloud/Screenshot_54.png)
 
 - Go to `http://localhost:8080/hystrix`
 
-![alt text](images/spring_cloud/Screenshot_55.png)
+|  | ![](images/spring_cloud/Screenshot_55.png)
 
-![alt text](images/spring_cloud/Screenshot_56.png)
+|  | ![](images/spring_cloud/Screenshot_56.png)
 
 ## Bring all together
 
-![alt text](images/spring_cloud/Screenshot_59.png)
+|  | ![](images/spring_cloud/Screenshot_59.png)
 
-![alt text](images/spring_cloud/Screenshot_57.png)
+|  | ![](images/spring_cloud/Screenshot_57.png)
 
 ## Spring Cloud Security
 
-![alt text](images/spring_cloud/Screenshot_61.png)
+|  | ![](images/spring_cloud/Screenshot_61.png)
