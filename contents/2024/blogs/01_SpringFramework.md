@@ -1592,7 +1592,7 @@ public class ConfigurationClass {
 - There does not seem to be any limitation concerning how many profiles that can be used in a Spring application.
   The Spring framework (in the class ActiveProfilesUtils) use an integer to iterate over an array of active profiles, which implies a maximum number of 2^32 – 1 profiles.
 
-|  | ![](images/handout/Screenshot_4.png "Screenshot_4")
+|  | ![](images/handout/Screenshot_4.png )  |  |
 
 ### Close an application context
 
@@ -1729,13 +1729,13 @@ public final class FooTest  {
 - The ApplicationContext is **instantiated only once** for all tests that use the same set of config files (even across test classes)
 - Annotate test method with `@DirtiesContext` to force recreation of the cached ApplicationContext if method changes the contained beans
 
-|  | ![](images/handout/Screenshot_19.png "Screenshot_19")
+|  | ![](images/handout/Screenshot_19.png )  |  |
 
-|  | ![](images/handout/Screenshot_20.png "Screenshot_20")
+|  | ![](images/handout/Screenshot_20.png )  |  |
 
-|  | ![](images/handout/Screenshot_21.png "Screenshot_21")
+|  | ![](images/handout/Screenshot_21.png )  |  |
 
-|  | ![](images/handout/Screenshot_22.png "Screenshot_22")
+|  | ![](images/handout/Screenshot_22.png )  |  |
 
 
 #### AnnotationConfigContextLoader
@@ -1769,11 +1769,11 @@ public class SpringPetServiceTest3 {
 - `@ActiveProfiles` annotation of test class activates profiles listed
 - `@ActiveProfiles( { "foo", "bar" } )`
 
-|  | ![](images/handout/Screenshot_23.png "Screenshot_23")
+|  | ![](images/handout/Screenshot_23.png )  |  |
 
-|  | ![](images/handout/Screenshot_24.png "Screenshot_24")
+|  | ![](images/handout/Screenshot_24.png )  |  |
 
-|  | ![](images/handout/Screenshot_25.png "Screenshot_25")
+|  | ![](images/handout/Screenshot_25.png )  |  |
 
 #### Inject mocks using Mockito
 
@@ -1942,13 +1942,13 @@ base code, by applying advices to specific join points, specified by pointcuts.
 
 - The original library that provided components for creating aspects is named **AspectJ.**
 
-|  | ![](images/handout/Screenshot_27.png "Screenshot_27")
+|  | ![](images/handout/Screenshot_27.png )  |  |
 
 ## AOP Terminology
 
-|  | ![](images/handout/Screenshot_28.png "Screenshot_28")
+|  | ![](images/handout/Screenshot_28.png )  |  |
 
-|  | ![](images/core_spring_in_detail/Screenshot_7.png "Screenshot_7")
+|  | ![](images/core_spring_in_detail/Screenshot_7.png )  |  |
 
 - **Aspect** - An aspect brings together one or more pointcuts with one or more advice.
 - **Target object** - object to which the aspect applies.
@@ -1978,7 +1978,7 @@ base code, by applying advices to specific join points, specified by pointcuts.
       instead of the original objects and divert method invocations to advice code.
       **Spring AOP uses runtime weaving exclusively**
 
-|  | ![](images/core_spring_in_detail/Screenshot_8.png "Screenshot_8")
+|  | ![](images/core_spring_in_detail/Screenshot_8.png )  |  |
 
 ```java
 @Aspect
@@ -2043,7 +2043,7 @@ public class LoggingAspect {
 
 ## Proxies
 
-|  | ![](images/core_spring_in_detail/Screenshot_2.png "Screenshot_2")
+|  | ![](images/core_spring_in_detail/Screenshot_2.png )  |  |
 
 - Proxy classes are created in the init phase by dedicated BeanPostProcessors
 - Two types of proxies
@@ -2066,7 +2066,7 @@ public class LoggingAspect {
         - Based on proxy inheriting the base class
         - Spring AOP can use CGLIB proxies whether the target object implements an interface or not.
 
-|  | ![](images/handout/Screenshot_18.png "Screenshot_18")
+|  | ![](images/handout/Screenshot_18.png )  |  |
 
 - The default type of proxy used by the Spring framework is the `JDK dynamic proxy`.
 - Proxies limitations:
@@ -2098,7 +2098,7 @@ public class AppConfig {
 }
 ```
 
-|  | ![](images/handout/Screenshot_5.png "Screenshot_5")
+|  | ![](images/handout/Screenshot_5.png )  |  |
 
 - When using proxies, suppose method a() calls method b()
   on the same class/interface, advice will never be executed for method b()
@@ -2128,7 +2128,7 @@ public class AppConfig {
 }
 ```  
 
-|  | ![](images/handout/Screenshot_29.png "Screenshot_29")
+|  | ![](images/handout/Screenshot_29.png )  |  |
 
 - `@EnableAspectJAutoProxy`- to enable aspect support, the configuration class must be annotated, default **JDK dynamic proxy**.
 - `@EnableAspectJAutoProxy(proxyTargetClass = true)` - if the **CGLIB** library is to be added to the application classpath, Spring must be told that we want subclass-based proxies by modifying the aspect enabling annotation
@@ -2141,9 +2141,9 @@ public class AppConfig {
   And because we are using JDK dynamic proxies, the proxy will implement the UserRepo interface
 
 
-|  | ![](images/pet-sitter/Screenshot_6.png "Screenshot_6")
+|  | ![](images/pet-sitter/Screenshot_6.png )  |  |
 
-|  | ![](images/pet-sitter/Screenshot_7.png "Screenshot_7")
+|  | ![](images/pet-sitter/Screenshot_7.png )  |  |
 
 - In order to use aspects in a Spring application you need the following:
     - spring-aop as a dependency
@@ -2152,7 +2152,7 @@ public class AppConfig {
     - enable aspects support by annotating a configuration class with `@EnableAspectJAutoProxy`
     - (optional) add CGLIB as a dependency and enable aspects support using subclassed proxies by annotating a configuration class with `@EnableAspectJAutoProxy(proxyTargetClass = true)`
 
-|  | ![](images/handout/Screenshot_30.png "Screenshot_30")
+|  | ![](images/handout/Screenshot_30.png )  |  |
 
 ## Defining Pointcuts
 
@@ -2316,7 +2316,7 @@ bean(mySuperService)
 
 **Aspect** = **PointCut**(Where the Aspect is applied) + **Advice**(What code is executed)
 
-|  | ![](images/aop/Screenshot.png "Screenshot")
+|  | ![](images/aop/Screenshot.png )  |  |
 
 #### Before
 
@@ -2330,7 +2330,7 @@ bean(mySuperService)
 - Before advice will, always proceed to the join point unless an execution is thrown from within the advice code.
 - Using a `JoinPoint` parameter in an advice is optional.
 
-|  | ![](images/aop/Screenshot_1.png "Screenshot_1")
+|  | ![](images/aop/Screenshot_1.png )  |  |
 
 ```java
 @Before("com.ps.aspects.PointcutContainer.serviceUpdate(id, pass)")
@@ -2339,7 +2339,7 @@ public void beforeServiceUpdate (Long id, String pass) throws Throwable {
 }
 ```
 
-|  | ![](images/pet-sitter/Screenshot_8.png "Screenshot_8")
+|  | ![](images/pet-sitter/Screenshot_8.png )  |  |
 
 1. The proxy object receives the call destined for the target bean and calls first the advice method
 2. If the advice method returns successfully, it then forwards the initial call to the target bean and forwards the result back to the caller.
@@ -2354,7 +2354,7 @@ public void beforeServiceUpdate (Long id, String pass) throws Throwable {
         - Data validation <br/>
           Validating the data produced by the advised method.
 
-|  | ![](images/aop/Screenshot_4.png "Screenshot_4")
+|  | ![](images/aop/Screenshot_4.png )  |  |
 
 ```java
 @AfterReturning(value="execution (* com.ps.services.*Service+.update*(..))", returning = "result")
@@ -2363,7 +2363,7 @@ public void afterServiceUpdate(JoinPoint joinPoint, int result) throws Throwable
 }
 ```
 
-|  | ![](images/pet-sitter/Screenshot_9.png "Screenshot_9")
+|  | ![](images/pet-sitter/Screenshot_9.png )  |  |
 
 #### After Throwing
 
@@ -2372,7 +2372,7 @@ public void afterServiceUpdate(JoinPoint joinPoint, int result) throws Throwable
         - Error handling
         - Statistics
 
-|  | ![](images/aop/Screenshot_3.png "Screenshot_3")
+|  | ![](images/aop/Screenshot_3.png )  |  |
 
 ```java
 @AfterThrowing(value="execution(* com.ps.services.*Service+.updateUsername(..))", throwing = "e")
@@ -2381,7 +2381,7 @@ public void afterBadUpdate(JoinPoint joinPoint, Exception e) throws Throwable {
 }
 ```
 
-|  | ![](images/pet-sitter/Screenshot_10.png "Screenshot_10")
+|  | ![](images/pet-sitter/Screenshot_10.png )  |  |
 
 #### After
 
@@ -2392,7 +2392,7 @@ public void afterBadUpdate(JoinPoint joinPoint, Exception e) throws Throwable {
           As with finally-blocks in try-finally, the after (finally) advice is always executed after the
           completion of the join point and can thus ensure that resources are always released.
 
-|  | ![](images/aop/Screenshot_2.png "Screenshot_2")
+|  | ![](images/aop/Screenshot_2.png )  |  |
 
 ```java
 @After("execution(public * com.ps.repos.*.JdbcTemplateUserRepo+.updateUsername(..))")
@@ -2401,7 +2401,7 @@ public void afterFindById(JoinPoint joinPoint) throws Throwable {
 }
 ```
 
-|  | ![](images/pet-sitter/Screenshot_11.png "Screenshot_11")
+|  | ![](images/pet-sitter/Screenshot_11.png )  |  |
 
 #### Around
 
@@ -2414,9 +2414,9 @@ public void afterFindById(JoinPoint joinPoint) throws Throwable {
   meaning that the advice decides whether the target method is called, and if so, when.
 - The type `ProceedingJoinPoint` inherits from `JoinPoint` and adds the `proceed()` method that is used to call the target method
 
-|  | ![](images/aop/Screenshot_5.png "Screenshot_5")
+|  | ![](images/aop/Screenshot_5.png )  |  |
 
-|  | ![](images/aop/Screenshot_6.png "Screenshot_6")
+|  | ![](images/aop/Screenshot_6.png )  |  |
 
 ```java
 @Around("execution(public * com.ps.repos.*.*Repo+.find*(..))")
@@ -2475,47 +2475,47 @@ public Object loggingAdvice(
 
 ## PointCuts
 
-|  | ![](images/aop/Screenshot_12.png "Screenshot_12")
+|  | ![](images/aop/Screenshot_12.png )  |  |
 
 #### Wildcards
 
-|  | ![](images/aop/Screenshot_7.png "Screenshot_7")
+|  | ![](images/aop/Screenshot_7.png )  |  |
 
 #### Parameter Wildcards
 
-|  | ![](images/aop/Screenshot_8.png "Screenshot_8")
+|  | ![](images/aop/Screenshot_8.png )  |  |
 
 #### Packages and Classes
 
-|  | ![](images/aop/Screenshot_9.png "Screenshot_9")
+|  | ![](images/aop/Screenshot_9.png )  |  |
 
-|  | ![](images/aop/Screenshot_10.png "Screenshot_10")
+|  | ![](images/aop/Screenshot_10.png )  |  |
 
-|  | ![](images/aop/Screenshot_11.png "Screenshot_11")
+|  | ![](images/aop/Screenshot_11.png )  |  |
 
-|  | ![](images/aop/Screenshot_18.png "Screenshot_18")
+|  | ![](images/aop/Screenshot_18.png )  |  |
 
-|  | ![](images/handout/Screenshot_31.png "Screenshot_31")
+|  | ![](images/handout/Screenshot_31.png )  |  |
 
 #### Annotation
 
-|  | ![](images/aop/Screenshot_13.png "Screenshot_13")
+|  | ![](images/aop/Screenshot_13.png )  |  |
 
-|  | ![](images/aop/Screenshot_17.png "Screenshot_17")
+|  | ![](images/aop/Screenshot_17.png )  |  |
 
-|  | ![](images/handout/Screenshot_32.png "Screenshot_32")
+|  | ![](images/handout/Screenshot_32.png )  |  |
 
 #### Spring beans names as PointCut
 
-|  | ![](images/aop/Screenshot_14.png "Screenshot_14")
+|  | ![](images/aop/Screenshot_14.png )  |  |
 
 #### Boolean expressions in PointCut
 
-|  | ![](images/aop/Screenshot_15.png "Screenshot_15")
+|  | ![](images/aop/Screenshot_15.png )  |  |
 
 ## @PointCut
 
-|  | ![](images/aop/Screenshot_16.png "Screenshot_16")
+|  | ![](images/aop/Screenshot_16.png )  |  |
 
 #### PointCuts XML
 
@@ -2556,9 +2556,9 @@ public interface Server {
 }
 ```
 
-|  | ![](images/handout/Screenshot_33.png "Screenshot_33")
+|  | ![](images/handout/Screenshot_33.png )  |  |
 
-|  | ![](images/handout/Screenshot_34.png "Screenshot_34")
+|  | ![](images/handout/Screenshot_34.png )  |  |
 
 # Data Access
 
@@ -2575,7 +2575,7 @@ public interface Server {
     - Its use allows one to switch between persistence technologies fairly easily and it also allows one to code
       without worrying about catching exceptions that are specific to each technology.
 
-|  | ![](images/handout/Screenshot_35.png "Screenshot_35")
+|  | ![](images/handout/Screenshot_35.png )  |  |
 
 - The `javax.sql.DataSource` interface is the interface from which all data-source classes related to SQL stem.
     - DelegatingDataSource
@@ -2759,7 +2759,7 @@ public class AppConfig {
     - Google's Guava and Caffeine
     - Pivotal's Gemfire
 
-|  | ![](images/handout/Screenshot_38.png "Screenshot_38")
+|  | ![](images/handout/Screenshot_38.png )  |  |
 
 ```java
 @Service
@@ -2784,9 +2784,9 @@ public class CitiesService {
 }
 ```
 
-|  | ![](images/handout/Screenshot_36.png "Screenshot_36")
+|  | ![](images/handout/Screenshot_36.png )  |  |
 
-|  | ![](images/handout/Screenshot_37.png "Screenshot_37")
+|  | ![](images/handout/Screenshot_37.png )  |  |
 
 ### ACID
 
@@ -2810,7 +2810,7 @@ public class CitiesService {
 - This annotation must be used only on public methods; otherwise, the transactional proxy won’t be able to apply the transactional behavior
 - The standard `javax.transaction.Transactional` annotation is also supported as a drop-in replacement to Spring's own annotation.
 
-|  | ![](images/pet-sitter/Screenshot_13.png "Screenshot_13")
+|  | ![](images/pet-sitter/Screenshot_13.png )  |  |
 
 #### Difference between a local and a global transaction
 
@@ -2903,7 +2903,7 @@ public User findById(Long id) {
     - `noRollbackFor` - exception class(es) that never are to cause a transaction rollback.
     - `noRollbackForClassName` - names of exception class(es) that never are to cause a transaction rollback.
 
-|  | ![](images/handout/Screenshot_50.png "Screenshot_50")
+|  | ![](images/handout/Screenshot_50.png )  |  |
 
 - Spring allows for using the JPA `javax.transaction.Transactional` annotation as a replacement for the
   Spring `@Transactional` annotation, though it does not have as many configuration options.
@@ -2932,9 +2932,9 @@ public User findById(Long id) {
 - By default, a transaction is rolled back if a `RuntimeException` has been thrown
 - `@Transactional("myOtherTransactionManager")` - runs a transaction with specific transaction managers
 
-|  | ![](images/handout/Screenshot_47.png "Screenshot_47")
+|  | ![](images/handout/Screenshot_47.png )  |  |
 
-|  | ![](images/handout/Screenshot_48.png "Screenshot_48")
+|  | ![](images/handout/Screenshot_48.png )  |  |
 
 
 ### PlatformTransactionManager
@@ -2970,7 +2970,7 @@ txManager.commit(status);
 
 - **Example 1**
 
-|  | ![](images/handout/Screenshot_52.png "Screenshot_52")
+|  | ![](images/handout/Screenshot_52.png )  |  |
 
 - **Example 2**
 
@@ -3056,7 +3056,7 @@ public class ProgramaticUserService implements UserService {
 
 ### org.springframework.transaction.annotation.Isolation
 
-|  | ![](images/handout/Screenshot_49.png "Screenshot_49")
+|  | ![](images/handout/Screenshot_49.png )  |  |
 
 - **DEFAULT**: the default isolation level of the DBMS.
 - **READ_UNCOMMITED**: data changed by a transaction can be read by a different transaction while the first one is not yet committed, also known as dirty reads.
@@ -3094,7 +3094,7 @@ public class ProgramaticUserService implements UserService {
 - Prevents phantom reads
     - The serializable isolation level will lock the entire range, for both reading and writing by other transactions – a so-called range-lock.
 
-|  | ![](images/Screenshot_2.png "Screenshot_2")
+|  | ![](images/Screenshot_2.png )  |  |
 
 ## Testing transactional methods
 
@@ -3136,17 +3136,17 @@ public void testCount() {
 
 ##### @Sql
 
-|  | ![](images/handout/Screenshot_26.png "Screenshot_26")
+|  | ![](images/handout/Screenshot_26.png )  |  |
 
 ##### @Commit
 
 - The TestContext framework can be instructed to cause the transaction to commit instead of roll back via the `@Commit` annotation
 
-|  | ![](images/handout/Screenshot_51.png "Screenshot_51")
+|  | ![](images/handout/Screenshot_51.png )  |  |
 
 ##### @BeforeTransaction
 
-|  | ![](images/handout/Screenshot_53.png "Screenshot_53")
+|  | ![](images/handout/Screenshot_53.png )  |  |
 
 ## Spring JDBC
 
@@ -3182,9 +3182,9 @@ public void testCount() {
 - `JdbcTemplate` acquire and release a database connection for every method called.
 - `SimpleJdbcCall` class can be used to call Stored Procedures in spring.
 
-|  | ![](images/handout/Screenshot_39.png "Screenshot_39")
+|  | ![](images/handout/Screenshot_39.png )  |  |
 
-|  | ![](images/handout/Screenshot_40.png "Screenshot_40")
+|  | ![](images/handout/Screenshot_40.png )  |  |
 
 - `jdbcTemplate.update` uses for `insert` `update` `delete`
 
@@ -3297,9 +3297,9 @@ List<Actor> actors = this.jdbcTemplate.query(
       });
 ```  
 
-|  | ![](images/handout/Screenshot_43.png "Screenshot_43")
+|  | ![](images/handout/Screenshot_43.png )  |  |
 
-|  | ![](images/handout/Screenshot_44.png "Screenshot_44")
+|  | ![](images/handout/Screenshot_44.png )  |  |
 
 #### RowCallbackHandler
 
@@ -3315,7 +3315,7 @@ public interface RowCallbackHandler {
 }
 ```
 
-|  | ![](images/handout/Screenshot_45.png "Screenshot_45")
+|  | ![](images/handout/Screenshot_45.png )  |  |
 
 #### ResultSetExtractor
 
@@ -3329,13 +3329,13 @@ public interface ResultSetExtractor<T> {
 }
 ``` 
 
-|  | ![](images/handout/Screenshot_46.png "Screenshot_46")
+|  | ![](images/handout/Screenshot_46.png )  |  |
 
 #### Querying for Generic Maps
 
-|  | ![](images/handout/Screenshot_41.png "Screenshot_41")
+|  | ![](images/handout/Screenshot_41.png )  |  |
 
-|  | ![](images/handout/Screenshot_42.png "Screenshot_42")
+|  | ![](images/handout/Screenshot_42.png )  |  |
 
 ## In-Memory Database
 
@@ -3584,7 +3584,7 @@ public class HibernateUserRepo implements UserRepo {
 private EntityManager entityManager;
 ```
 
-|  | ![](images/handout/Screenshot_54.png "Screenshot_54")
+|  | ![](images/handout/Screenshot_54.png )  |  |
 
 - `PlatformTransactionManager`
 
@@ -3663,7 +3663,7 @@ public class JpaUserRepo implements UserRepo {
 private EntityManager entityManager;
 ```
 
-|  | ![](images/handout/Screenshot_55.png "Screenshot_55")
+|  | ![](images/handout/Screenshot_55.png )  |  |
 
 ## Spring + JPA XML configuration
 
@@ -3841,43 +3841,43 @@ find(First[count])By[property expression][comparison operator][ordering operator
 
 ---
 
-|  | ![](images/db/Screenshot_1.png "Screenshot_1")
+|  | ![](images/db/Screenshot_1.png )  |  |
 
-|  | ![](images/db/Screenshot_2.png "Screenshot_2")
+|  | ![](images/db/Screenshot_2.png )  |  |
 
-|  | ![](images/db/Screenshot_3.png "Screenshot_3")
+|  | ![](images/db/Screenshot_3.png )  |  |
 
 ## Query DSL
 
-|  | ![](images/db/Screenshot_28.png "Screenshot_28")
+|  | ![](images/db/Screenshot_28.png )  |  |
 
-|  | ![](images/db/Screenshot_4.png "Screenshot_4")
+|  | ![](images/db/Screenshot_4.png )  |  |
 
-|  | ![](images/db/Screenshot_5.png "Screenshot_5")
+|  | ![](images/db/Screenshot_5.png )  |  |
 
-|  | ![](images/db/Screenshot_6.png "Screenshot_6")
+|  | ![](images/db/Screenshot_6.png )  |  |
 
-|  | ![](images/db/Screenshot_7.png "Screenshot_7")
+|  | ![](images/db/Screenshot_7.png )  |  |
 
-|  | ![](images/db/Screenshot_8.png "Screenshot_8")
+|  | ![](images/db/Screenshot_8.png )  |  |
 
-|  | ![](images/db/Screenshot_9.png "Screenshot_9")
+|  | ![](images/db/Screenshot_9.png )  |  |
 
-|  | ![](images/db/Screenshot_10.png "Screenshot_10")
+|  | ![](images/db/Screenshot_10.png )  |  |
 
-|  | ![](images/db/Screenshot_11.png "Screenshot_11")
+|  | ![](images/db/Screenshot_11.png )  |  |
 
-|  | ![](images/db/Screenshot_12.png "Screenshot_12")
+|  | ![](images/db/Screenshot_12.png )  |  |
 
-|  | ![](images/db/Screenshot_13.png "Screenshot_13")
+|  | ![](images/db/Screenshot_13.png )  |  |
 
-|  | ![](images/db/Screenshot_14.png "Screenshot_14")
+|  | ![](images/db/Screenshot_14.png )  |  |
 
-|  | ![](images/db/Screenshot_15.png "Screenshot_15")
+|  | ![](images/db/Screenshot_15.png )  |  |
 
-|  | ![](images/db/Screenshot_16.png "Screenshot_16")
+|  | ![](images/db/Screenshot_16.png )  |  |
 
-|  | ![](images/db/Screenshot_17.png "Screenshot_17")
+|  | ![](images/db/Screenshot_17.png )  |  |
 
 ## Query Annotation
 
@@ -3885,27 +3885,27 @@ find(First[count])By[property expression][comparison operator][ordering operator
 - `@Query` annotation allows to execute native queries by setting the **nativeQuery** flag to true
 - The execution of pagination or dynamic sorting for `native queries` is not supported.
 
-|  | ![](images/db/Screenshot_18.png "Screenshot_18")
+|  | ![](images/db/Screenshot_18.png )  |  |
 
-|  | ![](images/db/Screenshot_19.png "Screenshot_19")
+|  | ![](images/db/Screenshot_19.png )  |  |
 
-|  | ![](images/db/Screenshot_20.png "Screenshot_20")
+|  | ![](images/db/Screenshot_20.png )  |  |
 
 ## Named Query
 
-|  | ![](images/db/Screenshot_21.png "Screenshot_21")
+|  | ![](images/db/Screenshot_21.png )  |  |
 
 ## Native Query
 
-|  | ![](images/db/Screenshot_22.png "Screenshot_22")
+|  | ![](images/db/Screenshot_22.png )  |  |
 
 ## Query Precedence
 
-|  | ![](images/db/Screenshot_23.png "Screenshot_23")
+|  | ![](images/db/Screenshot_23.png )  |  |
 
 ## Paging and Sorting
 
-|  | ![](images/db/Screenshot_24.png "Screenshot_24")
+|  | ![](images/db/Screenshot_24.png )  |  |
 
 ```java
 @Test
@@ -3938,15 +3938,15 @@ public void testQueryByPriceRangeAndWoodTypePaging_SpringData() {
 ```
 ## Custom Repositories
 
-|  | ![](images/db/Screenshot_25.png "Screenshot_25")
+|  | ![](images/db/Screenshot_25.png )  |  |
 
 ## Auditing
 
-|  | ![](images/db/Screenshot_26.png "Screenshot_26")
+|  | ![](images/db/Screenshot_26.png )  |  |
 
 ## Locking
 
-|  | ![](images/db/Screenshot_27.png "Screenshot_27")
+|  | ![](images/db/Screenshot_27.png )  |  |
 
 ## Spring data for updating data
 
@@ -3961,11 +3961,11 @@ int setPageCount(int pageCount, String title);
 
 - A typical Java Web application architecture
 
-|  | ![](images/pet-sitter/Screenshot_14.png "Screenshot_14")
+|  | ![](images/pet-sitter/Screenshot_14.png )  |  |
 
 - Request life cycle
 
-|  | ![](images/Screenshot_1.png "Screenshot_1")
+|  | ![](images/Screenshot_1.png )  |  |
 
 ### DispatcherServlet
 
@@ -3987,7 +3987,7 @@ int setPageCount(int pageCount, String title);
 - Spring MVC has a JSP tag library that enables data binding and themes.
 - The `DispatcherServlet` is not instantiated via an application context. It is instantiated before any application context is created.
 
-|  | ![](images/handout/Screenshot_56.png "Screenshot_56")
+|  | ![](images/handout/Screenshot_56.png )  |  |
 
 - **Model** - The model holds the current data and business logic of the application.
 - **View** - The view is responsible for presenting the data of the application to the user. The user interacts with the view.
@@ -4002,7 +4002,7 @@ The relationship between the two contexts is a parent–child relationship, with
 
 **Thus, beans in the web context can access the beans in the parent context, but not conversely**
 
-|  | ![](images/handout/Screenshot_58.png "Screenshot_58.png")
+|  | ![](images/handout/Screenshot_58.png )  |  |
 
 - When a request is issued to the application:
     - `DispatcherServlet` of the application receives the request.
@@ -4225,7 +4225,7 @@ public String show(@PathVariable("userId") Long id, Model model) {
 - `ThemeResolver` -  resolves themes your web application can use, for example, to offer personalized layouts
 - The `DispatcherServlet` delegates to a `ViewResolver` to obtain View implementation based on view name.
 
-- |  | ![](images/handout/Screenshot_59.png "Screenshot_59.png")
+- |  | ![](images/handout/Screenshot_59.png )  |  |
 
 - When rendering a view, information to display is taken from the model. For example, if the current
   view in the application is to display customer information then the view may refer to keys such as
@@ -4284,7 +4284,7 @@ public ModelAndView passParametersWithModelAndView() {
 }
 ```
 
-|  | ![](images/handout/Screenshot_56.png "Screenshot_56.png")
+|  | ![](images/handout/Screenshot_56.png )  |  |
 
 ### SessionAttributes
 
@@ -4402,12 +4402,12 @@ public class TodoListServiceImpl implements TodoListService {
 
 #### Annotations might be used on a @Controller method parameter
 
-|  | ![](images/web/mvc/Screenshot_1.png "Screenshot_1.png")
-|  | ![](images/web/mvc/Screenshot_2.png "Screenshot_2.png")
+|  | ![](images/web/mvc/Screenshot_1.png )  |  |
+|  | ![](images/web/mvc/Screenshot_2.png )  |  |
 
 #### The valid return types of a @Controller method
 
-|  | ![](images/web/mvc/Screenshot_3.png "Screenshot_3.png")
+|  | ![](images/web/mvc/Screenshot_3.png )  |  |
 
 #### Spring MVC XML Configuration
 
@@ -4499,7 +4499,7 @@ public class WebInitializer implements WebApplicationInitializer {
 - Another way extending the `AbstractAnnotationConfigDispatcherServletInitializer`
     - Base-class for all Spring MVC apps to implement for servlet configuration without `web.xml`
 
-|  | ![](images/handout/Screenshot_57.png "Screenshot_57.png")
+|  | ![](images/handout/Screenshot_57.png )  |  |
 
 ```java
 public class WebAppConfigInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
