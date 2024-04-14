@@ -238,7 +238,8 @@ public class ComplexBeanImpl implements ComplexBean {
 </beans>
 ```
 
-![alt text](images/qa/Screenshot_1.png "Screenshot_1")
+[//]: # (![alt text]&#40;images/qa/Screenshot_1.png "Screenshot_1"&#41;)
+|  | ![](images/qa/Screenshot_4.png)  |  |
 
 ### Collections
 
