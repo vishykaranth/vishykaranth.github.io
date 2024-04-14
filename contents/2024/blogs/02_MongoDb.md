@@ -36,9 +36,14 @@ Documents can be stored and retrieved in a form that is much closer to the data 
 
 **Example:**  Amazon SimpleDB, CouchDB, MongoDB, Riak, Lotus Notes are popular Document originated DBMS systems.
 
-<p align="center">
-  <img src="assets/document-database.png" alt="Document Databases" width="400px" />
-</p>
+[//]: # ()
+[//]: # (<p align="center">)
+
+[//]: # (  <img src="assets/document-database.png" alt="Document Databases" width="400px" />)
+
+[//]: # (</p>)
+|  | ![](assets/document-database.png )  |  |
+
 
 **2. Key-value Stores:**
 
